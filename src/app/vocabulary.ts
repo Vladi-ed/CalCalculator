@@ -114,7 +114,7 @@ export const vocabulary: IPayment[] = [
   },
   {
     "keyword": "נון סטופ מרקט",
-    "translation": "Not Stop Supermarket",
+    "translation": "NotStop Supermarket",
     category: 'food'
   },
   {
@@ -136,6 +136,9 @@ export const vocabulary: IPayment[] = [
   },  {
     "keyword": "AMZN",
     "translation": "Amazon"
+  },  {
+    "keyword": "ALIPAY",
+    "translation": "AliExpress"
   },
   {
     "keyword": "פיצה עגבניה דיזינגוף",
@@ -181,7 +184,7 @@ export const vocabulary: IPayment[] = [
     "translation": "Arnona Ramat Gan"
   },
   {
-    "keyword": "דלק המפרץ",
+    "keyword": "דלק",
     "translation": "Gas station",
     category: 'car'
   },
@@ -261,10 +264,66 @@ export const vocabulary: IPayment[] = [
     "keyword": "קייזר",
     "translation": "Mayson Kayser",
     category: 'food'
+  },  {
+    "keyword": "פרוג ושות",
+    "translation": "Frug & Co. Cafe",
+    category: 'food'
+  },  {
+    "keyword": "משק ברזילי",
+    "translation": "Vegetarian Cafe",
+    category: 'food'
+  },  {
+    "keyword": "סון רון",
+    "translation": "Saône Rhône Cafe",
+    category: 'food'
+  },  {
+    "keyword": "גולדה",
+    "translation": "Golda Ice Cream",
+    category: 'food'
+  },  {
+    "keyword": "דלאל",
+    "translation": "Dallal Cafe",
+    category: 'food'
+  },  {
+    "keyword": "אילנס שחקי",
+    "translation": "ILAN'S Cafe",
+    category: 'food'
+  },  {
+    "keyword": "האוס אוף קופי",
+    "translation": "House of Coffee",
+    category: 'food'
+  },  {
+    "keyword": "PLANTY",
+    "translation": "Cafe PLANTY",
+    category: 'food'
+  },  {
+    "keyword": "קפליקס",
+    "translation": "Cafelix CoffeeShop",
+    category: 'food'
   },
   {
     "keyword": "עזריאלי גבעתיים",
     "translation": "Azrieli Givataim"
+  },
+  {
+    "keyword": "היכל הספורט",
+    "translation": "Sport Clothes Shop"
+  },  {
+    "keyword": "NOOLLAB VLT",
+    "translation": "Balloon in park Yarkon"
+  },  {
+    "keyword": "GOLANTELECO",
+    "translation": "Golan Telecom"
+  },  {
+    "keyword": "SHISHISHABB",
+    "translation": "Shishi-Shabbat event"
+  },  {
+    "keyword": "בית עמנוא",
+    "translation": "Beit Emanuel Kindergarten"
+  },  {
+    "keyword": "מאפיית הטאבון",
+    "translation": "Taboon Bakery",
+    category: 'food'
   },
   {
     "keyword": "OGNAY YB ILED",
@@ -273,11 +332,16 @@ export const vocabulary: IPayment[] = [
   },
   {
     "keyword": "ILED OGNAY",
-    "translation": "Deli",
+    "translation": "Yango Deli",
     category: 'food'
+  },  {
+    "keyword": "טארה אלטה",
+    "translation": "Terra Alta TLV Deli",
+    category: 'food',
+    logo: 'https://res.cloudinary.com/ontopo/image/upload/c_crop,x_0,y_0,w_591,h_591/w_128,c_scale/v1649932148/assets/KnhjF_FPrQ/pi1YXmil7m/3.jpg'
   },
   {
-    "keyword": "סודקסו - סיבוס",
+    "keyword": "סיבוס",
     "translation": "Sibus over 800 ₪"
   },
   {
@@ -286,6 +350,9 @@ export const vocabulary: IPayment[] = [
   },
   {
     "keyword": "מיני סנטר שרון",
+    "translation": "Hoz tovari"
+  },{
+    "keyword": "טמבוריה בנחלה",
     "translation": "Hoz tovari"
   },
   {
@@ -302,10 +369,19 @@ export const vocabulary: IPayment[] = [
     "keyword": "חניון",
     "translation": "Parking",
     category: 'car'
+  },  {
+    "keyword": "חניונים",
+    "translation": "Parking",
+    category: 'car'
   },
   {
     "keyword": "מקס",
     "translation": "Max"
+  },
+  {
+    "keyword": "פיצריה",
+    "translation": "Pizzeria",
+    category: 'food'
   },
   {
     "keyword": "קפה",

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { parse as csvParse } from 'papaparse';
-import {vocabulary} from "./vocabulary";
+import { vocabulary } from "./vocabulary";
 
 @Component({
   selector: 'app-root',
@@ -20,7 +20,7 @@ export class AppComponent {
       complete: results => {
         console.log("Parsing complete:", results);
         if (results.data.length) this.processData(results.data as any);
-        else console.error('Empty csv file provided');
+        else console.error('Empty file provided');
       },
       skipEmptyLines: true,
       fastMode: undefined,
