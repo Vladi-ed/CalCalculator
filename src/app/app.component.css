@@ -1,6 +1,14 @@
-.content {
-  margin: 20px;
+/*.content {*/
+/*  margin: 20px;*/
+/*}*/
+/*td {*/
+/*  padding-right: 7px;*/
+/*}*/
+
+table {
+  width: 100%;
 }
-td {
-  padding-right: 7px;
+
+tr.mat-footer-row {
+  font-weight: bold;
 }

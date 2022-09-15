@@ -10,8 +10,9 @@ import {ICalRecord} from "./ICalRecord";
 })
 export class AppComponent {
   title = 'calCalculator';
-  records: ICalRecord[] = [];
+  transactions: ICalRecord[] = [];
   filteredRecords: ICalRecord[] = [];
+  displayedColumns = ['date',	'description', 'cost',	'costNis', 'comment'];
 
   onUpload(target: any) {
     const file = (target as HTMLInputElement).files?.item(0);
@@ -21,7 +22,7 @@ export class AppComponent {
   processDataV2(content: string) {
 
     const records: ICalRecord[] = csvParseToObject(content, {
-      columns: ['date',	'description', 'cost',	'costNis', 'comment'],
+      columns: this.displayedColumns,
       fromLine: 4,
       delimiter: '\t',
       relaxColumnCountLess: true,
@@ -39,13 +40,21 @@ export class AppComponent {
     })
 
     console.log(records);
-    this.records = records;
+    this.transactions = records;
     this.filteredRecords = records;
   }
 
   filterTransactions(s: string) {
-    if (s) this.filteredRecords = this.records.filter(columns => columns.translation?.toLowerCase().includes(s.toLowerCase()));
-    else this.filteredRecords = this.records;
+    if (s) this.filteredRecords = this.transactions.filter(columns => columns.translation?.toLowerCase().includes(s.toLowerCase()));
+    else this.filteredRecords = this.transactions;
   }
 
+  applyFilter($event: KeyboardEvent) {
+
+  }
+
+  getTotalCost() {
+    return this.filteredRecords.map(t => Number(t.costNis.substring(2))).reduce((acc, value) => acc + value, 0);
+    // return 55;
+  }
 }
