@@ -1,19 +1,21 @@
 <h1>Select CSV file</h1>
 <input type="file" id="input" (change)="onUpload($event.target)" accept="text/csv, .xls"/>
+<input type="text" #filter (keyup)="filterTransactions(filter.value)">
 
 <div class="content" role="main">
   <table>
     <thead>
-      <th>Date</th> <th>Description</th> <th>Translation</th> <th>Amount</th> <th>Amount ₪</th>
+      <th>Date</th> <th>Description</th> <th>Count</th> <th>Translation</th> <th>Cost</th> <th>Cost in ₪</th>
     </thead>
     <tbody>
-    <tr *ngFor="let row of rows">
-      <td>{{row[0]}}</td>
-      <td>{{row[1]}}</td>
-      <td>{{row[5]}}</td>
-      <td>{{row[2]}}</td>
-      <td>{{row[3]}}</td>
-      <td>{{row[4]}}</td>
+    <tr *ngFor="let row of filteredRecords">
+      <td>{{ row.date }}</td>
+      <td>{{ row.description }}</td>
+      <td>{{ row.count }}</td>
+      <td>{{ row.translation }}</td>
+      <td>{{ row.cost }}</td>
+      <td>{{ row.costNis }}</td>
+      <td>{{ row.comment }}</td>
     </tr>
     </tbody>
     <tfoot>
