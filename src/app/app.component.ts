@@ -10,9 +10,10 @@ import {ICalRecord} from "./ICalRecord";
 })
 export class AppComponent {
   title = 'calCalculator';
-  transactions: ICalRecord[] = [];
+  calRecords: ICalRecord[] = [];
   filteredRecords: ICalRecord[] = [];
   displayedColumns = ['date',	'description', 'cost',	'costNis', 'comment'];
+  spentTotal?: number;
 
   onUpload(target: any) {
     const file = (target as HTMLInputElement).files?.item(0);
@@ -40,21 +41,29 @@ export class AppComponent {
     })
 
     console.log(records);
-    this.transactions = records;
+
+    this.displayedColumns.splice(2, 0, 'count', 'translation');
+    this.calRecords = records;
     this.filteredRecords = records;
+
+    this.calculateTotalSpent();
   }
 
   filterTransactions(s: string) {
-    if (s) this.filteredRecords = this.transactions.filter(columns => columns.translation?.toLowerCase().includes(s.toLowerCase()));
-    else this.filteredRecords = this.transactions;
+    if (s) {
+      const sFilter = s.toUpperCase();
+      this.filteredRecords = this.calRecords.filter(col => col.translation?.toUpperCase().includes(sFilter) || col.description.includes(sFilter));
+    }
+    else this.filteredRecords = this.calRecords;
+
+    this.calculateTotalSpent();
   }
 
-  applyFilter($event: KeyboardEvent) {
-
-  }
-
-  getTotalCost() {
-    return this.filteredRecords.map(t => Number(t.costNis.substring(2))).reduce((acc, value) => acc + value, 0);
-    // return 55;
+  calculateTotalSpent() {
+    const totalCost = this.filteredRecords
+      .map(t => 100 * Number(t.costNis.replace(/[^0-9.-]+/g,'')))
+      .reduce((acc, value) => acc + value, 0);
+    console.log('totalCost', totalCost);
+    this.spentTotal = totalCost/100;
   }
 }

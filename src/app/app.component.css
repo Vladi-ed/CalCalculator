@@ -12,3 +12,17 @@ table {
 tr.mat-footer-row {
   font-weight: bold;
 }
+
+label.select-file {
+  border: 1px solid gray;
+  padding: 10px 15px;
+  margin-left: 20px;
+  border-radius: 4px;
+  margin-top: -3px;
+  cursor: pointer;
+  display: flex;
+}
+
+a {
+  color: black;
+}
