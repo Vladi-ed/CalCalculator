@@ -1,7 +1,7 @@
-<div style="padding: 20px 50px;">
-  <div style="display: flex; align-items: center;">
+<main>
+  <header style="display: flex; align-items: center;">
 
-    <h1 style="display: inline-block">Select CSV file</h1>
+    <h1>Select CSV file</h1>
     <!--  <input type="file" id="input" (change)="onUpload($event.target)" accept="text/csv, .xls"/>-->
 
     <!--  <input #csvInput hidden type="file" onclick="this.value=null" (change)="csvInputChange($event)" accept="text/csv, .xls"/>-->
@@ -13,11 +13,11 @@
       <span style="margin-left: 5px">Choose File</span>
     </label>
 
-    <mat-label style="padding-left: 20px">{{ csvInput.files?.item(0)?.name }}</mat-label>
-  </div>
+    <mat-label style="padding-left: 18px">{{ csvInput.files?.item(0)?.name }}</mat-label>
+  </header>
 
 
-  <div style="display: flex; justify-content: space-between; align-items: baseline">
+  <div style="display: flex; justify-content: space-between">
     <mat-form-field appearance="standard">
       <mat-label>Filter</mat-label>
       <input matInput #filter (keyup)="filterTransactions(filter.value)" type="search">
@@ -27,17 +27,17 @@
         </svg>
       </span>
     </mat-form-field>
-    <a href="#footer">Go down</a>
+    <a href="#footer" style="padding-top: 40px; padding-right: 20px; padding-left: 20px" matRipple>Go down</a>
   </div>
 
 
-  <div class="mat-elevation-z8">
-    <table mat-table [dataSource]="filteredRecords" matSort>
+  <div class="mat-elevation-z8" style="overflow: auto">
+    <table mat-table [dataSource]="filteredRecords" matSort (matSortChange)="sortData($event)">
 
       <!-- Date Column -->
       <ng-container matColumnDef="date">
         <th mat-header-cell *matHeaderCellDef mat-sort-header=""> Date </th>
-        <td mat-cell *matCellDef="let row"> {{ row.date | date:'longDate' }} </td>
+        <td mat-cell *matCellDef="let row"> {{ row.date | date:'d MMMM y' }} </td>
         <td mat-footer-cell *matFooterCellDef> Total </td>
       </ng-container>
 
@@ -64,12 +64,12 @@
       <ng-container matColumnDef="translation">
         <th mat-header-cell *matHeaderCellDef mat-sort-header=""> translation </th>
         <td mat-cell *matCellDef="let row"> {{row.translation}} </td>
-        <td mat-footer-cell *matFooterCellDef><a href="#">Go UP</a></td>
+        <td mat-footer-cell *matFooterCellDef></td>
       </ng-container>
 
       <!-- cost Column -->
       <ng-container matColumnDef="cost">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header=""> cost </th>
+        <th mat-header-cell *matHeaderCellDef> cost </th>
         <td mat-cell *matCellDef="let row"> {{row.cost}} </td>
         <td mat-footer-cell *matFooterCellDef></td>
       </ng-container>
@@ -92,15 +92,15 @@
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
       <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
 
       <!-- Row shown when there is no matching data. -->
       <tr class="mat-row" *matNoDataRow>
-        <td class="mat-cell" colspan="4" *ngIf="calRecords.length">No data matching the filter "{{filter.value}}"</td>
+        <td class="mat-cell" colspan="4" *ngIf="calRecords">No data matching the filter "{{filter.value}}"</td>
       </tr>
     </table>
   </div>
 
-  <div id="footer"></div>
-</div>
+  <div id="footer" style="text-align: right; padding: 25px" matRipple><a href="#">Go UP</a></div>
+</main>

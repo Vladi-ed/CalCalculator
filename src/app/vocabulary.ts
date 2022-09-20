@@ -8,8 +8,14 @@ interface IPayment {
 export const comments: IPayment[] = [{
   "keyword": "הוראת קבע רכישה רגילה", "translation": "Regular payment"
 }, {
-  "keyword": "שרותים* עסקה עם הנחה", "translation": "Сервисное обслуживание со скидкой"
-},];
+  "keyword": "עסקה עם הנחה", "translation": "Discount price"
+}, {
+  "keyword": "קניה בטוחה באינטרנט", "translation": "Secure payment online"
+}, {
+  "keyword": "זיכוי בגין רכישה רגילה", "translation": "Return of Regular payment"
+},
+
+];
 
 export const vocabulary: IPayment[] = [{
   "keyword": "איקאה-מסעדה", "translation": "Ikea restaurant", category: 'food'
@@ -36,9 +42,9 @@ export const vocabulary: IPayment[] = [{
 }, {
   "keyword": "פקניק פארק הירקון", "translation": "Picnic Cafe Park Yarkon", category: 'food'
 }, {
-  "keyword": "דמי כרטיס", "translation": "Card payment"
+  "keyword": "דמי כרטיס", "translation": "Credit card service fee"
 }, {
-  "keyword": "ויקטורי ", "translation": "Victory", category: 'food'
+  "keyword": "ויקטורי", "translation": "Victory", category: 'food'
 }, {
   "keyword": "זוהר בייקר", "translation": "Zohar bakery", category: 'food'
 }, {
@@ -157,7 +163,7 @@ export const vocabulary: IPayment[] = [{
 }, {
   "keyword": "משק ברזילי", "translation": "Vegetarian Cafe", category: 'food'
 }, {
-  "keyword": "סון רון", "translation": "Saône Rhône Cafe", category: 'food'
+  "keyword": "סון רון", "translation": "Saone Rhône Cafe", category: 'food'
 }, {
   "keyword": "גולדה", "translation": "Golda Ice Cream", category: 'food'
 }, {
@@ -188,6 +194,8 @@ export const vocabulary: IPayment[] = [{
   "keyword": "ממתקי העיר", "translation": "Sweets Minimarket", category: 'food'
 }, {
   "keyword": "נונה", "translation": "Cafe Nona", category: 'food'
+}, {
+  "keyword": "ארומה", "translation": "Cafe Aroma", category: 'food'
 }, {
   "keyword": "עזריאלי גבעתיים", "translation": "Azrieli Givataim"
 }, {
@@ -229,6 +237,8 @@ export const vocabulary: IPayment[] = [{
   "keyword": "OGNAY YB ILED", "translation": "Deli", category: 'food'
 }, {
   "keyword": "ILED OGNAY", "translation": "Yango Deli", category: 'food'
+}, {
+  "keyword": "TLOW", "translation": "Wolt delivery", category: 'food'
 }, {
   "keyword": "טארה אלטה",
   "translation": "Terra Alta TLV Deli",

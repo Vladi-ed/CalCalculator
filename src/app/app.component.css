@@ -5,6 +5,26 @@
 /*  padding-right: 7px;*/
 /*}*/
 
+main {
+  padding: 20px 50px;
+}
+
+header > h1 {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+@media only screen and (max-width: 600px) {
+  main {
+    padding: 0 24px;
+  }
+
+  header > h1 {
+    display: none;
+  }
+
+}
+
 table {
   width: 100%;
 }
@@ -13,10 +33,21 @@ tr.mat-footer-row {
   font-weight: bold;
 }
 
+td.mat-column-costNis {
+  white-space: nowrap;
+}
+
+td.mat-cell {
+  padding-right: 10px;
+}
+
+td.mat-column-count {
+  padding-right: 0;
+}
+
 label.select-file {
   border: 1px solid gray;
   padding: 10px 15px;
-  margin-left: 20px;
   border-radius: 4px;
   margin-top: -3px;
   cursor: pointer;
