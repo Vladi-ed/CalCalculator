@@ -28,11 +28,18 @@ export class AppComponent {
       fromLine: 4,
       delimiter: '\t',
       relaxColumnCountLess: true,
-      relaxQuotes: true
+      relaxQuotes: true,
+      cast: (cellValue, context) => {
+        if (context.index == 0) {
+          // convert to US date format
+          const dateSplit = cellValue.split('/');
+          return dateSplit[1] + '/' + dateSplit[0] + '/' + dateSplit[2];
+        }
+        else return cellValue;
+      }
     });
 
     records.pop(); // removes summary
-
     records.forEach(line => {
       // count number of similar operations
       line.count = records.filter(v => v.description == line.description).length;
