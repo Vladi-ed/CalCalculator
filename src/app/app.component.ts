@@ -12,7 +12,8 @@ export class AppComponent {
   title = 'calCalculator';
   calRecords: ICalRecord[] = [];
   filteredRecords: ICalRecord[] = [];
-  displayedColumns = ['date',	'description', 'cost',	'costNis', 'comment'];
+  initialColumns = ['date',	'description', 'cost',	'costNis', 'comment'];
+  displayedColumns = this.initialColumns;
   spentTotal?: number;
 
   onUpload(target: any) {
@@ -23,7 +24,7 @@ export class AppComponent {
   processDataV2(content: string) {
 
     const records: ICalRecord[] = csvParseToObject(content, {
-      columns: this.displayedColumns,
+      columns: this.initialColumns,
       fromLine: 4,
       delimiter: '\t',
       relaxColumnCountLess: true,
@@ -42,6 +43,7 @@ export class AppComponent {
 
     console.log(records);
 
+    this.displayedColumns = [...this.initialColumns];
     this.displayedColumns.splice(2, 0, 'count', 'translation');
     this.calRecords = records;
     this.filteredRecords = records;

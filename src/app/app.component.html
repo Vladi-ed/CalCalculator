@@ -50,7 +50,10 @@
       <!-- count Column -->
       <ng-container matColumnDef="count">
         <th mat-header-cell *matHeaderCellDef mat-sort-header=""> count </th>
-        <td mat-cell *matCellDef="let row" (click)="filter.value=row.translation; filterTransactions(row.translation);" style="cursor: pointer">
+        <td mat-cell
+            *matCellDef="let row"
+            (click)="filter.value=row.translation || row.description; filterTransactions(row.translation || row.description);"
+            style="cursor: pointer">
           {{row.count}}
         </td>
         <td mat-footer-cell *matFooterCellDef></td>
