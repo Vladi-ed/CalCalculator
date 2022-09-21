@@ -1,9 +1,7 @@
-import {IPayment} from "../src/app/interfaces/IPayment";
+import {IPayment} from "../interfaces/IPayment";
+// export const onRequestGet = () => new Response(JSON.stringify(vocabulary));
 
-export const onRequestGet = () => new Response(JSON.stringify(vocabulary));
-
-
-const vocabulary: IPayment[] = [{
+export const vocabulary: IPayment[] = [{
   "keyword": "איקאה-מסעדה", "translation": "Ikea restaurant", category: 'food'
 }, {
   "keyword": "איקאה", "translation": "Ikea"

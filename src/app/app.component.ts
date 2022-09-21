@@ -1,29 +1,28 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {parse as csvParseToObject} from 'csv-parse/browser/esm/sync';
 import {comments} from "./data-objects/comments";
+import {vocabulary} from './data-objects/vocabulary';
 import {ICalRecord} from "./interfaces/ICalRecord";
-import {Sort} from "@angular/material/sort";
-import {IPayment} from "./interfaces/IPayment";
+import {Sort} from '@angular/material/sort';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit{
-  title = 'calCalculator';
+export class AppComponent {
+  title = 'CalCalculator';
 
   calRecords?: ICalRecord[];
   displayedRecords: ICalRecord[] = [];
   displayedColumns: (keyof ICalRecord)[] = ['date',	'description', 'count', 'translation', 'cost',	'costNis', 'comment'];
   spentTotal?: number;
-  private vocabulary?: IPayment[];
 
-  ngOnInit() {
-     fetch('/coreg-offers.api')
-      .then(offers => offers.ok ? offers.json() : [])
-      .then(data => this.vocabulary = data);
-  }
+  // ngOnInit() {
+  //    fetch('/coreg-offers.api')
+  //     .then(offers => offers.ok ? offers.json() : [])
+  //     .then(data => this.vocabulary = data);
+  // }
 
   onUpload(target: any) {
     const file = (target as HTMLInputElement).files?.item(0);
@@ -54,7 +53,7 @@ export class AppComponent implements OnInit{
       line.count = records.filter(v => v.description == line.description).length;
 
       // add translation
-      line.translation = this.vocabulary?.find(item => line.description.includes(item.keyword))?.translation;
+      line.translation = vocabulary?.find(item => line.description.includes(item.keyword))?.translation;
     })
 
     console.log(records);
@@ -88,10 +87,6 @@ export class AppComponent implements OnInit{
 
   sortData(sort: Sort) {
     const data = this.displayedRecords?.slice();
-    // if (!sort.active || sort.direction === '') {
-    //   this.displayedRecords = data;
-    //   return;
-    // }
 
     function compare(a: any, b: any, isAsc: boolean) {
       if (!a) a = '';
