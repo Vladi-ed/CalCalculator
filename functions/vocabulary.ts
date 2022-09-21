@@ -1,23 +1,9 @@
-interface IPayment {
-  keyword: string;
-  translation: string;
-  category?: string;
-  logo?: string;
-}
+import {IPayment} from "../src/app/interfaces/IPayment";
 
-export const comments: IPayment[] = [{
-  "keyword": "הוראת קבע רכישה רגילה", "translation": "Regular payment"
-}, {
-  "keyword": "עסקה עם הנחה", "translation": "Discount price"
-}, {
-  "keyword": "קניה בטוחה באינטרנט", "translation": "Secure payment online"
-}, {
-  "keyword": "זיכוי בגין רכישה רגילה", "translation": "Return of Regular payment"
-},
+export const onRequestGet = () => new Response(JSON.stringify(vocabulary));
 
-];
 
-export const vocabulary: IPayment[] = [{
+const vocabulary: IPayment[] = [{
   "keyword": "איקאה-מסעדה", "translation": "Ikea restaurant", category: 'food'
 }, {
   "keyword": "איקאה", "translation": "Ikea"
@@ -279,3 +265,5 @@ export const vocabulary: IPayment[] = [{
 }, {
   "keyword": "קופיקס", "translation": "Cofix", category: 'food'
 },];
+
+
