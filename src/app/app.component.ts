@@ -15,7 +15,7 @@ export class AppComponent {
 
   calRecords?: ICalRecord[];
   displayedRecords: ICalRecord[] = [];
-  displayedColumns: (keyof ICalRecord)[] = ['date',	'description', 'count', 'translation', 'cost',	'costNis', 'comment'];
+  displayedColumns: (keyof ICalRecord)[] = ['date',	'description', 'count', 'translation', 'myCategory', 'cost',	'costNis', 'comment'];
   spentTotal?: number;
 
   // ngOnInit() {
@@ -54,6 +54,9 @@ export class AppComponent {
 
       // add translation
       line.translation = vocabulary?.find(item => line.description.includes(item.keyword))?.translation;
+
+      // add category
+      line.myCategory = vocabulary?.find(item => line.description.includes(item.keyword))?.category;
     })
 
     console.log(records);
@@ -68,7 +71,10 @@ export class AppComponent {
     if (this.calRecords) {
       if (s) {
         const sFilter = s.toUpperCase();
-        this.displayedRecords = this.calRecords?.filter(col => col.translation?.toUpperCase().includes(sFilter) || col.description.includes(sFilter));
+        this.displayedRecords = this.calRecords?.filter(col => col.translation?.toUpperCase().includes(sFilter) ||
+          col.description.includes(sFilter) ||
+          col.myCategory?.includes(sFilter)
+        );
       }
       else this.displayedRecords = this.calRecords;
 
