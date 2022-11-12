@@ -1,6 +1,67 @@
-.content {
-  margin: 20px;
+/*.content {*/
+/*  margin: 20px;*/
+/*}*/
+/*td {*/
+/*  padding-right: 7px;*/
+/*}*/
+
+main {
+  padding: 20px 50px;
 }
-td {
-  padding-right: 7px;
+
+header > h1 {
+  display: inline-block;
+  margin-right: 30px;
+}
+
+@media only screen and (max-width: 600px) {
+  main {
+    padding: 0;
+  }
+
+  header > h1 {
+    display: none;
+  }
+
+  div.filter-area {
+    padding-left: 20px;
+  }
+
+  td.mat-cell {
+    padding: 5px 10px;
+  }
+}
+
+table {
+  width: 100%;
+}
+
+tr.mat-footer-row {
+  font-weight: bold;
+}
+
+td.mat-column-costNis {
+  white-space: nowrap;
+}
+
+td.mat-cell {
+  padding-right: 6px;
+}
+
+td.mat-column-count {
+  padding-right: 0;
+}
+
+label.select-file {
+  border: 1px solid gray;
+  padding: 10px 15px;
+  border-radius: 4px;
+  margin-top: -2px;
+  margin-left: -6px;
+  cursor: pointer;
+  display: flex;
+}
+
+a {
+  color: black;
 }

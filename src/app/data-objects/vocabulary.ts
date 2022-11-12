@@ -1,15 +1,5 @@
-interface IPayment {
-  keyword: string;
-  translation: string;
-  category?: string;
-  logo?: string;
-}
-
-export const comments: IPayment[] = [{
-  "keyword": "הוראת קבע רכישה רגילה", "translation": "Regular payment"
-}, {
-  "keyword": "שרותים* עסקה עם הנחה", "translation": "Сервисное обслуживание со скидкой"
-},];
+import {IPayment} from "../interfaces/IPayment";
+// export const onRequestGet = () => new Response(JSON.stringify(vocabulary));
 
 export const vocabulary: IPayment[] = [{
   "keyword": "איקאה-מסעדה", "translation": "Ikea restaurant", category: 'food'
@@ -28,19 +18,23 @@ export const vocabulary: IPayment[] = [{
 }, {
   "keyword": "שומשום", "translation": "SumSum cafe", category: 'food'
 }, {
+  "keyword": "AETIEB", "translation": "Bubble tea TLV", category: 'food'
+}, {
   "keyword": "מאקה פלקה", "translation": "Bana vegan cafe", category: 'food'
 }, {
-  "keyword": "איבנטבאז כרטיסים", "translation": "Concert tickets",
+  "keyword": "איבנטבאז כרטיסים", "translation": "Concert tickets", category: 'events'
 }, {
   "keyword": "דליקטסן", "translation": "Delicatessen", category: 'food'
 }, {
   "keyword": "פקניק פארק הירקון", "translation": "Picnic Cafe Park Yarkon", category: 'food'
 }, {
-  "keyword": "דמי כרטיס", "translation": "Card payment"
+  "keyword": "דמי כרטיס", "translation": "Credit card service fee", category: 'life'
 }, {
-  "keyword": "ויקטורי ", "translation": "Victory", category: 'food'
+  "keyword": "ויקטורי", "translation": "Victory", category: 'food'
 }, {
   "keyword": "זוהר בייקר", "translation": "Zohar bakery", category: 'food'
+}, {
+  "keyword": "אדמונד", "translation": "Cafe Edmund", category: 'food'
 }, {
   "keyword": "טיב טעם", "translation": "Tiv Tam", category: 'food'
 }, {
@@ -49,6 +43,8 @@ export const vocabulary: IPayment[] = [{
   "keyword": "מסעדת קוקו רמת גן", "translation": "Kuku cafe", category: 'food'
 }, {
   "keyword": "סונול צומת השרון נתנ", "translation": "Sonol Gas Station", category: 'car'
+}, {
+  "keyword": "רב קו אונליין", "translation": "Rav-Kav Online", category: 'transport'
 }, {
   "keyword": "סופר פארם", "translation": "SuperPharm", category: 'health'
 }, {
@@ -84,7 +80,9 @@ export const vocabulary: IPayment[] = [{
 }, {
   "keyword": "העברה ב BIT", "translation": "Bit"
 }, {
-  "keyword": "KSP", "translation": "KSP"
+  "keyword": "KSP", "translation": "KSP", category: 'home'
+}, {
+  "keyword": "קיי אס פי", "translation": "KSP", category: 'home'
 }, {
   "keyword": "AMZN", "translation": "Amazon"
 }, {
@@ -157,7 +155,7 @@ export const vocabulary: IPayment[] = [{
 }, {
   "keyword": "משק ברזילי", "translation": "Vegetarian Cafe", category: 'food'
 }, {
-  "keyword": "סון רון", "translation": "Saône Rhône Cafe", category: 'food'
+  "keyword": "סון רון", "translation": "Saone Rhône Cafe", category: 'food'
 }, {
   "keyword": "גולדה", "translation": "Golda Ice Cream", category: 'food'
 }, {
@@ -189,13 +187,15 @@ export const vocabulary: IPayment[] = [{
 }, {
   "keyword": "נונה", "translation": "Cafe Nona", category: 'food'
 }, {
+  "keyword": "ארומה", "translation": "Cafe Aroma", category: 'food'
+}, {
   "keyword": "עזריאלי גבעתיים", "translation": "Azrieli Givataim"
 }, {
   "keyword": "הפילהרמונית הישראלית", "translation": "The Israel Philharmonic"
 }, {
   "keyword": "זארה", "translation": "Zara"
 }, {
-  "keyword": "מי רמת גן בעמ", "translation": "Water company"
+  "keyword": "מי רמת גן בעמ", "translation": "Water company", category: 'life'
 }, {
   "keyword": "הספרייה", "translation": "Library"
 }, {
@@ -209,15 +209,15 @@ export const vocabulary: IPayment[] = [{
 }, {
   "keyword": "NOOLLAB VLT", "translation": "Balloon in park Yarkon"
 }, {
-  "keyword": "דר' אבי פיצ'ו-צמרת", "translation": "Veterinary"
+  "keyword": "דר' אבי פיצ'ו-צמרת", "translation": "Veterinary", category: 'pet'
 }, {
-  "keyword": "דוגי סטיי", "translation": "Pet Shop"
+  "keyword": "דוגי סטיי", "translation": "Pet Shop", category: 'pet'
 }, {
   "keyword": "GOLANTELECO", "translation": "Golan Telecom"
 }, {
-  "keyword": "SHISHISHABB", "translation": "Shishi-Shabbat event"
+  "keyword": "SHISHISHABB", "translation": "Shishi-Shabbat event", category: 'events'
 }, {
-  "keyword": "בית עמנוא", "translation": "Beit Emanuel Kindergarten"
+  "keyword": "בית עמנוא", "translation": "Beit Emanuel Kindergarten", category: 'child'
 }, {
   "keyword": "מאפיית הטאבון", "translation": "Taboon Bakery", category: 'food'
 }, {
@@ -230,6 +230,12 @@ export const vocabulary: IPayment[] = [{
 }, {
   "keyword": "ILED OGNAY", "translation": "Yango Deli", category: 'food'
 }, {
+  "keyword": "TLOW", "translation": "Wolt delivery", category: 'food'
+}, {
+  "keyword": "WOLT", "translation": "Wolt delivery", category: 'food'
+}, {
+  "keyword": "ECIPSOH NAIRTSUA", "translation": "Austrian hospice", category: 'food'
+}, {
   "keyword": "טארה אלטה",
   "translation": "Terra Alta TLV Deli",
   category: 'food',
@@ -239,7 +245,7 @@ export const vocabulary: IPayment[] = [{
 }, {
   "keyword": "חשמל ר מ ז", "translation": "Electrical shop"
 }, {
-  "keyword": "כרטיסים תרבות ופנאי", "translation": "Concert tickets"
+  "keyword": "כרטיסים תרבות ופנאי", "translation": "Concert tickets", category: 'events'
 }, {
   "keyword": "ביגודיני", "translation": "Hair cut"
 }, {
@@ -269,3 +275,5 @@ export const vocabulary: IPayment[] = [{
 }, {
   "keyword": "קופיקס", "translation": "Cofix", category: 'food'
 },];
+
+
