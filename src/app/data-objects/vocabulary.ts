@@ -40,11 +40,15 @@ export const vocabulary: IPayment[] = [{
 }, {
   "keyword": "לחם ארז", "translation": "Lehem", category: 'food'
 }, {
-  "keyword": "מסעדת קוקו רמת גן", "translation": "Kuku cafe", category: 'food'
+  "keyword": "מסעדת קוקו", "translation": "Kuku cafe", category: 'food'
+}, {
+  "keyword": "פסטה בסטה", "translation": "Pasta Basta", category: 'food'
 }, {
   "keyword": "סונול צומת השרון נתנ", "translation": "Sonol Gas Station", category: 'car'
 }, {
   "keyword": "רב קו אונליין", "translation": "Rav-Kav Online", category: 'transport'
+}, {
+  "keyword": "רכבת ישראל", "translation": "Train Israel Railways", category: 'transport'
 }, {
   "keyword": "סופר פארם", "translation": "SuperPharm", category: 'health'
 }, {
@@ -52,7 +56,7 @@ export const vocabulary: IPayment[] = [{
 }, {
   "keyword": "סיטי מרקט", "translation": "City market", category: 'food'
 }, {
-  "keyword": "פז / YELLOWI עילית", "translation": "Yellow gas station", category: 'car'
+  "keyword": "YELLOW", "translation": "Yellow gas station", category: 'car'
 }, {
   "keyword": "שופרסל", "translation": "Shufersal", category: 'food'
 }, {
@@ -63,6 +67,8 @@ export const vocabulary: IPayment[] = [{
   "keyword": "נון סטופ מרקט", "translation": "NotStop Supermarket", category: 'food'
 }, {
   "keyword": "LIM*", "translation": "Lime Rent"
+}, {
+  "keyword": "הש. רכב גולף ואופניים גני", "translation": "Golf car rent Park Yarkon"
 }, {
   "keyword": "כלבו יחזקאל", "translation": "Construction/electric store"
 }, {
@@ -101,7 +107,7 @@ export const vocabulary: IPayment[] = [{
   category: 'food',
   logo: 'https://lh5.googleusercontent.com/-jVO_1dPbgFM/AAAAAAAAAAI/AAAAAAAAAAA/7H6zZ_QOgaA/s44-p-k-no-ns-nd/photo.jpg'
 }, {
-  "keyword": "סלופארק טכנולוגיות בעמ", "translation": "Parking", category: 'car'
+  "keyword": "סלופארק טכנולוגיות בעמ", "translation": "Parking Cellopark", category: 'car'
 }, {
   "keyword": "מכון הדרום", "translation": "Car test", category: 'car'
 }, {
@@ -191,6 +197,8 @@ export const vocabulary: IPayment[] = [{
 }, {
   "keyword": "ארומה", "translation": "Cafe Aroma", category: 'food'
 }, {
+  "keyword": "פט ויני", "translation": "Cafe Fat Vinni", category: 'food'
+}, {
   "keyword": "עזריאלי גבעתיים", "translation": "Azrieli Givataim"
 }, {
   "keyword": "הפילהרמונית הישראלית", "translation": "The Israel Philharmonic"
@@ -243,6 +251,8 @@ export const vocabulary: IPayment[] = [{
   category: 'food',
   logo: 'https://res.cloudinary.com/ontopo/image/upload/c_crop,x_0,y_0,w_591,h_591/w_128,c_scale/v1649932148/assets/KnhjF_FPrQ/pi1YXmil7m/3.jpg'
 }, {
+  "keyword": "דליסימו דליקטס", "translation": "Delissimo Delicates", category: 'food'
+}, {
   "keyword": "סיבוס", "translation": "Sibus over 800 ₪"
 }, {
   "keyword": "חשמל ר מ ז", "translation": "Electrical shop"
@@ -275,7 +285,9 @@ export const vocabulary: IPayment[] = [{
 }, {
   "keyword": "קפה", "translation": "Cafe", category: 'food'
 }, {
+  "keyword": "סטופמרקט", "translation": "Supermarket", category: 'food'
+}, {
   "keyword": "קופיקס", "translation": "Cofix", category: 'food'
-},];
+}];
 
 
