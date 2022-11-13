@@ -121,6 +121,8 @@ export const vocabulary: IPayment[] = [{
 }, {
   "keyword": "ביטוח כללי מנורה מבטחים", "translation": "Car Insurance", category: 'car'
 }, {
+  "keyword": "מנורה ביטוח חובה מיוחד", "translation": "Car Insurance", category: 'car'
+}, {
   "keyword": "מלכה מרקט מגדל אביב", "translation": "Minimarket", category: 'food'
 }, {
   "keyword": "מגה בעיר קניון גבעתיים", "translation": "Supermarket in Canyon Givataim", category: 'food'

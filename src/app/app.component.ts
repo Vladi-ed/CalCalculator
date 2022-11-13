@@ -24,15 +24,28 @@ export class AppComponent {
   //     .then(data => this.vocabulary = data);
   // }
 
-  onUpload(target: any) {
-    const file = (target as HTMLInputElement).files?.item(0);
-    file?.text().then(fileContent => this.processDataV2(fileContent));
+  onUpload(target: FileList | null) {
+    const file = target?.item(0);
+    console.time('test');
+    // file?.text().then(fileContent => this.processDataV2(fileContent));
+    // file?.stream().getReader().read().then(fileContent => this.processDataV2(fileContent.value || ''));
+    // this.processDataV2(file?.slice().text())
+
+    file?.arrayBuffer().then(fileContent => this.processDataV2(new Uint8Array(fileContent, 70)));
+
+    // file?.arrayBuffer()
+    //   .then(fileContent => {
+    //     const z = new Uint8Array(fileContent, 70);
+    //     console.log(new TextDecoder().decode(z))
+    //     this.processDataV2(z);
+    //   });
   }
 
-  processDataV2(content: string) {
-    const records: ICalRecord[] = csvParseToObject(content, {
+  processDataV2(content: Uint8Array | string) {
+    const records: ICalRecord[] = csvParseToObject((content as any), {
       columns: ['date',	'description', 'cost',	'costNis', 'comment'],
       fromLine: 4,
+      encoding: 'utf16le',
       delimiter: '\t',
       relaxColumnCountLess: true,
       relaxQuotes: true,
@@ -46,6 +59,8 @@ export class AppComponent {
         else return cellValue;
       }
     });
+
+    console.timeEnd('test');
 
     records.pop(); // removes summary
     records.forEach(line => {
