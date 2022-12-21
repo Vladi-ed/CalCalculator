@@ -3,6 +3,7 @@ export interface ICalRecord {
   description: string;
   cost: string;
   costNis: string;
+  costNum: number;
   comment?: string;
   translation?: string;
   myCategory?: string;

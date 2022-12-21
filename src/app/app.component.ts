@@ -75,42 +75,56 @@ export class AppComponent {
 
       // add category
       line.myCategory = vocabulary?.find(item => line.description.includes(item.keyword))?.category;
+
+      // convert costNis to number
+      line.costNum = Number(line.costNis.replace(/[^0-9.-]+/g, ''));
     })
 
     console.log(records);
 
     this.calRecords = records;
     this.displayedRecords = records;
-    this.chartData = records.map(record => {
-      return {name: record.myCategory || 'Other', value: 1}
 
+    const groupBy = <T>(array: T[], predicate: (value: T, index: number, array: T[]) => string) =>
+      array.reduce((acc, value, index, array) => {
+        (acc[predicate(value, index, array)] ||= []).push(value);
+        return acc;
+      }, {} as { [key: string]: T[] });
+
+    const data: { name: string, value: number }[] = Object.entries(groupBy(records, r => r.myCategory || 'other')).map((entry) => {
+      return {name: entry[0], value: this.calculateTotalSpent(entry[1])};
     })
 
-    this.calculateTotalSpent();
+    console.log('data', data);
+
+    this.chartData = data;
+
+    this.spentTotal = this.calculateTotalSpent(this.displayedRecords);
   }
 
-  filterTransactions(s: string) {
+  filterTransactions(searchStr: string) {
     if (this.calRecords) {
-      if (s) {
-        const sFilter = s.toUpperCase();
+      if (searchStr === 'other') this.displayedRecords = this.calRecords?.filter(col => col.myCategory == undefined);
+      else if (searchStr) {
+        const sFilter = searchStr.toUpperCase();
         this.displayedRecords = this.calRecords?.filter(col => col.translation?.toUpperCase().includes(sFilter) ||
-          col.description.includes(sFilter) ||
-          col.myCategory?.includes(sFilter)
+          col.description.toUpperCase().includes(sFilter) ||
+          col.myCategory === searchStr
         );
       }
       else this.displayedRecords = this.calRecords;
 
-      this.calculateTotalSpent();
+      this.spentTotal = this.calculateTotalSpent(this.displayedRecords);
     }
   }
 
-  calculateTotalSpent() {
-    const totalCost = this.displayedRecords
-      .map(t => 100 * Number(t.costNis.replace(/[^0-9.-]+/g,'')))
+  calculateTotalSpent(myArray: ICalRecord[]) {
+    const totalCost = myArray
+      .map(t => 100 * t.costNum)
       .reduce((acc, value) => acc + value, 0);
 
     console.log('totalCost', totalCost);
-    this.spentTotal = totalCost/100;
+    return totalCost/100;
   }
 
   sortData(sort: Sort) {
@@ -126,15 +140,15 @@ export class AppComponent {
       const isAsc = sort.direction === 'asc';
       const columnToSort = sort.active as keyof ICalRecord;
 
-      if (columnToSort === 'costNis') {
-        const aNum = Number(a.costNis.replace(/[^0-9.-]+/g, ''));
-        const bNum = Number(b.costNis.replace(/[^0-9.-]+/g, ''));
-        return compare(aNum, bNum, isAsc);
-      }
+      if (columnToSort === 'costNis') return compare(a.costNum, b.costNum, isAsc);
       else return compare(a[columnToSort], b[columnToSort], isAsc);
 
     });
   }
 
 
+  onSelect(data: any): void {
+    console.log('Item clicked', JSON.parse(JSON.stringify(data)));
+    this.filterTransactions(data.name);
+  }
 }

@@ -31,17 +31,24 @@
     <a href="#footer" style="padding-top: 40px; padding-right: 20px; padding-left: 20px" matRipple>Go down</a>
   </div>
 
-  <div class="mat-elevation-z8" *ngIf="showGraph">
-    Graph
+  <div class="mat-elevation-z8" *ngIf="showGraph" style="display: flex; flex-wrap: wrap">
     <ngx-charts-pie-chart
       [view]="view"
       [results]="chartData"
       [gradient]="true"
-      [legend]="true"
+      [legend]="false"
       [labels]="true"
       [doughnut]="false"
+      (select)="filterTransactions($event.name)"
     >
     </ngx-charts-pie-chart>
+    <ngx-charts-bar-vertical
+      [view]="view"
+      [results]="chartData"
+      [gradient]="false"
+      [legend]="false"
+    >
+    </ngx-charts-bar-vertical>
   </div>
 
   <div class="mat-elevation-z8" style="overflow: auto">
