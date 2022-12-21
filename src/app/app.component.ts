@@ -23,6 +23,9 @@ export class AppComponent {
   //     .then(offers => offers.ok ? offers.json() : [])
   //     .then(data => this.vocabulary = data);
   // }
+  showGraph: boolean = false;
+  view: [number, number] = [700, 400];
+  chartData: { name: string, value: number }[] = [];
 
   onUpload(target: FileList | null) {
     const file = target?.item(0);
@@ -78,6 +81,10 @@ export class AppComponent {
 
     this.calRecords = records;
     this.displayedRecords = records;
+    this.chartData = records.map(record => {
+      return {name: record.myCategory || 'Other', value: 1}
+
+    })
 
     this.calculateTotalSpent();
   }

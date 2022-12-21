@@ -27,9 +27,22 @@
         </svg>
       </span>
     </mat-form-field>
+    <button class="show-graph mat-elevation-z3" (click)="showGraph = !showGraph">Show graph</button>
     <a href="#footer" style="padding-top: 40px; padding-right: 20px; padding-left: 20px" matRipple>Go down</a>
   </div>
 
+  <div class="mat-elevation-z8" *ngIf="showGraph">
+    Graph
+    <ngx-charts-pie-chart
+      [view]="view"
+      [results]="chartData"
+      [gradient]="true"
+      [legend]="true"
+      [labels]="true"
+      [doughnut]="false"
+    >
+    </ngx-charts-pie-chart>
+  </div>
 
   <div class="mat-elevation-z8" style="overflow: auto">
     <table mat-table [dataSource]="displayedRecords" matSort (matSortChange)="sortData($event)" matSortDisableClear="true">

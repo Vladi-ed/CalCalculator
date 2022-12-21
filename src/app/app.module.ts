@@ -6,10 +6,11 @@ import {MatInputModule} from "@angular/material/input";
 import {MatTableModule} from "@angular/material/table";
 import {MatSortModule} from "@angular/material/sort";
 import {MatRippleModule} from "@angular/material/core";
+import {NgxChartsModule} from "@swimlane/ngx-charts";
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserAnimationsModule, MatInputModule, MatTableModule, MatSortModule, MatRippleModule],
+  imports: [BrowserAnimationsModule, MatInputModule, MatTableModule, MatSortModule, MatRippleModule, NgxChartsModule],
   providers: [],
   bootstrap: [AppComponent]
 })
