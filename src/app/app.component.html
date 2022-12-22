@@ -27,28 +27,24 @@
         </svg>
       </span>
     </mat-form-field>
-    <button class="show-graph mat-elevation-z3" (click)="showGraph = !showGraph">Show graph</button>
-    <a href="#footer" style="padding-top: 40px; padding-right: 20px; padding-left: 20px" matRipple>Go down</a>
+<!--    <button class="show-graph mat-elevation-z3" (click)="showGraph = !showGraph">Show graph</button>-->
+    <div style="padding-top: 40px; padding-right: 20px; padding-left: 20px" [hidden]="chartData.length == 0">
+      <a href="#" matRipple (click)="showGraph = !showGraph" style="margin-right: 20px">{{showGraph ? 'Hide' : 'Show'}} graph</a>
+      <a href="#footer" matRipple>Go down</a>
+    </div>
+
   </div>
 
-  <div class="mat-elevation-z8" *ngIf="showGraph" style="display: flex; flex-wrap: wrap">
-    <ngx-charts-pie-chart
-      [view]="view"
-      [results]="chartData"
-      [gradient]="true"
-      [legend]="false"
-      [labels]="true"
-      [doughnut]="false"
-      (select)="filterTransactions($event.name)"
-    >
-    </ngx-charts-pie-chart>
-    <ngx-charts-bar-vertical
-      [view]="view"
+  <div class="mat-elevation-z8" *ngIf="showGraph" style="display: flex; flex-wrap: wrap; height: 500px">
+
+    <ngx-charts-advanced-pie-chart
       [results]="chartData"
       [gradient]="false"
-      [legend]="false"
+      [customColors]="activeCategory"
+      (select)="onSelect($event)"
     >
-    </ngx-charts-bar-vertical>
+    </ngx-charts-advanced-pie-chart>
+
   </div>
 
   <div class="mat-elevation-z8" style="overflow: auto">

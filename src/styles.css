@@ -2,3 +2,21 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.legend-item .item-value {
+  margin-top: 0 !important;
+  margin-bottom: 5px !important;
+}
+
+.legend-item .item-color {
+  /*height: 55px !important;*/
+  border-left-width: 5px !important;
+}
+
+.legend-item {
+  margin-right: 38px !important;
+}
+/*.pie-label {*/
+/*  font-size: 14px !important;*/
+/*  margin: 5px !important;*/
+/*}*/

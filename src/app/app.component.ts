@@ -11,8 +11,6 @@ import {Sort} from '@angular/material/sort';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'CalCalculator';
-
   calRecords?: ICalRecord[];
   displayedRecords: ICalRecord[] = [];
   displayedColumns: (keyof ICalRecord)[] = ['date',	'description', 'count', 'translation', 'myCategory', 'cost',	'costNis', 'comment'];
@@ -24,8 +22,8 @@ export class AppComponent {
   //     .then(data => this.vocabulary = data);
   // }
   showGraph: boolean = false;
-  view: [number, number] = [700, 400];
-  chartData: { name: string, value: number }[] = [];
+  chartData: { name: string, value: number } [] = [];
+  activeCategory: any;
 
   onUpload(target: FileList | null) {
     const file = target?.item(0);
@@ -63,7 +61,6 @@ export class AppComponent {
       }
     });
 
-    console.timeEnd('test');
 
     records.pop(); // removes summary
     records.forEach(line => {
@@ -91,15 +88,15 @@ export class AppComponent {
         return acc;
       }, {} as { [key: string]: T[] });
 
-    const data: { name: string, value: number }[] = Object.entries(groupBy(records, r => r.myCategory || 'other')).map((entry) => {
-      return {name: entry[0], value: this.calculateTotalSpent(entry[1])};
-    })
+    this.chartData = Object
+      .entries(groupBy(records, r => r.myCategory || 'other'))
+      .map(entry =>({ name: entry[0], value: this.calculateTotalSpent(entry[1]) }))
+      .sort((a, b) => (a.value > b.value ? -1 : 1))
 
-    console.log('data', data);
-
-    this.chartData = data;
-
+    console.log('chartData', this.chartData);
     this.spentTotal = this.calculateTotalSpent(this.displayedRecords);
+
+    console.timeEnd('test');
   }
 
   filterTransactions(searchStr: string) {
@@ -146,9 +143,9 @@ export class AppComponent {
     });
   }
 
-
   onSelect(data: any): void {
     console.log('Item clicked', JSON.parse(JSON.stringify(data)));
+    this.activeCategory = [{ name: data.name,  value: '#ff6200' }];
     this.filterTransactions(data.name);
   }
 }
