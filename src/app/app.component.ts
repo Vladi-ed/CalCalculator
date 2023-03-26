@@ -4,6 +4,9 @@ import {comments} from "./data-objects/comments";
 import {vocabulary} from './data-objects/vocabulary';
 import {ICalRecord} from "./interfaces/ICalRecord";
 import {Sort} from '@angular/material/sort';
+import {calculateTotalSpent} from "./functions/calculate-total-spent";
+import {sortData} from "./functions/sort-data";
+import {filterData} from "./functions/filter-data";
 
 @Component({
   selector: 'app-root',
@@ -16,18 +19,14 @@ export class AppComponent {
   displayedColumns: (keyof ICalRecord)[] = ['date',	'description', 'count', 'translation', 'myCategory', 'cost',	'costNis', 'comment'];
   spentTotal?: number;
 
-  // ngOnInit() {
-  //    fetch('/coreg-offers.api')
-  //     .then(offers => offers.ok ? offers.json() : [])
-  //     .then(data => this.vocabulary = data);
-  // }
   showGraph: boolean = false;
   chartData: { name: string, value: number } [] = [];
   activeCategory: any;
+  private sort?: Sort;
 
   onUpload(target: FileList | null) {
     const file = target?.item(0);
-    console.time('test');
+    console.time('File processing');
     // file?.text().then(fileContent => this.processDataV2(fileContent));
     // file?.stream().getReader().read().then(fileContent => this.processDataV2(fileContent.value || ''));
     // this.processDataV2(file?.slice().text())
@@ -90,67 +89,41 @@ export class AppComponent {
 
     this.chartData = Object
       .entries(groupBy(records, r => r.myCategory || 'other'))
-      .map(entry =>({ name: entry[0], value: this.calculateTotalSpent(entry[1]) }))
+      .map(entry =>({ name: entry[0], value: calculateTotalSpent(entry[1]) }))
       .sort((a, b) => (a.value > b.value ? -1 : 1))
 
     console.log('chartData', this.chartData);
-    this.spentTotal = this.calculateTotalSpent(this.displayedRecords);
+    this.spentTotal = calculateTotalSpent(this.displayedRecords);
 
-    console.timeEnd('test');
+    console.timeEnd('File processing');
   }
 
   filterTransactions(searchStr: string) {
     if (this.calRecords) {
-      if (searchStr === 'other') this.displayedRecords = this.calRecords?.filter(col => col.myCategory == undefined);
-      else if (searchStr) {
-        const sFilter = searchStr.toUpperCase();
-        this.displayedRecords = this.calRecords?.filter(col => col.translation?.toUpperCase().includes(sFilter) ||
-          col.description.toUpperCase().includes(sFilter) ||
-          col.myCategory === searchStr
-        );
-      }
-      else this.displayedRecords = this.calRecords;
-
-      this.spentTotal = this.calculateTotalSpent(this.displayedRecords);
+      this.displayedRecords = sortData(filterData(this.calRecords, searchStr), this.sort);
+      this.spentTotal = calculateTotalSpent(this.displayedRecords);
     }
   }
 
-  calculateTotalSpent(myArray: ICalRecord[]) {
-    const totalCost = myArray
-      .map(t => 100 * t.costNum)
-      .reduce((acc, value) => acc + value, 0);
-
-    console.log('totalCost', totalCost);
-    return totalCost/100;
+  clearFilter(filter: HTMLInputElement) {
+    filter.value = '';
+    this.displayedRecords = sortData(this.calRecords, this.sort);
   }
 
-  sortData(sort: Sort) {
-    const data = this.displayedRecords?.slice();
-
-    function compare(a: any, b: any, isAsc: boolean) {
-      if (!a) a = '';
-      if (!b) b = '';
-      return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
-    }
-
-    this.displayedRecords = data?.sort((a, b) => {
-      const isAsc = sort.direction === 'asc';
-      const columnToSort = sort.active as keyof ICalRecord;
-
-      if (columnToSort === 'costNis') return compare(a.costNum, b.costNum, isAsc);
-      else return compare(a[columnToSort], b[columnToSort], isAsc);
-
-    });
+  sortTransactions(sort: Sort) {
+    this.sort = sort;
+    this.displayedRecords = sortData(this.displayedRecords, sort);
   }
 
   onSelect(data: any): void {
-    console.log('Item clicked', JSON.parse(JSON.stringify(data)));
+    // console.log('Item clicked', JSON.parse(JSON.stringify(data)));
     this.activeCategory = [{ name: data.name,  value: '#ff6200' }];
     this.filterTransactions(data.name);
   }
 
   async download() {
     const resp = await fetch('/cal-download.api');
-    console.log(await resp.text())
+    if (resp.ok) resp.arrayBuffer().then(data => this.processDataV2(new Uint8Array(data, 70)));
+    else console.error(resp.statusText);
   }
 }

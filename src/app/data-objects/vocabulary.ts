@@ -8,13 +8,19 @@ export const vocabulary: IPayment[] = [{
 }, {
   "keyword": "אנאל מרקט", "translation": "Supermarket", category: 'food'
 }, {
+  "keyword": "אי.אם.פי.אם", "translation": "AM:PM", category: 'food'
+}, {
   "keyword": "שניצל קומפני", "translation": "Schnitzel Company", category: 'restaurants'
 }, {
   "keyword": "גומבה", "translation": "Goomba cafe", category: 'restaurants'
 }, {
+  "keyword": "נונו מימי", "translation": "Nono Mimi cafe", category: 'restaurants'
+}, {
   "keyword": "קפה לנדוור", "translation": "Cafe Landver", category: 'restaurants'
 }, {
   "keyword": "רולדין", "translation": "Roladin Bakery", category: 'food'
+}, {
+  "keyword": "אוהד המוציא לחם בעמ", "translation": "Bread bakery in Tel-Aviv", category: 'food'
 }, {
   "keyword": "שומשום", "translation": "SumSum cafe", category: 'restaurants'
 }, {
@@ -92,6 +98,8 @@ export const vocabulary: IPayment[] = [{
 }, {
   "keyword": "העברה ב BIT", "translation": "Bit"
 }, {
+  "keyword": "XOBYAP", "translation": "Paybox transfer "
+}, {
   "keyword": "KSP", "translation": "KSP", category: 'household'
 }, {
   "keyword": "קיי אס פי", "translation": "KSP", category: 'household'
@@ -160,6 +168,8 @@ export const vocabulary: IPayment[] = [{
   "keyword": "בולנז'רי 96", "translation": "Bakery", category: 'food'
 }, {
   "keyword": "אייס סינרמה", "translation": "ACE Home", category: "household"
+}, {
+  "keyword": "מכבסת", "translation": "Laundry", category: "household"
 }, {
   "keyword": "דקטלון", "translation": "Decathlon"
 }, {

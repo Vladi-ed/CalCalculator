@@ -13,16 +13,16 @@
     </label>
 
     <mat-label style="padding-left: 18px">{{ csvInput.files?.item(0)?.name }}</mat-label>
-    <mat-label><a href="https://services.cal-online.co.il/Card-Holders/SCREENS/Transactions/Transactions.aspx" target="_blank">Go to download page</a></mat-label>
-    <mat-label style="padding-left: 18px; cursor: pointer" (click)="download()">Try to download</mat-label>
+    <mat-label style="padding-left: 18px"><a href="https://services.cal-online.co.il/Card-Holders/SCREENS/Transactions/Transactions.aspx" target="_blank">Go to download page</a></mat-label>
+<!--    <mat-label style="padding-left: 18px; cursor: pointer" (click)="download()">Try to download</mat-label>-->
   </header>
 
 
   <div class="filter-area" style="display: flex; justify-content: space-between">
     <mat-form-field appearance="standard">
       <mat-label>Filter</mat-label>
-      <input matInput #filter (keyup)="filterTransactions(filter.value)" type="search">
-      <span *ngIf="filter.value" matSuffix aria-label="Clear" (click)="filter.value=''; filterTransactions('')">
+      <input matInput #filter (input)="filterTransactions(filter.value)" type="search">
+      <span *ngIf="filter.value" matSuffix aria-label="Clear" (click)="clearFilter(filter)" style="cursor: pointer">
         <svg xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -5 24 24" width="18px" fill="gray">
           <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
         </svg>
@@ -49,7 +49,7 @@
   </div>
 
   <div class="mat-elevation-z5" style="overflow: auto">
-    <table mat-table [dataSource]="displayedRecords" matSort (matSortChange)="sortData($event)" matSortDisableClear="true">
+    <table mat-table [dataSource]="displayedRecords" matSort (matSortChange)="sortTransactions($event)" matSortDisableClear="true">
 
       <!-- Date Column -->
       <ng-container matColumnDef="date">
