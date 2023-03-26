@@ -1,6 +1,5 @@
 <main>
-  <header style="display: flex; align-items: center;">
-
+  <header>
     <h1>Select CSV file</h1>
     <!--  <input type="file" id="input" (change)="onUpload($event.target)" accept="text/csv, .xls"/>-->
 
@@ -14,6 +13,8 @@
     </label>
 
     <mat-label style="padding-left: 18px">{{ csvInput.files?.item(0)?.name }}</mat-label>
+    <mat-label><a href="https://services.cal-online.co.il/Card-Holders/SCREENS/Transactions/Transactions.aspx" target="_blank">Go to download page</a></mat-label>
+    <mat-label style="padding-left: 18px; cursor: pointer" (click)="download()">Try to download</mat-label>
   </header>
 
 
@@ -35,7 +36,7 @@
 
   </div>
 
-  <div class="mat-elevation-z8" *ngIf="showGraph" style="display: flex; flex-wrap: wrap; height: 500px">
+  <div class="mat-elevation-z5" *ngIf="showGraph" style="display: flex; flex-wrap: wrap; height: 500px">
 
     <ngx-charts-advanced-pie-chart
       [results]="chartData"
@@ -47,7 +48,7 @@
 
   </div>
 
-  <div class="mat-elevation-z8" style="overflow: auto">
+  <div class="mat-elevation-z5" style="overflow: auto">
     <table mat-table [dataSource]="displayedRecords" matSort (matSortChange)="sortData($event)" matSortDisableClear="true">
 
       <!-- Date Column -->

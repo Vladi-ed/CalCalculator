@@ -9,6 +9,10 @@ main {
   padding: 20px 50px;
 }
 
+header {
+  display: flex; align-items: center;
+}
+
 header > h1 {
   display: inline-block;
   margin-right: 30px;

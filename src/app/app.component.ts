@@ -148,4 +148,9 @@ export class AppComponent {
     this.activeCategory = [{ name: data.name,  value: '#ff6200' }];
     this.filterTransactions(data.name);
   }
+
+  async download() {
+    const resp = await fetch('/cal-download.api');
+    console.log(await resp.text())
+  }
 }
