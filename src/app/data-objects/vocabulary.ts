@@ -98,23 +98,25 @@ export const vocabulary: IPayment[] = [{
 }, {
   "keyword": "העברה ב BIT", "translation": "Bit"
 }, {
-  "keyword": "XOBYAP", "translation": "Paybox transfer "
+  "keyword": "XOBYAP", "translation": "Paybox transfer"
 }, {
   "keyword": "KSP", "translation": "KSP", category: 'household'
 }, {
   "keyword": "קיי אס פי", "translation": "KSP", category: 'household'
 }, {
-  "keyword": "AMZN", "translation": "Amazon", category: "household"
+  "keyword": "AMZN", "translation": "Amazon", category: 'household'
 }, {
-  "keyword": "ALIPAY", "translation": "AliExpress",
+  "keyword": "ALIPAY", "translation": "AliExpress", category: 'household'
 }, {
-  "keyword": "aliexpress", "translation": "AliExpress",
+  "keyword": "aliexpress", "translation": "AliExpress", category: 'household'
 }, {
   "keyword": "פיצה עגבניה דיזינגוף", "translation": "Pizza Dizingoff Center", category: 'food'
 }, {
-  "keyword": "קפה נואר", "translation": "Cafe Noar", category: 'food'
+  "keyword": "קפה נואר", "translation": "Cafe Noar", category: 'restaurants'
 }, {
-  "keyword": "קפה קפה", "translation": "Cafe-Cafe", category: 'food'
+  "keyword": "התיאלנדית בסמטת סיני", "translation": "Thailand cafe Har Sinai", category: 'restaurants'
+}, {
+  "keyword": "קפה קפה", "translation": "Cafe-Cafe", category: 'restaurants'
 }, {
   "keyword": "רנו אמיליה",
   "translation": "Reno Emilia restaurant",
@@ -127,7 +129,7 @@ export const vocabulary: IPayment[] = [{
 }, {
   "keyword": "ארנונה", "translation": "Arnona", category: "household"
 }, {
-  "keyword": "טמבור לילנבלום", "translation": "Construction store near office"
+  "keyword": "טמבור לילנבלום", "translation": "Construction store near office", category: "household"
 }, {
   "keyword": "חניון מגדל אלקטרה", "translation": "Parking Maccabi", category: 'transport'
 }, {
