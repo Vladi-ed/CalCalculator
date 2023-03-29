@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, ElementRef, ViewChild} from '@angular/core';
 import {parse as csvParseToObject} from 'csv-parse/browser/esm/sync';
 import {comments} from "./data-objects/comments";
 import {vocabulary} from './data-objects/vocabulary';
@@ -23,6 +23,7 @@ export class AppComponent {
   chartData: { name: string, value: number } [] = [];
   activeCategory: any;
   private sort?: Sort;
+  @ViewChild('filter') private filter?: ElementRef;
 
   onUpload(target: FileList | null) {
     const file = target?.item(0);
@@ -108,6 +109,7 @@ export class AppComponent {
   clearFilter(filter: HTMLInputElement) {
     filter.value = '';
     this.displayedRecords = sortData(this.calRecords, this.sort);
+    this.spentTotal = calculateTotalSpent(this.displayedRecords);
   }
 
   sortTransactions(sort: Sort) {
@@ -119,6 +121,8 @@ export class AppComponent {
     // console.log('Item clicked', JSON.parse(JSON.stringify(data)));
     this.activeCategory = [{ name: data.name,  value: '#ff6200' }];
     this.filterTransactions(data.name);
+    console.log(this.filter)
+    if (this.filter) this.filter.nativeElement.value = data.name;
   }
 
   async download() {

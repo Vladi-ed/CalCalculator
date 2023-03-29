@@ -3,9 +3,10 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+// ngx-charts legend style fixes
 .legend-item {
   margin-right: 36px !important;
-  margin-bottom: 5px;
+  margin-bottom: 6px;
 
   .item-value {
     margin-top: 0 !important;
@@ -22,10 +23,18 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 /*  margin: 5px !important;*/
 /*}*/
 
-//Angular material 15 style fixes for text fields
+// Angular Material@15 style fixes for text fields
 
 .mat-mdc-form-field-focus-overlay {
   display: none;
+}
+
+.mat-mdc-form-field-icon-suffix {
+  align-self: auto !important;
+}
+
+.mat-mdc-form-field-subscript-wrapper {
+  height: 14px; // space below the search field
 }
 
 .mdc-text-field--filled {
@@ -40,9 +49,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   transform: translateY(-106%) scale(0.75) !important;
 }
 
-.mat-mdc-form-field-subscript-wrapper {
-  height: 14px;
-}
+
+// Angular Material@15 style fixes for slide-toggle
 
 .mdc-switch__icon {
   display: none;

@@ -9,7 +9,7 @@
     <input #csvInput id="input-file-id" hidden type="file" onclick="this.value=null" (change)="onUpload(csvInput.files)" accept=".xls"/>
 
     <mat-label *ngIf="csvInput.files?.length">{{ csvInput.files?.item(0)?.name }}</mat-label>
-    <mat-label matRipple [hidden]="chartData.length">
+    <mat-label matRipple [hidden]="csvInput.files?.length">
       <a href="https://services.cal-online.co.il/Card-Holders/SCREENS/Transactions/Transactions.aspx" target="_blank">
         Go to download page
       </a>
@@ -19,12 +19,12 @@
   <div class="filter-area">
     <mat-form-field>
       <mat-label>Filter</mat-label>
-      <input matInput #filter (input)="filterTransactions(filter.value)" type="search">
-<!--      <span *ngIf="filter.value" matSuffix aria-label="Clear" (click)="clearFilter(filter)" style="cursor: pointer">-->
-<!--        <svg xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -5 24 24" width="18px" fill="gray">-->
-<!--          <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>-->
-<!--        </svg>-->
-<!--      </span>-->
+      <input matInput #filter (input)="filterTransactions(filter.value)">
+      <span matSuffix [style.opacity]="filter.value ? 1 : 0" aria-label="Clear" (click)="clearFilter(filter)" style="cursor: pointer">
+        <svg xmlns="http://www.w3.org/2000/svg" height="18px" width="18px" viewBox="0 -5 24 24" fill="gray">
+          <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+        </svg>
+      </span>
     </mat-form-field>
     <div style="flex-grow: 1" class="hidden-mobile"></div>
     <mat-slide-toggle (click)="showGraph = !showGraph" style="padding-top: 10px"><span class="hidden-mobile">Show</span> Graph</mat-slide-toggle>
@@ -86,7 +86,7 @@
 
       <!-- costNis Column -->
       <ng-container matColumnDef="costNis">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header=""> CostNis </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header=""> Cost ₪ </th>
         <td mat-cell *matCellDef="let row"> {{row.costNis}} </td>
         <td mat-footer-cell *matFooterCellDef> {{ spentTotal | currency:'₪ ' }} </td>
       </ng-container>
@@ -113,9 +113,10 @@
       <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
       <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
 
-      <!-- Row shown when there is no matching data. -->
+      <!-- No results row -->
       <tr class="mdc-data-table__row" *matNoDataRow>
         <td class="mdc-data-table__cell" colspan="4" *ngIf="calRecords">No data matching the filter "{{filter.value}}"</td>
+        <td class="mdc-data-table__cell" colspan="4" *ngIf="!calRecords">Please load the Transactions file</td>
       </tr>
     </table>
   </div>
