@@ -13,7 +13,61 @@ header.header {
   display: flex;
   align-items: center;
   gap: 30px;
+  margin-bottom: 1px;
 }
+
+.filter-area {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: center;
+
+  .go-down {
+    font-size: 14px;
+    text-align: center;
+    padding-top: 10px;
+    padding-right: 15px;
+    white-space: nowrap;
+    letter-spacing: 0.25px;
+    color: rgba(0, 0, 0, 0.87);
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+
+table {
+  width: 100%;
+}
+
+td.mat-mdc-footer-cell {
+  white-space: nowrap;
+  font-weight: 500;
+}
+
+.mat-column-count {
+  padding-right: 0;
+}
+
+.select-file-btn {
+  display: flex;
+  border: 1px solid gray;
+  padding: 10px 15px;
+  border-radius: 4px;
+  margin-top: -2px;
+  /*margin-left: -6px;*/
+  cursor: pointer;
+}
+
+a {
+  color: black;
+}
+
+.graph-container {
+  display: flex;
+  flex-wrap: wrap;
+  height: 500px;
+}
+
 
 @media only screen and (max-width: 600px) {
   main {
@@ -24,55 +78,26 @@ header.header {
     display: none;
   }
 
-  div.filter-area {
-    padding-left: 20px;
+  .filter-area {
+    justify-content: space-around;
   }
 
-  td.mat-cell {
-    padding: 5px 10px;
+  .mat-mdc-header-cell {
+    padding-right: 0;
+    white-space: nowrap;
   }
-}
+  .mat-mdc-cell {
+    padding-right: 0;
+  }
+  .mat-mdc-footer-cell {
+    padding-right: 0;
+  }
 
-table {
-  width: 100%;
-}
+  .graph-container {
+    height: 200px;
+  }
 
-td.mat-mdc-footer-cell {
-  font-weight: 500;
-}
-
-/*mat-mdc-footer-row mdc-data-table__row cdk-footer-row ng-star-inserted*/
-
-td.mat-mdc-column-costNis {
-  white-space: nowrap;
-}
-
-td.mat-mdc-cell {
-  padding-right: 6px;
-}
-
-td.mat-mdc-column-count {
-  padding-right: 0;
-}
-
-label.select-file-btn {
-  display: flex;
-  border: 1px solid gray;
-  padding: 10px 15px;
-  border-radius: 4px;
-  /*margin-top: -2px;*/
-  /*margin-left: -6px;*/
-  cursor: pointer;
-}
-
-button.show-graph {
-  padding: 10px 15px;
-  display: flex;
-  height: 40px;
-  font-size: 14px;
-  margin-top: 20px;
-}
-
-a {
-  color: black;
+  .hidden-mobile {
+    display: none;
+  }
 }

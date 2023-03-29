@@ -1,28 +1,22 @@
 <main>
   <header class="header">
     <h1>Select CSV file</h1>
-    <!--  <input type="file" id="input" (change)="onUpload($event.target)" accept="text/csv, .xls"/>-->
 
-    <!--  <input #csvInput hidden type="file" onclick="this.value=null" (change)="csvInputChange($event)" accept="text/csv, .xls"/>-->
-    <!--  <button mat-flat-button color="primary" (click)="csvInput.click()">Choose File (CSV)</button>-->
-
-    <input #csvInput id="input-file-id" hidden type="file" onclick="this.value=null" (change)="onUpload(csvInput.files)" accept="text/csv, .xls"/>
     <label for="input-file-id" class="select-file-btn mat-elevation-z1" matRipple>
       <svg xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 0 24 24" width="18px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11zM8 15.01l1.41 1.41L11 14.84V19h2v-4.16l1.59 1.59L16 15.01 12.01 11z"/></svg>
       <span style="margin-left: 5px">Choose File</span>
     </label>
+    <input #csvInput id="input-file-id" hidden type="file" onclick="this.value=null" (change)="onUpload(csvInput.files)" accept=".xls"/>
 
     <mat-label *ngIf="csvInput.files?.length">{{ csvInput.files?.item(0)?.name }}</mat-label>
-    <mat-label>
+    <mat-label matRipple [hidden]="chartData.length">
       <a href="https://services.cal-online.co.il/Card-Holders/SCREENS/Transactions/Transactions.aspx" target="_blank">
         Go to download page
       </a>
     </mat-label>
-<!--    <mat-label style="padding-left: 18px; cursor: pointer" (click)="download()">Try to download</mat-label>-->
   </header>
 
-
-  <div class="filter-area" style="display: flex; justify-content: space-between">
+  <div class="filter-area">
     <mat-form-field>
       <mat-label>Filter</mat-label>
       <input matInput #filter (input)="filterTransactions(filter.value)" type="search">
@@ -32,17 +26,13 @@
 <!--        </svg>-->
 <!--      </span>-->
     </mat-form-field>
-<!--    <button class="show-graph mat-elevation-z3" (click)="showGraph = !showGraph">Show graph</button>-->
-    <div style="padding-top: 40px; padding-right: 20px; padding-left: 20px" [hidden]="chartData.length == 0">
-      <mat-slide-toggle (click)="showGraph = !showGraph">Show graph</mat-slide-toggle>
-<!--      <a href="#" matRipple (click)="showGraph = !showGraph" style="margin-right: 20px">{{showGraph ? 'Hide' : 'Show'}} graph</a>-->
-      <a href="#footer" matRipple style="font-size: 14px; margin-left: 20px">Go down</a>
-    </div>
+    <div style="flex-grow: 1" class="hidden-mobile"></div>
+    <mat-slide-toggle (click)="showGraph = !showGraph" style="padding-top: 10px"><span class="hidden-mobile">Show</span> Graph</mat-slide-toggle>
 
+    <a href="#footer" matRipple class="go-down" [hidden]="chartData.length == 0">Go down</a>
   </div>
 
-  <div class="mat-elevation-z5" *ngIf="showGraph" style="display: flex; flex-wrap: wrap; height: 500px">
-
+  <div class="graph-container mat-elevation-z5" *ngIf="showGraph" style="">
     <ngx-charts-advanced-pie-chart
       [results]="chartData"
       [gradient]="false"
@@ -50,7 +40,6 @@
       (select)="onSelect($event)"
     >
     </ngx-charts-advanced-pie-chart>
-
   </div>
 
   <div class="mat-elevation-z5" style="overflow: auto">
@@ -73,10 +62,9 @@
       <!-- count Column -->
       <ng-container matColumnDef="count">
         <th mat-header-cell *matHeaderCellDef mat-sort-header=""> Count </th>
-        <td mat-cell
-            *matCellDef="let row"
+        <td mat-cell *matCellDef="let row" style="cursor: pointer"
             (click)="filter.value=row.translation || row.description; filterTransactions(row.translation || row.description);"
-            style="cursor: pointer">
+        >
           {{row.count}}
         </td>
         <td mat-footer-cell *matFooterCellDef></td>
@@ -91,9 +79,9 @@
 
       <!-- cost Column -->
       <ng-container matColumnDef="cost">
-        <th mat-header-cell *matHeaderCellDef> Cost </th>
-        <td mat-cell *matCellDef="let row"> {{row.cost}} </td>
-        <td mat-footer-cell *matFooterCellDef></td>
+        <th mat-header-cell *matHeaderCellDef class="hidden-mobile"> Cost </th>
+        <td mat-cell *matCellDef="let row"    class="hidden-mobile"> {{row.cost}} </td>
+        <td mat-footer-cell *matFooterCellDef class="hidden-mobile"></td>
       </ng-container>
 
       <!-- costNis Column -->
@@ -105,15 +93,19 @@
 
       <!-- comment Column -->
       <ng-container matColumnDef="comment">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header=""> Comment </th>
-        <td mat-cell *matCellDef="let row"> {{row.comment}} </td>
-        <td mat-footer-cell *matFooterCellDef></td>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header=""  class="hidden-mobile"> Comment </th>
+        <td mat-cell *matCellDef="let row"  class="hidden-mobile"> {{row.comment}} </td>
+        <td mat-footer-cell *matFooterCellDef  class="hidden-mobile"></td>
       </ng-container>
 
       <!-- category Column -->
       <ng-container matColumnDef="myCategory">
         <th mat-header-cell *matHeaderCellDef mat-sort-header=""> Category </th>
-        <td mat-cell *matCellDef="let row"> {{row.myCategory}} </td>
+        <td mat-cell *matCellDef="let row" style="cursor: pointer"
+            (click)="filter.value=row.myCategory; filterTransactions(row.myCategory);"
+        >
+          {{row.myCategory}}
+        </td>
         <td mat-footer-cell *matFooterCellDef></td>
       </ng-container>
 

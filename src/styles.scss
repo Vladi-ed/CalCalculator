@@ -4,7 +4,8 @@ html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .legend-item {
-  margin-right: 38px !important;
+  margin-right: 36px !important;
+  margin-bottom: 5px;
 
   .item-value {
     margin-top: 0 !important;
@@ -41,4 +42,13 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .mat-mdc-form-field-subscript-wrapper {
   height: 14px;
+}
+
+.mdc-switch__icon {
+  display: none;
+}
+
+#mat-mdc-slide-toggle-1-label {
+  padding-left: 10px;
+  padding-right: 3px;
 }
