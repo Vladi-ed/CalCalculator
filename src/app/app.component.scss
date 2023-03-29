@@ -9,13 +9,10 @@ main {
   padding: 20px 50px;
 }
 
-header {
-  display: flex; align-items: center;
-}
-
-header > h1 {
-  display: inline-block;
-  margin-right: 30px;
+header.header {
+  display: flex;
+  align-items: center;
+  gap: 30px;
 }
 
 @media only screen and (max-width: 600px) {
@@ -40,33 +37,35 @@ table {
   width: 100%;
 }
 
-tr.mat-footer-row {
-  font-weight: bold;
+td.mat-mdc-footer-cell {
+  font-weight: 500;
 }
 
-td.mat-column-costNis {
+/*mat-mdc-footer-row mdc-data-table__row cdk-footer-row ng-star-inserted*/
+
+td.mat-mdc-column-costNis {
   white-space: nowrap;
 }
 
-td.mat-cell {
+td.mat-mdc-cell {
   padding-right: 6px;
 }
 
-td.mat-column-count {
+td.mat-mdc-column-count {
   padding-right: 0;
 }
 
-label.select-file {
+label.select-file-btn {
+  display: flex;
   border: 1px solid gray;
   padding: 10px 15px;
   border-radius: 4px;
-  margin-top: -2px;
-  margin-left: -6px;
+  /*margin-top: -2px;*/
+  /*margin-left: -6px;*/
   cursor: pointer;
-  display: flex;
 }
 
-button.show-graph{
+button.show-graph {
   padding: 10px 15px;
   display: flex;
   height: 40px;

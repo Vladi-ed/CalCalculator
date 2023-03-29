@@ -1,4 +1,4 @@
-# Calcalculator
+# CalCalculator
 
 The service that translate and calculates spendings on Cal credit card.
 

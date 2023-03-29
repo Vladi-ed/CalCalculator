@@ -1,5 +1,5 @@
 <main>
-  <header>
+  <header class="header">
     <h1>Select CSV file</h1>
     <!--  <input type="file" id="input" (change)="onUpload($event.target)" accept="text/csv, .xls"/>-->
 
@@ -7,31 +7,36 @@
     <!--  <button mat-flat-button color="primary" (click)="csvInput.click()">Choose File (CSV)</button>-->
 
     <input #csvInput id="input-file-id" hidden type="file" onclick="this.value=null" (change)="onUpload(csvInput.files)" accept="text/csv, .xls"/>
-    <label for="input-file-id" class="select-file mat-elevation-z3" matRipple>
+    <label for="input-file-id" class="select-file-btn mat-elevation-z1" matRipple>
       <svg xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 0 24 24" width="18px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11zM8 15.01l1.41 1.41L11 14.84V19h2v-4.16l1.59 1.59L16 15.01 12.01 11z"/></svg>
       <span style="margin-left: 5px">Choose File</span>
     </label>
 
-    <mat-label style="padding-left: 18px">{{ csvInput.files?.item(0)?.name }}</mat-label>
-    <mat-label style="padding-left: 10px"><a href="https://services.cal-online.co.il/Card-Holders/SCREENS/Transactions/Transactions.aspx" target="_blank">Go to download page</a></mat-label>
+    <mat-label *ngIf="csvInput.files?.length">{{ csvInput.files?.item(0)?.name }}</mat-label>
+    <mat-label>
+      <a href="https://services.cal-online.co.il/Card-Holders/SCREENS/Transactions/Transactions.aspx" target="_blank">
+        Go to download page
+      </a>
+    </mat-label>
 <!--    <mat-label style="padding-left: 18px; cursor: pointer" (click)="download()">Try to download</mat-label>-->
   </header>
 
 
   <div class="filter-area" style="display: flex; justify-content: space-between">
-    <mat-form-field appearance="standard">
+    <mat-form-field>
       <mat-label>Filter</mat-label>
       <input matInput #filter (input)="filterTransactions(filter.value)" type="search">
-      <span *ngIf="filter.value" matSuffix aria-label="Clear" (click)="clearFilter(filter)" style="cursor: pointer">
-        <svg xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -5 24 24" width="18px" fill="gray">
-          <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
-        </svg>
-      </span>
+<!--      <span *ngIf="filter.value" matSuffix aria-label="Clear" (click)="clearFilter(filter)" style="cursor: pointer">-->
+<!--        <svg xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -5 24 24" width="18px" fill="gray">-->
+<!--          <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>-->
+<!--        </svg>-->
+<!--      </span>-->
     </mat-form-field>
 <!--    <button class="show-graph mat-elevation-z3" (click)="showGraph = !showGraph">Show graph</button>-->
     <div style="padding-top: 40px; padding-right: 20px; padding-left: 20px" [hidden]="chartData.length == 0">
-      <a href="#" matRipple (click)="showGraph = !showGraph" style="margin-right: 20px">{{showGraph ? 'Hide' : 'Show'}} graph</a>
-      <a href="#footer" matRipple>Go down</a>
+      <mat-slide-toggle (click)="showGraph = !showGraph">Show graph</mat-slide-toggle>
+<!--      <a href="#" matRipple (click)="showGraph = !showGraph" style="margin-right: 20px">{{showGraph ? 'Hide' : 'Show'}} graph</a>-->
+      <a href="#footer" matRipple style="font-size: 14px; margin-left: 20px">Go down</a>
     </div>
 
   </div>
@@ -117,8 +122,8 @@
       <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
 
       <!-- Row shown when there is no matching data. -->
-      <tr class="mat-row" *matNoDataRow>
-        <td class="mat-cell" colspan="4" *ngIf="calRecords">No data matching the filter "{{filter.value}}"</td>
+      <tr class="mdc-data-table__row" *matNoDataRow>
+        <td class="mdc-data-table__cell" colspan="4" *ngIf="calRecords">No data matching the filter "{{filter.value}}"</td>
       </tr>
     </table>
   </div>

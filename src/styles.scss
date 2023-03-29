@@ -1,0 +1,44 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.legend-item {
+  margin-right: 38px !important;
+
+  .item-value {
+    margin-top: 0 !important;
+    margin-bottom: 5px !important;
+  }
+
+  .item-color {
+    /*height: 55px !important;*/
+    border-left-width: 5px !important;
+  }
+}
+/*.pie-label {*/
+/*  font-size: 14px !important;*/
+/*  margin: 5px !important;*/
+/*}*/
+
+//Angular material 15 style fixes for text fields
+
+.mat-mdc-form-field-focus-overlay {
+  display: none;
+}
+
+.mdc-text-field--filled {
+  background-color: white !important;
+}
+
+.mdc-text-field .mdc-floating-label {
+  transform: unset !important;
+}
+
+.mdc-text-field--filled .mdc-floating-label--float-above {
+  transform: translateY(-106%) scale(0.75) !important;
+}
+
+.mat-mdc-form-field-subscript-wrapper {
+  height: 14px;
+}
