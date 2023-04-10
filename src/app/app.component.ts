@@ -16,7 +16,7 @@ import {filterData} from "./functions/filter-data";
 export class AppComponent {
   calRecords?: ICalRecord[];
   displayedRecords: ICalRecord[] = [];
-  displayedColumns: (keyof ICalRecord)[] = ['date',	'description', 'count', 'translation', 'myCategory', 'cost',	'costNis', 'comment'];
+  displayedColumns: (keyof ICalRecord)[] = ['date',	'description', 'count', 'translation', 'cost', 'costNis', 'myCategory', 'comment'];
   spentTotal?: number;
 
   showGraph: boolean = false;

@@ -12,6 +12,8 @@ export const vocabulary: IPayment[] = [{
 }, {
   "keyword": "שניצל קומפני", "translation": "Schnitzel Company", category: 'restaurants'
 }, {
+  "keyword": "ירוקים", "translation": "Hummus Zvi 2", category: 'restaurants'
+}, {
   "keyword": "גומבה", "translation": "Goomba cafe", category: 'restaurants'
 }, {
   "keyword": "נונו מימי", "translation": "Nono Mimi cafe", category: 'restaurants'
@@ -43,6 +45,8 @@ export const vocabulary: IPayment[] = [{
   "keyword": "אדמונד", "translation": "Cafe Edmund", category: 'restaurants'
 }, {
   "keyword": "טיב טעם", "translation": "Tiv Tam", category: 'food'
+}, {
+  "keyword": "רמי לוי", "translation": "Rami Levi", category: 'food'
 }, {
   "keyword": "לחם ארז", "translation": "Lehem", category: 'food'
 }, {
