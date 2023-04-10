@@ -22,8 +22,4 @@ So if you're a Cal Credit Card user looking to take control of your personal fin
 Project is deployed automatically to https://cal-calculator.pages.dev on every commit/push.
 
 ### TODOs
-- Think about date format
-- Make graph an goDown buttons a little higher 
-- Fix margin-bottom on mobile
-- Go up button is not visible on iphone when scroll up
-- add PWA install
+- add PWA install?

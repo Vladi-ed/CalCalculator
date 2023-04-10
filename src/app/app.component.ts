@@ -61,8 +61,10 @@ export class AppComponent {
       }
     });
 
+    // removes summary
+    records.pop();
 
-    records.pop(); // removes summary
+    // add new fields
     records.forEach(line => {
       // count number of similar operations
       line.count = records.filter(v => v.description == line.description).length;
@@ -77,7 +79,7 @@ export class AppComponent {
       line.costNum = Number(line.costNis.replace(/[^0-9.-]+/g, ''));
     })
 
-    console.log(records);
+    // console.log(records);
 
     this.calRecords = records;
     this.displayedRecords = records;
