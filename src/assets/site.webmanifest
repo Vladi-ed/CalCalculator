@@ -1,6 +1,7 @@
 {
     "name": "CalCalculator",
     "short_name": "CalC",
+    "description": "Web Application that translates financial operations that was made using Cal credit card and provides several tools to analyse you personal finances.",
     "icons": [
        {
           "src": "assets/android-chrome-192x192.png",
