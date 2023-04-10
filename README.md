@@ -17,9 +17,12 @@ So if you're a Cal Credit Card user looking to take control of your personal fin
 6. Now you can see a translation for known operations, can sort, filter, ext.
 7. PROFIT!!!11
 
+## Security
+
+Once the web application is loaded it's NOT making any server requests or API calls - everything is working locally in users' browser.
+The application does NOT send any data anywhere.
+
 ## Deployment
 
 Project is deployed automatically to https://cal-calculator.pages.dev on every commit/push.
 
-### TODOs
-- add PWA install?
