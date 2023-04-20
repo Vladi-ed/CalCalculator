@@ -18,11 +18,23 @@ export const vocabulary: IPayment[] = [{
 }, {
   "keyword": "נונו מימי", "translation": "Nono Mimi cafe", category: 'restaurants'
 }, {
+  "keyword": "אוליב", "translation": "Olive cafe", category: 'restaurants'
+}, {
   "keyword": "קפה לנדוור", "translation": "Cafe Landver", category: 'restaurants'
 }, {
   "keyword": "רולדין", "translation": "Roladin Bakery", category: 'food'
 }, {
+  "keyword": "בלונזרי 96", "translation": "Boulangerie 96 Bakery", category: 'food'
+}, {
+  "keyword": "בולנז'רי 96", "translation": "Boulangerie 96 Bakery", category: 'food'
+}, {
+  "keyword": "מתוקה רמת גן", "translation": "Metuka Bakery", category: 'food',  logo: 'https://www.metuka.co.il/wp-content/uploads/2020/08/metuka_logo.svg'
+}, {
   "keyword": "אוהד המוציא לחם בעמ", "translation": "Bread bakery in Tel-Aviv", category: 'food'
+}, {
+  "keyword": "אלקלעי יין", "translation": "Cafe Elkalai", category: 'restaurants'
+}, {
+  "keyword": "פורת ספרים בעמ", "translation": "Porat Books and Coffee", category: 'restaurants'
 }, {
   "keyword": "שומשום", "translation": "SumSum cafe", category: 'restaurants'
 }, {
@@ -82,6 +94,8 @@ export const vocabulary: IPayment[] = [{
 }, {
   "keyword": "הש. רכב גולף ואופניים גני", "translation": "Golf car rent Park Yarkon", category: "entertainment"
 }, {
+  "keyword": "הפארק הלאומי רמת גן", "translation": "Park Leumi, Ramat Gan", category: "entertainment"
+}, {
   "keyword": "כלבו יחזקאל", "translation": "Construction/electric store", category: "household"
 }, {
   "keyword": "AM YISRAEL", "translation": "TRIBE TEL AVIV", category: 'entertainment'
@@ -124,10 +138,7 @@ export const vocabulary: IPayment[] = [{
 }, {
   "keyword": "קפה קפה", "translation": "Cafe-Cafe", category: 'restaurants'
 }, {
-  "keyword": "רנו אמיליה",
-  "translation": "Reno Emilia restaurant",
-  category: 'restaurants',
-  logo: 'https://lh5.googleusercontent.com/-jVO_1dPbgFM/AAAAAAAAAAI/AAAAAAAAAAA/7H6zZ_QOgaA/s44-p-k-no-ns-nd/photo.jpg'
+  "keyword": "רנו אמיליה", "translation": "Reno Emilia restaurant", category: 'restaurants',
 }, {
   "keyword": "סלופארק טכנולוגיות בעמ", "translation": "Parking Cellopark", category: 'transport'
 }, {
@@ -173,8 +184,6 @@ export const vocabulary: IPayment[] = [{
 }, {
   "keyword": "נכסי אריאל-חניון מרכז ויצ", "translation": "Parking", category: 'transport'
 }, {
-  "keyword": "בולנז'רי 96", "translation": "Bakery", category: 'food'
-}, {
   "keyword": "אייס סינרמה", "translation": "ACE Home", category: "household"
 }, {
   "keyword": "מכבסת", "translation": "Laundry", category: "household"
@@ -194,7 +203,7 @@ export const vocabulary: IPayment[] = [{
   "keyword": "ארטה אמנות הגלידה", "translation": "Italian Ice Cream", category: 'restaurants'
 }, {
   "keyword": "דלאל", "translation": "Dallal Cafe", category: 'restaurants'
-},  {
+}, {
   "keyword": "NEDRAG YOJ", "translation": "Joy Garden (park Leumi)", category: 'restaurants'
 }, {
   "keyword": "אילנס שחקי", "translation": "ILAN'S Cafe", category: 'restaurants'
@@ -241,21 +250,23 @@ export const vocabulary: IPayment[] = [{
 }, {
   "keyword": "עזריאלי גבעתיים", "translation": "Azrieli Givataim"
 }, {
-  "keyword": "הפילהרמונית הישראלית", "translation": "The Israel Philharmonic", category: "entertainment"
+  "keyword": "הפילהרמונית הישראלית", "translation": "The Israel Philharmonic", category: 'entertainment'
 }, {
-  "keyword": "זמן למשפחה", "translation": "Family time concert", category: "entertainment"
+  "keyword": "זמן למשפחה", "translation": "Family time concert", category: 'entertainment'
 }, {
-  "keyword": "STEAM GAMES", "translation": "Steam games", category: "entertainment"
+  "keyword": "STEAM GAMES", "translation": "Steam games", category: 'entertainment'
 }, {
   "keyword": "זארה", "translation": "Zara"
 }, {
+  "keyword": "נעלי במבינו", "translation": "Shoes store"
+}, {
   "keyword": "מי רמת גן בעמ", "translation": "Water company", category: 'household'
 }, {
-  "keyword": "הספרייה", "translation": "Library"
+  "keyword": "הספרייה", "translation": "Library", category: 'entertainment'
 }, {
-  "keyword": "דואר ישראל-עמילות המכס", "translation": "Israel Post - Customs"
+  "keyword": "דואר ישראל-עמילות המכס", "translation": 'Israel Post - Customs'
 }, {
-  "keyword": "מכבידנט", "translation": "Maccabi Dent", category: "health"
+  "keyword": "מכבידנט", "translation": "Maccabi Dent", category: 'health'
 }, {
   "keyword": "משרד התחבורה", "translation": "Ministry of Transport", category: "transport"
 }, {
@@ -267,6 +278,8 @@ export const vocabulary: IPayment[] = [{
 }, {
   "keyword": "דוגי סטיי", "translation": "Pet Shop", category: 'pet'
 }, {
+  "keyword": "זו מרקט", "translation": "Zoo Market", category: 'pet'
+}, {
   "keyword": "GOLANTELECO", "translation": "Golan Telecom", category: "household"
 },  {
   "keyword": "פלאפון", "translation": "Pelephone cellular", category: "household"
@@ -274,6 +287,8 @@ export const vocabulary: IPayment[] = [{
   "keyword": "SHISHISHABB", "translation": "Shishi-Shabbat event", category: 'entertainment'
 }, {
   "keyword": "בית עמנוא", "translation": "Beit Emanuel Kindergarten", category: 'child'
+}, {
+  "keyword": "באזר טהרני ביזן", "translation": "Toys shop", category: 'child'
 }, {
   "keyword": "מאפיית הטאבון", "translation": "Taboon Bakery", category: 'food'
 },  {
@@ -344,6 +359,8 @@ export const vocabulary: IPayment[] = [{
   "keyword": "מינימרקט", "translation": "Minimarket", category: 'food'
 }, {
   "keyword": "חומוס", "translation": "Hummus", category: 'restaurants'
+},  {
+  "keyword": "סושי", "translation": "Sushi", category: 'restaurants'
 }, {
   "keyword": "קופיקס", "translation": "Cofix", category: 'food'
 }];
