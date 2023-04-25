@@ -7,6 +7,10 @@ header.header {
   align-items: center;
   gap: 25px;
   margin-bottom: 1px;
+
+  .flex-separator {
+    flex-grow: 1;
+  }
 }
 
 .filter-area {

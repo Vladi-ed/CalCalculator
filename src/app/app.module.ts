@@ -9,9 +9,10 @@ import {MatRippleModule} from "@angular/material/core";
 import {NgxChartsModule} from "@swimlane/ngx-charts";
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { CloseButtonComponent } from './components/close-button/close-button.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, CloseButtonComponent],
   imports: [BrowserAnimationsModule, MatInputModule, MatTableModule, MatSortModule, MatRippleModule, NgxChartsModule, MatSlideToggleModule, ServiceWorkerModule.register('ngsw-worker.js', {
   enabled: !isDevMode(),
   // Register the ServiceWorker as soon as the application is stable

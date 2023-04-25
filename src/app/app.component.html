@@ -14,12 +14,18 @@
         Go to download page
       </a>
     </label>
+
+    <div class="flex-separator hidden-mobile"></div>
+<!--    <app-close-button></app-close-button>-->
     <label *ngIf="calRecords">
       {{ calRecords.at(0)?.date | date }} – {{ calRecords.at(-1)?.date | date }}
     </label>
+    <label *ngIf="!calRecords" class="" matRipple (click)="onLoadPreset()">
+      <span style="text-decoration: underline">Load example</span>
+    </label>
   </header>
 
-  <div class="filter-area">
+  <div id="filter-area" class="filter-area">
     <mat-form-field>
       <mat-label>Filter</mat-label>
       <input matInput #filter (input)="filterTransactions(filter.value)">
@@ -41,7 +47,7 @@
       [gradient]="false"
       [customColors]="activeCategory"
       (select)="onSelect($event)"
-      [animations]="false"
+      [animations]="true"
     >
     </ngx-charts-advanced-pie-chart>
   </div>
@@ -125,7 +131,7 @@
     </table>
   </div>
 
-  <a href="#" matRipple title="Go up" style="position: fixed; top: 80vh; right: 25px; border-radius: 50%; opacity: 60%" *ngIf="calRecords">
+  <a href="#filter-area" matRipple title="Go up" style="position: fixed; top: 80vh; right: 25px; border-radius: 50%; opacity: 60%" *ngIf="calRecords">
     <svg style="border-radius: 50%; background: white" xmlns="http://www.w3.org/2000/svg" height="48" width="48">
       <path d="M22.5 31.4h3v-9.1l3.7 3.7 2.1-2.1-7.3-7.3-7.3 7.3 2.1 2.1 3.7-3.7ZM24 44q-4.1 0-7.75-1.575-3.65-1.575-6.375-4.3-2.725-2.725-4.3-6.375Q4 28.1 4 24q0-4.15 1.575-7.8 1.575-3.65 4.3-6.35 2.725-2.7 6.375-4.275Q19.9 4 24 4q4.15 0 7.8 1.575 3.65 1.575 6.35 4.275 2.7 2.7 4.275 6.35Q44 19.85 44 24q0 4.1-1.575 7.75-1.575 3.65-4.275 6.375t-6.35 4.3Q28.15 44 24 44Zm0-3q7.1 0 12.05-4.975Q41 31.05 41 24q0-7.1-4.95-12.05Q31.1 7 24 7q-7.05 0-12.025 4.95Q7 16.9 7 24q0 7.05 4.975 12.025Q16.95 41 24 41Zm0-17Z"/></svg>
   </a>

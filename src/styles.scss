@@ -1,12 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html { scroll-behavior: smooth; }
 
 // ngx-charts legend style fixes
 .legend-item {
   margin-right: 36px !important;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 
   .item-value {
     margin-top: 0 !important;
@@ -17,6 +17,21 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     /*height: 55px !important;*/
     border-left-width: 5px !important;
   }
+}
+.total-value {
+  margin-bottom: 8%;
+}
+
+.total-value::before {
+  content: "Total:";
+}
+
+.total-value::after {
+  content: "₪";
+}
+
+.total-label {
+  display: none;
 }
 /*.pie-label {*/
 /*  font-size: 14px !important;*/

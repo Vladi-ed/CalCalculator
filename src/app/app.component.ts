@@ -19,7 +19,7 @@ export class AppComponent {
   displayedColumns: (keyof ICalRecord)[] = ['date',	'description', 'count', 'translation', 'cost', 'costNis', 'myCategory', 'comment'];
   spentTotal?: number;
 
-  showGraph: boolean = false;
+  showGraph = false;
   chartData: { name: string, value: number } [] = [];
   activeCategory: any;
   private sort?: Sort;
@@ -40,6 +40,13 @@ export class AppComponent {
     //     console.log(new TextDecoder().decode(z))
     //     this.processDataV2(z);
     //   });
+  }
+
+  onLoadPreset() {
+    console.time('File processing');
+    fetch('assets/Transactions_example.xls')
+        .then(file => file.arrayBuffer())
+        .then(fileContent => this.processDataV2(new Uint8Array(fileContent, 70)));
   }
 
   processDataV2(content: Uint8Array | string) {
