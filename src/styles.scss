@@ -3,6 +3,11 @@
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 html { scroll-behavior: smooth; }
 
+.loader {
+  text-align: center;
+  padding-top: 50px;
+}
+
 // ngx-charts legend style fixes
 .legend-item {
   margin-right: 36px !important;

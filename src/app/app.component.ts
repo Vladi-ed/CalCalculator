@@ -28,6 +28,7 @@ export class AppComponent {
   onUpload(target: FileList | null) {
     const file = target?.item(0);
     console.time('File processing');
+
     // file?.text().then(fileContent => this.processDataV2(fileContent));
     // file?.stream().getReader().read().then(fileContent => this.processDataV2(fileContent.value || ''));
     // this.processDataV2(file?.slice().text())

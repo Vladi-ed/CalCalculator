@@ -1,0 +1,40 @@
+<dialog #helpDialog>
+    <h2>Help</h2>
+    <div style="max-height: 55vh; max-width: 600px; overflow: auto; text-align: left; margin-bottom: 20px">
+        <p>
+            In order to precess and show your credit card transactions please go to <a>Cal Website (desktop version)</a>, select desired reporting dates and download the
+            report (press Export button).
+        </p>
+        <p>
+            Then load the file into the Cal-Calculator App.
+        </p>
+        <p>
+            You can see your transactions in the table with translation where you can sort and filter your data.
+        </p>
+        <p>
+            Note: No data transferred anywhere outside of the app. All the data precessing happens locally on your device/browser.
+        </p>
+        Please contact support in case of failure.
+    </div>
+    <form>
+        <button formmethod="dialog" style="padding: 5px 20px; float: right">OK</button>
+    </form>
+</dialog>
+
+<dialog #aboutDialog>
+    <h2>About</h2>
+    <div style="max-height: 55vh; max-width: 600px; overflow: auto; text-align: left; margin-bottom: 20px">
+        <p>Copyright 2023 © Vladi Ed</p>
+        <p>App version: {{appVersion}}</p>
+        Angular version: {{ngVersion}}
+    </div>
+    <form>
+        <button formmethod="dialog" style="padding: 5px 20px; float: right">OK</button>
+    </form>
+</dialog>
+
+<footer>
+    <span class="footer-link" (click)="helpDialog.showModal()">Help</span> &nbsp;
+    <a href="https://github.com/Vladi-ed/CalCalculator" target="_blank">Source code</a> &nbsp;
+    <span class="footer-link" (click)="aboutDialog.showModal()">About</span> &nbsp;
+</footer>
