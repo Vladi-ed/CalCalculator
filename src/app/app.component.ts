@@ -1,12 +1,14 @@
 import {Component, ElementRef, ViewChild} from '@angular/core';
 import {parse as csvParseToObject} from 'csv-parse/browser/esm/sync';
-import {comments} from "./data-objects/comments";
+import {comments} from './data-objects/comments';
 import {vocabulary} from './data-objects/vocabulary';
 import {ICalRecord} from "./interfaces/ICalRecord";
 import {Sort} from '@angular/material/sort';
-import {calculateTotalSpent} from "./functions/calculate-total-spent";
-import {sortData} from "./functions/sort-data";
-import {filterData} from "./functions/filter-data";
+import {calculateTotalSpent} from './functions/calculate-total-spent';
+import {sortData} from './functions/sort-data';
+import {filterData} from './functions/filter-data';
+// import {default as readXlsxFile} from 'read-excel-file'
+import { read, utils } from 'xlsx';
 
 @Component({
   selector: 'app-root',
@@ -25,15 +27,76 @@ export class AppComponent {
   private sort?: Sort;
   @ViewChild('filter') private filter?: ElementRef;
 
-  onUpload(target: FileList | null) {
-    const file = target?.item(0);
+  onUpload(target: HTMLInputElement) {
+    const file = target.files?.item(0);
     console.time('File processing');
 
     // file?.text().then(fileContent => this.processDataV2(fileContent));
     // file?.stream().getReader().read().then(fileContent => this.processDataV2(fileContent.value || ''));
     // this.processDataV2(file?.slice().text())
 
-    file?.arrayBuffer().then(fileContent => this.processDataV2(new Uint8Array(fileContent, 70)));
+    // const schema = {
+    //   date: {
+    //     prop: 'date',
+    //     type: String,
+    //     required: true
+    //   },
+    //   description: {
+    //     prop: 'description',
+    //     type: String,
+    //     required: true
+    //   },
+    //   cost: {
+    //     prop: 'cost',
+    //     type: Number,
+    //     required: true
+    //   },
+    // }
+
+
+    if (file?.name.endsWith('.xlsx'))
+      file?.arrayBuffer().then(fileContent => {
+      const wb = read(fileContent, { type: 'file' });
+      const sheet = wb.Sheets[wb.SheetNames[0]];
+      utils.sheet_add_aoa(sheet, [['date', 'description', 'cost', 'currency', 'chargingDate', 'costNum', 'currency2', 'transactionType', 'category', 'cardId',  'comment']], { origin: "A1" });
+      const data = utils.sheet_to_json<ICalRecord>(sheet);
+      console.log(data);
+      this.processDataV3(data);
+    });
+    else
+      file?.arrayBuffer().then(fileContent => this.processDataV2(new Uint8Array(fileContent, 70)));
+
+
+
+    // readXlsxFile(file!, {schema, transformData(data) {
+    //
+    //   const dataToParse = data.slice(9);
+    //
+    //   // console.log(dataToParse[3][0]);
+    //
+    //   const fixDate = (dateStr: any) => {
+    //     const dateSplit = String(dateStr).split('/');
+    //     return dateSplit[1] + '/' + dateSplit[0] + '/' + dateSplit[2];
+    //   }
+    //
+    //   dataToParse.forEach(row => row[0] = fixDate(row[0]));
+    //
+    //   dataToParse.unshift(['date', 'description', 'cost',	'costNis', 'comment']);
+    //
+    //   return dataToParse;
+    //
+    //     // // Add a missing header row.
+    //     // return [['DATE', 'NAME', '...']].concat(data)
+    //     // // Remove irrelevant rows.
+    //     // return data.filter(row => row.filter(column => column !== null).length > 0)
+    //   }
+    // } ).then((rows) => {
+    //   // `rows` is an array of rows
+    //   // each row being an array of cells.
+    //   console.log(rows);
+    // })
+
+
 
     // file?.arrayBuffer()
     //   .then(fileContent => {
@@ -108,6 +171,61 @@ export class AppComponent {
 
     console.timeEnd('File processing');
   }
+
+  processDataV3(records: any[]) {
+
+    records.shift();
+    records.shift();
+
+    const index = records.findIndex((cell) => (cell.date as string).includes('עסקאות לחיוב ב'));
+    if (index > -1) { // only splice array when item is found
+      records.splice(index, 1); // 2nd parameter means remove one item only
+    }
+
+    console.log(records);
+
+    const fixDate = (dateStr: any) => {
+      const dateSplit = String(dateStr).split('/');
+      return dateSplit[1] + '/' + dateSplit[0] + '/' + dateSplit[2];
+    }
+
+    // add new fields
+    records.forEach(line => {
+
+      line.date = fixDate(line.date);
+
+      // count number of similar operations
+      line.count = records.filter(v => v.description == line.description).length;
+
+      // add translation
+      line.translation = vocabulary?.find(item => line.description.includes(item.keyword))?.translation;
+
+      // add category
+      line.myCategory = vocabulary?.find(item => line.description.includes(item.keyword))?.category;
+    })
+
+    // console.log(records);
+
+    this.calRecords = records;
+    this.displayedRecords = records;
+
+    const groupBy = <T>(array: T[], predicate: (value: T, index: number, array: T[]) => string) =>
+        array.reduce((acc, value, index, array) => {
+          (acc[predicate(value, index, array)] ||= []).push(value);
+          return acc;
+        }, {} as { [key: string]: T[] });
+
+    this.chartData = Object
+        .entries(groupBy(records, r => r.myCategory || 'other'))
+        .map(entry =>({ name: entry[0], value: calculateTotalSpent(entry[1]) }))
+        .sort((a, b) => (a.value > b.value ? -1 : 1))
+
+    console.log('chartData', this.chartData);
+    this.spentTotal = calculateTotalSpent(this.displayedRecords);
+
+    console.timeEnd('File processing');
+  }
+
 
   filterTransactions(searchStr: string) {
     if (this.calRecords) {
