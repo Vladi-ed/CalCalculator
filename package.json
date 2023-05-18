@@ -1,10 +1,11 @@
 {
   "name": "calcalculator",
-  "version": "0.5.0",
+  "version": "0.5.2",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "wrangler-dev": "ng build && wrangler pages dev ./dist",
     "watch": "ng build --watch --configuration development"
   },
   "private": true,
@@ -34,6 +35,7 @@
     "@types/d3-scale": "^4.0.3",
     "@types/d3-selection": "^3.0.5",
     "@types/d3-shape": "^3.1.1",
+    "wrangler": "latest",
     "typescript": "~5.0.4"
   }
 }

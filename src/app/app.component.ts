@@ -200,6 +200,7 @@ export class AppComponent {
 
     const resp = await fetch('/cal-download.api', { method: 'POST', body });
     resp.json().then(data => {
+      // data.result.transArr
       console.log('mydata', data)
     });
   }
