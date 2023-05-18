@@ -3,7 +3,9 @@ export const onRequestGet = async ({ request }) => {
   const requestParams = new URL(request.url).searchParams;
   const last4Digits = requestParams.get('last4Digits');
 
-  if (!last4Digits) return new Response();
+  if (!last4Digits || !requestParams.get('tz')) return new Response('Missing data' + requestParams.toString(), { status: 400, statusText: 'Missing data'});
+
+
 
   const body = JSON.stringify({
     userId: requestParams.get('tz'),
@@ -12,6 +14,8 @@ export const onRequestGet = async ({ request }) => {
     sMSTemplate: null,
     recaptcha: ""
   })
+
+  console.log(body);
 
   // request token by whatsUp
   // resp: {"token":"98954f42-e807-49e4-a876-0b45d0aa617e","phoneNumber":"058-*****88"}
