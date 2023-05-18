@@ -3,14 +3,12 @@ export const onRequestGet = async ({ request }) => {
   const requestParams = new URL(request.url).searchParams;
   const last4Digits = requestParams.get('last4Digits');
 
-  if (!last4Digits || !requestParams.get('tz')) return new Response('Missing data' + requestParams.toString(), { status: 400, statusText: 'Missing data'});
+  if (!last4Digits || !requestParams.get('tz')) return new Response('Missing data ' + requestParams.toString(), { status: 400, statusText: 'Missing data'});
 
   const body = JSON.stringify({
     userId: requestParams.get('tz'),
     last4Digits,
-    bankAccountNum: last4Digits,
-    sMSTemplate: null,
-    recaptcha: ""
+    bankAccountNum: last4Digits
   })
 
   console.log(body);

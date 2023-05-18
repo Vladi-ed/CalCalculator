@@ -185,8 +185,10 @@ export class AppComponent {
 
   async getCalToken() {
     const resp = await fetch('/whatsup-auth.api?tz=' + this.filter?.nativeElement.value + '&last4Digits=9500');
-    if (resp.ok) resp.json().then(data => this.calToken = data.token);
-    else console.error(resp.statusText);
+    resp.json().then(data => {
+      console.log('whatsup data', data)
+      this.calToken = data.token
+    });
   }
 
   async download(password: string) {
@@ -195,8 +197,10 @@ export class AppComponent {
       password,
       "token": this.calToken
     });
+
     const resp = await fetch('/cal-download.api', { method: 'POST', body });
-    if (resp.ok) resp.json().then(console.log);
-    else console.error(resp.statusText);
+    resp.json().then(data => {
+      console.log('mydata', data)
+    });
   }
 }
