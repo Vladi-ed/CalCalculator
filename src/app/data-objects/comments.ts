@@ -14,5 +14,9 @@ export const comments: IPayment[] = [{
     "keyword": "זיכוי בגין רכישה רגילה", "translation": "Return of Regular payment"
   }, {
     "keyword": "משיכת מזומן", "translation": "Cash withdrawal"
+  }, {
+    "keyword": "עסקה בקליטה", "translation": "Standing Orders"
+  }, {
+    "keyword": "Contact less", "translation": "Contact-less payment"
   },
 ];

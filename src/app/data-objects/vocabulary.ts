@@ -82,6 +82,8 @@ export const vocabulary: IPayment[] = [{
 }, {
   "keyword": "YELLOW", "translation": "Yellow gas station", category: 'transport'
 }, {
+  "keyword": "דור אלון", "translation": "Dor Alon gas station", category: 'transport'
+}, {
   "keyword": "שופרסל", "translation": "Shufersal", category: 'food'
 }, {
   "keyword": "תן ביס", "translation": "10bis", category: 'restaurants'
