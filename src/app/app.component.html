@@ -46,7 +46,7 @@
       [results]="chartData"
       [gradient]="false"
       [customColors]="activeCategory"
-      (select)="onSelect($event)"
+      (select)="onGraphSelect($event)"
       [animations]="true"
     >
     </ngx-charts-advanced-pie-chart>
@@ -137,4 +137,34 @@
   </a>
 
 </main>
+
 <app-footer id="footer"></app-footer>
+
+<label matRipple [hidden]="csvInput.files?.length" (dblclick)="getCalToken(); loginDialog.showModal()">
+  <small style="color: gray">Request data from API</small>
+</label>
+
+<dialog #loginDialog>
+  <div class="dialog-body">
+    <form style="display: flex; flex-direction: column">
+      <mat-form-field>
+        <mat-label>Token</mat-label>
+        <input matInput [value]="calToken" disabled>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>One-time code</mat-label>
+        <input matInput
+               type="text"
+               name="token"
+               inputmode="numeric"
+               pattern="[0-9]"
+               autocomplete="one-time-code"
+               maxlength="6"
+               #oneTimeCode
+        >
+      </mat-form-field>
+      <button type="submit" formmethod="dialog" style="padding: 5px 20px; float: right" (click)="download(oneTimeCode.value)">Get Data</button>
+    </form>
+  </div>
+
+</dialog>

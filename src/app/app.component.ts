@@ -7,8 +7,9 @@ import {Sort} from '@angular/material/sort';
 import {calculateTotalSpent} from './functions/calculate-total-spent';
 import {sortData} from './functions/sort-data';
 import {filterData} from './functions/filter-data';
-// import {default as readXlsxFile} from 'read-excel-file'
 import { read, utils } from 'xlsx';
+import {categories} from "./data-objects/categories";
+import {groupArrayBy} from "./functions/group-array-by";
 
 @Component({
   selector: 'app-root',
@@ -26,84 +27,24 @@ export class AppComponent {
   activeCategory: any;
   private sort?: Sort;
   @ViewChild('filter') private filter?: ElementRef;
+  calToken = '';
 
   onUpload(target: HTMLInputElement) {
     const file = target.files?.item(0);
     console.time('File processing');
 
-    // file?.text().then(fileContent => this.processDataV2(fileContent));
-    // file?.stream().getReader().read().then(fileContent => this.processDataV2(fileContent.value || ''));
-    // this.processDataV2(file?.slice().text())
-
-    // const schema = {
-    //   date: {
-    //     prop: 'date',
-    //     type: String,
-    //     required: true
-    //   },
-    //   description: {
-    //     prop: 'description',
-    //     type: String,
-    //     required: true
-    //   },
-    //   cost: {
-    //     prop: 'cost',
-    //     type: Number,
-    //     required: true
-    //   },
-    // }
-
-
     if (file?.name.endsWith('.xlsx'))
       file?.arrayBuffer().then(fileContent => {
-      const wb = read(fileContent, { type: 'file' });
-      const sheet = wb.Sheets[wb.SheetNames[0]];
-      utils.sheet_add_aoa(sheet, [['date', 'description', 'cost', 'currency', 'chargingDate', 'costNum', 'currency2', 'transactionType', 'category', 'cardId',  'comment']], { origin: "A1" });
-      const data = utils.sheet_to_json<ICalRecord>(sheet);
-      console.log(data);
-      this.processDataV3(data);
-    });
+        const wb = read(fileContent, { type: 'file' });
+        const sheet = wb.Sheets[wb.SheetNames[0]];
+        // replace 1st row with English titles
+        utils.sheet_add_aoa(sheet, [['date', 'description', 'cost', 'currency', 'chargingDate', 'costNis', 'currency2', 'transactionType', 'category', 'cardId',  'comment']], { origin: "A1" });
+        const data = utils.sheet_to_json<ICalRecord>(sheet);
+        console.log(data);
+        this.processDataV3(data);
+      });
     else
       file?.arrayBuffer().then(fileContent => this.processDataV2(new Uint8Array(fileContent, 70)));
-
-
-
-    // readXlsxFile(file!, {schema, transformData(data) {
-    //
-    //   const dataToParse = data.slice(9);
-    //
-    //   // console.log(dataToParse[3][0]);
-    //
-    //   const fixDate = (dateStr: any) => {
-    //     const dateSplit = String(dateStr).split('/');
-    //     return dateSplit[1] + '/' + dateSplit[0] + '/' + dateSplit[2];
-    //   }
-    //
-    //   dataToParse.forEach(row => row[0] = fixDate(row[0]));
-    //
-    //   dataToParse.unshift(['date', 'description', 'cost',	'costNis', 'comment']);
-    //
-    //   return dataToParse;
-    //
-    //     // // Add a missing header row.
-    //     // return [['DATE', 'NAME', '...']].concat(data)
-    //     // // Remove irrelevant rows.
-    //     // return data.filter(row => row.filter(column => column !== null).length > 0)
-    //   }
-    // } ).then((rows) => {
-    //   // `rows` is an array of rows
-    //   // each row being an array of cells.
-    //   console.log(rows);
-    // })
-
-
-
-    // file?.arrayBuffer()
-    //   .then(fileContent => {
-    //     const z = new Uint8Array(fileContent, 70);
-    //     console.log(new TextDecoder().decode(z))
-    //     this.processDataV2(z);
-    //   });
   }
 
   onLoadPreset() {
@@ -155,14 +96,8 @@ export class AppComponent {
     this.calRecords = records;
     this.displayedRecords = records;
 
-    const groupBy = <T>(array: T[], predicate: (value: T, index: number, array: T[]) => string) =>
-      array.reduce((acc, value, index, array) => {
-        (acc[predicate(value, index, array)] ||= []).push(value);
-        return acc;
-      }, {} as { [key: string]: T[] });
-
     this.chartData = Object
-      .entries(groupBy(records, r => r.myCategory || 'other'))
+      .entries(groupArrayBy(records, r => r.myCategory || 'other'))
       .map(entry =>({ name: entry[0], value: calculateTotalSpent(entry[1]) }))
       .sort((a, b) => (a.value > b.value ? -1 : 1))
 
@@ -174,13 +109,13 @@ export class AppComponent {
 
   processDataV3(records: any[]) {
 
+    // remove 2 first rows
     records.shift();
     records.shift();
 
-    const index = records.findIndex((cell) => (cell.date as string).includes('עסקאות לחיוב ב'));
-    if (index > -1) { // only splice array when item is found
-      records.splice(index, 1); // 2nd parameter means remove one item only
-    }
+    // remove summary row in the middle
+    const index = records.findIndex(cell => (cell.date as string).includes('עסקאות לחיוב ב'));
+    if (index > -1) records.splice(index, 1); // 2nd parameter means remove one item only
 
     console.log(records);
 
@@ -198,29 +133,24 @@ export class AppComponent {
       line.count = records.filter(v => v.description == line.description).length;
 
       // add translation
-      line.translation = vocabulary?.find(item => line.description.includes(item.keyword))?.translation;
+      line.translation = vocabulary.find(item => line.description.includes(item.keyword))?.translation;
 
       // add category
-      line.myCategory = vocabulary?.find(item => line.description.includes(item.keyword))?.category;
-    })
+      line.myCategory = vocabulary.find(item => line.description.includes(item.keyword))?.category || categories.find(item => line.category.includes(item.keyword))?.translation;
 
-    // console.log(records);
+      // add comments
+      if (line.comment) line.comment = comments.find(item => line.comment.includes(item.keyword))?.translation || line.comment;
+    })
 
     this.calRecords = records;
     this.displayedRecords = records;
 
-    const groupBy = <T>(array: T[], predicate: (value: T, index: number, array: T[]) => string) =>
-        array.reduce((acc, value, index, array) => {
-          (acc[predicate(value, index, array)] ||= []).push(value);
-          return acc;
-        }, {} as { [key: string]: T[] });
-
     this.chartData = Object
-        .entries(groupBy(records, r => r.myCategory || 'other'))
+        .entries(groupArrayBy(records, r => r.myCategory || 'other'))
         .map(entry =>({ name: entry[0], value: calculateTotalSpent(entry[1]) }))
         .sort((a, b) => (a.value > b.value ? -1 : 1))
 
-    console.log('chartData', this.chartData);
+    // console.log('chartData', this.chartData);
     this.spentTotal = calculateTotalSpent(this.displayedRecords);
 
     console.timeEnd('File processing');
@@ -245,7 +175,7 @@ export class AppComponent {
     this.displayedRecords = sortData(this.displayedRecords, sort);
   }
 
-  onSelect(data: any): void {
+  onGraphSelect(data: any): void {
     // console.log('Item clicked', JSON.parse(JSON.stringify(data)));
     this.activeCategory = [{ name: data.name,  value: '#ff6200' }];
     this.filterTransactions(data.name);
@@ -253,9 +183,20 @@ export class AppComponent {
     if (this.filter) this.filter.nativeElement.value = data.name;
   }
 
-  async download() {
-    const resp = await fetch('/cal-download.api');
-    if (resp.ok) resp.arrayBuffer().then(data => this.processDataV2(new Uint8Array(data, 70)));
+  async getCalToken() {
+    const resp = await fetch('/whatsup-auth.api?tz=' + this.filter?.nativeElement.value + '&last4Digits=9500');
+    if (resp.ok) resp.json().then(data => this.calToken = data.token);
+    else console.error(resp.statusText);
+  }
+
+  async download(password: string) {
+    const body = JSON.stringify({
+      "custID": this.filter?.nativeElement.value,
+      password,
+      "token": this.calToken
+    });
+    const resp = await fetch('/cal-download.api', { method: 'POST', body });
+    if (resp.ok) resp.json().then(console.log);
     else console.error(resp.statusText);
   }
 }
