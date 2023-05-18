@@ -6,7 +6,27 @@ export const onRequestPost = async ({ request }) => {
   // "body": "{\"custID\":\"300000009\",\"password\":\"514122\",\"token\":\"dba1a334-0000-0000-9bc8-9ceb01b8c946\"}",
   const body = JSON.stringify(await request.json());
   const method = 'POST';
-
+  const headers = {
+    "accept": "application/json, text/plain, */*",
+    "Accept-Encoding": "gzip, deflate, br",
+    "accept-language": "en-US,en;q=0.9,ru;q=0.8,he;q=0.7",
+    "authorization": null,
+    "cache-control": "no-cache",
+    "content-type": "application/json",
+    Host: "api.cal-online.co.il",
+    Origin: "https://digital-web.cal-online.co.il",
+    "pragma": "no-cache",
+    "sec-ch-ua": "\"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"114\", \"Google Chrome\";v=\"114\"",
+    "sec-ch-ua-mobile": "?0",
+    "sec-ch-ua-platform": "\"macOS\"",
+    "sec-fetch-dest": "empty",
+    "sec-fetch-mode": "cors",
+    "sec-fetch-site": "same-site",
+    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
+    "x-site-id": "09031987-273E-2311-906C-8AF85B17C8D9",
+    "Referer": "https://digital-web.cal-online.co.il/",
+    "Referrer-Policy": "strict-origin-when-cross-origin"
+  }
 
   // get auth token (password - comes with sms, token from previous api resp)
   // resp:
@@ -16,22 +36,7 @@ export const onRequestPost = async ({ request }) => {
   //     "hash": null
   // }
   const authTokenResp = await fetch("https://connect.cal-online.co.il/col-rest/calconnect/authentication/otp", {
-    "headers": {
-      "accept": "application/json, text/plain, */*",
-      "accept-language": "en-US,en;q=0.9,ru;q=0.8,he;q=0.7",
-      "cache-control": "no-cache",
-      "content-type": "application/json",
-      "pragma": "no-cache",
-      "sec-ch-ua": "\"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"114\", \"Google Chrome\";v=\"114\"",
-      "sec-ch-ua-mobile": "?0",
-      "sec-ch-ua-platform": "\"macOS\"",
-      "sec-fetch-dest": "empty",
-      "sec-fetch-mode": "cors",
-      "sec-fetch-site": "same-site",
-      "x-site-id": "5B5160DD-F84A-4D72-B67E-65891BA194FF",
-      "Referer": "https://www.cal-online.co.il/",
-      "Referrer-Policy": "strict-origin-when-cross-origin"
-    },
+    headers,
     body,
     method
   });
@@ -42,28 +47,12 @@ export const onRequestPost = async ({ request }) => {
 
   const authorization = "CALAuthScheme " + authToken;
   console.log(authorization);
-
+  headers.authorization = authorization;
 
   // getting bank details
   const bankAccountAndCardsResp = fetch("https://api.cal-online.co.il/Authentication/api/account/init", {
-    "headers": {
-      "accept": "application/json, text/plain, */*",
-      "accept-language": "en-US,en;q=0.9,ru;q=0.8,he;q=0.7",
-      authorization,
-      "cache-control": "no-cache",
-      "content-type": "application/json",
-      "pragma": "no-cache",
-      "sec-ch-ua": "\"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"114\", \"Google Chrome\";v=\"114\"",
-      "sec-ch-ua-mobile": "?0",
-      "sec-ch-ua-platform": "\"macOS\"",
-      "sec-fetch-dest": "empty",
-      "sec-fetch-mode": "cors",
-      "sec-fetch-site": "same-site",
-      "x-site-id": "09031987-273E-2311-906C-8AF85B17C8D9",
-      "Referer": "https://digital-web.cal-online.co.il/",
-      "Referrer-Policy": "strict-origin-when-cross-origin"
-    },
-    "body": "{\"tokenGuid\":\"\"}",
+    headers,
+    body: "{\"tokenGuid\":\"\"}",
     method
   });
 
@@ -88,23 +77,7 @@ export const onRequestPost = async ({ request }) => {
   })
 
   return fetch("https://api.cal-online.co.il/Transactions/api/filteredTransactions/getFilteredTransactions", {
-    "headers": {
-      "accept": "application/json, text/plain, */*",
-      "accept-language": "en-US,en;q=0.9,ru;q=0.8,he;q=0.7",
-      authorization,
-      "cache-control": "no-cache",
-      "content-type": "application/json",
-      "pragma": "no-cache",
-      "sec-ch-ua": "\"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"114\", \"Google Chrome\";v=\"114\"",
-      "sec-ch-ua-mobile": "?0",
-      "sec-ch-ua-platform": "\"macOS\"",
-      "sec-fetch-dest": "empty",
-      "sec-fetch-mode": "cors",
-      "sec-fetch-site": "same-site",
-      "x-site-id": "09031987-273E-2311-906C-8AF85B17C8D9",
-      "Referer": "https://digital-web.cal-online.co.il/",
-      "Referrer-Policy": "strict-origin-when-cross-origin"
-    },
+    headers,
     body: filteredTransactionsBody,
     method
   });
