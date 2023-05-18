@@ -80,3 +80,23 @@ html { scroll-behavior: smooth; }
   padding-left: 10px;
   padding-right: 3px;
 }
+
+dialog {
+  border: none;
+  border-radius: 4px;
+  padding: 24px;
+  font-weight: 400;
+  box-shadow: 0 11px 15px -7px rgba(0, 0, 0, 0.2), 0 24px 38px 3px rgba(0, 0, 0, 0.14), 0 9px 46px 8px rgba(0, 0, 0, 0.12);
+
+  h2 {
+    text-align: center
+  }
+
+  dialog-body {
+    max-height: 55vh; max-width: 600px; overflow: auto; text-align: left; margin-bottom: 20px;
+  }
+}
+
+dialog::backdrop {
+  background: rgba(0, 0, 0, .32)
+}
