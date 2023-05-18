@@ -5,6 +5,8 @@ export interface ICalRecord {
   costNis: string;
   costNum: number;
   comment?: string;
+  transactionType?: string;
+  category?: string;
   translation?: string;
   myCategory?: string;
   count: number;
