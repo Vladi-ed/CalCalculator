@@ -3,6 +3,11 @@ import {comments} from "../data-objects/comments";
 import {ICalRecord} from "../interfaces/ICalRecord";
 import {parse as csvParseToObject} from 'csv-parse/browser/esm/sync';
 
+/**
+ * Processes CSV data and returns an array of ICalRecords
+ * @param file - The CSV file to process. Can be of type File or Response
+ * @returns An array of parsed records or an empty array if the file is null or undefined.
+ */
 export async function processCSVData(file: File | Response | null | undefined) {
     if (!file) return [];
 
@@ -10,7 +15,7 @@ export async function processCSVData(file: File | Response | null | undefined) {
     const content = new Uint8Array(fileContent, 70);
 
     const records: ICalRecord[] = csvParseToObject((content as any), {
-        columns: ['date',	'description', 'cost',	'costNis', 'comment'],
+        columns: ['date', 'description', 'cost', 'costNis', 'comment'],
         fromLine: 4,
         encoding: 'utf16le',
         delimiter: '\t',

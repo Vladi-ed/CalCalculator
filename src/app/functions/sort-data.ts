@@ -1,6 +1,10 @@
 import {Sort} from "@angular/material/sort";
 import {ICalRecord} from "../interfaces/ICalRecord";
 
+/**
+ * Sort ICalRecords for the Mat Table
+ * @returns sorted array of ICalRecord
+ */
 export function sortData(records?: ICalRecord[], sort?: Sort) : ICalRecord[] {
 
   if (!records) return [];

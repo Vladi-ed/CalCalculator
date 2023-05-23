@@ -4,19 +4,24 @@ import {comments} from "../data-objects/comments";
 import {read, utils} from "xlsx";
 import {ICalRecord} from "../interfaces/ICalRecord";
 
+/**
+ * Processes Excel data and returns an array of ICalRecords
+ * @param file - The CSV file to process. Can be of type File or Response
+ * @returns An array of parsed records or an empty array if the file is null or undefined.
+ */
 export async function processExcelData(file: File) {
     const fileContent = await file.arrayBuffer();
 
     const wb = read(fileContent, { type: 'file' });
     const sheet = wb.Sheets[wb.SheetNames[0]];
     // replace 1st row with English titles before JSON conversion
-    utils.sheet_add_aoa(sheet, [['date', 'description', 'cost', 'currency', 'chargingDate', 'costNis', 'currency2', 'transactionType', 'category', 'cardId',  'comment']], { origin: "A1" });
+    utils.sheet_add_aoa(sheet, [['date', 'description', 'cost', 'currency', 'chargingDate', 'costNum', 'currency2', 'transactionType', 'categoryHeb', 'cardId',  'comment']], { origin: "A1" });
     const data = utils.sheet_to_json<ICalRecord>(sheet);
     console.log('Excel Data', data);
     return processDataV3(data);
 }
 
-export function processDataV3(records: ICalRecord[]) {
+function processDataV3(records: ICalRecord[]) {
 
     // remove 2 first rows
     records.shift();
@@ -38,6 +43,9 @@ export function processDataV3(records: ICalRecord[]) {
 
         line.date = fixDate(line.date);
 
+        // @ts-ignore
+        line.costNis = line.currency + ' ' + line.costNum;
+
         // count number of similar operations
         line.count = records.filter(v => v.description == line.description).length;
 
@@ -45,13 +53,11 @@ export function processDataV3(records: ICalRecord[]) {
         line.translation = vocabulary.find(item => line.description.includes(item.keyword))?.translation;
 
         // add category
-        line.myCategory = vocabulary.find(item => line.description.includes(item.keyword))?.category || categories.find(item => line.category?.includes(item.keyword))?.translation;
+        line.myCategory = vocabulary.find(item => line.description.includes(item.keyword))?.category || categories.find(item => line.categoryHeb?.includes(item.keyword))?.translation;
 
         // add comments
         if (line.comment) line.comment = comments.find(item => line.comment!.includes(item.keyword))?.translation || line.comment;
     })
-
-    console.timeEnd('File processing');
 
     return records;
 }
