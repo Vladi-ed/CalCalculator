@@ -1,8 +1,6 @@
 import {vocabulary} from "../data-objects/vocabulary";
 import {categories} from "../data-objects/categories";
 import {comments} from "../data-objects/comments";
-import {groupArrayBy} from "./group-array-by";
-import {calculateTotalSpent} from "./calculate-total-spent";
 import {read, utils} from "xlsx";
 import {ICalRecord} from "../interfaces/ICalRecord";
 
