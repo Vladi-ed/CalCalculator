@@ -1,6 +1,8 @@
 export interface IPayment {
   keyword: string;
   translation: string;
-  category?: 'food' | 'household' | 'bank' | 'transport' | 'health' | 'restaurants' | 'entertainment' | 'coffee' | 'pet' | 'child';
+  category?: Categories;
   logo?: string;
 }
+
+type Categories = 'food' | 'household' | 'finance services' | 'transport' | 'health' | 'restaurants' | 'entertainment' | 'coffee' | 'pet' | 'child';

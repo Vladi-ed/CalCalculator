@@ -6,7 +6,8 @@ import {sortData} from './functions/sort-data';
 import {filterData} from './functions/filter-data';
 import {groupArrayBy} from "./functions/group-array-by";
 import {processExcelData} from "./functions/process-excel-data";
-import {processCSVData} from "./functions/process-csv-data";
+import {CalResponse} from "./interfaces/ICalTransactions";
+import {processJsonData} from "./functions/process-json-data";
 
 @Component({
   selector: 'app-root',
@@ -33,14 +34,13 @@ export class AppComponent {
     if (file?.name.endsWith('.xlsx')) {
       processExcelData(file).then(records => this.postProcessing(records));
     }
-    else
-      processCSVData(file).then(records => this.postProcessing(records));
   }
 
   onLoadPreset() {
     console.time('File processing');
-    fetch('assets/Transactions_example.xls')
-        .then(respFile => processCSVData(respFile).then(records => this.postProcessing(records)));
+    fetch('assets/trans-example-month.json')
+        .then(respFile => respFile.json())
+        .then(data => this.postProcessing(processJsonData(data.result.transArr)));
   }
 
   postProcessing(records: ICalRecord[]) {
@@ -54,6 +54,8 @@ export class AppComponent {
 
     // console.log('chartData', this.chartData);
     this.spentTotal = calculateTotalSpent(this.displayedRecords);
+
+    console.timeEnd('File processing');
   }
 
 
@@ -83,7 +85,9 @@ export class AppComponent {
     if (this.filter) this.filter.nativeElement.value = data.name;
   }
 
-  async getCalToken() {
+  async getCalToken(event: Event) {
+    event.preventDefault();
+
     const resp = await fetch('/whatsup-auth.api?tz=' + this.filter?.nativeElement.value + '&last4Digits=9500');
     resp.json().then(data => {
       console.log('whatsup data', data)
@@ -99,9 +103,12 @@ export class AppComponent {
     });
 
     const resp = await fetch('/cal-download.api', { method: 'POST', body });
-    resp.json().then(data => {
+    resp.json().then((data: CalResponse) => {
       // data.result.transArr
-      console.log('mydata', data)
-    });
+      console.log('got data from api', data?.result);
+
+      this.postProcessing(processJsonData(data.result.transArr));
+
+    }).catch(console.warn);
   }
 }
