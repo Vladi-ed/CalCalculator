@@ -51,7 +51,7 @@ export const onRequestPost = async ({ request }) => {
   const bankAccountAndCards = await apiResp.json().then(resp => ({
     bankAccountUniqueID: resp.result.bankAccounts[0].bankAccountUniqueId,
     cards: resp.result.cards.map(card => ({cardUniqueID: card.cardUniqueId})),
-    fromTransDate: "2023-02-17T22:00:00.000Z",
+    fromTransDate: "2023-02-17T22:00:00.000Z", // TODO: make it as a param
     toTransDate: new Date().toISOString()
   }));
 
