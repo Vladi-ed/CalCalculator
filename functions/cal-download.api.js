@@ -11,7 +11,7 @@ export const onRequestPost = async ({ request }) => {
     "Accept-Encoding": "gzip, deflate, br",
     "cache-control": "no-cache",
     "content-type": "application/json",
-    "Content-Length": body.length,
+    "Content-Length": String(body.length),
     "Host": "api.cal-online.co.il",
     "Origin": "https://digital-web.cal-online.co.il",
     "pragma": "no-cache",
@@ -41,7 +41,7 @@ export const onRequestPost = async ({ request }) => {
   console.log(authorization);
   headers.authorization = authorization;
 
-  // getting bank details
+  // getting bank/card details
   apiResp = await fetch("https://api.cal-online.co.il/Authentication/api/account/init", {
     headers,
     body: "{\"tokenGuid\":\"\"}",
@@ -59,20 +59,39 @@ export const onRequestPost = async ({ request }) => {
 
   console.log(JSON.stringify(bankAccountAndCards, null, 2));
 
-  const filteredTransactionsBody = JSON.stringify({
-    ...bankAccountAndCards,
-    "merchantHebName": "",
-    "merchantHebCity": "",
-    "trnType": 0,
-    "fromTrnAmt": 0,
-    "toTrnAmt": 0,
-    "transactionsOrigin": 0,
-    "transCardPresentInd": 0
-  })
+  const searchParams = new URL(request.url).searchParams;
+  if (searchParams.has('month')) {
 
-  return fetch("https://api.cal-online.co.il/Transactions/api/filteredTransactions/getFilteredTransactions", {
-    headers,
-    body: filteredTransactionsBody,
-    method
-  });
+    const cardTransactionsDetailsBody = JSON.stringify({
+      cardUniqueId: bankAccountAndCards.cards[0].cardUniqueID,
+      month: searchParams.get('month'),
+      year: searchParams.get('year')
+    })
+
+    return fetch("https://api.cal-online.co.il/Transactions/api/transactionsDetails/getCardTransactionsDetails", {
+      headers,
+      body: cardTransactionsDetailsBody,
+      method
+    });
+  }
+  else {
+    const filteredTransactionsBody = JSON.stringify({
+      ...bankAccountAndCards,
+      "merchantHebName": "",
+      "merchantHebCity": "",
+      "trnType": 0,
+      "fromTrnAmt": 0,
+      "toTrnAmt": 0,
+      "transactionsOrigin": 0,
+      "transCardPresentInd": 0
+    })
+
+    return fetch("https://api.cal-online.co.il/Transactions/api/filteredTransactions/getFilteredTransactions", {
+      headers,
+      body: filteredTransactionsBody,
+      method
+    });
+  }
+
+
 }
