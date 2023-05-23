@@ -30,11 +30,11 @@ export const vocabulary: IPayment[] = [{
 }, {
   "keyword": "מתוקה רמת גן", "translation": "Metuka Bakery", category: 'food',  logo: 'https://www.metuka.co.il/wp-content/uploads/2020/08/metuka_logo.svg'
 }, {
-  "keyword": "אוהד המוציא לחם בעמ", "translation": "Bread bakery in Tel-Aviv", category: 'food'
+  "keyword": "אוהד המוציא לחם ", "translation": "Bread bakery in Tel-Aviv", category: 'food'
 }, {
   "keyword": "אלקלעי יין", "translation": "Cafe Elkalai", category: 'restaurants'
 }, {
-  "keyword": "פורת ספרים בעמ", "translation": "Porat Books and Coffee", category: 'restaurants'
+  "keyword": "פורת ספרים ", "translation": "Porat Books and Coffee", category: 'restaurants'
 }, {
   "keyword": "שומשום", "translation": "SumSum cafe", category: 'restaurants'
 }, {
@@ -142,7 +142,7 @@ export const vocabulary: IPayment[] = [{
 }, {
   "keyword": "רנו אמיליה", "translation": "Reno Emilia restaurant", category: 'restaurants',
 }, {
-  "keyword": "סלופארק טכנולוגיות בעמ", "translation": "Parking Cellopark", category: 'transport'
+  "keyword": "סלופארק טכנולוגיות ", "translation": "Parking Cellopark", category: 'transport'
 }, {
   "keyword": "מכון הדרום", "translation": "Car test", category: 'transport'
 }, {
@@ -164,7 +164,7 @@ export const vocabulary: IPayment[] = [{
 }, {
   "keyword": "מנורה ביטוח חובה מיוחד", "translation": "Car Insurance", category: 'transport'
 }, {
-  "keyword": "ש. שלמה חברה לביטוח בעמ", "translation": "Car Insurance", category: 'transport'
+  "keyword": "ש. שלמה חברה לביטוח ", "translation": "Car Insurance", category: 'transport'
 }, {
   "keyword": "מלכה מרקט מגדל אביב", "translation": "Minimarket", category: 'food'
 }, {
@@ -178,7 +178,7 @@ export const vocabulary: IPayment[] = [{
 }, {
   "keyword": "לקי לק", "translation": "Minimarket Bat Yam", category: 'food'
 }, {
-  "keyword": "חברת החשמל לישראל בעמ", "translation": "Electricity company", category: "household"
+  "keyword": "חברת החשמל לישראל ", "translation": "Electricity company", category: "household"
 }, {
   "keyword": "אושר עד תל אביב", "translation": "Osher Ad", category: 'food'
 }, {
@@ -262,7 +262,7 @@ export const vocabulary: IPayment[] = [{
 }, {
   "keyword": "נעלי במבינו", "translation": "Shoes store"
 }, {
-  "keyword": "מי רמת גן בעמ", "translation": "Water company", category: 'household'
+  "keyword": "מי רמת גן", "translation": "Water company", category: 'household'
 }, {
   "keyword": "הספרייה", "translation": "Library", category: 'entertainment'
 }, {

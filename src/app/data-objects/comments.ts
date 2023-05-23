@@ -18,5 +18,11 @@ export const comments: IPayment[] = [{
     "keyword": "עסקה בקליטה", "translation": "Standing Orders"
   }, {
     "keyword": "Contact less", "translation": "Contact-less payment"
+  }, {
+    "keyword": "המחזור לפטור מלא מעמלת דמי כרטיס ולכן לא חויבת", "translation": "No card fee commission"
+  }, {
+    "keyword": "למסור את 4 הספרות של מזהה הכרטיס בארנק", "translation": "Apple Pay / Google Pay"
+  }, {
+    "keyword": "העברת כספים ל", "translation": "Money transfer"
   },
 ];
