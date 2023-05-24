@@ -151,8 +151,10 @@ export const vocabulary: IPayment[] = [{
   "keyword": "טמבור לילנבלום", "translation": "Construction store near office", category: "household"
 }, {
   "keyword": "חניון מגדל אלקטרה", "translation": "Parking Maccabi", category: 'transport'
+},  {
+  "keyword": "שיבא משק וחניה", "translation": "Parking Shiba Clinic", category: 'transport'
 }, {
-  "keyword": "מכבי פארם תא השלום", "translation": "Maccabi Pharm", category: 'health'
+  "keyword": "מכבי פארם ", "translation": "Maccabi Pharm", category: 'health'
 }, {
   "keyword": "עירית רמת גן אינטרנט", "translation": "Ramat Gan Muni", category: "household"
 }, {
@@ -254,6 +256,8 @@ export const vocabulary: IPayment[] = [{
 }, {
   "keyword": "הפילהרמונית הישראלית", "translation": "The Israel Philharmonic", category: 'entertainment'
 }, {
+  "keyword": "כלי זמר משרד ראשי", "translation": "Klay Zemer Music Store", category: 'entertainment'
+}, {
   "keyword": "זמן למשפחה", "translation": "Family time concert", category: 'entertainment'
 }, {
   "keyword": "STEAM GAMES", "translation": "Steam games", category: 'entertainment'
@@ -291,6 +295,8 @@ export const vocabulary: IPayment[] = [{
   "keyword": "בית עמנוא", "translation": "Beit Emanuel Kindergarten", category: 'child'
 }, {
   "keyword": "באזר טהרני ביזן", "translation": "Toys shop", category: 'child'
+},  {
+  "keyword": "ביג טויס ", "translation": "Big toys", category: 'child'
 }, {
   "keyword": "מאפיית הטאבון", "translation": "Taboon Bakery", category: 'food'
 },  {

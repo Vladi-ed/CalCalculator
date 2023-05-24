@@ -16,5 +16,9 @@ export const categories: IPayment[] = [{
     keyword: "תקשורת ומחשבים", translation: "communication and computers"
   }, {
     keyword: "משחקי מזל", translation: "entertainment"
+  }, {
+    keyword: "ריהוט ובית", translation: "household"
+  }, {
+    keyword: "ילדים", translation: "child"
   },
 ];
