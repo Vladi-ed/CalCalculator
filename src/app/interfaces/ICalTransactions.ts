@@ -170,7 +170,10 @@ export interface Transaction {
 
     walletProviderDesc: string // "" or "Apple Pay"
     // This is the name of the wallet provider that was used for the transaction.
+}
 
+// additional data for Monthly Export
+export interface Transaction {
     trnTypeCode?: string
     cashAccountManager: any
     cashAccManagerName: any
