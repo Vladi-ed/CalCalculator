@@ -2,34 +2,65 @@
     <h2>Help</h2>
     <div style="max-height: 55vh; max-width: 600px; overflow: auto; text-align: left; margin-bottom: 20px">
         <p>
-            In order to precess and show your credit card transactions please go to <a>Cal Website (desktop version)</a>, select desired reporting dates and download the
-            report (press Export button).
+            To use the App you need to go to
+            <a href="https://digital-web.cal-online.co.il/transactions" target="_blank">CAL Website</a>
+            and press Export button: <br>
+            <button style="
+                display: flex;
+                align-items: center;
+                height: 30px;
+                margin-bottom: 10px;
+                border-radius: 26px;
+                padding: 0 14px;
+                width: fit-content;
+                border: none;
+                color: #1b5ece;
+                background: white;
+                font-size: 18px;
+                line-height: 22px;
+                font-weight: 700;">
+                יצוא
+                <svg xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" viewBox="0 0 30 30">
+                    <g fill="none" fill-rule="evenodd">
+                        <path stroke="#1B5ECE" stroke-linejoin="round" stroke-width="2" d="M16.461 11.651S8.162 13.559 6 23.03c0 0 3.542-5.379 10.461-5.413v4.517l7.567-7.567L16.461 7v4.651Z"/>
+                    </g>
+                </svg>
+            </button>
+
+            Then upload the file into the Cal-Calculator App (press Choose File button):
+            <label class="mat-elevation-z1" style="display: flex;
+                    border: 1px solid rgba(128, 128, 128, 0.7019607843);
+                    padding: 10px 15px;
+                    border-radius: 4px;
+                    margin-top: 10px; width: 112px">
+                <svg xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 0 24 24" width="18px"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11zM8 15.01l1.41 1.41L11 14.84V19h2v-4.16l1.59 1.59L16 15.01 12.01 11z"/></svg>
+                <span style="margin-left: 5px">Choose File</span>
+            </label>
         </p>
         <p>
-            Then load the file into the Cal-Calculator App.
+            Now you can see your transactions in the table with categories and translation, you can sort and filter your data.
         </p>
-        <p>
-            You can see your transactions in the table with translation where you can sort and filter your data.
+        <p style="border: 1px solid gray; padding: 10px">
+            <strong>Privacy note:</strong> No data transferred anywhere outside of the app.<br>
+            All the data precessing happens locally on your device/browser.
         </p>
-        <p>
-            Note: No data transferred anywhere outside of the app. All the data precessing happens locally on your device/browser.
-        </p>
-        Please contact support in case of failure.
+        Please contact support if you have any questions.
     </div>
     <form>
-        <button formmethod="dialog" style="padding: 5px 20px; float: right">OK</button>
+        <button formmethod="dialog" style="padding: 8px 22px; float: right">OK</button>
     </form>
 </dialog>
 
 <dialog #aboutDialog>
     <h2>About</h2>
-    <div style="max-height: 55vh; max-width: 600px; overflow: auto; text-align: left; margin-bottom: 20px">
+    <div style="max-height: 55vh; max-width: 600px; overflow: auto; text-align: center; margin-bottom: 20px;">
+        <p>Cal Calculator</p>
         <p>Copyright 2023 © Vladi Ed</p>
         <p>App version: {{appVersion}}</p>
         Angular version: {{ngVersion}}
     </div>
     <form>
-        <button formmethod="dialog" style="padding: 5px 20px; float: right">OK</button>
+        <button formmethod="dialog" style="padding: 8px 22px; float: right">OK</button>
     </form>
 </dialog>
 
