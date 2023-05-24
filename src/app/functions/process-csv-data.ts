@@ -2,6 +2,7 @@ import {vocabulary} from "../data-objects/vocabulary";
 import {comments} from "../data-objects/comments";
 import {ICalRecord} from "../interfaces/ICalRecord";
 import {parse as csvParseToObject} from 'csv-parse/browser/esm/sync';
+import {fixDate} from "./fix-date";
 
 /**
  * Processes CSV data and returns an array of ICalRecords
@@ -22,11 +23,7 @@ export async function processCSVData(file: File | Response | null | undefined) {
         relaxColumnCountLess: true,
         relaxQuotes: true,
         cast: (cellValue, context) => {
-            if (context.index == 0) {
-                // convert to US date format
-                const dateSplit = cellValue.split('/');
-                return dateSplit[1] + '/' + dateSplit[0] + '/' + dateSplit[2];
-            }
+            if (context.index == 0) return fixDate(cellValue);
             else if (context.index == 4) return comments.find(item => cellValue.includes(item.keyword))?.translation || cellValue;
             else return cellValue;
         }
