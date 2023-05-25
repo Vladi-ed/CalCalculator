@@ -8,6 +8,7 @@ import {groupArrayBy} from "./functions/group-array-by";
 import {processExcelData} from "./functions/process-excel-data";
 import {CalResponse} from "./interfaces/ICalTransactions";
 import {processJsonData} from "./functions/process-json-data";
+type GraphData = { name: string, value: number };
 
 @Component({
   selector: 'app-root',
@@ -17,12 +18,12 @@ import {processJsonData} from "./functions/process-json-data";
 export class AppComponent {
   calRecords?: ICalRecord[];
   displayedRecords: ICalRecord[] = [];
-  displayedColumns: (keyof ICalRecord)[] = ['date',	'description', 'count', 'translation', 'cost', 'costNis', 'myCategory', 'comment'];
+  displayedColumns: (keyof ICalRecord)[] = ['date',	'description', 'translation', 'cost', 'costNis', 'myCategory', 'count', 'comment'];
   spentTotal?: number;
 
   showGraph = false;
-  chartData: { name: string, value: number } [] = [];
-  activeCategory: any;
+  graphData: GraphData[] = [];
+  activeCategory?: { name: string; value: string }[];
   private sort?: Sort;
   @ViewChild('filter') private filter?: ElementRef;
   calToken = '';
@@ -43,17 +44,13 @@ export class AppComponent {
         .then(data => this.postProcessing(processJsonData(data.result.transArr)));
   }
 
-  postProcessing(records: ICalRecord[]) {
+  private postProcessing(records: ICalRecord[]) {
     this.calRecords = records;
     this.displayedRecords = records;
     this.spentTotal = calculateTotalSpent(this.displayedRecords);
-    this.chartData = Object
-        .entries(groupArrayBy(records, r => r.myCategory || 'other'))
-        .map(entry =>({ name: entry[0], value: calculateTotalSpent(entry[1]) }))
-        .sort((a, b) => (a.value > b.value ? -1 : 1))
-
-    // console.log('chartData', this.chartData);
-    this.spentTotal = calculateTotalSpent(this.displayedRecords);
+    this.graphData = Object.entries(groupArrayBy(records, r => r.myCategory || 'other'))
+        .map(([name, value]) => ({ name, value: calculateTotalSpent(value) }))
+        .sort((a, b) => b.value - a.value);
 
     console.timeEnd('File processing');
   }
@@ -77,12 +74,10 @@ export class AppComponent {
     this.displayedRecords = sortData(this.displayedRecords, sort);
   }
 
-  onGraphSelect(data: any): void {
-    // console.log('Item clicked', JSON.parse(JSON.stringify(data)));
-    this.activeCategory = [{ name: data.name,  value: '#ff6200' }];
-    this.filterTransactions(data.name);
-    console.log(this.filter)
-    if (this.filter) this.filter.nativeElement.value = data.name;
+  onGraphCategorySelect({ name }: GraphData): void {
+    this.activeCategory = [{ name,  value: '#ff6200' }];
+    this.filter!.nativeElement.value = name;
+    this.filterTransactions(name);
   }
 
   async getCalToken(event: Event) {

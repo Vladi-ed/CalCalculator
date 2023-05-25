@@ -38,15 +38,15 @@
     <div style="flex-grow: 1" class="hidden-mobile"></div>
     <mat-slide-toggle (click)="showGraph = !showGraph" style="padding-top: 10px"><span class="hidden-mobile">Show</span> Graph</mat-slide-toggle>
 
-    <a href="#footer" matRipple class="go-down" [hidden]="chartData.length == 0">Go down</a>
+    <a href="#footer" matRipple class="go-down" [hidden]="displayedRecords.length < 10">Go down</a>
   </div>
 
   <div class="graph-container mat-elevation-z5" *ngIf="showGraph">
     <ngx-charts-advanced-pie-chart
-      [results]="chartData"
+      [results]="graphData"
       [gradient]="false"
       [customColors]="activeCategory"
-      (select)="onGraphSelect($event)"
+      (select)="onGraphCategorySelect($event)"
       [animations]="true"
     >
     </ngx-charts-advanced-pie-chart>
