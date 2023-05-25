@@ -86,6 +86,8 @@ export const vocabulary: IPayment[] = [{
 }, {
   "keyword": "שופרסל", "translation": "Shufersal", category: 'food'
 }, {
+  "keyword": "מחלבת עיזה פזיזה", "translation": "Iza Pziza Goat Farm cafe", category: 'restaurants'
+}, {
   "keyword": "תן ביס", "translation": "10bis", category: 'restaurants'
 }, {
   "keyword": "קשת טעמים", "translation": "Keshet Taamim", category: 'food'
@@ -97,6 +99,8 @@ export const vocabulary: IPayment[] = [{
   "keyword": "הש. רכב גולף ואופניים גני", "translation": "Golf car rent Park Yarkon", category: "entertainment"
 }, {
   "keyword": "הפארק הלאומי רמת גן", "translation": "Park Leumi, Ramat Gan", category: "entertainment"
+},  {
+  "keyword": "גן לאומי מעיין חרוד", "translation": "Maayan Harod National Park", category: "entertainment"
 }, {
   "keyword": "כלבו יחזקאל", "translation": "Construction/electric store", category: "household"
 }, {
@@ -203,8 +207,10 @@ export const vocabulary: IPayment[] = [{
   "keyword": "סון רון", "translation": "Saone Rhône Cafe", category: 'restaurants'
 }, {
   "keyword": "גולדה", "translation": "Golda Ice Cream", category: 'restaurants'
-},  {
+}, {
   "keyword": "ארטה אמנות הגלידה", "translation": "Italian Ice Cream", category: 'restaurants'
+}, {
+  "keyword": "אוטלו ג'לטו", "translation": "Otello Ice Cream", category: 'restaurants'
 }, {
   "keyword": "דלאל", "translation": "Dallal Cafe", category: 'restaurants'
 }, {
@@ -363,6 +369,8 @@ export const vocabulary: IPayment[] = [{
   "keyword": "COFFE", "translation": "", category: 'coffee'
 }, {
   "keyword": "סטופמרקט", "translation": "Supermarket", category: 'food'
+},  {
+  "keyword": "סופר ", "translation": "Supermarket", category: 'food'
 }, {
   "keyword": "מינימרקט", "translation": "Minimarket", category: 'food'
 }, {

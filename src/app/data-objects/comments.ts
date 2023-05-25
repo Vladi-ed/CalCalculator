@@ -15,7 +15,7 @@ export const comments: IPayment[] = [{
   }, {
     "keyword": "משיכת מזומן", "translation": "Cash withdrawal"
   }, {
-    "keyword": "עסקה בקליטה", "translation": "Standing Orders"
+    "keyword": "עסקה בקליטה", "translation": "Transaction still in progress"
   }, {
     "keyword": "Contact less", "translation": "Contact-less payment"
   }, {
