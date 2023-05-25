@@ -1,4 +1,4 @@
-import {Component, ElementRef, ViewChild} from '@angular/core';
+import {Component, ElementRef, ViewChild, ViewContainerRef} from '@angular/core';
 import {ICalRecord} from "./interfaces/ICalRecord";
 import {Sort} from '@angular/material/sort';
 import {calculateTotalSpent} from './functions/calculate-total-spent';
@@ -17,12 +17,12 @@ import {processJsonData} from "./functions/process-json-data";
 export class AppComponent {
   calRecords?: ICalRecord[];
   displayedRecords: ICalRecord[] = [];
-  displayedColumns: (keyof ICalRecord)[] = ['date',	'description', 'count', 'translation', 'cost', 'costNis', 'myCategory', 'comment'];
+  displayedColumns: (keyof ICalRecord)[] = ['date',	'description', 'translation', 'cost', 'costNis', 'myCategory', 'count', 'comment'];
   spentTotal?: number;
 
-  showGraph = false;
-  chartData: { name: string, value: number } [] = [];
-  activeCategory: any;
+  graphIsHidden?: boolean;
+  @ViewChild('graph', { read: ViewContainerRef }) private graphPlaceholder?: ViewContainerRef;
+
   private sort?: Sort;
   @ViewChild('filter') private filter?: ElementRef;
   calToken = '';
@@ -47,14 +47,6 @@ export class AppComponent {
     this.calRecords = records;
     this.displayedRecords = records;
     this.spentTotal = calculateTotalSpent(this.displayedRecords);
-    this.chartData = Object
-        .entries(groupArrayBy(records, r => r.myCategory || 'other'))
-        .map(entry =>({ name: entry[0], value: calculateTotalSpent(entry[1]) }))
-        .sort((a, b) => (a.value > b.value ? -1 : 1))
-
-    // console.log('chartData', this.chartData);
-    this.spentTotal = calculateTotalSpent(this.displayedRecords);
-
     console.timeEnd('File processing');
   }
 
@@ -77,12 +69,36 @@ export class AppComponent {
     this.displayedRecords = sortData(this.displayedRecords, sort);
   }
 
-  onGraphSelect(data: any): void {
+  showGraph () {
+    // if ()
+  }
+
+  loadGraph(show: any) {
+    console.log(show);
+    this.graphIsHidden = !this.graphIsHidden;
+
+    this.graphPlaceholder?.clear();
+    import('./components/graph/graph.component').then(c => {
+      const graph = this.graphPlaceholder?.createComponent(c.GraphComponent);
+      if (graph && this.calRecords) {
+        const graphData = Object
+            .entries(groupArrayBy(this.calRecords, r => r.myCategory || 'other'))
+            .map(entry =>({ name: entry[0], value: calculateTotalSpent(entry[1]) }))
+            .sort((a, b) => (a.value > b.value ? -1 : 1));
+
+        console.log('GraphData', graphData);
+
+        graph.instance.chartData = graphData;
+        graph.instance.messageEvent.subscribe(cat => this.onGraphCategorySelect(cat));
+      }
+    });
+  }
+
+  onGraphCategorySelect(name: string): void {
     // console.log('Item clicked', JSON.parse(JSON.stringify(data)));
-    this.activeCategory = [{ name: data.name,  value: '#ff6200' }];
-    this.filterTransactions(data.name);
-    console.log(this.filter)
-    if (this.filter) this.filter.nativeElement.value = data.name;
+    this.filterTransactions(name);
+    console.log('Filter by ' + name);
+    if (this.filter) this.filter.nativeElement.value = name;
   }
 
   async getCalToken(event: Event) {
