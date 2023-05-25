@@ -20,7 +20,8 @@ export class AppComponent {
   displayedColumns: (keyof ICalRecord)[] = ['date',	'description', 'translation', 'cost', 'costNis', 'myCategory', 'count', 'comment'];
   spentTotal?: number;
 
-  graphIsHidden?: boolean;
+  graphHidden = true;
+  graphLoaded = false;
   @ViewChild('graph', { read: ViewContainerRef }) private graphPlaceholder?: ViewContainerRef;
 
   private sort?: Sort;
@@ -43,7 +44,7 @@ export class AppComponent {
         .then(data => this.postProcessing(processJsonData(data.result.transArr)));
   }
 
-  postProcessing(records: ICalRecord[]) {
+  private postProcessing(records: ICalRecord[]) {
     this.calRecords = records;
     this.displayedRecords = records;
     this.spentTotal = calculateTotalSpent(this.displayedRecords);
@@ -69,16 +70,11 @@ export class AppComponent {
     this.displayedRecords = sortData(this.displayedRecords, sort);
   }
 
-  showGraph () {
-    // if ()
-  }
+  toggleGraph() {
+    console.log('loadGraph()');
+    this.graphHidden = !this.graphHidden;
 
-  loadGraph(show: any) {
-    console.log(show);
-    this.graphIsHidden = !this.graphIsHidden;
-
-    this.graphPlaceholder?.clear();
-    import('./components/graph/graph.component').then(c => {
+    if (!this.graphLoaded) import('./components/graph/graph.component').then(c => {
       const graph = this.graphPlaceholder?.createComponent(c.GraphComponent);
       if (graph && this.calRecords) {
         const graphData = Object
@@ -91,6 +87,7 @@ export class AppComponent {
         graph.instance.chartData = graphData;
         graph.instance.messageEvent.subscribe(cat => this.onGraphCategorySelect(cat));
       }
+      this.graphLoaded = true;
     });
   }
 
@@ -110,7 +107,6 @@ export class AppComponent {
       this.calToken = data.token
     });
   }
-
   async download(password: string) {
     const body = JSON.stringify({
       "custID": this.filter?.nativeElement.value,

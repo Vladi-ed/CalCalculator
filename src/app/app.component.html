@@ -36,15 +36,15 @@
       </span>
     </mat-form-field>
     <div style="flex-grow: 1" class="hidden-mobile"></div>
-    <mat-slide-toggle (click)="loadGraph($event)" style="padding-top: 10px">
+    <mat-slide-toggle (click)="toggleGraph()" style="padding-top: 10px">
       <span class="hidden-mobile">Show</span> Graph
     </mat-slide-toggle>
 
     <a href="#footer" matRipple class="go-down" [hidden]="displayedRecords.length == 0">Go down</a>
   </div>
 
-  <div class="graph-container mat-elevation-z5" [hidden]="graphIsHidden">
-    <progress></progress>
+  <div class="graph-container mat-elevation-z5" [hidden]="graphHidden">
+    <progress *ngIf="!graphLoaded"></progress>
     <ng-template #graph></ng-template>
   </div>
 
