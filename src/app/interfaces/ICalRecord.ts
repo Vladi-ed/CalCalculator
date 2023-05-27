@@ -1,6 +1,7 @@
 export interface ICalRecord {
   date: string;
   description: string;
+  currency: string;
   cost: string;
   costNis: string;
   costNum: number;

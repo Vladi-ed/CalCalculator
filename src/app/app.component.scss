@@ -1,6 +1,8 @@
 main {
   padding: 20px 50px;
   min-height: 90vh;
+  max-width: 1500px;
+  margin: auto;
 }
 
 header.header {
@@ -45,16 +47,6 @@ td.mat-mdc-footer-cell {
   padding-right: 0;
 }
 
-.select-file-btn {
-  display: flex;
-  border: 1px solid #808080b3;
-  padding: 10px 15px;
-  border-radius: 4px;
-  margin-top: -2px;
-  /*margin-left: -6px;*/
-  cursor: pointer;
-}
-
 a {
   color: black;
 }
@@ -73,7 +65,7 @@ a {
     display: none;
   }
 
-  .select-file-btn {
+  .btn {
     border: none;
     //margin: 1px;
     border-top-right-radius: 0;

@@ -18,7 +18,7 @@ export async function processExcelData(file: File) {
     if (sheet["!ref"]) {
         console.log('sheet range', sheet["!ref"]);
 
-        const header = ['date', 'description', 'cost', 'currency', 'chargingDate', 'costNum', 'currency2', 'transactionType', 'categoryHeb', 'cardId', 'comment'];
+        const header = ['date', 'description', 'cost', 'currency', 'chargingDate', 'costNum', 'currencyNis', 'transactionType', 'categoryHeb', 'cardId', 'comment'];
         if (utils.decode_range(sheet["!ref"]).e.c === 11) {
             // if there is more fields than usual
             console.log('There is 11 columns in the doc')
@@ -54,9 +54,12 @@ function processDataV3(records: ICalRecord[]) {
         // convert to US format
         line.date = fixDate(line.date);
 
-        // @ts-ignore
-        line.costNis = line.currency2 + ' ' + line.costNum;
-        // @ts-ignore
+        if (line.costNum == undefined) {
+            line.costNum = Number(line.cost);
+        }
+
+        line.costNis = '₪ ' + line.costNum;
+
         line.cost = line.currency + ' ' + line.cost;
 
         // count number of similar operations

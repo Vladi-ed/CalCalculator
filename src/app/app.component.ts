@@ -18,7 +18,7 @@ type GraphData = { name: string, value: number };
 export class AppComponent {
   calRecords?: ICalRecord[];
   displayedRecords: ICalRecord[] = [];
-  displayedColumns: (keyof ICalRecord)[] = ['date',	'description', 'translation', 'cost', 'costNis', 'myCategory', 'count', 'comment'];
+  displayedColumns: (keyof ICalRecord)[] = ['date',	'description', 'translation', 'costNis', 'myCategory', 'count', 'comment'];
   spentTotal?: number;
 
   showGraph = false;
@@ -27,6 +27,7 @@ export class AppComponent {
   private sort?: Sort;
   @ViewChild('filter') private filter?: ElementRef;
   calToken = '';
+  bgColor = 'white';
 
   onUpload(target: HTMLInputElement) {
     const file = target.files?.item(0);

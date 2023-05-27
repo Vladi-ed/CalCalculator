@@ -1,17 +1,17 @@
-<main>
+<main [ngStyle]="{'background' : bgColor}">
   <header class="header">
     <h1>Cal Calculator</h1>
 
-    <label for="input-file-id" class="select-file-btn mat-elevation-z1" matRipple  tabindex="0" (keydown.shift.d)="getCalToken($event); loginDialog.showModal()">
-      <svg xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 0 24 24" width="18px"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11zM8 15.01l1.41 1.41L11 14.84V19h2v-4.16l1.59 1.59L16 15.01 12.01 11z"/></svg>
-      <span style="margin-left: 5px">Choose File</span>
+    <label for="input-file-id" class="btn mat-elevation-z1" matRipple tabindex="0" (keydown.shift.d)="getCalToken($event); loginDialog.showModal()">
+      <mat-icon style="height: 20px; width: 20px; font-size: 20px">upload_file</mat-icon>
+      Choose File
     </label>
     <input #csvInput id="input-file-id" hidden type="file" onclick="this.value=null" (change)="onUpload(csvInput)" accept=".xlsx"/>
 
     <label *ngIf="csvInput.files?.length" class="hidden-mobile">{{ csvInput.files?.item(0)?.name }}</label>
     <label matRipple [hidden]="csvInput.files?.length">
       <a href="https://digital-web.cal-online.co.il/transactions" target="_blank">
-        Go to CAL download website
+        Go to CAL website
       </a>
     </label>
 
@@ -87,17 +87,15 @@
         <td mat-footer-cell *matFooterCellDef></td>
       </ng-container>
 
-      <!-- cost Column -->
-      <ng-container matColumnDef="cost">
-        <th mat-header-cell *matHeaderCellDef class="hidden-mobile"> Cost </th>
-        <td mat-cell *matCellDef="let row"    class="hidden-mobile"> {{row.cost}} </td>
-        <td mat-footer-cell *matFooterCellDef class="hidden-mobile"></td>
-      </ng-container>
-
       <!-- costNis Column -->
       <ng-container matColumnDef="costNis">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header=""> Cost ₪ </th>
-        <td mat-cell *matCellDef="let row"> {{row.costNis}} </td>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header=""> Cost </th>
+        <td mat-cell *matCellDef="let row">
+          <div style="display: flex; flex-direction: column">
+            {{row.costNis}}
+            <span [hidden]="row.costNis == row.cost" style="color: gray; font-size: smaller">{{row.cost}}</span>
+          </div>
+        </td>
         <td mat-footer-cell *matFooterCellDef> {{ spentTotal | currency:'₪ ' }} </td>
       </ng-container>
 
@@ -114,7 +112,10 @@
         <td mat-cell *matCellDef="let row" style="cursor: pointer"
             (click)="filter.value=row.myCategory; filterTransactions(row.myCategory);"
         >
-          {{row.myCategory}}
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <mat-icon inline="true">{{row.myCategory | categoryIcon}}</mat-icon><span>{{row.myCategory | titlecase}}</span>
+          </div>
+
         </td>
         <td mat-footer-cell *matFooterCellDef></td>
       </ng-container>
@@ -157,7 +158,7 @@
                type="text"
                name="token"
                inputmode="numeric"
-               pattern="[0-9]"
+               pattern="^\d{1,6}$"
                autocomplete="one-time-code"
                maxlength="6"
                #oneTimeCode

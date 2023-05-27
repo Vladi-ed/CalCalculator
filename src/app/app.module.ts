@@ -10,23 +10,27 @@ import {NgxChartsModule} from "@swimlane/ngx-charts";
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 import {ServiceWorkerModule} from '@angular/service-worker';
 import {FooterComponent} from './components/footer/footer.component';
+import {MatIconModule} from "@angular/material/icon";
+import { CategoryIconPipe } from './functions/category-icon.pipe';
 
 @NgModule({
-    declarations: [AppComponent, FooterComponent],
+    declarations: [AppComponent, FooterComponent, CategoryIconPipe],
     imports: [
         BrowserAnimationsModule,
-        MatInputModule,
-        MatTableModule,
-        MatSortModule,
-        MatRippleModule,
-        MatSlideToggleModule,
-        NgxChartsModule,
         ServiceWorkerModule.register('ngsw-worker.js', {
             enabled: !isDevMode(),
             // Register the ServiceWorker as soon as the application is stable
             // or after 30 seconds (whichever comes first).
             registrationStrategy: 'registerWhenStable:30000'
-        })],
+        }),
+        NgxChartsModule,
+        MatIconModule,
+        MatInputModule,
+        MatTableModule,
+        MatSortModule,
+        MatRippleModule,
+        MatSlideToggleModule,
+    ],
 
     providers: [],
     bootstrap: [AppComponent]

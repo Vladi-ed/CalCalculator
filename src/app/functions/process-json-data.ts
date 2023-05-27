@@ -11,6 +11,7 @@ export function processJsonData(data: Transaction[]) {
             date: transaction.trnPurchaseDate,
             description: transaction.merchantName,
             cost: transaction.trnCurrencySymbol + ' ' + transaction.trnAmt,
+            currency: transaction.trnCurrencySymbol,
             costNis: transaction.debCrdCurrencySymbol + ' ' + transaction.amtBeforeConvAndIndex,
             costNum: transaction.amtBeforeConvAndIndex,
             comment : transaction.comments?.length ? JSON.stringify(transaction.comments) : transaction.onGoingTransactionsComment,
