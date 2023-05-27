@@ -3,6 +3,27 @@
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 html { scroll-behavior: smooth; }
 
+@font-face {
+  font-family: "Helvetica Neue";
+  size-adjust: 99.4%; // x
+  ascent-override: 94%; // y
+  src: local("Arial");
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  border: 1px solid #808080b3;
+  padding: 12px 14px;
+  border-radius: 4px;
+  margin-top: -2px;
+  background-color: white;
+  cursor: pointer;
+  user-select: none;
+}
+
 .loader {
   text-align: center;
   padding-top: 50px;
@@ -58,7 +79,7 @@ html { scroll-behavior: smooth; }
 }
 
 .mdc-text-field--filled {
-  background-color: white !important;
+  background-color: transparent !important;
 }
 
 .mdc-text-field .mdc-floating-label {
@@ -89,7 +110,8 @@ dialog {
   box-shadow: 0 11px 15px -7px rgba(0, 0, 0, 0.2), 0 24px 38px 3px rgba(0, 0, 0, 0.14), 0 9px 46px 8px rgba(0, 0, 0, 0.12);
 
   h2 {
-    text-align: center
+    text-align: center;
+    margin-top: 7px;
   }
 
   dialog-body {
