@@ -134,7 +134,7 @@ export const vocabulary: IPayment[] = [{
 }, {
   "keyword": "YAP ELPPA", "translation": "Apple Pay"
 }, {
-  "keyword": "aliexpress", "translation": "AliExpress", category: 'household'
+  "keyword": "ALIEXPRESS", "translation": "AliExpress", category: 'household'
 }, {
   "keyword": "פיצה עגבניה דיזינגוף", "translation": "Pizza Dizingoff Center", category: 'food'
 }, {
