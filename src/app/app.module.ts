@@ -11,10 +11,11 @@ import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 import {ServiceWorkerModule} from '@angular/service-worker';
 import {FooterComponent} from './components/footer/footer.component';
 import {MatIconModule} from "@angular/material/icon";
-import { CategoryIconPipe } from './functions/category-icon.pipe';
+import { CategoryIconPipe } from './pipes/category-icon.pipe';
+import { CommentsIconPipe } from './pipes/comments-icon.pipe';
 
 @NgModule({
-    declarations: [AppComponent, FooterComponent, CategoryIconPipe],
+    declarations: [AppComponent, FooterComponent, CategoryIconPipe, CommentsIconPipe],
     imports: [
         BrowserAnimationsModule,
         ServiceWorkerModule.register('ngsw-worker.js', {

@@ -6,5 +6,4 @@ export class CategoryIconPipe implements PipeTransform {
   transform(value: string) {
     return categories.find(item => item.translation == value)?.icon;
   }
-
 }
