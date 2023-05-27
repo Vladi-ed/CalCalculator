@@ -28,7 +28,7 @@ export const vocabulary: IPayment[] = [{
 }, {
   "keyword": "בולנז'רי 96", "translation": "Boulangerie 96 Bakery", category: 'food'
 }, {
-  "keyword": "מתוקה רמת גן", "translation": "Metuka Bakery", category: 'food',  logo: 'https://www.metuka.co.il/wp-content/uploads/2020/08/metuka_logo.svg'
+  "keyword": "מתוקה רמת גן", "translation": "Metuka Bakery", category: 'food',  icon: 'https://www.metuka.co.il/wp-content/uploads/2020/08/metuka_logo.svg'
 }, {
   "keyword": "אוהד המוציא לחם ", "translation": "Bread bakery in Tel-Aviv", category: 'food'
 }, {
@@ -301,7 +301,7 @@ export const vocabulary: IPayment[] = [{
   "keyword": "בית עמנוא", "translation": "Beit Emanuel Kindergarten", category: 'child'
 }, {
   "keyword": "באזר טהרני ביזן", "translation": "Toys shop", category: 'child'
-},  {
+}, {
   "keyword": "ביג טויס ", "translation": "Big toys", category: 'child'
 }, {
   "keyword": "מאפיית הטאבון", "translation": "Taboon Bakery", category: 'food'
@@ -315,7 +315,7 @@ export const vocabulary: IPayment[] = [{
   "keyword": "מאפיית הכהנים",
   "translation": "Cohanim Bakery",
   category: 'food',
-  logo: 'https://cohanimbakery.co.il/f-users/user_105071/website_105732/common/081.png'
+  icon: 'https://cohanimbakery.co.il/f-users/user_105071/website_105732/common/081.png'
 }, {
   "keyword": "סיטונאות יעל", "translation": "Yael", category: 'food'
 }, {
@@ -332,7 +332,7 @@ export const vocabulary: IPayment[] = [{
   "keyword": "טארה אלטה",
   "translation": "Terra Alta TLV Deli",
   category: 'food',
-  logo: 'https://res.cloudinary.com/ontopo/image/upload/c_crop,x_0,y_0,w_591,h_591/w_128,c_scale/v1649932148/assets/KnhjF_FPrQ/pi1YXmil7m/3.jpg'
+  icon: 'https://res.cloudinary.com/ontopo/image/upload/c_crop,x_0,y_0,w_591,h_591/w_128,c_scale/v1649932148/assets/KnhjF_FPrQ/pi1YXmil7m/3.jpg'
 }, {
   "keyword": "דליסימו דליקטס", "translation": "Delissimo Delicates", category: 'food'
 }, {
