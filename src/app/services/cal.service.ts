@@ -1,0 +1,38 @@
+import { Injectable } from '@angular/core';
+import {CalResponse} from "../interfaces/ICalTransactions";
+
+@Injectable({ providedIn: 'root' })
+export class CalService {
+  private calToken?: string;
+
+  constructor() { }
+
+  async getCalToken(tz: string, last4Digits: string) {
+    const resp = await fetch('/whatsup-auth.api?tz=' + tz + '&last4Digits=' + last4Digits);
+    const data = await resp.json();
+    console.log('WhatsUp data', data)
+    this.calToken = data.token;
+    return data.token as string;
+  }
+
+  async downloadMonth(tz: string, pin: string) {
+    const body = JSON.stringify({
+      custID: tz,
+      password: pin,
+      token: this.calToken
+    });
+
+    const resp = await fetch('/cal-download.api', { method: 'POST', body });
+    const data: CalResponse = await resp.json();
+    console.log('got data from api', data?.result);
+    return data.result.transArr;
+
+
+    // resp.json().then((data: CalResponse) => {
+    //   // data.result.transArr
+    //
+    //   // this.postProcessing(processJsonData(data.result.transArr));
+    //
+    // }).catch(console.warn);
+  }
+}

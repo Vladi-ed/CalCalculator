@@ -5,8 +5,8 @@ import {calculateTotalSpent} from './functions/calculate-total-spent';
 import {sortData} from './functions/sort-data';
 import {filterData} from './functions/filter-data';
 import {groupArrayBy} from "./functions/group-array-by";
-import {CalResponse} from "./interfaces/ICalTransactions";
 import {PromptUpdateService} from "./services/promt-update.service";
+import {CalService} from "./services/cal.service";
 type GraphData = { name: string, value: number };
 
 @Component({
@@ -28,7 +28,7 @@ export class AppComponent {
   calToken = '';
   bgColor = 'white';
 
-  constructor(updateService: PromptUpdateService) {}
+  constructor(updateService: PromptUpdateService, private calService: CalService) {}
 
   onUpload(target: FileList | null) {
     const file = target?.item(0);
@@ -92,28 +92,17 @@ export class AppComponent {
 
   async getCalToken(event: Event) {
     event.preventDefault();
-
-    const resp = await fetch('/whatsup-auth.api?tz=' + this.filter?.nativeElement.value + '&last4Digits=9500');
-    resp.json().then(data => {
-      console.log('whatsup data', data)
-      this.calToken = data.token
-    });
+    this.calToken = await this.calService.getCalToken(this.filter?.nativeElement.value, '9500');
   }
 
-  async download(password: string) {
-    const body = JSON.stringify({
-      "custID": this.filter?.nativeElement.value,
-      password,
-      "token": this.calToken
-    });
+  async download(pin: string) {
+    console.time('File processing');
 
-    const resp = await fetch('/cal-download.api', { method: 'POST', body });
-    resp.json().then((data: CalResponse) => {
-      // data.result.transArr
-      console.log('got data from api', data?.result);
+    const [transactions, processJsonData] = await Promise.all([
+      this.calService.downloadMonth(this.filter?.nativeElement.value, pin),
+      import('./functions/process-json-data').then(m => m.processJsonData)
+    ]);
 
-      // this.postProcessing(processJsonData(data.result.transArr));
-
-    }).catch(console.warn);
+    this.postProcessing(processJsonData(transactions));
   }
 }
