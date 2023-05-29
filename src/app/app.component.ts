@@ -5,9 +5,10 @@ import {calculateTotalSpent} from './functions/calculate-total-spent';
 import {sortData} from './functions/sort-data';
 import {filterData} from './functions/filter-data';
 import {groupArrayBy} from "./functions/group-array-by";
-import {processExcelData} from "./functions/process-excel-data";
+// import {processExcelData} from "./functions/process-excel-data";
 import {CalResponse} from "./interfaces/ICalTransactions";
 import {processJsonData} from "./functions/process-json-data";
+import {PromptUpdateService} from "./services/promt-update.service";
 type GraphData = { name: string, value: number };
 
 @Component({
@@ -29,17 +30,36 @@ export class AppComponent {
   calToken = '';
   bgColor = 'white';
 
+  constructor(private updateService: PromptUpdateService) {}
+
   onUpload(target: HTMLInputElement) {
     const file = target.files?.item(0);
     console.time('File processing');
 
+    // if (typeof Worker !== 'undefined') {
+    //   // Create a new
+    //   const worker = new Worker(new URL('./app.worker', import.meta.url));
+    //   worker.onmessage = ({ data }) => {
+    //     console.log(`page got message: ${data}`);
+    //   };
+    //   worker.postMessage('hello');
+    // } else {
+    //   // Web Workers are not supported in this environment.
+    //   // You should add a fallback so that your program still executes correctly.
+    // }
+
+
     if (file?.name.endsWith('.xlsx')) {
-      processExcelData(file).then(records => this.postProcessing(records));
+
+      // processExcelData(file).then(records => this.postProcessing(records));
     }
   }
 
   onLoadPreset() {
     console.time('File processing');
+
+
+
     fetch('assets/trans-example-month.json')
         .then(respFile => respFile.json())
         .then(data => this.postProcessing(processJsonData(data.result.transArr)));
@@ -108,3 +128,4 @@ export class AppComponent {
     }).catch(console.warn);
   }
 }
+
