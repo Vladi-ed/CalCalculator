@@ -192,6 +192,8 @@ export const vocabulary: IPayment[] = [{
 }, {
   "keyword": "חנות המפעל מחלבת דשן", "translation": "Cheese and Bread shop", category: 'food'
 }, {
+  "keyword": "גבינות ומעדני הכפר", "translation": "Cheese and Village deli shop", category: 'food'
+}, {
   "keyword": "נכסי אריאל-חניון מרכז ויצ", "translation": "Parking", category: 'transport'
 }, {
   "keyword": "אייס סינרמה", "translation": "ACE Home", category: "household"
@@ -277,6 +279,8 @@ export const vocabulary: IPayment[] = [{
   "keyword": "זארה", "translation": "Zara"
 }, {
   "keyword": "נעלי במבינו", "translation": "Shoes store"
+},  {
+  "keyword": "Korkistore", "translation": "Scooter repair"
 }, {
   "keyword": "מי רמת גן", "translation": "Water company", category: 'household'
 }, {
@@ -379,6 +383,8 @@ export const vocabulary: IPayment[] = [{
   "keyword": "קפה", "translation": "Cafe", category: 'restaurants'
 }, {
   "keyword": "COFFE", "translation": "", category: 'coffee'
+},  {
+  "keyword": "Coffee", "translation": "Coffee shop", category: 'coffee'
 }, {
   "keyword": "סטופמרקט", "translation": "Supermarket", category: 'food'
 },  {
