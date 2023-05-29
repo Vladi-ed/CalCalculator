@@ -5,9 +5,8 @@ import {calculateTotalSpent} from './functions/calculate-total-spent';
 import {sortData} from './functions/sort-data';
 import {filterData} from './functions/filter-data';
 import {groupArrayBy} from "./functions/group-array-by";
-import {processExcelData} from "./functions/process-excel-data";
 import {CalResponse} from "./interfaces/ICalTransactions";
-import {processJsonData} from "./functions/process-json-data";
+import {PromptUpdateService} from "./services/promt-update.service";
 type GraphData = { name: string, value: number };
 
 @Component({
@@ -29,20 +28,30 @@ export class AppComponent {
   calToken = '';
   bgColor = 'white';
 
-  onUpload(target: HTMLInputElement) {
-    const file = target.files?.item(0);
-    console.time('File processing');
+  constructor(updateService: PromptUpdateService) {}
 
-    if (file?.name.endsWith('.xlsx')) {
-      processExcelData(file).then(records => this.postProcessing(records));
+  onUpload(target: FileList | null) {
+    const file = target?.item(0);
+
+    if (file?.name.endsWith('.xlsx') && file.size > 1000) {
+      console.time('File processing');
+
+      import('./functions/process-excel-data')
+          .then(m => m.processExcelData(file))
+          .then(records => this.postProcessing(records));
     }
+    else alert('The downloaded file seems to broken, please try another one')
   }
 
-  onLoadPreset() {
+  async onLoadPreset() {
     console.time('File processing');
-    fetch('assets/trans-example-month.json')
-        .then(respFile => respFile.json())
-        .then(data => this.postProcessing(processJsonData(data.result.transArr)));
+
+    const [exampleArr, processJsonData] = await Promise.all([
+      fetch('assets/trans-example-month.json').then(respFile => respFile.json()).then(data => data.result.transArr),
+      import('./functions/process-json-data').then(m => m.processJsonData)
+    ]);
+
+    this.postProcessing(processJsonData(exampleArr));
   }
 
   private postProcessing(records: ICalRecord[]) {
@@ -103,7 +112,7 @@ export class AppComponent {
       // data.result.transArr
       console.log('got data from api', data?.result);
 
-      this.postProcessing(processJsonData(data.result.transArr));
+      // this.postProcessing(processJsonData(data.result.transArr));
 
     }).catch(console.warn);
   }

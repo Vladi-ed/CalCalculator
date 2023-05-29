@@ -1,6 +1,6 @@
 {
   "name": "calcalculator",
-  "version": "0.5.4",
+  "version": "0.5.5",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -21,11 +21,11 @@
     "@angular/platform-browser-dynamic": "^16.0.1",
     "@angular/router": "^16.0.1",
     "@angular/service-worker": "^16.0.1",
-    "@swimlane/ngx-charts": "^20.1.2",
-    "csv-parse": "^5.3.10",
+    "@swimlane/ngx-charts": "^20.3.0",
+    "csv-parse": "^5.4.0",
     "rxjs": "~7.8.1",
     "tslib": "^2.5.0",
-    "xlsx": "^0.18.5",
+    "xlsx": "https://cdn.sheetjs.com/xlsx-0.19.3/xlsx-0.19.3.tgz",
     "zone.js": "~0.13.0"
   },
   "devDependencies": {
@@ -35,7 +35,7 @@
     "@types/d3-scale": "^4.0.3",
     "@types/d3-selection": "^3.0.5",
     "@types/d3-shape": "^3.1.1",
-    "wrangler": "latest",
-    "typescript": "~5.0.4"
+    "typescript": "~5.0.4",
+    "wrangler": "latest"
   }
 }
