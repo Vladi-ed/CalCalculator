@@ -1,4 +1,4 @@
-import {Component, ElementRef, ViewChild} from '@angular/core';
+import {Component, ElementRef, ViewChild, ViewContainerRef} from '@angular/core';
 import {ICalRecord} from "./interfaces/ICalRecord";
 import {Sort} from '@angular/material/sort';
 import {calculateTotalSpent} from './functions/calculate-total-spent';
@@ -6,7 +6,6 @@ import {sortData} from './functions/sort-data';
 import {filterData} from './functions/filter-data';
 import {groupArrayBy} from "./functions/group-array-by";
 import {PromptUpdateService} from "./services/promt-update.service";
-import {CalService} from "./services/cal.service";
 type GraphData = { name: string, value: number };
 
 @Component({
@@ -25,10 +24,9 @@ export class AppComponent {
   activeCategory?: { name: string; value: string }[];
   private sort?: Sort;
   @ViewChild('filter') private filter?: ElementRef;
-  calToken = '';
   bgColor = 'white';
 
-  constructor(updateService: PromptUpdateService, private calService: CalService) {}
+  constructor(updateService: PromptUpdateService, private vcr: ViewContainerRef) {}
 
   onUpload(target: FileList | null) {
     const file = target?.item(0);
@@ -90,19 +88,11 @@ export class AppComponent {
     this.filterTransactions(name);
   }
 
-  async getCalToken(event: Event) {
-    event.preventDefault();
-    this.calToken = await this.calService.getCalToken(this.filter?.nativeElement.value, '9500');
-  }
+  async calLogin() {
+    this.vcr.clear();
+    const {CalLoginComponent} = await import('./components/cal-login/cal-login.component');
 
-  async download(pin: string) {
-    console.time('File processing');
-
-    const [transactions, processJsonData] = await Promise.all([
-      this.calService.downloadMonth(this.filter?.nativeElement.value, pin),
-      import('./functions/process-json-data').then(m => m.processJsonData)
-    ]);
-
-    this.postProcessing(processJsonData(transactions));
+    this.vcr.createComponent(CalLoginComponent).instance.sendDataEvent
+        .subscribe(data => this.postProcessing(data));
   }
 }

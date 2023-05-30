@@ -2,17 +2,21 @@
   <header class="header">
     <h1>Cal Calculator</h1>
 
-    <label for="input-file-id" class="btn mat-elevation-z1" matRipple tabindex="0" (keydown.shift.d)="getCalToken($event); loginDialog.showModal()">
+    <label for="input-file-id" class="btn mat-elevation-z1" matRipple>
       <mat-icon style="height: 20px; width: 20px; font-size: 20px">upload_file</mat-icon>
       Choose File
     </label>
     <input #csvInput id="input-file-id" hidden type="file" onclick="this.value=null" (change)="onUpload(csvInput.files)" accept=".xlsx"/>
 
     <label *ngIf="csvInput.files?.length" class="hidden-mobile">{{ csvInput.files?.item(0)?.name }}</label>
+
     <label matRipple [hidden]="csvInput.files?.length">
       <a href="https://digital-web.cal-online.co.il/transactions" target="_blank">
         Go to CAL website
       </a>
+    </label>
+    <label matRipple (click)="calLogin()">
+      <span style="text-decoration: underline">Login</span>
     </label>
 
     <div class="flex-separator hidden-mobile"></div>
@@ -125,7 +129,7 @@
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-      <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
+      <tr mat-footer-row *matFooterRowDef="displayedColumns" [hidden]="!calRecords"></tr>
 
       <!-- No results row -->
       <tr class="mdc-data-table__row" *matNoDataRow>
@@ -143,32 +147,3 @@
 </main>
 
 <app-footer id="footer"></app-footer>
-
-<!--<label matRipple [hidden]="csvInput.files?.length" (dblclick)="getCalToken(); loginDialog.showModal()">-->
-<!--  <small style="color: gray">Request data from API</small>-->
-<!--</label>-->
-
-<dialog #loginDialog>
-  <div class="dialog-body">
-    <form style="display: flex; flex-direction: column">
-      <mat-form-field>
-        <mat-label>Token</mat-label>
-        <input matInput [value]="calToken" disabled>
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>One-time code</mat-label>
-        <input matInput
-               type="text"
-               name="token"
-               inputmode="numeric"
-               pattern="^\d{1,6}$"
-               autocomplete="one-time-code"
-               maxlength="6"
-               #oneTimeCode
-        >
-      </mat-form-field>
-      <button type="submit" formmethod="dialog" style="padding: 5px 20px; float: right" (click)="download(oneTimeCode.value)">Get Data</button>
-    </form>
-  </div>
-
-</dialog>

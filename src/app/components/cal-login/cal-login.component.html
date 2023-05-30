@@ -1,0 +1,35 @@
+<dialog #loginDialog>
+    <div class="dialog-body" style="display: flex; flex-direction: column">
+        <form [formGroup]="loginForm" (ngSubmit)="getCalToken()">
+            <mat-form-field appearance="fill">
+                <mat-label>Israeli ID</mat-label>
+                <input matInput formControlName="tz" name="username" type="number">
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Last 4 digits of your credit card</mat-label>
+                <input matInput formControlName="last4Digits" type="password">
+            </mat-form-field>
+
+            <button class="btn" type="submit" [hidden]="showPinField || isLoading">Get the Code</button>
+
+        </form>
+
+
+        <mat-form-field *ngIf="showPinField">
+            <mat-label>One-time code</mat-label>
+            <input matInput
+                   type="text"
+                   name="token"
+                   inputmode="numeric"
+                   pattern="^\d{1,6}$"
+                   autocomplete="one-time-code"
+                   maxlength="6"
+                   formControlName="pin"
+                   (keyup.enter)="download(loginDialog)"
+            >
+        </mat-form-field>
+
+        <progress [hidden]="!isLoading"></progress>
+    </div>
+</dialog>
