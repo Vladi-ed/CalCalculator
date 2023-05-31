@@ -310,6 +310,8 @@ export const vocabulary: IPayment[] = [{
 }, {
   "keyword": "מוזיאון תל אביב לאמנות", "translation": "Tel-Aviv Museum of Art", category: 'entertainment'
 }, {
+  "keyword": "סטודיו קפה", "translation": "Studio-cafe", category: 'restaurants'
+}, {
   "keyword": "בית עמנוא", "translation": "Beit Emanuel Kindergarten", category: 'child'
 }, {
   "keyword": "באזר טהרני ביזן", "translation": "Toys shop", category: 'child'
@@ -317,7 +319,7 @@ export const vocabulary: IPayment[] = [{
   "keyword": "ביג טויס ", "translation": "Big toys", category: 'child'
 }, {
   "keyword": "מאפיית הטאבון", "translation": "Taboon Bakery", category: 'food'
-},  {
+}, {
   "keyword": "חנות החוויות כאל", "translation": "CAL internet shop",
 }, {
   "keyword": "אלכסנדר בולונגרי", "translation": "Alexander Bakery", category: 'food'

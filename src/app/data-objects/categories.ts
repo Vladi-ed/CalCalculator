@@ -14,8 +14,10 @@ export const categories: IPayment[] = [
   { keyword: "ביטוח ופיננסים", translation: "insurance",    icon: "shield_person" },
   { keyword: "פיננסים",       translation: "finance services", icon: "attach_money" },
   { keyword: "מלונאות ואירוח",  translation: "hotels", icon: "hotel" },
+  { keyword: "אופנה",       translation: "clothes", icon: "checkroom" },
   { keyword: "שונות",       translation: "other", icon: "grain" },
   { keyword: "coffee",       translation: "coffee", icon: "coffee" },
+  { keyword: "pet",         translation: "pet", icon: "pets" },
   { keyword: "רכב ותחבורה",  translation: "transport", icon: "airport_shuttle" },
 
 ];
