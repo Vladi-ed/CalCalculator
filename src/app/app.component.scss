@@ -41,7 +41,7 @@ table {
 td.mat-mdc-footer-cell {
   white-space: nowrap;
   font-weight: 500;
-  border-top: 1px solid gray;
+  border-top: 2px solid #e6e6e6;
 }
 
 .mat-column-count {
@@ -68,7 +68,6 @@ a {
 
   .btn {
     border: none;
-    //margin: 1px;
     border-top-right-radius: 0;
     border-bottom-left-radius: 0;
   }
@@ -86,7 +85,6 @@ a {
   }
   .mat-mdc-footer-cell {
     padding-right: 0;
-    border-top: 1px solid lightgray;
   }
 
   .graph-container {
