@@ -6,9 +6,8 @@ import {
   Output,
   ViewChild
 } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import {FormControl, FormGroup, ReactiveFormsModule} from "@angular/forms";
-import {MatFormFieldModule} from "@angular/material/form-field";
+import {NgIf} from '@angular/common';
+import {FormsModule} from "@angular/forms";
 import {MatInputModule} from "@angular/material/input";
 import {CalService} from "../../services/cal.service";
 import {ICalRecord} from "../../interfaces/ICalRecord";
@@ -16,13 +15,18 @@ import {ICalRecord} from "../../interfaces/ICalRecord";
 @Component({
   selector: 'app-cal-login',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule],
+  imports: [NgIf, MatInputModule, FormsModule],
   templateUrl: './cal-login.component.html',
   styleUrls: ['./cal-login.component.scss']
 })
-export class CalLoginComponent implements AfterViewInit{
+export class CalLoginComponent implements AfterViewInit {
+  loginForm = {
+    tz: '',
+    last4Digits: '',
+    pin: '',
+  };
+
   isLoading = false;
-  private calToken?: string;
   showPinField = false;
 
   @ViewChild('loginDialog')
@@ -30,6 +34,7 @@ export class CalLoginComponent implements AfterViewInit{
 
   @Output()
   sendDataEvent = new EventEmitter<ICalRecord[]>();
+  errorMessage?: string;
 
   constructor(private calService: CalService) {  }
 
@@ -37,45 +42,34 @@ export class CalLoginComponent implements AfterViewInit{
     this.loginDialog!.nativeElement.showModal();
   }
 
-
-
-  loginForm = new FormGroup({
-    tz: new FormControl<string|null>(null),
-    last4Digits: new FormControl<string|null>(null)
-  });
-
-  pin = new FormControl<string|null>(null);
-
-
   async getCalToken() {
-    this.loginForm.markAsTouched();
-    if (this.loginForm.invalid) return;
-
     this.isLoading = true;
-    this.calToken = await this.calService.getCalToken(this.loginForm.value.tz!, this.loginForm.value.last4Digits!);
+    try {
+      this.showPinField = !!(await this.calService.getCalToken(this.loginForm.tz, this.loginForm.last4Digits));
+    }
+    catch (e) {
+      this.errorMessage = String(e).includes('<!DOCTYPE') ? 'API Connection error' : String(e);
+    }
     this.isLoading = false;
-    if (this.calToken) this.showPinField = true;
+
+    setTimeout(() => this.errorMessage = undefined, 3000);
   }
 
   async download(loginDialog: HTMLDialogElement) {
-    if (this.pin.invalid) return;
-
     console.time('File processing');
     this.isLoading = true;
 
+    // TODO: add try/catch, move to the cal service?
     const [transactions, processJsonData] = await Promise.all([
-      this.calService.downloadMonth(this.loginForm.value.tz!, this.pin.value!),
+      this.calService.downloadMonth(this.loginForm.tz, this.loginForm.pin),
       import('../../functions/process-json-data').then(m => m.processJsonData)
     ]);
 
-    // console.log(processJsonData(transactions));
-    this.sendDataEvent.emit(processJsonData(transactions));
-    this.isLoading = true;
+    if (transactions) this.sendDataEvent.emit(processJsonData(transactions));
+    else this.errorMessage = 'Cannot parse the transaction report';
+
+    this.isLoading = false;
     loginDialog.close();
   }
-
-
-
-
 
 }

@@ -27,8 +27,10 @@ export function processJsonData(data: Transaction[]) {
         calRecord.translation = vocabulary.find(item => calRecord.description.includes(item.keyword))?.translation;
 
         // add my category
-        calRecord.myCategory = vocabulary.find(item =>
-                calRecord.description.includes(item.keyword))?.category || categories.find(item => calRecord.categoryHeb?.includes(item.keyword))?.translation;
+        calRecord.myCategory =
+                vocabulary.find(item => calRecord.description.includes(item.keyword))?.category
+             || categories.find(item => calRecord.categoryHeb?.includes(item.keyword))?.translation
+             || calRecord.categoryHeb;
 
         // add comments
         if (calRecord.comment) calRecord.comment = comments.find(item => calRecord.comment!.includes(item.keyword))?.translation || calRecord.comment;

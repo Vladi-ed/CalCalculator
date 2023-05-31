@@ -1,11 +1,11 @@
 {
   "name": "calcalculator",
-  "version": "0.5.7",
+  "version": "0.5.8",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "wrangler-dev": "ng build && wrangler pages dev ./dist",
+    "wrangler-dev": "ng build && wrangler pages dev ./dist --compatibility-date=2023-05-18",
     "watch": "ng build --watch --configuration development"
   },
   "private": true,

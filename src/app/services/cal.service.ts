@@ -22,12 +22,12 @@ export class CalService {
       token: this.calToken
     });
 
-    const month = new Date().getMonth();
+    const month = new Date().getMonth() +2; // for next month
     const year = new Date().getFullYear();
-    const resp = await fetch('/cal-download.api?year=' + year + 'month=' + month, { method: 'POST', body });
+    const resp = await fetch('/cal-download.api?year=' + year + '&month=' + month, { method: 'POST', body });
     const data: CalResponse = await resp.json();
     console.log('got data from api', data?.result);
-    return data.result.transArr;
+    return data.result.bankAccounts.pop()?.debitDates.pop()?.transactions;
   }
 
   async download3MonthAllCards(tz: string, pin: string) {
