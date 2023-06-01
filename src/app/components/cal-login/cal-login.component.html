@@ -1,8 +1,8 @@
 <dialog #loginDialog (auxclick)="loginDialog.close()">
     <h2>CAL Login</h2>
-    <div class="dialog-body" style="display: flex; flex-direction: column">
+    <div class="dialog-body flex-column">
 
-        <form #heroForm="ngForm" (ngSubmit)="showPinField ? download(loginDialog) : getCalToken()">
+        <form #heroForm="ngForm" (ngSubmit)="showPinField ? download(loginDialog) : getCalToken()" class="flex-column">
             <mat-form-field appearance="fill" hideRequiredMarker="true">
                 <mat-label>Israeli ID</mat-label>
                 <input matInput [(ngModel)]="loginForm.tz" name="tz" maxlength="9" minlength="9" required>
@@ -33,7 +33,7 @@
             </button>
         </form>
 
-        <progress [hidden]="!isLoading" style="width: auto; margin: 12px"></progress>
+        <progress [hidden]="!isLoading"></progress>
         <div class="mat-mdc-form-field-error">{{errorMessage}}</div>
     </div>
 </dialog>

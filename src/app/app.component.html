@@ -95,7 +95,7 @@
       <ng-container matColumnDef="costNis">
         <th mat-header-cell *matHeaderCellDef mat-sort-header=""> Cost </th>
         <td mat-cell *matCellDef="let row">
-          <div style="display: flex; flex-direction: column">
+          <div class="flex-column">
             {{row.costNis}}
             <span [hidden]="row.costNis == row.cost" style="color: gray; font-size: smaller">{{row.cost}}</span>
           </div>

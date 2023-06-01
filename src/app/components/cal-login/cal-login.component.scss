@@ -1,9 +1,3 @@
-@use '@angular/cdk';
-
-form {
-  display: flex; flex-direction: column
-}
-
-input.custom-autofill {
-  @include cdk.text-field-autofill-color(transparent, red);
+progress {
+  width: auto; margin: 12px
 }

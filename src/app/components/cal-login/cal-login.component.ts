@@ -2,7 +2,7 @@ import {
   AfterViewInit,
   Component,
   ElementRef,
-  EventEmitter,
+  EventEmitter, OnDestroy,
   Output,
   ViewChild
 } from '@angular/core';
@@ -19,7 +19,7 @@ import {ICalRecord} from "../../interfaces/ICalRecord";
   templateUrl: './cal-login.component.html',
   styleUrls: ['./cal-login.component.scss']
 })
-export class CalLoginComponent implements AfterViewInit {
+export class CalLoginComponent implements AfterViewInit, OnDestroy {
   loginForm = {
     tz: '',
     last4Digits: '',
@@ -36,10 +36,20 @@ export class CalLoginComponent implements AfterViewInit {
   sendDataEvent = new EventEmitter<ICalRecord[]>();
   errorMessage?: string;
 
-  constructor(private calService: CalService) {  }
+  constructor(private calService: CalService) {}
 
   ngAfterViewInit(): void {
     this.loginDialog!.nativeElement.showModal();
+  }
+
+
+  ngOnDestroy() {
+    console.log('CalLoginComponent ngOnDestroy');
+    setInterval(() => this.sendDataEvent.emit([]), 3000);
+  }
+
+  showModal() {
+    this.loginDialog?.nativeElement.showModal();
   }
 
   async getCalToken() {
