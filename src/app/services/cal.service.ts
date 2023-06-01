@@ -22,7 +22,7 @@ export class CalService {
       token: this.calToken
     });
 
-    const month = new Date().getMonth() +2; // for next month
+    const month = new Date().getMonth() + (new Date().getDay() > 10 ? 2 : 1) ; // till the day of charge
     const year = new Date().getFullYear();
     const resp = await fetch('/cal-download.api?year=' + year + '&month=' + month, { method: 'POST', body });
     const data: CalResponse = await resp.json();
