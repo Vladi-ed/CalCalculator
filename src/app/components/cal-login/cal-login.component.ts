@@ -2,7 +2,7 @@ import {
   AfterViewInit,
   Component,
   ElementRef,
-  EventEmitter, OnDestroy,
+  EventEmitter,
   Output,
   ViewChild
 } from '@angular/core';
@@ -19,7 +19,7 @@ import {ICalRecord} from "../../interfaces/ICalRecord";
   templateUrl: './cal-login.component.html',
   styleUrls: ['./cal-login.component.scss']
 })
-export class CalLoginComponent implements AfterViewInit, OnDestroy {
+export class CalLoginComponent implements AfterViewInit {
   loginForm = {
     tz: '',
     last4Digits: '',
@@ -42,12 +42,6 @@ export class CalLoginComponent implements AfterViewInit, OnDestroy {
     this.loginDialog!.nativeElement.showModal();
   }
 
-
-  ngOnDestroy() {
-    console.log('CalLoginComponent ngOnDestroy');
-    setInterval(() => this.sendDataEvent.emit([]), 3000);
-  }
-
   showModal() {
     this.loginDialog?.nativeElement.showModal();
   }
@@ -66,20 +60,24 @@ export class CalLoginComponent implements AfterViewInit, OnDestroy {
   }
 
   async download(loginDialog: HTMLDialogElement) {
-    console.time('File processing');
     this.isLoading = true;
 
-    // TODO: add try/catch, move to the cal service?
-    const [transactions, processJsonData] = await Promise.all([
-      this.calService.downloadMonth(this.loginForm.tz, this.loginForm.pin),
-      import('../../functions/process-json-data').then(m => m.processJsonData)
-    ]);
+    // TODO: move to the cal service?
+    try {
+      const [transactions, processJsonData] = await Promise.all([
+        this.calService.downloadMonth(this.loginForm.tz, this.loginForm.pin),
+        import('../../functions/process-json-data').then(m => m.processJsonData)
+      ]);
 
-    if (transactions) this.sendDataEvent.emit(processJsonData(transactions));
-    else this.errorMessage = 'Cannot parse the transaction report';
+      if (transactions) this.sendDataEvent.emit(processJsonData(transactions));
+
+      loginDialog.close();
+    }
+    catch (e) {
+      this.errorMessage = String(e);
+    }
 
     this.isLoading = false;
-    loginDialog.close();
   }
 
 }

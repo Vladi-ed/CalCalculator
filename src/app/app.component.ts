@@ -34,18 +34,14 @@ export class AppComponent {
     const file = target?.item(0);
 
     if (file?.name.endsWith('.xlsx') && file.size > 1000) {
-      console.time('File processing');
-
       import('./functions/process-excel-data')
           .then(m => m.processExcelData(file))
           .then(records => this.postProcessing(records));
     }
-    else alert('The downloaded file seems to broken, please try another one')
+    else alert('The file seems to be broken, please try another one')
   }
 
   async onLoadPreset() {
-    console.time('File processing');
-
     const [exampleArr, processJsonData] = await Promise.all([
       fetch('assets/trans-example-month.json').then(respFile => respFile.json()).then(data => data.result.transArr),
       import('./functions/process-json-data').then(m => m.processJsonData)
@@ -62,7 +58,6 @@ export class AppComponent {
         .map(([name, value]) => ({ name, value: calculateTotalSpent(value) }))
         .sort((a, b) => b.value - a.value);
 
-    console.timeEnd('File processing');
   }
 
 
