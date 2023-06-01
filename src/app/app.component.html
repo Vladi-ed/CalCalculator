@@ -1,6 +1,6 @@
 <main [ngStyle]="{'background' : bgColor}">
   <header class="header">
-    <h1>Cal Calculator</h1>
+    <h1 class="hidden-mobile">Cal Calculator</h1>
 
     <label for="input-file-id" class="btn mat-elevation-z1" matRipple>
       <mat-icon style="height: 20px; width: 20px; font-size: 20px">upload_file</mat-icon>
@@ -15,12 +15,13 @@
         Go to CAL website
       </a>
     </label>
-    <label matRipple (click)="calLogin()">
+
+    <label matRipple (click)="calLogin()" style="flex-basis: 77px">
       <span style="text-decoration: underline">Login</span>
     </label>
 
     <div class="flex-separator hidden-mobile"></div>
-<!--    <app-close-button></app-close-button>-->
+
     <label *ngIf="calRecords">
       {{ calRecords.at(0)?.date | date }} – {{ calRecords.at(-1)?.date | date }}
     </label>

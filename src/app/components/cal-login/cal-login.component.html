@@ -5,12 +5,12 @@
         <form #heroForm="ngForm" (ngSubmit)="showPinField ? download(loginDialog) : getCalToken()" class="flex-column">
             <mat-form-field appearance="fill" hideRequiredMarker="true">
                 <mat-label>Israeli ID</mat-label>
-                <input matInput [(ngModel)]="loginForm.tz" name="tz" maxlength="9" minlength="9" required>
+                <input matInput [(ngModel)]="loginForm.tz" name="tz" maxlength="9" minlength="9" required inputmode="numeric">
             </mat-form-field>
 
             <mat-form-field  appearance="fill" hideRequiredMarker="true">
                 <mat-label>Last 4 digits of your credit card</mat-label>
-                <input matInput [(ngModel)]="loginForm.last4Digits" name="last4Digits" type="password" maxlength="4" minlength="4" required class="custom-autofill">
+                <input matInput [(ngModel)]="loginForm.last4Digits" name="last4Digits" type="password" maxlength="4" minlength="4" required inputmode="numeric">
             </mat-form-field>
 
 

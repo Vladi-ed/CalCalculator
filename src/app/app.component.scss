@@ -5,7 +5,7 @@ main {
   margin: auto;
 }
 
-header.header {
+.header {
   display: flex;
   align-items: center;
   gap: 25px;
@@ -62,8 +62,8 @@ a {
     padding: 0 0 50px;
   }
 
-  header > h1 {
-    display: none;
+  .header {
+    gap: 8px;
   }
 
   .btn {
