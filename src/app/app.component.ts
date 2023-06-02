@@ -1,4 +1,4 @@
-import {Component, ComponentRef, ElementRef, ViewChild, ViewContainerRef} from '@angular/core';
+import {Component, ElementRef, ViewChild, ViewContainerRef} from '@angular/core';
 import {ICalRecord} from "./interfaces/ICalRecord";
 import {Sort} from '@angular/material/sort';
 import {calculateTotalSpent} from './functions/calculate-total-spent';
@@ -6,6 +6,7 @@ import {sortData} from './functions/sort-data';
 import {filterData} from './functions/filter-data';
 import {groupArrayBy} from "./functions/group-array-by";
 import {PromptUpdateService} from "./services/promt-update.service";
+import {CalLoginComponent} from "./components/cal-login/cal-login.component";
 type GraphData = { name: string, value: number };
 
 @Component({
@@ -25,8 +26,7 @@ export class AppComponent {
   private sort?: Sort;
   @ViewChild('filter') private filter?: ElementRef;
   bgColor = 'white'; // TODO: Do Material theming
-
-  private loginComponentRef?: ComponentRef<any>;
+  private lazyLoginComponent?: CalLoginComponent;
 
   constructor(updateService: PromptUpdateService, private vcr: ViewContainerRef) {}
 
@@ -86,15 +86,15 @@ export class AppComponent {
   }
 
   async calLogin() {
-    if (!this.loginComponentRef) {
+    if (!this.lazyLoginComponent) {
       const {CalLoginComponent} = await import('./components/cal-login/cal-login.component');
-      this.loginComponentRef = this.vcr.createComponent(CalLoginComponent);
-      this.loginComponentRef.instance.sendDataEvent
+      this.lazyLoginComponent = this.vcr.createComponent(CalLoginComponent).instance;
+      this.lazyLoginComponent.dataEvent
           .subscribe((data: ICalRecord[]) => {
             console.log('Got some data from CalLoginComponent')
             this.postProcessing(data);
           });
     }
-    else this.loginComponentRef.instance.showModal();
+    else this.lazyLoginComponent.showModal();
   }
 }

@@ -5,8 +5,6 @@ import {CalResponse} from "../interfaces/ICalTransactions";
 export class CalService {
   private calToken?: string;
 
-  constructor() { }
-
   async getCalToken(tz: string, last4Digits: string) {
     const resp = await fetch('/whatsup-auth.api?tz=' + tz + '&last4Digits=' + last4Digits);
     const data = await resp.json();
@@ -15,7 +13,17 @@ export class CalService {
     return data.token as string;
   }
 
-  async downloadMonth(tz: string, pin: string) {
+  async getData(tz: string, pin: string) {
+    const [transactions, processJsonData] = await Promise.all([
+      this.#downloadMonth(tz, pin),
+      import('../functions/process-json-data').then(m => m.processJsonData)
+    ]);
+
+    if (transactions) return processJsonData(transactions);
+    else return [];
+  }
+
+  async #downloadMonth(tz: string, pin: string) {
     const body = JSON.stringify({
       custID: tz,
       password: pin,
@@ -30,16 +38,16 @@ export class CalService {
     return data.result.bankAccounts.pop()?.debitDates.pop()?.transactions;
   }
 
-  async download3MonthAllCards(tz: string, pin: string) {
-    const body = JSON.stringify({
-      custID: tz,
-      password: pin,
-      token: this.calToken
-    });
-
-    const resp = await fetch('/cal-download.api', { method: 'POST', body });
-    const data: CalResponse = await resp.json();
-    console.log('got data from api', data?.result);
-    return data.result.transArr;
-  }
+  // async #download3MonthAllCards(tz: string, pin: string) {
+  //   const body = JSON.stringify({
+  //     custID: tz,
+  //     password: pin,
+  //     token: this.calToken
+  //   });
+  //
+  //   const resp = await fetch('/cal-download.api', { method: 'POST', body });
+  //   const data: CalResponse = await resp.json();
+  //   console.log('got data from api', data?.result);
+  //   return data.result.transArr;
+  // }
 }

@@ -2,7 +2,7 @@
     <h2>CAL Login</h2>
     <div class="dialog-body flex-column">
 
-        <form #heroForm="ngForm" (ngSubmit)="showPinField ? download(loginDialog) : getCalToken()" class="flex-column">
+        <form #heroForm="ngForm" (ngSubmit)="showPinField ? download() : getCalToken($event)" class="flex-column">
             <mat-form-field appearance="fill" hideRequiredMarker="true">
                 <mat-label>Israeli ID</mat-label>
                 <input matInput [(ngModel)]="loginForm.tz" name="tz" maxlength="9" minlength="9" required inputmode="numeric">
@@ -28,12 +28,12 @@
                 >
             </mat-form-field>
 
-            <button class="btn mat-elevation-z1" type="submit" *ngIf="!(isLoading || errorMessage)" [disabled]="heroForm.form.invalid" autofocus>
+            <button class="btn" type="submit" *ngIf="!(isLoading || errorMessage)" [disabled]="heroForm.form.invalid" autofocus>
                 Get the {{showPinField ? 'Data' : 'Code'}}
             </button>
         </form>
 
         <progress [hidden]="!isLoading"></progress>
-        <div class="mat-mdc-form-field-error">{{errorMessage}}</div>
+        <div class="mat-mdc-form-field-error" style="width: auto; text-align: center">{{errorMessage}}</div>
     </div>
 </dialog>
