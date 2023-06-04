@@ -11,6 +11,7 @@ import {FormsModule} from "@angular/forms";
 import {MatInputModule} from "@angular/material/input";
 import {CalService} from "../../services/cal.service";
 import {ICalRecord} from "../../interfaces/ICalRecord";
+import {validateTz} from "../../functions/validate-tz";
 
 @Component({
   selector: 'app-cal-login',
@@ -28,13 +29,13 @@ export class CalLoginComponent implements AfterViewInit {
 
   isLoading = false;
   showPinField = false;
+  #errorMessage?: string;
 
   @ViewChild('loginDialog')
   private loginDialog?: ElementRef;
 
   @Output()
   dataEvent = new EventEmitter<ICalRecord[]>();
-  errorMessage?: string;
 
   constructor(private calService: CalService) {}
 
@@ -48,21 +49,25 @@ export class CalLoginComponent implements AfterViewInit {
 
   async getCalToken(event: Event) {
     event.preventDefault();
-    console.log(event.target);
 
-    this.isLoading = true;
+    if (!validateTz(this.loginForm.tz)) {
+      this.error = 'Wrong ID. Please try again.'
+      return;
+    }
+
     try {
+      this.isLoading = true;
       this.showPinField = !!(await this.calService.getCalToken(this.loginForm.tz, this.loginForm.last4Digits));
     }
     catch (e) {
-      this.errorMessage = String(e).startsWith('SyntaxError: ') ? 'API Connection error' : String(e);
+      this.error = e;
     }
     this.isLoading = false;
-
-    setTimeout(() => this.errorMessage = undefined, 3000);
   }
 
   async download() {
+    if (this.loginForm.pin.length !== 6) return;
+
     this.isLoading = true;
 
     try {
@@ -71,10 +76,18 @@ export class CalLoginComponent implements AfterViewInit {
       this.loginDialog?.nativeElement.close();
     }
     catch (e) {
-      this.errorMessage = String(e);
+      this.error = e;
     }
 
     this.isLoading = false;
+  }
+
+  set error(message: any) {
+    this.#errorMessage = String(message).startsWith('SyntaxError: ') ? 'API Connection error' : String(message);
+    setTimeout(() => this.#errorMessage = undefined, 3000);
+  }
+  get error() {
+    return this.#errorMessage;
   }
 
 }

@@ -2,38 +2,55 @@
     <h2>CAL Login</h2>
     <div class="dialog-body flex-column">
 
-        <form #heroForm="ngForm" (ngSubmit)="showPinField ? download() : getCalToken($event)" class="flex-column">
+        <form #heroForm="ngForm" (ngSubmit)="getCalToken($event)" class="flex-column">
             <mat-form-field appearance="fill" hideRequiredMarker="true">
                 <mat-label>Israeli ID</mat-label>
-                <input matInput [(ngModel)]="loginForm.tz" name="tz" maxlength="9" minlength="9" required inputmode="numeric">
+                <input matInput
+                       [(ngModel)]="loginForm.tz"
+                       [disabled]="isLoading"
+                       name="tz"
+                       maxlength="9" minlength="9" pattern="^\d{1,9}$"
+                       required
+                       inputmode="numeric"
+                       autocomplete="username">
             </mat-form-field>
 
             <mat-form-field  appearance="fill" hideRequiredMarker="true">
                 <mat-label>Last 4 digits of your credit card</mat-label>
-                <input matInput [(ngModel)]="loginForm.last4Digits" name="last4Digits" type="password" maxlength="4" minlength="4" required inputmode="numeric">
-            </mat-form-field>
-
-
-            <mat-form-field *ngIf="showPinField">
-                <mat-label>One-time code</mat-label>
                 <input matInput
-                       inputmode="numeric"
-                       pattern="^\d{1,6}$"
-                       autocomplete="one-time-code"
-                       maxlength="6"
-                       minlength="6"
-                       name="pin"
+                       [(ngModel)]="loginForm.last4Digits"
+                       [disabled]="isLoading"
+                       name="last4Digits"
+                       type="password"
+                       maxlength="4" minlength="4" pattern="^\d{1,4}$"
                        required
-                       [(ngModel)]="loginForm.pin"
-                >
+                       inputmode="numeric"
+                       autocomplete="current-password">
             </mat-form-field>
 
-            <button class="btn" type="submit" *ngIf="!(isLoading || errorMessage)" [disabled]="heroForm.form.invalid" autofocus>
-                Get the {{showPinField ? 'Data' : 'Code'}}
+            <button class="btn" type="submit" *ngIf="!(isLoading || error || showPinField)" [disabled]="heroForm.form.invalid" autofocus>
+                Get the Code
             </button>
         </form>
 
+        <mat-form-field *ngIf="showPinField">
+            <mat-label>One-time code</mat-label>
+            <input matInput
+                   inputmode="numeric"
+                   pattern="^\d{1,6}$"
+                   autocomplete="one-time-code"
+                   maxlength="6"
+                   minlength="6"
+                   name="pin"
+                   required
+                   autofocus
+                   (input)="download()"
+                   [disabled]="isLoading"
+                   [(ngModel)]="loginForm.pin"
+            >
+        </mat-form-field>
+
         <progress [hidden]="!isLoading"></progress>
-        <div class="mat-mdc-form-field-error" style="width: auto; text-align: center">{{errorMessage}}</div>
+        <div class="mat-mdc-form-field-error" style="width: auto; text-align: center">{{error}}</div>
     </div>
 </dialog>
