@@ -1,4 +1,4 @@
-import {Component, ElementRef, ViewChild, ViewContainerRef} from '@angular/core';
+import {Component, ElementRef, inject, ViewChild, ViewContainerRef} from '@angular/core';
 import {ICalRecord} from "./interfaces/ICalRecord";
 import {Sort} from '@angular/material/sort';
 import {calculateTotalSpent} from './functions/calculate-total-spent';
@@ -7,6 +7,7 @@ import {filterData} from './functions/filter-data';
 import {groupArrayBy} from "./functions/group-array-by";
 import {PromptUpdateService} from "./services/promt-update.service";
 import {CalLoginComponent} from "./components/cal-login/cal-login.component";
+import {MediaMatcher} from "@angular/cdk/layout";
 type GraphData = { name: string, value: number };
 
 @Component({
@@ -25,8 +26,10 @@ export class AppComponent {
   activeCategory?: { name: string; value: string }[];
   private sort?: Sort;
   @ViewChild('filter') private filter?: ElementRef;
-  bgColor = 'white'; // TODO: Do Material theming
+  bgColor = '#fafafa'; // TODO: Do Material theming
   private lazyLoginComponent?: CalLoginComponent;
+  private media = inject(MediaMatcher);
+  mobileQuery = this.media.matchMedia('(max-width: 600px)');
 
   constructor(updateService: PromptUpdateService, private vcr: ViewContainerRef) {}
 

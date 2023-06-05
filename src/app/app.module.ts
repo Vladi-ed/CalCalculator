@@ -13,6 +13,8 @@ import {FooterComponent} from './components/footer/footer.component';
 import {MatIconModule} from "@angular/material/icon";
 import { CategoryIconPipe } from './pipes/category-icon.pipe';
 import { CommentsIconPipe } from './pipes/comments-icon.pipe';
+import {MatSidenavModule} from "@angular/material/sidenav";
+import {MatListModule} from "@angular/material/list";
 
 @NgModule({
     declarations: [AppComponent, FooterComponent, CategoryIconPipe, CommentsIconPipe],
@@ -31,6 +33,8 @@ import { CommentsIconPipe } from './pipes/comments-icon.pipe';
         MatSortModule,
         MatRippleModule,
         MatSlideToggleModule,
+        MatSidenavModule,
+        MatListModule,
     ],
 
     providers: [],
