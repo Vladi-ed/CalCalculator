@@ -1,7 +1,18 @@
-footer { text-align: center;  border-top: 1px solid lightgray; padding: 10px; font-size: small}
+footer {
+    text-align: center;
+    border-top: 1px solid lightgray;
+    padding: 10px;
+    font-size: small;
+}
 
-.footer-link { text-decoration: underline; cursor: pointer; user-select: none }
+.footer-link {
+    text-decoration: underline;
+    cursor: pointer;
+    user-select: none;
+    padding: 5px;
+}
+
 
 .ok-btn {
-    padding: 8px 22px; float: right
+    padding: 8px 22px; float: right; border-radius: 4px;
 }

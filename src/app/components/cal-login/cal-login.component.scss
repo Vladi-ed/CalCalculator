@@ -1,3 +1,13 @@
 progress {
   width: auto; margin: 12px
 }
+
+.close-icon {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  padding: 3px;
+  cursor: pointer;
+  border-radius: 4px;
+  color: #666;
+}

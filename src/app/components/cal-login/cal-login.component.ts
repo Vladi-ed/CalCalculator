@@ -12,11 +12,13 @@ import {MatInputModule} from "@angular/material/input";
 import {CalService} from "../../services/cal.service";
 import {ICalRecord} from "../../interfaces/ICalRecord";
 import {validateTz} from "../../functions/validate-tz";
+import {MatIconModule} from "@angular/material/icon";
+import {MatRippleModule} from "@angular/material/core";
 
 @Component({
   selector: 'app-cal-login',
   standalone: true,
-  imports: [NgIf, MatInputModule, FormsModule],
+  imports: [NgIf, MatInputModule, FormsModule, MatIconModule, MatRippleModule],
   templateUrl: './cal-login.component.html',
   styleUrls: ['./cal-login.component.scss']
 })
