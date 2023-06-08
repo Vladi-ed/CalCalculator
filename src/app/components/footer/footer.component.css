@@ -16,3 +16,20 @@ footer {
 .ok-btn {
     padding: 8px 22px; float: right; border-radius: 4px;
 }
+
+.cal-export-btn {
+    display: flex;
+    align-items: center;
+    height: 30px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border-radius: 26px;
+    padding: 0 14px;
+    width: fit-content;
+    border: none;
+    color: #1b5ece;
+    background: white;
+    font-size: 18px;
+    line-height: 22px;
+    font-weight: 700;
+}
