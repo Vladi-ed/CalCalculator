@@ -252,6 +252,8 @@ export const vocabulary: IPayment[] = [{
 }, {
   "keyword": "מכולת האחים", "translation": "Grocery store", category: 'food'
 }, {
+  "keyword": "מעדני מניה", "translation": "Mania Groceries", category: 'food'
+}, {
   "keyword": "ממתקי העיר", "translation": "Sweets Minimarket", category: 'food'
 }, {
   "keyword": "מכונות אוטומטיות", "translation": "Vending machine", category: 'food'
@@ -338,6 +340,8 @@ export const vocabulary: IPayment[] = [{
   "keyword": "OGNAY YB ILED", "translation": "Yango Deli", category: 'food'
 }, {
   "keyword": "ILED OGNAY", "translation": "Yango Deli", category: 'food'
+}, {
+  "keyword": "YANGO DELI", "translation": "Yango Deli", category: 'food'
 }, {
   "keyword": "יאנגו מרקט", "translation": "Yango Market",
 }, {

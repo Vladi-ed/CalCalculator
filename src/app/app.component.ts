@@ -34,7 +34,10 @@ export class AppComponent {
     const file = target?.item(0);
 
     if (file?.name.endsWith('.xlsx') && file.size > 1000) {
-      import('./functions/process-excel-data')
+      if (file.name.startsWith('transaction-details_export')) import('./functions/process-max-data')
+          .then(m => m.processExcelData(file))
+          .then(records => this.postProcessing(records));
+      else import('./functions/process-excel-data')
           .then(m => m.processExcelData(file))
           .then(records => this.postProcessing(records));
     }

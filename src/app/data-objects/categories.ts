@@ -2,10 +2,12 @@ import {IPayment} from '../interfaces/IPayment';
 
 export const categories: IPayment[] = [
   { keyword: "מזון ומשקאות",  translation: "food",        icon: "shopping_cart" },
+  { keyword: "מזון וצריכה",   translation: "food",        icon: "shopping_cart" },
   { keyword: "מסעדות",        translation: "restaurants", icon: "restaurant" },
   { keyword: "ציוד ומשרד",    translation: "service fee", icon: "business" },
   { keyword: "פנאי בילוי",    translation: "entertainment", icon: "local_play" },
   { keyword: "משחקי מזל",     translation: "entertainment", icon: "casino" },
+  { keyword: "פנאי ובידור",   translation: "entertainment", icon: "casino" },
   { keyword: "תיירות",       translation: "tourism", icon: "airplane_ticket" },
   { keyword: "רפואה ובריאות", translation: "health",      icon: "local_hospital" },
   { keyword: "תקשורת ומחשבים", translation: "communication and computers", icon: "computer" },

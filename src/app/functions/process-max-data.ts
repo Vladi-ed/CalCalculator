@@ -15,48 +15,27 @@ export async function processExcelData(file: File) {
 
     const wb = read(fileContent, { type: 'file' });
     const sheet = wb.Sheets[wb.SheetNames[0]];
-    if (sheet["!ref"]) {
-        console.log('sheet range', sheet["!ref"]);
 
-        const header = ['date', 'description', 'cost', 'currency', 'chargingDate', 'costNum', 'currencyNis', 'transactionType', 'categoryHeb', 'cardId', 'comment'];
-        if (utils.decode_range(sheet["!ref"]).e.c === 11) {
-            // if there is more fields than usual
-            console.log('There is 11 columns in the doc')
-            const lastElement = header.pop();
-            header.push('discount');
-            header.push(lastElement!);
-        }
+    const header = ['date', 'description', 'categoryHeb', 'cardId', 'transactionType', 'costNum', 'currencyNis', 'cost', 'currency', 'chargingDate', '', '', '', '', 'comment'];
 
-        const data = utils.sheet_to_json<ICalRecord>(sheet, { header });
-        console.log('Cal Excel Data', data);
-        return processDataV3(data);
-    }
-    else {
-        alert('Cannot decode a file');
-        return [];
-    }
+    const data = utils.sheet_to_json<ICalRecord>(sheet, { header });
+    console.log('Max Excel Data', data);
+    return processMaxData(data);
 }
 
-function processDataV3(records: ICalRecord[]) {
+function processMaxData(records: ICalRecord[]) {
 
-    // remove first rows (old titles)
-    records.shift();
-    records.shift();
-
-    // remove summary rows
-    records = records.filter(cell => !(cell.date as string).startsWith('עסקאות'));
-
-    console.log(records);
+    // process only date-formatted rows
+    // 30-05-2023
+    records = records.filter(cell => /^([0-2]\d|3[01])-(0\d|1[0-2])-(\d{4})$/.test(cell.date) );
 
     // add new fields
     records.forEach(line => {
 
         // convert to US format
-        line.date = fixDate(line.date);
+        line.date = fixDate(line.date, '-');
 
-        if (line.costNum == undefined) {
-            line.costNum = Number(line.cost);
-        }
+        if (line.costNum == undefined) line.costNum = Number(line.cost);
 
         line.costNis = '₪ ' + line.costNum;
 
@@ -77,4 +56,5 @@ function processDataV3(records: ICalRecord[]) {
     })
 
     return records;
+
 }

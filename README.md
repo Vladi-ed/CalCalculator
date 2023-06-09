@@ -19,6 +19,10 @@ So if you're a Cal Credit Card user looking to take control of your personal fin
 6. Now you can see a translation for known operations, can sort, filter, ext.
 7. PROFIT!!!11
 
+# Download links
+Cal:
+Max: https://www.max.co.il/transaction-details/personal?filter=-1_-1_1_2023-06-01_0_0_-1&sort=1a_1a_1a_1a_1a_1a
+
 ## Security
 
 Once the web application is loaded it's NOT making any server requests or API calls - everything is working locally in users' browser.
