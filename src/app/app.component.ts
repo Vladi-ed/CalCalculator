@@ -25,7 +25,6 @@ export class AppComponent {
   activeCategory?: { name: string; value: string }[];
   private sort?: Sort;
   @ViewChild('filter') private filter?: ElementRef;
-  bgColor = 'white'; // TODO: Do Material theming
   private lazyLoginComponent?: CalLoginComponent;
 
   constructor(updateService: PromptUpdateService, private vcr: ViewContainerRef) {}

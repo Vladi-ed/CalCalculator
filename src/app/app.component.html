@@ -1,4 +1,4 @@
-<main [ngStyle]="{'background' : bgColor}">
+<main>
   <header class="header">
     <h1 class="hidden-mobile">Cal Calculator</h1>
 
@@ -10,7 +10,7 @@
 
     <label *ngIf="csvInput.files?.length" class="hidden-mobile">{{ csvInput.files?.item(0)?.name }}</label>
 
-    <label matRipple [hidden]="csvInput.files?.length">
+    <label class="goto" matRipple [hidden]="csvInput.files?.length" style="flex-basis: 70px">
       <a href="https://digital-web.cal-online.co.il/transactions" target="_blank">
         Go to CAL website
       </a>
@@ -23,8 +23,9 @@
     <div class="flex-separator hidden-mobile"></div>
 
     <label *ngIf="calRecords">
-      {{ calRecords.at(0)?.date | date }} – {{ calRecords.at(-1)?.date | date }}
+      {{ calRecords.at(0)?.date | date:'MMM d' }} – {{ calRecords.at(-2)?.date | date }}
     </label>
+
     <label *ngIf="!calRecords" class="" matRipple (click)="onLoadPreset()">
       <span style="text-decoration: underline">Load example</span>
     </label>

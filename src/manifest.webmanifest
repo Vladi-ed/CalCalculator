@@ -3,7 +3,7 @@
   "short_name": "CalC",
   "description": "Web Application that translates financial operations that was made using Cal credit card and provides several tools to analyse you personal finances.",
   "theme_color": "#ffffff",
-  "background_color": "#ffffff",
+  "background_color": "#fafafa",
   "display": "standalone",
   "icons": [
     {
