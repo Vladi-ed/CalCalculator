@@ -6,7 +6,7 @@
       <mat-icon style="height: 20px; width: 20px; font-size: 20px">upload_file</mat-icon>
       Choose File
     </label>
-    <input #csvInput id="input-file-id" hidden type="file" onclick="this.value=null" (change)="onUpload(csvInput.files)" accept=".xlsx"/>
+    <input #csvInput id="input-file-id" hidden type="file" onclick="this.value=null" (change)="onUpload(csvInput.files)" accept=".xlsx, .xls"/>
 
     <label *ngIf="csvInput.files?.length" class="hidden-mobile">{{ csvInput.files?.item(0)?.name }}</label>
 

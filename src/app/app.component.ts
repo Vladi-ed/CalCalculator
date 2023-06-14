@@ -40,7 +40,12 @@ export class AppComponent {
           .then(m => m.processExcelData(file))
           .then(records => this.postProcessing(records));
     }
-    else alert('The file seems to be broken, please try another one')
+    else if (file?.name.startsWith('Export_')) {
+      import('./functions/process-isracard-data')
+          .then(m => m.processExcelData(file))
+          .then(records => this.postProcessing(records));
+    }
+    else alert('The file format is not supported, please try another one.')
   }
 
   async onLoadPreset() {
