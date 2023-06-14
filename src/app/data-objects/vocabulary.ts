@@ -106,6 +106,8 @@ export const vocabulary: IPayment[] = [{
 }, {
   "keyword": "כלבו יחזקאל", "translation": "Construction/electric store", category: "household"
 }, {
+  "keyword": "הום שופ", "translation": "Home-Shop", category: "household"
+}, {
   "keyword": "AM YISRAEL", "translation": "TRIBE TEL AVIV", category: 'entertainment'
 }, {
   "keyword": "מרכז פרס לשלום ולחדשנות", "translation": "Peres Center for Peace and Innovation"
@@ -322,6 +324,10 @@ export const vocabulary: IPayment[] = [{
 }, {
   "keyword": "מאפיית הטאבון", "translation": "Taboon Bakery", category: 'food'
 }, {
+  "keyword": "מן הארץ", "translation": "Ha-Aretz Bakery", category: 'food'
+}, {
+  "keyword": "מאפה נאמן", "translation": "Neeman Bakery", category: 'food'
+}, {
   "keyword": "חנות החוויות כאל", "translation": "CAL internet shop",
 }, {
   "keyword": "אלכסנדר בולונגרי", "translation": "Alexander Bakery", category: 'food'
@@ -368,13 +374,21 @@ export const vocabulary: IPayment[] = [{
 }, {
   "keyword": "POHSKROW TES", "translation": "Hair cut"
 }, {
-  "keyword": "מיני סנטר שרון", "translation": "Hoz tovari", category: "household"
+  "keyword": "עיצוב שיער", "translation": "Hair cut"
 }, {
-  "keyword": "טמבוריה בנחלה", "translation": "Hoz tovari", category: "household"
+  "keyword": "מיני סנטר שרון", "translation": "Construction/electric store", category: "household"
+}, {
+  "keyword": "טמבוריה בנחלה", "translation": "Construction/electric store", category: "household"
+}, {
+  "keyword": "דרור ליצירה", "translation": "Art supply store", category: "household"
 }, {
   "keyword": "סינמטק", "translation": "Cinemateka", category: "entertainment"
 }, {
   "keyword": "פירות וירקות", "translation": "Fruits and Vegetables", category: 'food'
+}, {
+  "keyword": "פרי טרי", "translation": "Pri-Tari Fruits and Vegetables", category: 'food'
+}, {
+  "keyword": "פיצוחי שקד", "translation": "Nuts and dried fruits", category: 'food'
 }, {
   "keyword": "אלדו", "translation": "Ice cream", category: 'restaurants'
 }, {
