@@ -127,7 +127,7 @@ dialog {
 
 dialog::backdrop {
   background: rgba(0, 0, 0, .32);
-  backdrop-filter: blur(2px);
+  backdrop-filter: blur(1px);
 }
 
 .flex-column {
