@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import {SwUpdate, VersionReadyEvent} from "@angular/service-worker";
-import {filter} from "rxjs";
+import { SwUpdate, VersionReadyEvent } from "@angular/service-worker";
+import { filter } from "rxjs";
 
 @Injectable({ providedIn: 'root' })
 export class PromptUpdateService {
@@ -9,10 +9,10 @@ export class PromptUpdateService {
       updates.versionUpdates
         .pipe(filter((evt): evt is VersionReadyEvent => evt.type === 'VERSION_READY'))
         .subscribe(evt => {
-          if (confirm('A new version of the app is out. Do you want to update the page now?')) {
-            // Reload the page to update to the latest version.
-            document.location.reload();
-          }
+            console.log('A new version of the app is out', evt);
+            if (confirm('A new version of the app is out. Do you want to update the page now?')) {
+                document.location.reload(); // Reload the page to update to the latest version.
+            }
         });
 
       updates.unrecoverable.subscribe(event => {

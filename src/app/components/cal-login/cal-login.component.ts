@@ -61,9 +61,7 @@ export class CalLoginComponent implements AfterViewInit {
       this.isLoading = true;
       this.showPinField = !!(await this.calService.getCalToken(this.loginForm.tz, this.loginForm.last4Digits));
     }
-    catch (e) {
-      this.error = e;
-    }
+    catch (e) { this.error = e }
     this.isLoading = false;
   }
 

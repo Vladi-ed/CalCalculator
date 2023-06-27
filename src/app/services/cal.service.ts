@@ -32,9 +32,10 @@ export class CalService {
 
     const month = new Date().getMonth() + (new Date().getDay() > 10 ? 2 : 1) ; // till the day of charge
     const year = new Date().getFullYear();
+    console.log('Getting data for', month, year);
     const resp = await fetch('/cal-download.api?year=' + year + '&month=' + month, { method: 'POST', body });
     const data: CalResponse = await resp.json();
-    console.log('got data from api', data?.result);
+    console.log('Got data from api', data?.result);
     return data.result.bankAccounts.pop()?.debitDates.pop()?.transactions;
   }
 
