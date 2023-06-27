@@ -10,7 +10,7 @@
 
     <label *ngIf="csvInput.files?.length" class="hidden-mobile">{{ csvInput.files?.item(0)?.name }}</label>
 
-    <label class="goto" matRipple [hidden]="csvInput.files?.length" style="flex-basis: 70px">
+    <label class="goto" matRipple [hidden]="csvInput.files?.length">
       <a href="https://digital-web.cal-online.co.il/transactions" target="_blank">
         Go to CAL website
       </a>
