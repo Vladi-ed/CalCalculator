@@ -53,10 +53,9 @@ export class CalLoginComponent implements AfterViewInit {
     event.preventDefault();
 
     if (!validateTz(this.loginForm.tz)) {
-      this.error = 'Wrong ID. Please try again.'
+      this.error = 'Wrong ID. Please try again.';
       return;
     }
-
     try {
       this.isLoading = true;
       this.showPinField = !!(await this.calService.getCalToken(this.loginForm.tz, this.loginForm.last4Digits));

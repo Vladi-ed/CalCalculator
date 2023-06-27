@@ -96,11 +96,7 @@ export class AppComponent {
     if (!this.lazyLoginComponent) {
       const {CalLoginComponent} = await import('./components/cal-login/cal-login.component');
       this.lazyLoginComponent = this.vcr.createComponent(CalLoginComponent).instance;
-      this.lazyLoginComponent.dataEvent
-          .subscribe((data: ICalRecord[]) => {
-            console.log('Got some data from CalLoginComponent')
-            this.postProcessing(data);
-          });
+      this.lazyLoginComponent.dataEvent.subscribe((data: ICalRecord[]) => this.postProcessing(data));
     }
     else this.lazyLoginComponent.showModal();
   }
