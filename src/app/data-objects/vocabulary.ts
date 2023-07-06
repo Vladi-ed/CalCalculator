@@ -22,6 +22,8 @@ export const vocabulary: IPayment[] = [{
 }, {
   "keyword": "קפה לנדוור", "translation": "Cafe Landver", category: 'restaurants'
 }, {
+  "keyword": "בנדיקט", "translation": "Cafe Benedict", category: 'restaurants'
+}, {
   "keyword": "רולדין", "translation": "Roladin Bakery", category: 'food'
 }, {
   "keyword": "בלונזרי 96", "translation": "Boulangerie 96 Bakery", category: 'food'
@@ -76,6 +78,8 @@ export const vocabulary: IPayment[] = [{
 }, {
   "keyword": "סופר פארם", "translation": "SuperPharm", category: 'health'
 }, {
+  "keyword": "סופר - פארם", "translation": "SuperPharm", category: 'health'
+}, {
   "keyword": "סופר קופיקס", "translation": "Super Cofix", category: 'food'
 }, {
   "keyword": "סיטי מרקט", "translation": "City market", category: 'food'
@@ -119,6 +123,8 @@ export const vocabulary: IPayment[] = [{
   "keyword": "JAPANIKA", "translation": "Japanika Sushi", category: 'restaurants'
 }, {
   "keyword": "15 POHS EEFFOC", "translation": "Coffee Shop 51", category: 'coffee'
+}, {
+  "keyword": "קופי שופ 51", "translation": "Coffee Shop 51", category: 'coffee'
 }, {
   "keyword": "waycup coffe", "translation": "Waycup coffee TLV", category: 'coffee'
 }, {
@@ -300,6 +306,8 @@ export const vocabulary: IPayment[] = [{
 }, {
   "keyword": "NOOLLAB VLT", "translation": "Balloon in park Yarkon", category: "entertainment"
 }, {
+  "keyword": "TLV BALLOON", "translation": "Balloon in park Yarkon", category: "entertainment"
+}, {
   "keyword": "דר' אבי פיצ'ו-צמרת", "translation": "Veterinary", category: 'pet'
 }, {
   "keyword": "דוגי סטיי", "translation": "Pet Shop", category: 'pet'
@@ -315,6 +323,8 @@ export const vocabulary: IPayment[] = [{
   "keyword": "מוזיאון תל אביב לאמנות", "translation": "Tel-Aviv Museum of Art", category: 'entertainment'
 }, {
   "keyword": "סטודיו קפה", "translation": "Studio-cafe", category: 'restaurants'
+}, {
+  "keyword": "טאקריה", "translation": "Cafe Taqueria", category: 'restaurants'
 }, {
   "keyword": "בית עמנוא", "translation": "Beit Emanuel Kindergarten", category: 'child'
 }, {
