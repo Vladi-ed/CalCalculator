@@ -12,7 +12,7 @@
 
     <label class="goto" matRipple [hidden]="csvInput.files?.length">
       <a href="https://digital-web.cal-online.co.il/transactions" target="_blank">
-        Go to CAL website
+        CAL website
       </a>
     </label>
 
@@ -140,6 +140,8 @@
       </tr>
     </table>
   </div>
+
+  <app-table [calRecords]="calRecords" [filterText]="filter.value"></app-table>
 
   <a href="#filter-area" matRipple title="Go up" style="position: fixed; top: 80vh; right: 25px; border-radius: 50%; opacity: 60%" [hidden]="displayedRecords.length < 10">
     <svg style="border-radius: 50%; background: white" xmlns="http://www.w3.org/2000/svg" height="48" width="48">

@@ -13,9 +13,10 @@ import {FooterComponent} from './components/footer/footer.component';
 import {MatIconModule} from "@angular/material/icon";
 import { CategoryIconPipe } from './pipes/category-icon.pipe';
 import { CommentsIconPipe } from './pipes/comments-icon.pipe';
+import {TableComponent} from "./components/table/table.component";
 
 @NgModule({
-    declarations: [AppComponent, FooterComponent, CategoryIconPipe, CommentsIconPipe],
+    declarations: [AppComponent, FooterComponent],
     imports: [
         BrowserAnimationsModule,
         ServiceWorkerModule.register('ngsw-worker.js', {
@@ -31,6 +32,8 @@ import { CommentsIconPipe } from './pipes/comments-icon.pipe';
         MatSortModule,
         MatRippleModule,
         MatSlideToggleModule,
+        TableComponent,
+        CategoryIconPipe, CommentsIconPipe
     ],
 
     providers: [],
