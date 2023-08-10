@@ -2,7 +2,7 @@ import {
   AfterViewInit,
   Component,
   ElementRef,
-  EventEmitter,
+  EventEmitter, inject,
   Output,
   ViewChild
 } from '@angular/core';
@@ -32,14 +32,13 @@ export class CalLoginComponent implements AfterViewInit {
   isLoading = false;
   showPinField = false;
   #errorMessage?: string;
+  #calService = inject(CalService);
 
   @ViewChild('loginDialog')
   private loginDialog?: ElementRef;
 
   @Output()
   dataEvent = new EventEmitter<ICalRecord[]>();
-
-  constructor(private calService: CalService) {}
 
   ngAfterViewInit(): void {
     this.showModal();
@@ -58,7 +57,7 @@ export class CalLoginComponent implements AfterViewInit {
     }
     try {
       this.isLoading = true;
-      this.showPinField = !!(await this.calService.getCalToken(this.loginForm.tz, this.loginForm.last4Digits));
+      this.showPinField = !!(await this.#calService.getCalToken(this.loginForm.tz, this.loginForm.last4Digits));
     }
     catch (e) { this.error = e }
     this.isLoading = false;
@@ -70,7 +69,7 @@ export class CalLoginComponent implements AfterViewInit {
     this.isLoading = true;
 
     try {
-      const data= await this.calService.getData(this.loginForm.tz, this.loginForm.pin);
+      const data= await this.#calService.getData(this.loginForm.tz, this.loginForm.pin);
       this.dataEvent.emit(data);
       this.loginDialog?.nativeElement.close();
     }
