@@ -1,4 +1,7 @@
-<table mat-table multiTemplateDataRows [dataSource]="displayedRecords" matSort (matSortChange)="sortTransactions($event)" matSortDisableClear="true">
+<table mat-table multiTemplateDataRows matSort matSortDisableClear
+       class="mat-elevation-z4"
+       [dataSource]="displayedRecords"
+       (matSortChange)="sortTransactions($event)">
 
     <!-- Date Column -->
     <ng-container matColumnDef="date">
@@ -96,11 +99,10 @@
 
 
 
-    <tr mat-footer-row *matFooterRowDef="displayedColumns" [hidden]="!calRecords"></tr>
+    <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
 
     <!-- No results row -->
     <tr class="mdc-data-table__row" *matNoDataRow>
-        <td class="mdc-data-table__cell" colspan="4" *ngIf="calRecords">No data matching the filter "{{filterText}}"</td>
-        <td class="mdc-data-table__cell" colspan="4" *ngIf="!calRecords">Please load the Transactions file</td>
+        <td class="mdc-data-table__cell" colspan="4">No data matching the Filter</td>
     </tr>
 </table>

@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import { animate, state, style, transition, trigger } from "@angular/animations";
 import { MatTableModule } from "@angular/material/table";
 import {CurrencyPipe, DatePipe, NgIf, TitleCasePipe} from "@angular/common";
@@ -26,8 +26,25 @@ import {CategoryIconPipe} from "../../pipes/category-icon.pipe";
   styleUrls: ['./table.component.scss']
 })
 export class TableComponent {
-  @Input() filterText?: string;
-  @Input() calRecords?: ICalRecord[];
+  @Input()
+  set filterText(text: string) {
+    if (text) this.filterTransactions(text, false);
+  }
+  @Output() filterTextChange = new EventEmitter<string>();
+
+  @Input()
+  set calRecords(records: ICalRecord[] | undefined) {
+    if (records && records.length) {
+      this.#calRecords = records;
+      this.displayedRecords = records;
+      this.spentTotal = calculateTotalSpent(this.displayedRecords);
+    }
+  }
+  get calRecords(): ICalRecord[] {
+    return this.#calRecords || [];
+  }
+  #calRecords?: ICalRecord[];
+
   displayedRecords: ICalRecord[] = [];
   displayedColumns: (keyof ICalRecord)[] = ['date',	'description', 'translation', 'costNis', 'myCategory', 'count', 'comment'];
   expandedElement?: ICalRecord | null;
@@ -35,11 +52,10 @@ export class TableComponent {
 
   private sort?: Sort;
 
-  filterTransactions(searchStr: string) {
-    if (this.calRecords) {
+  filterTransactions(searchStr: string, update = true) {
       this.displayedRecords = sortData(filterData(this.calRecords, searchStr), this.sort);
       this.spentTotal = calculateTotalSpent(this.displayedRecords);
-    }
+      if (update) this.filterTextChange.emit(searchStr);
   }
 
   sortTransactions(sort: Sort) {
