@@ -38,6 +38,7 @@ export class TableComponent {
       this.#calRecords = records;
       this.displayedRecords = records;
       this.spentTotal = calculateTotalSpent(this.displayedRecords);
+      this.dataLoaded = true;
     }
   }
   get calRecords(): ICalRecord[] {
@@ -49,6 +50,7 @@ export class TableComponent {
   displayedColumns: (keyof ICalRecord)[] = ['date',	'description', 'translation', 'costNis', 'myCategory', 'count', 'comment'];
   expandedElement?: ICalRecord | null;
   spentTotal?: number;
+  dataLoaded = false;
 
   private sort?: Sort;
 
