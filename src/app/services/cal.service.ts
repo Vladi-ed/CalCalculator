@@ -16,7 +16,7 @@ export class CalService {
   async getData(tz: string, pin: string) {
     const [transactions, processJsonData] = await Promise.all([
       this.#downloadMonth(tz, pin),
-      import('../functions/process-json-data').then(m => m.processJsonData)
+      import('../functions/process-cal-json-data').then(m => m.processCalJsonData)
     ]);
 
     if (transactions) return processJsonData(transactions);

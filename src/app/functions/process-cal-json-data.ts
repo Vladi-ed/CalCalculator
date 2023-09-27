@@ -4,7 +4,7 @@ import {vocabulary} from "../data-objects/vocabulary";
 import {categories} from "../data-objects/categories";
 import {comments} from "../data-objects/comments";
 
-export function processJsonData(data: Transaction[]) {
+export function processCalJsonData(data: Transaction[]) {
     return data.map<ICalRecord>((transaction, index, transArr) => {
 
         const calRecord: ICalRecord = {
@@ -17,7 +17,8 @@ export function processJsonData(data: Transaction[]) {
             comment : transaction.comments?.length ? JSON.stringify(transaction.comments) : transaction.onGoingTransactionsComment,
             transactionType: transaction.trnType,
             categoryHeb: transaction.branchCodeDesc || undefined,
-            count: 0
+            count: 0,
+            ...Object.fromEntries(Object.entries(transaction).filter(([_, v]) => !!v && v.length )) // copy all transaction fields except null, undefined or empty
         }
 
         // count number of similar operations

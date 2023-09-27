@@ -34,20 +34,6 @@ main {
   }
 }
 
-table {
-  width: 100%;
-}
-
-td.mat-mdc-footer-cell {
-  white-space: nowrap;
-  font-weight: 500;
-  border-top: 2px solid #e6e6e6;
-}
-
-.mat-column-count {
-  padding-right: 0;
-}
-
 a {
   color: black;
 }
@@ -79,17 +65,6 @@ a {
 
   .filter-area {
     justify-content: space-around;
-  }
-
-  .mat-mdc-header-cell {
-    padding-right: 0;
-    white-space: nowrap;
-  }
-  .mat-mdc-cell {
-    padding-right: 0;
-  }
-  .mat-mdc-footer-cell {
-    padding-right: 0;
   }
 
   .graph-container {

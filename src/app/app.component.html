@@ -26,7 +26,7 @@
       {{ calRecords.at(0)?.date | date:'MMM d' }} – {{ calRecords.at(-2)?.date | date }}
     </label>
 
-    <label *ngIf="!calRecords" class="" matRipple (click)="onLoadPreset()">
+    <label *ngIf="!calRecords" class="" matRipple (click)="onExampleLoad()">
       <span style="text-decoration: underline">Load example</span>
     </label>
   </header>
@@ -34,8 +34,8 @@
   <div id="filter-area" class="filter-area">
     <mat-form-field>
       <mat-label>Filter</mat-label>
-      <input matInput #filter (input)="filterTransactions(filter.value)">
-      <span matSuffix [style.opacity]="filter.value ? 1 : 0" aria-label="Clear" (click)="clearFilter(filter)" style="cursor: pointer">
+      <input matInput #filter>
+      <span matSuffix [style.opacity]="filter.value ? 1 : 0" aria-label="Clear" (click)="filter.value = ''" style="cursor: pointer">
         <svg xmlns="http://www.w3.org/2000/svg" height="18px" width="18px" viewBox="0 -5 24 24" fill="gray">
           <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
         </svg>
@@ -44,7 +44,7 @@
     <div style="flex-grow: 1" class="hidden-mobile"></div>
     <mat-slide-toggle (click)="showGraph = !showGraph" style="padding-top: 10px"><span class="hidden-mobile">Show</span> Graph</mat-slide-toggle>
 
-    <a href="#footer" matRipple class="go-down" [hidden]="displayedRecords.length < 10">Go down</a>
+    <a href="#footer" matRipple class="go-down" [hidden]="!calRecords || calRecords.length < 10">Scroll down</a>
   </div>
 
   <div class="graph-container mat-elevation-z5" *ngIf="showGraph">
@@ -58,92 +58,9 @@
     </ngx-charts-advanced-pie-chart>
   </div>
 
-  <div class="mat-elevation-z5" style="overflow: auto; margin-bottom: 50px">
-    <table mat-table [dataSource]="displayedRecords" matSort (matSortChange)="sortTransactions($event)" matSortDisableClear="true">
+  <app-table [records]="calRecords" [(filterText)]="filter.value" class="mat-elevation-z5"/>
 
-      <!-- Date Column -->
-      <ng-container matColumnDef="date">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header=""> Date </th>
-        <td mat-cell *matCellDef="let row"> {{ row.date | date:'d MMM y' }} </td>
-        <td mat-footer-cell *matFooterCellDef> Total </td>
-      </ng-container>
-
-      <!-- description Column -->
-      <ng-container matColumnDef="description">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header=""> Description </th>
-        <td mat-cell *matCellDef="let row"> {{row.description}} </td>
-        <td mat-footer-cell *matFooterCellDef>{{ displayedRecords.length || '' }} records</td>
-      </ng-container>
-
-      <!-- count Column -->
-      <ng-container matColumnDef="count">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header=""> Count </th>
-        <td mat-cell *matCellDef="let row" style="cursor: pointer"
-            (click)="filter.value=row.translation || row.description; filterTransactions(row.translation || row.description);"
-        >
-          {{row.count}}
-        </td>
-        <td mat-footer-cell *matFooterCellDef></td>
-      </ng-container>
-
-      <!-- translation Column -->
-      <ng-container matColumnDef="translation">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header=""> Translation </th>
-        <td mat-cell *matCellDef="let row"> {{row.translation}} </td>
-        <td mat-footer-cell *matFooterCellDef></td>
-      </ng-container>
-
-      <!-- costNis Column -->
-      <ng-container matColumnDef="costNis">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header=""> Cost </th>
-        <td mat-cell *matCellDef="let row">
-          <div class="flex-column">
-            {{row.costNis}}
-            <span [hidden]="row.costNis == row.cost" style="color: gray; font-size: smaller">{{row.cost}}</span>
-          </div>
-        </td>
-        <td mat-footer-cell *matFooterCellDef> {{ spentTotal | currency:'₪ ' }} </td>
-      </ng-container>
-
-      <!-- category Column -->
-      <ng-container matColumnDef="myCategory">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header=""> Category </th>
-        <td mat-cell *matCellDef="let row" style="cursor: pointer"
-            (click)="filter.value=row.myCategory; filterTransactions(row.myCategory);"
-        >
-          <div style="display: flex; align-items: center; gap: 8px;">
-            <mat-icon inline="true">{{row.myCategory | categoryIcon}}</mat-icon><span>{{row.myCategory | titlecase}}</span>
-          </div>
-        </td>
-        <td mat-footer-cell *matFooterCellDef></td>
-      </ng-container>
-
-      <!-- comment Column -->
-      <ng-container matColumnDef="comment">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header=""> Comment </th>
-        <td mat-cell *matCellDef="let row" >
-          <div style="display: flex; align-items: center; gap: 8px;">
-            <mat-icon inline="true">{{row.comment | commentsIcon}}</mat-icon><span>{{row.comment}}</span>
-          </div>
-        </td>
-        <td mat-footer-cell *matFooterCellDef></td>
-      </ng-container>
-
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-      <tr mat-footer-row *matFooterRowDef="displayedColumns" [hidden]="!calRecords"></tr>
-
-      <!-- No results row -->
-      <tr class="mdc-data-table__row" *matNoDataRow>
-        <td class="mdc-data-table__cell" colspan="4" *ngIf="calRecords">No data matching the filter "{{filter.value}}"</td>
-        <td class="mdc-data-table__cell" colspan="4" *ngIf="!calRecords">Please load the Transactions file</td>
-      </tr>
-    </table>
-  </div>
-
-  <app-table [calRecords]="calRecords" [(filterText)]="filter.value"></app-table>
-
-  <a href="#filter-area" matRipple title="Go up" style="position: fixed; top: 80vh; right: 25px; border-radius: 50%; opacity: 60%" [hidden]="displayedRecords.length < 10">
+  <a href="#filter-area" matRipple title="Go up" style="position: fixed; top: 80vh; right: 25px; border-radius: 50%; opacity: 60%" *ngIf="calRecords && calRecords.length > 10">
     <svg style="border-radius: 50%; background: white" xmlns="http://www.w3.org/2000/svg" height="48" width="48">
       <path d="M22.5 31.4h3v-9.1l3.7 3.7 2.1-2.1-7.3-7.3-7.3 7.3 2.1 2.1 3.7-3.7ZM24 44q-4.1 0-7.75-1.575-3.65-1.575-6.375-4.3-2.725-2.725-4.3-6.375Q4 28.1 4 24q0-4.15 1.575-7.8 1.575-3.65 4.3-6.35 2.725-2.7 6.375-4.275Q19.9 4 24 4q4.15 0 7.8 1.575 3.65 1.575 6.35 4.275 2.7 2.7 4.275 6.35Q44 19.85 44 24q0 4.1-1.575 7.75-1.575 3.65-4.275 6.375t-6.35 4.3Q28.15 44 24 44Zm0-3q7.1 0 12.05-4.975Q41 31.05 41 24q0-7.1-4.95-12.05Q31.1 7 24 7q-7.05 0-12.025 4.95Q7 16.9 7 24q0 7.05 4.975 12.025Q16.95 41 24 41Zm0-17Z"/></svg>
   </a>

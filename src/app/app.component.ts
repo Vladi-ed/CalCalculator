@@ -1,12 +1,11 @@
 import {Component, ElementRef, ViewChild, ViewContainerRef} from '@angular/core';
 import {ICalRecord} from "./interfaces/ICalRecord";
-import {Sort} from '@angular/material/sort';
 import {calculateTotalSpent} from './functions/calculate-total-spent';
-import {sortData} from './functions/sort-data';
-import {filterData} from './functions/filter-data';
 import {groupArrayBy} from "./functions/group-array-by";
 import {PromptUpdateService} from "./services/promt-update.service";
 import {CalLoginComponent} from "./components/cal-login/cal-login.component";
+import {BreakpointObserver} from "@angular/cdk/layout";
+
 type GraphData = { name: string, value: number };
 
 @Component({
@@ -16,31 +15,31 @@ type GraphData = { name: string, value: number };
 })
 export class AppComponent {
   calRecords?: ICalRecord[];
-  displayedRecords: ICalRecord[] = [];
-  displayedColumns: (keyof ICalRecord)[] = ['date',	'description', 'translation', 'costNis', 'myCategory', 'count', 'comment'];
-  spentTotal?: number;
 
   showGraph = false;
   graphData: GraphData[] = [];
   activeCategory?: { name: string; value: string }[];
-  private sort?: Sort;
   @ViewChild('filter') private filter?: ElementRef;
   private lazyLoginComponent?: CalLoginComponent;
 
-  constructor(updateService: PromptUpdateService, private vcr: ViewContainerRef) {}
+
+  constructor(appAutoUpdate: PromptUpdateService, public breakpointObserver: BreakpointObserver, private vcr: ViewContainerRef) {}
 
   onUpload(target: FileList | null) {
+    const isSmallScreen = this.breakpointObserver.isMatched('(max-width: 599px)');
+    console.log(isSmallScreen)
+
     const file = target?.item(0);
 
     if (file?.name.endsWith('.xlsx') && file.size > 1000) {
-      if (file.name.startsWith('transaction-details_export')) import('./functions/process-max-data')
+      if (file.name.startsWith('transaction-details_export')) import('./functions/process-max-data') // Max
           .then(m => m.processExcelData(file))
           .then(records => this.postProcessing(records));
-      else import('./functions/process-excel-data')
+      else import('./functions/process-cal-data') // Cal
           .then(m => m.processExcelData(file))
           .then(records => this.postProcessing(records));
     }
-    else if (file?.name.startsWith('Export_')) {
+    else if (file?.name.startsWith('Export_')) { // Isracard
       import('./functions/process-isracard-data')
           .then(m => m.processExcelData(file))
           .then(records => this.postProcessing(records));
@@ -48,10 +47,10 @@ export class AppComponent {
     else alert('The file format is not supported, please try another one.')
   }
 
-  async onLoadPreset() {
+  async onExampleLoad() {
     const [exampleArr, processJsonData] = await Promise.all([
       fetch('assets/trans-example-month.json').then(respFile => respFile.json()).then(data => data.result.transArr),
-      import('./functions/process-json-data').then(m => m.processJsonData)
+      import('./functions/process-cal-json-data').then(m => m.processCalJsonData)
     ]);
 
     this.postProcessing(processJsonData(exampleArr));
@@ -59,37 +58,17 @@ export class AppComponent {
 
   private postProcessing(records: ICalRecord[]) {
     this.calRecords = records;
-    this.displayedRecords = records;
-    this.spentTotal = calculateTotalSpent(this.displayedRecords);
+
     this.graphData = Object.entries(groupArrayBy(records, r => r.myCategory || 'other'))
         .map(([name, value]) => ({ name, value: calculateTotalSpent(value) }))
         .sort((a, b) => b.value - a.value);
 
   }
 
-
-  filterTransactions(searchStr: string) {
-    if (this.calRecords) {
-      this.displayedRecords = sortData(filterData(this.calRecords, searchStr), this.sort);
-      this.spentTotal = calculateTotalSpent(this.displayedRecords);
-    }
-  }
-
-  clearFilter(filter: HTMLInputElement) {
-    filter.value = '';
-    this.displayedRecords = sortData(this.calRecords, this.sort);
-    this.spentTotal = calculateTotalSpent(this.displayedRecords);
-  }
-
-  sortTransactions(sort: Sort) {
-    this.sort = sort;
-    this.displayedRecords = sortData(this.displayedRecords, sort);
-  }
-
-  onGraphCategorySelect({ name }: GraphData): void {
+  onGraphCategorySelect({ name }: GraphData) {
     this.activeCategory = [{ name,  value: '#ff6200' }];
     this.filter!.nativeElement.value = name;
-    this.filterTransactions(name);
+    // this.filterTransactions(name);
   }
 
   async calLogin() {

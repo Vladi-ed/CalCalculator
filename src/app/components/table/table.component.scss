@@ -1,3 +1,12 @@
+:host {
+  display: block;
+  overflow: auto;
+  margin-bottom: 50px;
+  //border: 1px solid #808080b3;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
 table {
   width: 100%;
 }
@@ -24,7 +33,10 @@ tr.main-row:not(.example-expanded-row):active {
 //}
 
 .expanded-element-description {
-  padding: 16px;
+  padding: 1px;
+  pre {
+    margin-top: 0;
+  }
 }
 
 .costNis {
@@ -33,4 +45,30 @@ tr.main-row:not(.example-expanded-row):active {
 
 .iconCell {
   display: flex; align-items: center; gap: 8px;
+}
+
+td.mat-mdc-footer-cell {
+  white-space: nowrap;
+  font-weight: 500;
+  border-top: 1px solid #d5d5d5;
+}
+
+.mat-column-count {
+  padding-right: 0;
+}
+
+
+@media only screen and (max-width: 600px) {
+
+  .mat-mdc-header-cell {
+    padding-right: 0;
+    white-space: nowrap;
+  }
+  .mat-mdc-cell {
+    padding-right: 0;
+  }
+  .mat-mdc-footer-cell {
+    padding-right: 0;
+  }
+
 }
