@@ -10,7 +10,7 @@ export class PromptUpdateService {
         .pipe(filter((evt): evt is VersionReadyEvent => evt.type === 'VERSION_READY'))
         .subscribe(evt => {
             console.log('A new version of the app is out', evt);
-            if (confirm('A new version of the app is out. Do you want to update the page now?')) {
+            if (confirm('New version of the App is available. Do you want to update now?')) {
                 document.location.reload(); // Reload the page to update to the latest version.
             }
         });
