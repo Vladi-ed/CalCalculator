@@ -63,13 +63,13 @@ export class CalLoginComponent implements AfterViewInit {
     this.isLoading = false;
   }
 
-  async download() {
+  async download(offset?: number) {
     if (this.loginForm.pin.length !== 6) return;
 
     this.isLoading = true;
 
     try {
-      const data= await this.#calService.getData(this.loginForm.tz, this.loginForm.pin);
+      const data= await this.#calService.getData(this.loginForm.tz, this.loginForm.pin, offset);
       this.dataEvent.emit(data);
       this.loginDialog?.nativeElement.close();
     }

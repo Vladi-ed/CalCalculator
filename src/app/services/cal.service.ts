@@ -13,9 +13,9 @@ export class CalService {
     return data.token as string;
   }
 
-  async getData(tz: string, pin: string) {
+  async getData(tz: string, pin: string, offset?: number) {
     const [transactions, processJsonData] = await Promise.all([
-      this.#downloadMonth(tz, pin),
+      this.#downloadLastMonth(tz, pin, offset),
       import('../functions/process-cal-json-data').then(m => m.processCalJsonData)
     ]);
 
@@ -23,14 +23,14 @@ export class CalService {
     else return [];
   }
 
-  async #downloadMonth(tz: string, pin: string) {
+  async #downloadLastMonth(tz: string, pin: string, offset = 0) {
     const body = JSON.stringify({
       custID: tz,
       password: pin,
       token: this.calToken
     });
 
-    const month = new Date().getMonth() + (new Date().getDate() > 10 ? 2 : 1); // till the day of charge
+    const month = new Date().getMonth() + (new Date().getDate() > 10 ? 2 : 1) + offset; // till the day of charge
     const year = new Date().getFullYear();
     const resp = await fetch('/cal-download.api?year=' + year + '&month=' + month, { method: 'POST', body });
     const data: CalResponse = await resp.json();

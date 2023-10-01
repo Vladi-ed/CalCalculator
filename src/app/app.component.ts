@@ -4,7 +4,6 @@ import {calculateTotalSpent} from './functions/calculate-total-spent';
 import {groupArrayBy} from "./functions/group-array-by";
 import {PromptUpdateService} from "./services/promt-update.service";
 import {CalLoginComponent} from "./components/cal-login/cal-login.component";
-import {BreakpointObserver} from "@angular/cdk/layout";
 
 type GraphData = { name: string, value: number };
 
@@ -23,11 +22,11 @@ export class AppComponent {
   private lazyLoginComponent?: CalLoginComponent;
 
 
-  constructor(appAutoUpdate: PromptUpdateService, public breakpointObserver: BreakpointObserver, private vcr: ViewContainerRef) {}
+  constructor(autoUpdateService: PromptUpdateService, private vcr: ViewContainerRef) {}
 
   onUpload(target: FileList | null) {
-    const isSmallScreen = this.breakpointObserver.isMatched('(max-width: 599px)');
-    console.log(isSmallScreen)
+    // const isSmallScreen = this.breakpointObserver.isMatched('(max-width: 599px)');
+    // console.log(isSmallScreen)
 
     const file = target?.item(0);
 
@@ -78,5 +77,9 @@ export class AppComponent {
       this.lazyLoginComponent.dataEvent.subscribe((data: ICalRecord[]) => this.postProcessing(data));
     }
     else this.lazyLoginComponent.showModal();
+  }
+
+  calLoadMore() {
+    this.lazyLoginComponent?.download(-1);
   }
 }

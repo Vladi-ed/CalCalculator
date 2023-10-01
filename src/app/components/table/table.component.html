@@ -35,9 +35,7 @@
     <ng-container matColumnDef="translation">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Translation </th>
         <td mat-cell *matCellDef="let row"> {{row.translation}} </td>
-        <td mat-footer-cell *matFooterCellDef>
-<!--            <button>Load more</button>-->
-        </td>
+        <td mat-footer-cell *matFooterCellDef> </td>
     </ng-container>
 
     <!-- costNis & cost Columns -->
@@ -102,8 +100,12 @@
     <tr mat-footer-row *matFooterRowDef="displayedColumns" [hidden]="!dataLoaded"></tr>
 
     <!-- No results row -->
-    <tr class="mdc-data-table__row" *matNoDataRow>
-        <td class="mdc-data-table__cell" *ngIf="dataLoaded" [attr.colspan]="displayedColumns.length">No data matching the Filter</td>
-        <td class="mdc-data-table__cell" *ngIf="!dataLoaded" [attr.colspan]="displayedColumns.length">Please load the Transactions file</td>
+    <tr *matNoDataRow>
+        <td style="padding: 16px" *ngIf="dataLoaded" [attr.colspan]="displayedColumns.length">
+            No data matching the Filter
+        </td>
+        <td style="padding: 16px" *ngIf="!dataLoaded" [attr.colspan]="displayedColumns.length">
+            Please load the Transactions file
+        </td>
     </tr>
 </table>
