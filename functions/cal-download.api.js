@@ -1,3 +1,5 @@
+import {method, headers} from "../src/app/data-objects/cal-auth";
+
 export const onRequestPost = async ({ request }) => {
   // return fetch("https://api.cal-online.co.il/Transactions.Reports/api/MonthlyTransactions/CreateMonthlyTransactionsReport", {
   // return fetch("https://api.cal-online.co.il/Transactions/api/transactionsDetails/getCardTransactionsDetails", {
@@ -5,20 +7,8 @@ export const onRequestPost = async ({ request }) => {
 
   // "body": "{\"custID\":\"300000009\",\"password\":\"514122\",\"token\":\"dba1a334-0000-0000-9bc8-9ceb01b8c946\"}",
   const body = JSON.stringify(await request.json());
-  const method = 'POST';
-  const headers = {
-    "accept": "application/json, text/plain, */*",
-    "Accept-Encoding": "gzip, deflate, br",
-    "cache-control": "no-cache",
-    "content-type": "application/json",
-    "Content-Length": String(body.length),
-    "Host": "api.cal-online.co.il",
-    "Origin": "https://digital-web.cal-online.co.il",
-    "pragma": "no-cache",
-    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
-    "x-site-id": "09031987-273E-2311-906C-8AF85B17C8D9",
-    "Referer": "https://digital-web.cal-online.co.il/",
-  }
+
+  headers["Content-Length"] = String(body.length);
 
   // get auth token (password - comes with sms, token from previous api resp)
   // resp:
