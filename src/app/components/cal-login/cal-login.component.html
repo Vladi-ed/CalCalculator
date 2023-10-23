@@ -16,7 +16,7 @@
                        autocomplete="username">
             </mat-form-field>
 
-            <mat-form-field  appearance="fill" hideRequiredMarker="true">
+            <mat-form-field appearance="fill" hideRequiredMarker="true">
                 <mat-label>Last 4 digits of your credit card</mat-label>
                 <input matInput
                        [(ngModel)]="loginForm.last4Digits"
@@ -29,8 +29,10 @@
                        autocomplete="current-password">
             </mat-form-field>
 
+<!--            TODO: Add radio buttons to choose Whats up/ sms login-->
+
             <button class="btn" type="submit" *ngIf="!(isLoading || error || showPinField)" [disabled]="heroForm.form.invalid" autofocus>
-                Get the Code via WhatsUp
+                Get the Code
             </button>
         </form>
 
@@ -44,7 +46,7 @@
                    minlength="6"
                    name="pin"
                    required
-                   autofocus
+                   matInputAutofocus
                    (input)="download()"
                    [disabled]="isLoading"
                    [(ngModel)]="loginForm.pin"

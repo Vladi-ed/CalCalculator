@@ -13,26 +13,19 @@
           "style": "scss",
           "skipTests": true
         },
-        "@schematics/angular:class": {
-          "skipTests": true
+        "@schematics/angular:class": { "skipTests": true
         },
-        "@schematics/angular:directive": {
-          "skipTests": true
+        "@schematics/angular:directive": { "skipTests": true
         },
-        "@schematics/angular:guard": {
-          "skipTests": true
+        "@schematics/angular:guard": { "skipTests": true
         },
-        "@schematics/angular:interceptor": {
-          "skipTests": true
+        "@schematics/angular:interceptor": { "skipTests": true
         },
-        "@schematics/angular:pipe": {
-          "skipTests": true
+        "@schematics/angular:pipe": { "skipTests": true
         },
-        "@schematics/angular:resolver": {
-          "skipTests": true
+        "@schematics/angular:resolver": { "skipTests": true
         },
-        "@schematics/angular:service": {
-          "skipTests": true
+        "@schematics/angular:service": { "skipTests": true
         }
       },
       "root": "",
@@ -99,12 +92,6 @@
             }
           },
           "defaultConfiguration": "development"
-        },
-        "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
-          "options": {
-            "browserTarget": "calcalculator:build"
-          }
         }
       }
     }
