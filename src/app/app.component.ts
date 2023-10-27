@@ -22,7 +22,8 @@ export class AppComponent {
   private lazyLoginComponent?: CalLoginComponent;
 
 
-  constructor(autoUpdateService: PromptUpdateService, private vcr: ViewContainerRef) {}
+  constructor(autoUpdateService: PromptUpdateService, private vcr: ViewContainerRef) {
+  }
 
   onUpload(target: FileList | null) {
     // const isSmallScreen = this.breakpointObserver.isMatched('(max-width: 599px)');
@@ -37,13 +38,11 @@ export class AppComponent {
       else import('./functions/process-cal-data') // Cal
           .then(m => m.processExcelData(file))
           .then(records => this.postProcessing(records));
-    }
-    else if (file?.name.startsWith('Export_')) { // Isracard
+    } else if (file?.name.startsWith('Export_')) { // Isracard
       import('./functions/process-isracard-data')
           .then(m => m.processExcelData(file))
           .then(records => this.postProcessing(records));
-    }
-    else alert('The file format is not supported, please try another one.')
+    } else alert('The file format is not supported, please try another one.')
   }
 
   async onExampleLoad() {
@@ -56,16 +55,17 @@ export class AppComponent {
   }
 
   private postProcessing(records: ICalRecord[]) {
-    this.calRecords = records;
+    if (this.calRecords) this.calRecords = [...this.calRecords, ...records];
+    else this.calRecords = records;
 
-    this.graphData = Object.entries(groupArrayBy(records, r => r.myCategory || 'other'))
-        .map(([name, value]) => ({ name, value: calculateTotalSpent(value) }))
+    this.graphData = Object.entries(groupArrayBy(this.calRecords, r => r.myCategory || 'other'))
+        .map(([name, value]) => ({name, value: calculateTotalSpent(value)}))
         .sort((a, b) => b.value - a.value);
 
   }
 
-  onGraphCategorySelect({ name }: GraphData) {
-    this.activeCategory = [{ name,  value: '#ff6200' }];
+  onGraphCategorySelect({name}: GraphData) {
+    this.activeCategory = [{name, value: '#ff6200'}];
     this.filter!.nativeElement.value = name;
     // this.filterTransactions(name);
   }
@@ -75,11 +75,31 @@ export class AppComponent {
       const {CalLoginComponent} = await import('./components/cal-login/cal-login.component');
       this.lazyLoginComponent = this.vcr.createComponent(CalLoginComponent).instance;
       this.lazyLoginComponent.dataEvent.subscribe((data: ICalRecord[]) => this.postProcessing(data));
-    }
-    else this.lazyLoginComponent.showModal();
+    } else this.lazyLoginComponent.showModal();
   }
 
   calLoadMore() {
     this.lazyLoginComponent?.download(-1);
+  }
+
+  get dateRange(): string {
+    if (this.calRecords?.at(0)) {
+      const firstValue = new Date(this.calRecords.at(0)!.date);
+      const lastValue = new Date(this.calRecords.at(-1)!.date);
+      const sameYear = firstValue.getFullYear() == lastValue.getFullYear();
+
+      if (firstValue < lastValue) {
+        return firstValue.toLocaleDateString('en-IL', {day: 'numeric', month: 'short', year: sameYear ? undefined : 'numeric'})
+             + ' – '
+             + lastValue.toLocaleDateString('en-IL', {day: 'numeric', month: 'short', year: "numeric"});
+      }
+      else {
+        return lastValue.toLocaleDateString('en-IL', {day: 'numeric', month: 'short', year: sameYear ? undefined : 'numeric'})
+            + ' – '
+            + firstValue.toLocaleDateString('en-IL', {day: 'numeric', month: 'short', year: "numeric"});
+      }
+    }
+
+    return '';
   }
 }

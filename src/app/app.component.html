@@ -23,7 +23,7 @@
     <div class="flex-separator hidden-mobile"></div>
 
     <label *ngIf="calRecords">
-      {{ calRecords.at(0)?.date | date:'MMM d' }} – {{ calRecords.at(-2)?.date | date }}
+      {{ dateRange }}
     </label>
 
     <label *ngIf="!calRecords" class="" matRipple (click)="onExampleLoad()">

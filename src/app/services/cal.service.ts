@@ -4,7 +4,7 @@ import {CalResponse} from "../interfaces/ICalTransactions";
 @Injectable({ providedIn: 'root' })
 export class CalService {
   private calToken?: string;
-  private accountInitResp: any;
+  private accountInitResp!: { bankAccountUniqueId: string; cards: { cardUniqueID: string; currentDebitDay: number }[]; authorization: string; };
 
   async getCalToken(tz: string, last4Digits: string) {
     const resp = await fetch('/whatsup-auth.api?tz=' + tz + '&last4Digits=' + last4Digits);
@@ -22,21 +22,6 @@ export class CalService {
 
     if (transactions) return processJsonData(transactions);
     else return [];
-  }
-
-  async #downloadLastMonth(tz: string, pin: string, offset = 0) {
-    const body = JSON.stringify({
-      custID: tz,
-      password: pin,
-      token: this.calToken
-    });
-
-    const month = new Date().getMonth() + (new Date().getDate() > 10 ? 2 : 1) + offset; // till the day of charge
-    const year = new Date().getFullYear();
-    const resp = await fetch('/cal-download.api?year=' + year + '&month=' + month, { method: 'POST', body });
-    const data: CalResponse = await resp.json();
-    console.log('Got data from API');
-    return data.result.bankAccounts.pop()?.debitDates.pop()?.transactions;
   }
 
   async accountInit(tz: string, pin: string) {
@@ -68,7 +53,7 @@ export class CalService {
     const resp = await fetch('/filtered-transactions.api', { method: 'POST', body });
     const data: CalResponse = await resp.json();
     console.log('download3MonthAllCards()', data?.result);
-    // return data.result.transArr;
+    return data.result.transArr;
   }
 
   async #downloadOneMonth(offset = 0) {
