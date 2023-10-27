@@ -70,20 +70,19 @@ export class CalLoginComponent implements AfterViewInit {
     this.isLoading = true;
 
     try {
-      const data= await this.#calService.getData(this.loginForm.tz, this.loginForm.pin, offset);
+      if (!offset) await this.#calService.accountInit(this.loginForm.tz, this.loginForm.pin);
+      const data= await this.#calService.getData(offset);
       this.dataEvent.emit(data);
       this.loginDialog?.nativeElement.close();
     }
-    catch (e) {
-      this.error = e;
-    }
+    catch (e) { this.error = e; }
 
     this.isLoading = false;
   }
 
   set error(message: any) {
     this.#errorMessage = String(message).startsWith('SyntaxError: ') ? 'API Connection error' : String(message);
-    setTimeout(() => this.#errorMessage = undefined, 3000);
+    setTimeout(() => this.#errorMessage = undefined, 4000);
   }
   get error() {
     return this.#errorMessage;

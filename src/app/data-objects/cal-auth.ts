@@ -12,3 +12,5 @@ export const headers = {
     "x-site-id": "09031987-273E-2311-906C-8AF85B17C8D9",
     "Referer": "https://digital-web.cal-online.co.il/",
 };
+
+export const calApiUrl = 'https://api.cal-online.co.il/Transactions/api/';

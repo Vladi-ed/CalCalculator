@@ -17,6 +17,10 @@ export const onRequestPost = async ({ request }) => {
   //     "innerLoginType": 0,
   //     "hash": null
   // }
+
+
+  // AUTHENTICATION
+
   let apiResp = await fetch("https://connect.cal-online.co.il/col-rest/calconnect/authentication/otp", {
     headers,
     body,
@@ -40,7 +44,7 @@ export const onRequestPost = async ({ request }) => {
 
   const bankAccountAndCards = await apiResp.json().then(resp => ({
     bankAccountUniqueID: resp.result.bankAccounts[0].bankAccountUniqueId,
-    cards: resp.result.cards.map(card => ({cardUniqueID: card.cardUniqueId})),
+    cards: resp.result.cards.map(card => ({cardUniqueID: card.cardUniqueId})), // for all credit cards
     fromTransDate: "2023-02-17T22:00:00.000Z", // TODO: make it as a param
     toTransDate: new Date().toISOString()
   }));
@@ -53,7 +57,7 @@ export const onRequestPost = async ({ request }) => {
   if (searchParams.has('month')) {
 
     const cardTransactionsDetailsBody = JSON.stringify({
-      cardUniqueId: bankAccountAndCards.cards[0].cardUniqueID,
+      cardUniqueId: bankAccountAndCards.cards[0].cardUniqueID, // for specific credit card
       month: searchParams.get('month'),
       year: searchParams.get('year')
     })

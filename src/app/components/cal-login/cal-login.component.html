@@ -12,6 +12,7 @@
                        name="tz"
                        maxlength="9" minlength="9" pattern="^\d{1,9}$"
                        required
+                       autofocus
                        inputmode="numeric"
                        autocomplete="username">
             </mat-form-field>
@@ -29,9 +30,9 @@
                        autocomplete="current-password">
             </mat-form-field>
 
-<!--            TODO: Add radio buttons to choose Whats up/ sms login-->
+<!--            TODO: Add radio buttons to choose Whats-up / sms login-->
 
-            <button class="btn" type="submit" *ngIf="!(isLoading || error || showPinField)" [disabled]="heroForm.form.invalid" autofocus>
+            <button class="btn" type="submit" *ngIf="!(isLoading || error || showPinField)" [disabled]="heroForm.form.invalid">
                 Get the Code
             </button>
         </form>

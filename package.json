@@ -5,7 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "wrangler-dev": "ng build && wrangler pages dev ./dist --compatibility-date=2023-05-18",
+    "wrangler-dev": "ng build && wrangler pages dev ./dist",
     "watch": "ng build --watch --configuration development"
   },
   "private": true,
