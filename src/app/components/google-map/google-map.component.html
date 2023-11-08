@@ -1,0 +1,7 @@
+<google-map *ngIf="mapsApiLoaded"
+            (mapInitialized)="afterMapInit($event)"
+            height="100%"
+            width="100%"
+            [options]="mapOptions">
+</google-map>
+<img [ngSrc]="photoUrl" fill="" alt="Photo">

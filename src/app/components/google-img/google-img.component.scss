@@ -1,0 +1,15 @@
+:host {
+  position: relative;
+}
+
+img {
+  padding: 4px;
+}
+
+.place-name {
+  position: absolute;
+  top: 12px;
+  left: 15px;
+  text-shadow: 0px 1px 6px #ffffff, -1px -1px 0px #ffffff, 1px -1px 0px #ffffff, -1px 1px 0px #ffffff, 1px 1px 0px #ffffff;
+  //color: white;
+}
