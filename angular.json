@@ -13,20 +13,13 @@
           "style": "scss",
           "skipTests": true
         },
-        "@schematics/angular:class": { "skipTests": true
-        },
-        "@schematics/angular:directive": { "skipTests": true
-        },
-        "@schematics/angular:guard": { "skipTests": true
-        },
-        "@schematics/angular:interceptor": { "skipTests": true
-        },
-        "@schematics/angular:pipe": { "skipTests": true
-        },
-        "@schematics/angular:resolver": { "skipTests": true
-        },
-        "@schematics/angular:service": { "skipTests": true
-        }
+        "@schematics/angular:class": { "skipTests": true },
+        "@schematics/angular:directive": { "skipTests": true },
+        "@schematics/angular:guard": { "skipTests": true },
+        "@schematics/angular:interceptor": { "skipTests": true },
+        "@schematics/angular:pipe": { "skipTests": true },
+        "@schematics/angular:resolver": { "skipTests": true },
+        "@schematics/angular:service": { "skipTests": true }
       },
       "root": "",
       "sourceRoot": "src",
@@ -85,10 +78,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "calcalculator:build:production"
+              "buildTarget": "calcalculator:build:production"
             },
             "development": {
-              "browserTarget": "calcalculator:build:development"
+              "buildTarget": "calcalculator:build:development"
             }
           },
           "defaultConfiguration": "development"
