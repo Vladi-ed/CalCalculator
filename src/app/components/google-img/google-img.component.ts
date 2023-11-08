@@ -23,7 +23,8 @@ export class GoogleImgComponent implements OnInit{
 
     if (myPlace?.photos) console.log('Photos', myPlace.photos);
     const firstPhoto = myPlace?.photos?.at(0);
-    this.photoUrl = firstPhoto?.getURI();
+    this.photoUrl = firstPhoto?.getURI() + '&maxWidthPx=400';
+    console.log('place photoUrl', this.photoUrl)
   }
 
 }

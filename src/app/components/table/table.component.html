@@ -81,7 +81,7 @@
                 <div class="expanded-element-description">
                     <pre>{{element | json}}</pre>
 <!--                    <app-google-map [searchTerm]="selectedRecord.description" *ngIf="element == selectedRecord" />-->
-                    <app-google-img [searchTerm]="selectedRecord.description" *ngIf="element == selectedRecord" />
+                    <app-google-img [searchTerm]="selectedRecord!.description" *ngIf="element == selectedRecord && selectedRecord?.description" />
 
 
 <!--                    <div *ngIf="mapsApiLoaded">-->
