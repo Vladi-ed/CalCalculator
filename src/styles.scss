@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color: #fafafa}
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color: #fafafa }
 html { scroll-behavior: smooth; }
 
 @font-face {
@@ -72,20 +72,8 @@ html { scroll-behavior: smooth; }
 
 // Angular Material@15 style fixes for text fields
 
-.mat-mdc-form-field-focus-overlay {
-  display: none;
-}
-
 .mat-mdc-form-field-icon-suffix {
   align-self: auto !important;
-}
-
-.mat-mdc-form-field-subscript-wrapper {
-  height: 14px; // space below the search field
-}
-
-.mdc-text-field--filled {
-  background-color: transparent !important;
 }
 
 .mdc-text-field .mdc-floating-label {
@@ -101,8 +89,9 @@ html { scroll-behavior: smooth; }
 
 .mdc-switch__icon {
   display: none;
+  //--mdc-switch-selected-icon-size: 0 !important;
+  //--mdc-switch-unselected-icon-size: 0 !important;
 }
-
 #mat-mdc-slide-toggle-1-label {
   padding-left: 10px;
   padding-right: 3px;

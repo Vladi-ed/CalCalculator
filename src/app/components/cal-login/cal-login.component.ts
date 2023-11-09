@@ -21,7 +21,7 @@ import {AutofocusDirective} from "./autofocus.directive";
   standalone: true,
   imports: [NgIf, MatInputModule, FormsModule, MatIconModule, MatRippleModule, AutofocusDirective],
   templateUrl: './cal-login.component.html',
-  styleUrls: ['./cal-login.component.scss']
+  styleUrl: './cal-login.component.scss'
 })
 export class CalLoginComponent implements AfterViewInit {
   loginForm = {

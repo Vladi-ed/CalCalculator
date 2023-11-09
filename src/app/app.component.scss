@@ -21,6 +21,9 @@ main {
   justify-content: space-between;
   gap: 20px;
   align-items: center;
+  --mdc-filled-text-field-container-color: none;
+  --mat-form-field-state-layer-color: white;
+  --mat-form-field-subscript-text-line-height: 0; // space below the search field
 
   .go-down {
     font-size: 14px;
@@ -45,7 +48,7 @@ a {
 
 @media only screen and (max-width: 600px) {
   main {
-    padding: 0 0 50px;
+    padding: 0 0 25px;
   }
 
   .header {

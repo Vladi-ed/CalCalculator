@@ -8,7 +8,7 @@ import {GoogleMapService} from "./google-map.service";
     standalone: true,
     imports: [CommonModule, GoogleMapsModule, NgOptimizedImage],
     templateUrl: './google-map.component.html',
-    styleUrls: ['./google-map.component.scss']
+    styleUrl: './google-map.component.scss'
 })
 export class GoogleMapComponent {
     @Input() searchTerm!: string;

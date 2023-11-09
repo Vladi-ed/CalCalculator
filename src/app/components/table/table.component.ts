@@ -1,5 +1,4 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
-// @ts-ignore
 import {animate, state, style, transition, trigger} from "@angular/animations";
 import {MatTableModule} from "@angular/material/table";
 import {AsyncPipe, CurrencyPipe, DatePipe, JsonPipe, NgIf, TitleCasePipe} from "@angular/common";
@@ -28,11 +27,10 @@ import {GoogleImgComponent} from "../google-img/google-img.component";
     ])
   ],
   templateUrl: './table.component.html',
-  styleUrls: ['./table.component.scss']
+  styleUrl: './table.component.scss'
 })
 export class TableComponent {
-  @Input()
-  set filterText(text: string) {
+  @Input() set filterText(text: string) {
     this.filterTransactions(text, false);
   }
   @Output() filterTextChange = new EventEmitter<string>();

@@ -26,7 +26,6 @@ import {TableComponent} from "./components/table/table.component";
         MatInputModule,
         MatRippleModule,
         MatSlideToggleModule,
-
         TableComponent,
     ],
     bootstrap: [AppComponent]

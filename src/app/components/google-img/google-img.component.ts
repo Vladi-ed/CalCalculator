@@ -7,7 +7,7 @@ import {NgIf} from "@angular/common";
   standalone: true,
   templateUrl: './google-img.component.html',
   imports: [ NgIf ],
-  styleUrls: ['./google-img.component.scss']
+  styleUrl: './google-img.component.scss'
 })
 export class GoogleImgComponent implements OnInit{
   @Input({ required: true }) searchTerm!: string;
@@ -16,6 +16,7 @@ export class GoogleImgComponent implements OnInit{
   googleService = inject(GoogleMapService);
 
   async ngOnInit() {
+    if (!this.searchTerm.trim()) return;
     const myPlace = await this.googleService.findPlace(this.searchTerm);
 
     console.log('Found a place:', myPlace);
@@ -23,7 +24,7 @@ export class GoogleImgComponent implements OnInit{
 
     if (myPlace?.photos) console.log('Photos', myPlace.photos);
     const firstPhoto = myPlace?.photos?.at(0);
-    this.photoUrl = firstPhoto?.getURI() + '&maxWidthPx=400';
+    this.photoUrl = firstPhoto?.getURI({ maxWidth:800 }) ;
     console.log('place photoUrl', this.photoUrl)
   }
 
