@@ -80,17 +80,7 @@
             <div [@detailExpand]="element == selectedRecord ? 'expanded' : 'collapsed'">
                 <div class="expanded-element-description">
                     <pre>{{element | json}}</pre>
-<!--                    <app-google-map [searchTerm]="selectedRecord.description" *ngIf="element == selectedRecord" />-->
                     <app-google-img [searchTerm]="selectedRecord!.description" *ngIf="element == selectedRecord && selectedRecord?.description" />
-
-
-<!--                    <div *ngIf="mapsApiLoaded">-->
-<!--                        <google-map-->
-<!--                                    [center]="{ lat: 32.0, lng: 34.7 }"-->
-<!--                                    (mapInitialized)="mapInitialized($event)"-->
-<!--                                    [options]="{mapId: 'e2f9ddc0facd5a80'}"-->
-<!--                                    [zoom]="18" />-->
-<!--                    </div>-->
                 </div>
             </div>
         </td>
