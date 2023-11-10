@@ -23,10 +23,14 @@
     <!-- count Column -->
     <ng-container matColumnDef="count">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Count </th>
-        <td mat-cell *matCellDef="let row" style="cursor: pointer"
-            (click)="filterTransactions(row.translation || row.description)"
-        >
-            {{row.count}}
+        <td mat-cell *matCellDef="let row">
+            <button
+                    title="Find same transaction"
+                    class="table-btn"
+                    [hidden]="row.count < 2"
+                    (click)="filterTransactions(row.translation || row.description)">
+                {{row.count}}
+            </button>
         </td>
         <td mat-footer-cell *matFooterCellDef></td>
     </ng-container>
@@ -34,7 +38,7 @@
     <!-- translation Column -->
     <ng-container matColumnDef="translation">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Translation </th>
-        <td mat-cell *matCellDef="let row" (click)="selectedRecord = selectedRecord === row ? null : row" >
+        <td mat-cell *matCellDef="let row" (click)="selectedRecord = selectedRecord === row ? null : row" style="cursor: pointer" title="Show details">
             {{row.translation}}
         </td>
         <td mat-footer-cell *matFooterCellDef> </td>
@@ -55,10 +59,10 @@
     <!-- category Column -->
     <ng-container matColumnDef="myCategory">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Category </th>
-        <td mat-cell *matCellDef="let row" style="cursor: pointer" (click)="filterTransactions(row.myCategory)" >
-            <div class="iconCell">
+        <td mat-cell *matCellDef="let row">
+            <button class="iconCell table-btn" title="Filter by Category" (click)="filterTransactions(row.myCategory)">
                 <mat-icon inline="true">{{row.myCategory | categoryIcon}}</mat-icon><span>{{row.myCategory | titlecase}}</span>
-            </div>
+            </button>
         </td>
         <td mat-footer-cell *matFooterCellDef></td>
     </ng-container>
@@ -66,7 +70,7 @@
     <!-- comment Column -->
     <ng-container matColumnDef="comment">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Comment </th>
-        <td mat-cell *matCellDef="let row" (click)="selectedRecord = selectedRecord === row ? null : row">
+        <td mat-cell *matCellDef="let row">
             <div class="iconCell">
                 <mat-icon inline="true">{{row.comment | commentsIcon}}</mat-icon><span>{{row.comment}}</span>
             </div>

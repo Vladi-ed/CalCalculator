@@ -74,7 +74,7 @@ async function mapInitialized(map: google.maps.Map) {
             // @ts-ignore
             console.log(place.photos?.at(0).getURI());
 
-            const markerView = new AdvancedMarkerElement({
+            new AdvancedMarkerElement({
                 map,
                 position: place.location,
                 title: place.displayName,

@@ -30,7 +30,7 @@ export class GoogleMapComponent {
     }
 
     async afterMapInit(map: google.maps.Map) {
-        const myPlace = await this.googleService.findPlace(this.searchTerm, ['displayName', 'photos']);
+        const myPlace = await this.googleService.findPlace(this.searchTerm, ['displayName', 'location']);
 
         console.log(myPlace);
         if (!myPlace?.location) return;

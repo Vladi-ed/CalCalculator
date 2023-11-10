@@ -59,9 +59,23 @@ td.mat-mdc-footer-cell {
   padding-right: 0;
 }
 
+.table-btn {
+  background: none;
+  cursor: pointer;
+  padding: 10px 14px;
+  border-radius: 4px;
+  user-select: none;
+  border: 1px solid transparent;
+  margin-left: -14px;
+
+  &:hover {
+    border: 1px solid #808080b3;
+    //box-shadow:0 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+  }
+}
+
 
 @media only screen and (max-width: 600px) {
-
   .mat-mdc-header-cell {
     padding-right: 0;
     white-space: nowrap;
@@ -72,5 +86,7 @@ td.mat-mdc-footer-cell {
   .mat-mdc-footer-cell {
     padding-right: 0;
   }
-
+  .expanded-element-description {
+    flex-direction: column-reverse;
+  }
 }

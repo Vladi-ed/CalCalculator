@@ -1,10 +1,13 @@
 :host {
   position: relative;
+  max-width: 90vw;
+  min-height: 15px;
 }
 
 img {
   padding: 4px;
   width: 100%;
+  max-height: 500px;
   object-fit: contain;
 }
 

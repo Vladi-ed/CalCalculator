@@ -52,6 +52,8 @@ export const vocabulary: IPayment[] = [{
 }, {
   "keyword": "דמי כרטיס", "translation": "Credit card service fee"
 }, {
+  "keyword": "רשות האוכלוסין וההגירה תשלומים", "translation": "Population and Immigration authority payment"
+}, {
   "keyword": "ויקטורי", "translation": "Victory", category: 'food'
 }, {
   "keyword": "זוהר בייקר", "translation": "Zohar bakery", category: 'food'
@@ -64,7 +66,7 @@ export const vocabulary: IPayment[] = [{
 }, {
   "keyword": "לחם ארז", "translation": "Lehem", category: 'food'
 }, {
-  "keyword": "מסעדת קוקו", "translation": "Kuku cafe", category: 'restaurants'
+  "keyword": "מסעדת קוקו", "translation": "Kuku Chicken cafe", category: 'restaurants'
 }, {
   "keyword": "פסטה בסטה", "translation": "Pasta Basta", category: 'restaurants'
 }, {
@@ -121,6 +123,10 @@ export const vocabulary: IPayment[] = [{
   "keyword": "סופר שלי", "translation": "Mini-market", category: 'food'
 }, {
   "keyword": "JAPANIKA", "translation": "Japanika Sushi", category: 'restaurants'
+},  {
+  "keyword": "גפניקה סושי", "translation": "Japanika Sushi", category: 'restaurants'
+}, {
+  "keyword": "STUDIO", "translation": "STUDIO Restaurant TA", category: 'restaurants'
 }, {
   "keyword": "15 POHS EEFFOC", "translation": "Coffee Shop 51", category: 'coffee'
 }, {
@@ -129,6 +135,8 @@ export const vocabulary: IPayment[] = [{
   "keyword": "waycup coffe", "translation": "Waycup coffee TLV", category: 'coffee'
 }, {
   "keyword": "קופי ברנדס", "translation": "CoffeeBrands", category: 'coffee'
+},  {
+  "keyword": "גרה בייקרי", "translation": "Jera Coffee Bakery", category: 'coffee'
 }, {
   "keyword": "העברה ב BIT", "translation": "Bit"
 }, {
@@ -164,6 +172,8 @@ export const vocabulary: IPayment[] = [{
 }, {
   "keyword": "טמבור לילנבלום", "translation": "Construction store near office", category: "household"
 }, {
+  "keyword": "עלי דפנה", "translation": "Flower shop", category: "household"
+}, {
   "keyword": "חניון מגדל אלקטרה", "translation": "Parking Maccabi", category: 'transport'
 },  {
   "keyword": "שיבא משק וחניה", "translation": "Parking Shiba Clinic", category: 'transport'
@@ -181,6 +191,8 @@ export const vocabulary: IPayment[] = [{
   "keyword": "מנורה ביטוח חובה מיוחד", "translation": "Car Insurance", category: 'transport'
 }, {
   "keyword": "ש. שלמה חברה לביטוח ", "translation": "Car Insurance", category: 'transport'
+}, {
+  "keyword": "מגדל חיים/בריאות", "translation": "Life/Health Insurance",
 }, {
   "keyword": "מלכה מרקט מגדל אביב", "translation": "Minimarket", category: 'food'
 }, {
@@ -224,6 +236,8 @@ export const vocabulary: IPayment[] = [{
 }, {
   "keyword": "אוטלו ג'לטו", "translation": "Otello Ice Cream", category: 'restaurants'
 }, {
+  "keyword": "גלידרית פריזיר", "translation": "Freezer Ice Cream", category: 'restaurants'
+}, {
   "keyword": "דלאל", "translation": "Dallal Cafe", category: 'restaurants'
 }, {
   "keyword": "NEDRAG YOJ", "translation": "Joy Garden (park Leumi)", category: 'restaurants'
@@ -250,6 +264,8 @@ export const vocabulary: IPayment[] = [{
 }, {
   "keyword": "קפליקס", "translation": "Cafelix CoffeeShop", category: 'coffee'
 }, {
+  "keyword": "ברו קפה בע''מ", "translation": "Brew & Co Coffee", category: 'coffee'
+}, {
   "keyword": "שיינע", "translation": "Shein Restaurant", category: 'restaurants'
 }, {
   "keyword": "בי פרש", "translation": "B-Fresh Smoozy", category: 'restaurants'
@@ -258,7 +274,7 @@ export const vocabulary: IPayment[] = [{
 }, {
   "keyword": "גשן", "translation": "Cafe Goshen", category: 'restaurants'
 }, {
-  "keyword": "מכולת האחים", "translation": "Grocery store", category: 'food'
+  "keyword": "מכולת", "translation": "Makolet Grocery store", category: 'food'
 }, {
   "keyword": "מעדני מניה", "translation": "Mania Groceries", category: 'food'
 }, {
@@ -270,6 +286,8 @@ export const vocabulary: IPayment[] = [{
 }, {
   "keyword": "ארומה", "translation": "Cafe Aroma", category: 'restaurants'
 }, {
+  "keyword": "ארקפה", "translation": "Arcaffe", category: 'restaurants'
+},{
   "keyword": "פט ויני", "translation": "Cafe Fat Vinni", category: 'restaurants'
 }, {
   "keyword": "בני הדייג הרצליה", "translation": "Fish restaurant in Hertzlia", category: 'restaurants'
@@ -310,7 +328,7 @@ export const vocabulary: IPayment[] = [{
 }, {
   "keyword": "דר' אבי פיצ'ו-צמרת", "translation": "Veterinary", category: 'pet'
 }, {
-  "keyword": "דוגי סטיי", "translation": "Pet Shop", category: 'pet'
+  "keyword": "דוגי סטיי", "translation": "Doggy style Pet Shop", category: 'pet'
 }, {
   "keyword": "זו מרקט", "translation": "Zoo Market", category: 'pet'
 }, {
@@ -374,6 +392,8 @@ export const vocabulary: IPayment[] = [{
 }, {
   "keyword": "דליסימו דליקטס", "translation": "Delissimo Delicates", category: 'food'
 }, {
+  "keyword": "באשר פרומז'רי", "translation": "Basher Delicates", category: 'food'
+}, {
   "keyword": "סיבוס", "translation": "Sibus over 800 ₪", category: "restaurants"
 }, {
   "keyword": "חשמל ר מ ז", "translation": "Electrical shop", category: "household"
@@ -385,6 +405,8 @@ export const vocabulary: IPayment[] = [{
   "keyword": "POHSKROW TES", "translation": "Hair cut"
 }, {
   "keyword": "עיצוב שיער", "translation": "Hair cut"
+},  {
+  "keyword": "אורן עיצובים", "translation": "Oren Hair cut"
 }, {
   "keyword": "מיני סנטר שרון", "translation": "Construction/electric store", category: "household"
 }, {

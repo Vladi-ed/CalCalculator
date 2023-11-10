@@ -19,7 +19,7 @@ export class AppComponent {
   graphData: GraphData[] = [];
   activeCategory?: { name: string; value: string }[];
   @ViewChild('filter') private filter?: ElementRef;
-  private lazyLoginComponent?: CalLoginComponent;
+  protected lazyLoginComponent?: CalLoginComponent;
 
 
   constructor(autoUpdateService: PromptUpdateService, private vcr: ViewContainerRef) {
@@ -102,4 +102,6 @@ export class AppComponent {
 
     return '';
   }
+
+  protected readonly setTimeout = setTimeout;
 }
