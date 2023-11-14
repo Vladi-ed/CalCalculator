@@ -67,8 +67,8 @@ td.mat-mdc-footer-cell {
   user-select: none;
   border: 1px solid transparent;
   margin-left: -14px;
-  text-decoration: none;
-  -webkit-appearance: none;
+  font-size: inherit;
+  color: inherit;
 
   &:hover {
     border: 1px solid #808080b3;
