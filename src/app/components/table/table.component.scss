@@ -27,11 +27,6 @@ tr.main-row:not(.example-expanded-row):active {
   border-bottom-width: 0;
 }
 
-//.example-element-detail {
-//  overflow: hidden;
-//  display: flex;
-//}
-
 .expanded-element-description {
   display: flex;
   gap: 30px;
@@ -67,6 +62,7 @@ td.mat-mdc-footer-cell {
   user-select: none;
   border: 1px solid transparent;
   margin-left: -14px;
+  // for Safari
   font-size: inherit;
   color: inherit;
 

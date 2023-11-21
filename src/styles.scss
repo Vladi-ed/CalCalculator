@@ -70,23 +70,23 @@ html { scroll-behavior: smooth; }
 /*  margin: 5px !important;*/
 /*}*/
 
-// Angular Material@15 style fixes for text fields
-
-.mat-mdc-form-field-icon-suffix {
-  align-self: auto !important;
+// Angular Material@15 style fixes for form fields
+.mat-mdc-form-field {
+  .mdc-floating-label {
+    transform: unset !important;
+  }
+  .mat-mdc-form-field-icon-suffix {
+    align-self: auto !important;
+  }
+  .mdc-floating-label--float-above {
+    transform: translateY(-106%) scale(0.75) !important;
+  }
+  --mdc-filled-text-field-container-color: none;
+  --mat-form-field-state-layer-color: white;
+  --mat-form-field-subscript-text-line-height: 0; // space below the search field
 }
-
-.mdc-text-field .mdc-floating-label {
-  transform: unset !important;
-}
-
-.mdc-text-field--filled .mdc-floating-label--float-above {
-  transform: translateY(-106%) scale(0.75) !important;
-}
-
 
 // Angular Material@15 style fixes for slide-toggle
-
 .mdc-switch__icon {
   display: none;
   //--mdc-switch-selected-icon-size: 0 !important;
@@ -106,7 +106,8 @@ dialog {
 
   h2 {
     text-align: center;
-    margin-top: 6px;
+    margin-top: 8px;
+    margin-bottom: 4px;
   }
 
   dialog-body {

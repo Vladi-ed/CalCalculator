@@ -21,9 +21,6 @@ main {
   justify-content: space-between;
   gap: 20px;
   align-items: center;
-  --mdc-filled-text-field-container-color: none;
-  --mat-form-field-state-layer-color: white;
-  --mat-form-field-subscript-text-line-height: 0; // space below the search field
 }
 
 .go-down {
