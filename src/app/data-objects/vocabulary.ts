@@ -74,6 +74,8 @@ export const vocabulary: IPayment[] = [{
 }, {
   "keyword": "רב קו אונליין", "translation": "Rav-Kav Online", category: 'transport'
 }, {
+  "keyword": "תבל מטרו כרטוס", "translation": "Rav-Kav in Metro", category: 'transport'
+}, {
   "keyword": "רכבת ישראל", "translation": "Train Israel Railways", category: 'transport'
 }, {
   "keyword": "TURKISH AIRL", "translation": "Turkish Airlines", category: 'transport'
@@ -135,8 +137,10 @@ export const vocabulary: IPayment[] = [{
   "keyword": "waycup coffe", "translation": "Waycup coffee TLV", category: 'coffee'
 }, {
   "keyword": "קופי ברנדס", "translation": "CoffeeBrands", category: 'coffee'
-},  {
+}, {
   "keyword": "גרה בייקרי", "translation": "Jera Coffee Bakery", category: 'coffee'
+}, {
+  "keyword": "נחת ורות", "translation": "Nahat Coffee", category: 'coffee'
 }, {
   "keyword": "העברה ב BIT", "translation": "Bit"
 }, {
@@ -190,7 +194,9 @@ export const vocabulary: IPayment[] = [{
 }, {
   "keyword": "מנורה ביטוח חובה מיוחד", "translation": "Car Insurance", category: 'transport'
 }, {
-  "keyword": "ש. שלמה חברה לביטוח ", "translation": "Car Insurance", category: 'transport'
+  "keyword": "ש. שלמה חברה לביטוח", "translation": "Car Insurance", category: 'transport'
+}, {
+  "keyword": "שלמה שרותי דרך", "translation": "Car Insurance", category: 'transport'
 }, {
   "keyword": "מגדל חיים/בריאות", "translation": "Life/Health Insurance",
 }, {
@@ -275,6 +281,8 @@ export const vocabulary: IPayment[] = [{
   "keyword": "גשן", "translation": "Cafe Goshen", category: 'restaurants'
 }, {
   "keyword": "מכולת", "translation": "Makolet Grocery store", category: 'food'
+}, {
+  "keyword": "פרשמרקט", "translation": "FreshMarket Grocery", category: 'food'
 }, {
   "keyword": "מעדני מניה", "translation": "Mania Groceries", category: 'food'
 }, {
@@ -362,7 +370,9 @@ export const vocabulary: IPayment[] = [{
 }, {
   "keyword": "בבקה הבימה", "translation": "Babka Bakery", category: 'food'
 }, {
-  "keyword": "בליקר בייקרי", "translation": "Bleecker  Bakery", category: 'food'
+  "keyword": "בליקר בייקרי", "translation": "Bleecker Bakery", category: 'food'
+}, {
+  "keyword": "י.ש.מ בתי קפה", "translation": "HaRishonim Bakery", category: 'food'
 }, {
   "keyword": "מאפיית הכהנים",
   "translation": "Cohanim Bakery",
@@ -409,6 +419,8 @@ export const vocabulary: IPayment[] = [{
   "keyword": "אורן עיצובים", "translation": "Oren Hair cut"
 }, {
   "keyword": "מיני סנטר שרון", "translation": "Construction/electric store", category: "household"
+}, {
+  "keyword": "בית מסחר תורג'מן", "translation": "Construction/electric store", category: "household"
 }, {
   "keyword": "טמבוריה בנחלה", "translation": "Construction/electric store", category: "household"
 }, {

@@ -9,7 +9,8 @@ export const categories: IPayment[] = [
   { keyword: "משחקי מזל",     translation: "entertainment", icon: "casino" },
   { keyword: "פנאי ובידור",   translation: "entertainment", icon: "casino" },
   { keyword: "תיירות",       translation: "tourism", icon: "airplane_ticket" },
-  { keyword: "רפואה ובריאות", translation: "health",      icon: "local_hospital" },
+  { keyword: "רפואה ובריאות", translation: "health",        icon: "local_hospital" },
+  { keyword: "טיפוח ויופי", translation: "care and beauty", icon: "spa" },
   { keyword: "תקשורת ומחשבים", translation: "communication and computers", icon: "computer" },
   { keyword: "ריהוט ובית",    translation: "household",     icon: "home" },
   { keyword: "ילדים",         translation: "child",         icon: "child_friendly" },
@@ -22,5 +23,6 @@ export const categories: IPayment[] = [
   { keyword: "pet",         translation: "pet", icon: "pets" },
   { keyword: "רכב ותחבורה",  translation: "transport", icon: "airport_shuttle" },
   { keyword: "מוסדות",  translation: "institutions", icon: "account_balance" },
+  { keyword: "עמותות ותרומות",  translation: "donation", icon: "volunteer_activism" },
 
 ];
