@@ -26,7 +26,7 @@
       {{ dateRange }}
     </label>
 
-    <label *ngIf="!calRecords" class="" matRipple (click)="onExampleLoad()">
+    <label *ngIf="!calRecords" matRipple (click)="onExampleLoad()">
       <span style="text-decoration: underline">Load example</span>
     </label>
   </header>
@@ -41,8 +41,8 @@
         </svg>
       </span>
     </mat-form-field>
-    <div style="flex-grow: 1" class="hidden-mobile"></div>
-    <mat-slide-toggle (click)="showGraph = !showGraph" style="padding-top: 10px"><span class="hidden-mobile">Show</span> Graph</mat-slide-toggle>
+    <div style="flex-grow: 1"></div>
+    <mat-slide-toggle class="hidden-mobile" (click)="showGraph = !showGraph" style="padding-top: 10px"><span class="hidden-mobile">Show</span> Graph</mat-slide-toggle>
 
     <a href="#footer" matRipple class="go-down" [hidden]="!calRecords || calRecords.length < 10">Scroll down</a>
   </div>
@@ -58,10 +58,16 @@
     </ngx-charts-advanced-pie-chart>
   </div>
 
-  <app-table class="mat-elevation-z5"
-             [records]="calRecords"
-             [(filterText)]="filter.value"
-  />
+  <ng-container *ngIf="isMobile">
+    <app-records-list [records]="calRecords" [filterText]="filter.value"/>
+  </ng-container>
+  <ng-container *ngIf="!isMobile">
+    <app-table class="mat-elevation-z5"
+               [records]="calRecords"
+               [(filterText)]="filter.value"
+    />
+  </ng-container>
+
 
   <a href="#filter-area" matRipple title="Go up" class="go-up" *ngIf="calRecords && calRecords.length > 10">
     <svg xmlns="http://www.w3.org/2000/svg" height="48" width="48">

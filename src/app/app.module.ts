@@ -10,6 +10,7 @@ import {ServiceWorkerModule} from '@angular/service-worker';
 import {FooterComponent} from './components/footer/footer.component';
 import {MatIconModule} from "@angular/material/icon";
 import {TableComponent} from "./components/table/table.component";
+import {RecordsListComponent} from "./components/records-list/records-list.component";
 
 @NgModule({
     declarations: [AppComponent, FooterComponent],
@@ -27,6 +28,7 @@ import {TableComponent} from "./components/table/table.component";
         MatRippleModule,
         MatSlideToggleModule,
         TableComponent,
+        RecordsListComponent,
     ],
     bootstrap: [AppComponent]
 })

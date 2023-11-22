@@ -18,6 +18,8 @@ export class AppComponent {
   showGraph = false;
   graphData: GraphData[] = [];
   activeCategory?: { name: string; value: string }[];
+  isMobile = window.matchMedia("only screen and (max-width: 760px)").matches;
+
   @ViewChild('filter') private filter?: ElementRef;
   protected lazyLoginComponent?: CalLoginComponent;
 
@@ -62,6 +64,7 @@ export class AppComponent {
         .map(([name, value]) => ({name, value: calculateTotalSpent(value)}))
         .sort((a, b) => b.value - a.value);
 
+    if (this.isMobile) this.showGraph = true;
   }
 
   onGraphCategorySelect({name}: GraphData) {

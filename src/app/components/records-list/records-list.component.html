@@ -1,0 +1,52 @@
+<mat-accordion class="example-headers-align" multi="false">
+
+    <ng-container *ngFor="let record of displayedRecords; let i = index; trackBy: recordsTrackBy">
+        <mat-expansion-panel hideToggle="true">
+
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    <mat-icon [title]="record.myCategory" color="primary">{{record.myCategory | categoryIcon}}</mat-icon>
+                    <div style="display: flex; flex-direction: column; gap: 2px">
+                        {{ record.translation || record.description }}
+                        <span style="color: #9f9e9e; font-size: 12px">{{ record.date | date:'d MMM H:mm' }}</span>
+                    </div>
+                </mat-panel-title>
+                <mat-panel-description>
+                    {{ record.costNis }}
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+
+            <div>Category: {{ record.myCategory }}</div>
+            <div>Address: {{ record.address }}</div>
+            <div>Transaction Type: {{ record.transactionType }}</div>
+            <div [hidden]="record.count < 2">How ofter do you buy here: {{ record.count }}</div>
+            <div>Comments: {{ record.comment }}</div>
+
+            <mat-action-row style="justify-content: space-evenly">
+                <button (click)="window.open('https://www.google.com/maps/search/?api=1&query=' + record.address)">Show on Maps</button>
+                <button (click)="detailsDialog.showModal()">Show Raw data</button>
+
+            </mat-action-row>
+        </mat-expansion-panel>
+
+        <dialog #detailsDialog>
+            <h2>Raw data</h2>
+            <div class="dialog-body flex-column">
+                <pre>{{record | json}}</pre>
+            </div>
+            <form>
+                <button formmethod="dialog" class="ok-btn" autofocus>OK</button>
+            </form>
+        </dialog>
+    </ng-container>
+
+    <div *ngIf="!displayedRecords?.length" style="padding: 15px">
+        Please <strong>Choose File</strong> or <strong>Load example</strong> to start
+    </div>
+
+    <div *ngIf="spentTotal" style="padding: 15px">
+        <strong>Total:</strong> ₪ {{ spentTotal }}
+    </div>
+
+</mat-accordion>
+
