@@ -49,18 +49,27 @@ html { scroll-behavior: smooth; }
     .item-color {
       /*height: 55px !important;*/
       border-left-width: 7px !important;
+      margin-left: 5px;
     }
   }
+
   .total-value {
     margin-bottom: 8%;
   }
 
   .total-value::before {
     content: "Total:";
+    //font-size: 20px;
   }
 
   .total-value::after {
     content: "₪";
+    font-size: 24px;
+  }
+
+  div.legend-item > div:nth-child(2)::after {
+    content: "₪";
+    font-size: 13px;
   }
 
   .total-label {
@@ -71,7 +80,6 @@ html { scroll-behavior: smooth; }
   /*  font-size: 14px !important;*/
   /*  margin: 5px !important;*/
   /*}*/
-
 }
 
 

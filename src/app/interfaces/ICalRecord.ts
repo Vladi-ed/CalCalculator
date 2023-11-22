@@ -8,6 +8,7 @@ export interface ICalRecord {
   comment?: string;
   transactionType?: string;
   categoryHeb?: string;
+  address?: string;
   translation?: string;
   myCategory?: string;
   count: number;
