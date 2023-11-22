@@ -11,7 +11,8 @@ export class PromptUpdateService {
         .subscribe(evt => {
             console.log('A new version of the app is ready', evt);
             if (confirm('New version of the App is available. Do you want to update now?')) {
-                document.location.reload(); // Reload the page to update to the latest version.
+                // document.location.reload(); // Reload the page to update to the latest version.
+                location.reload();
             }
         });
 

@@ -36,39 +36,44 @@ html { scroll-behavior: smooth; }
 }
 
 // ngx-charts legend style fixes
-.legend-item {
-  margin-right: 35px !important;
-  margin-bottom: 18px;
+.advanced-pie-legend {
+  .legend-item {
+    margin-right: 35px !important;
+    margin-bottom: 18px;
 
-  .item-value {
-    margin-top: 0 !important;
-    margin-bottom: 5px !important;
+    .item-value {
+      margin-top: -5px !important;
+      margin-bottom: 5px !important;
+    }
+
+    .item-color {
+      /*height: 55px !important;*/
+      border-left-width: 7px !important;
+    }
+  }
+  .total-value {
+    margin-bottom: 8%;
   }
 
-  .item-color {
-    /*height: 55px !important;*/
-    border-left-width: 5px !important;
+  .total-value::before {
+    content: "Total:";
   }
-}
-.total-value {
-  margin-bottom: 8%;
+
+  .total-value::after {
+    content: "₪";
+  }
+
+  .total-label {
+    display: none;
+  }
+
+  /*.pie-label {*/
+  /*  font-size: 14px !important;*/
+  /*  margin: 5px !important;*/
+  /*}*/
+
 }
 
-.total-value::before {
-  content: "Total:";
-}
-
-.total-value::after {
-  content: "₪";
-}
-
-.total-label {
-  display: none;
-}
-/*.pie-label {*/
-/*  font-size: 14px !important;*/
-/*  margin: 5px !important;*/
-/*}*/
 
 // Angular Material@15 style fixes for form fields
 .mat-mdc-form-field {
@@ -106,12 +111,16 @@ dialog {
 
   h2 {
     text-align: center;
-    margin-top: 8px;
-    margin-bottom: 4px;
+    margin-top: 6px;
+    margin-bottom: 6px;
   }
 
   dialog-body {
     max-height: 55vh; max-width: 600px; overflow: auto; text-align: left; margin-bottom: 20px;
+  }
+
+  .ok-btn {
+    padding: 8px 22px; float: right; border-radius: 4px;
   }
 }
 

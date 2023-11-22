@@ -12,11 +12,6 @@ footer {
     padding: 5px;
 }
 
-
-.ok-btn {
-    padding: 8px 22px; float: right; border-radius: 4px;
-}
-
 .cal-export-btn {
     display: flex;
     align-items: center;
