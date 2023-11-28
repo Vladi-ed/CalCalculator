@@ -104,7 +104,7 @@
     <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="expanded-details-row"></tr>
 
     <!-- Footer row -->
-    <tr mat-footer-row *matFooterRowDef="displayedColumns" [hidden]="!dataLoaded"></tr>
+    <tr mat-footer-row *matFooterRowDef="displayedColumns" [hidden]="displayedRecords.length === 0"></tr>
 
     <!-- No results row -->
     <tr *matNoDataRow>

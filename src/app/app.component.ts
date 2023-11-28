@@ -4,6 +4,7 @@ import {calculateTotalSpent} from './functions/calculate-total-spent';
 import {groupArrayBy} from "./functions/group-array-by";
 import {PromptUpdateService} from "./services/promt-update.service";
 import {CalLoginComponent} from "./components/cal-login/cal-login.component";
+import {copyTable4, copyTable5} from "./functions/copy-table";
 
 type GraphData = { name: string, value: number };
 
@@ -106,5 +107,5 @@ export class AppComponent {
     return '';
   }
 
-  protected readonly setTimeout = setTimeout;
+  protected readonly copyTable = copyTable5;
 }

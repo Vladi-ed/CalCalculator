@@ -1,7 +1,7 @@
 import {Component, inject, Input} from '@angular/core';
 import {CommonModule, NgOptimizedImage} from '@angular/common';
 import {GoogleMapsModule} from "@angular/google-maps";
-import {GoogleMapService} from "./google-map.service";
+import {GoogleMapsService} from "../../services/google-maps.service";
 
 @Component({
     selector: 'app-google-map',
@@ -15,7 +15,7 @@ export class GoogleMapComponent {
     @Input() showMap!: boolean;
     mapOptions: google.maps.MapOptions;
     mapsApiLoaded?: boolean;
-    googleService = inject(GoogleMapService);
+    googleService = inject(GoogleMapsService);
 
     constructor() {
         // initial values

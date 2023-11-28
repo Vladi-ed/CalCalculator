@@ -14,9 +14,9 @@ export function filterData(records: ICalRecord[], searchStr: string): ICalRecord
       return records.filter(col => col.translation?.toUpperCase().includes(sFilter) ||
         col.description.toUpperCase().includes(sFilter) ||
         col.myCategory === searchStr ||
-        col.comment?.toUpperCase().includes(sFilter)
+        // @ts-ignore
+        new Date(col.date).getDate() == sFilter
       );
     }
     else return records;
-
 }

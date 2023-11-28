@@ -20,12 +20,10 @@
             <div>Address: {{ record.address }}</div>
             <div>Transaction Type: {{ record.transactionType }}</div>
             <div [hidden]="record.count < 2">How often: {{ record.count }} times</div>
-            <div>Comments: {{ record.comment }}</div>
+            <div [hidden]="!record.comment">Comments: {{ record.comment }}</div>
 
             <mat-action-row style="justify-content: space-evenly">
-                <a [href]="'https://www.google.com/maps/search/?api=1&query=' + record.address">Open Maps</a>
-                <button (click)="window.open('https://www.google.com/maps/search/?api=1&query=' + record.address, '_self')">Show on Maps (self)</button>
-                <button (click)="window.open('https://www.google.com/maps/search/?api=1&query=' + record.address)">Show on Maps</button>
+                <button (click)="window.open('https://www.google.com/maps/search/?api=1&query=' + record.address, '_self')">Show on Maps</button>
                 <button (click)="detailsDialog.showModal()">Show Raw data</button>
 
             </mat-action-row>

@@ -21,7 +21,7 @@ export async function processExcelData(file: File) {
         const header = ['date', 'description', 'cost', 'currency', 'chargingDate', 'costNum', 'currencyNis', 'transactionType', 'categoryHeb', 'cardId', 'comment'];
         if (utils.decode_range(sheet["!ref"]).e.c === 11) {
             // if there is more fields than usual
-            console.log('There is 11 columns in the doc')
+            console.warn('There is 11 columns in the doc')
             const lastElement = header.pop();
             header.push('discount');
             header.push(lastElement!);

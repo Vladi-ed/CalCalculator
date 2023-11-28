@@ -16,8 +16,12 @@
       </a>
     </label>
 
-    <label matRipple (click)="calLogin()" style="flex-basis: 70px">
-      <span style="text-decoration: underline">Login</span>
+    <label *ngIf="!calRecords" matRipple (click)="calLogin()" style="text-decoration: underline; cursor: pointer; flex-basis: 60px">
+      Login
+    </label>
+
+    <label *ngIf="calRecords" matRipple (click)="copyTable()" style="text-decoration: underline; cursor: pointer" class="hidden-mobile">
+      Copy table to Clipboard
     </label>
 
     <div class="flex-separator hidden-mobile"></div>

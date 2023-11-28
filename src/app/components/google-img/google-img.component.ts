@@ -1,5 +1,5 @@
 import {Component, inject, Input, OnInit} from '@angular/core';
-import {GoogleMapService} from "../google-map/google-map.service";
+import {GoogleMapsService} from "../../services/google-maps.service";
 import {NgIf} from "@angular/common";
 
 @Component({
@@ -13,7 +13,7 @@ export class GoogleImgComponent implements OnInit {
   @Input({ required: true }) searchTerm!: string;
   photoUrl?: string;
   placeName: string | null | undefined;
-  googleService = inject(GoogleMapService);
+  googleService = inject(GoogleMapsService);
 
   async ngOnInit() {
     if (!this.searchTerm.trim()) return;
