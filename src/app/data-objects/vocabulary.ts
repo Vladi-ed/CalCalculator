@@ -92,6 +92,8 @@ export const vocabulary: IPayment[] = [{
 }, {
   "keyword": "דור אלון", "translation": "Dor Alon gas station", category: 'transport'
 }, {
+  "keyword": "סונול ", "translation": "Sonol gas station", category: 'transport'
+}, {
   "keyword": "שופרסל", "translation": "Shufersal", category: 'food'
 }, {
   "keyword": "מחלבת עיזה פזיזה", "translation": "Iza Pziza Goat Farm cafe", category: 'restaurants'
@@ -113,6 +115,8 @@ export const vocabulary: IPayment[] = [{
   "keyword": "גן לאומי מעיין חרוד", "translation": "Maayan Harod National Park", category: "entertainment"
 }, {
   "keyword": "פארק המדע", "translation": "Science Park, Be'er Sheva", category: "entertainment"
+}, {
+  "keyword": "לונה פארק", "translation": "Luna Park", category: "entertainment"
 }, {
   "keyword": "כלבו יחזקאל", "translation": "Construction/electric store", category: "household"
 }, {
@@ -144,17 +148,11 @@ export const vocabulary: IPayment[] = [{
 }, {
   "keyword": "נחת ורות", "translation": "Nahat Coffee", category: 'coffee'
 }, {
-  "keyword": "BIT", "translation": "Bit", category: "money transfer"
-}, {
-  "keyword": "XOBYAP", "translation": "Paybox transfer", category: "money transfer"
-}, {
-  "keyword": "PAYBOX", "translation": "PayBox", category: "money transfer"
-}, {
-  "keyword": "PAYPAL", "translation": "PayPal", category: "money transfer"
-}, {
   "keyword": "KSP", "translation": "KSP", category: 'household'
 }, {
   "keyword": "קיי אס פי", "translation": "KSP", category: 'household'
+}, {
+  "keyword": "קולקשן סוהו", "translation": "SOHO Collection", category: 'household'
 }, {
   "keyword": "AMZN", "translation": "Amazon", category: 'household'
 }, {
@@ -163,6 +161,14 @@ export const vocabulary: IPayment[] = [{
   "keyword": "YAP ELPPA", "translation": "Apple Pay"
 }, {
   "keyword": "ALIEXPRESS", "translation": "AliExpress", category: 'household'
+}, {
+  "keyword": "BIT", "translation": "Bit", category: "money transfer"
+}, {
+  "keyword": "XOBYAP", "translation": "Paybox transfer", category: "money transfer"
+}, {
+  "keyword": "PAYBOX", "translation": "PayBox", category: "money transfer"
+}, {
+  "keyword": "PAYPAL", "translation": "PayPal", icon: ''
 }, {
   "keyword": "פיצה עגבניה דיזינגוף", "translation": "Pizza Dizingoff Center", category: 'restaurants'
 }, {
@@ -206,9 +212,11 @@ export const vocabulary: IPayment[] = [{
 }, {
   "keyword": "מגדל חיים/בריאות", "translation": "Life/Health Insurance", category: 'health'
 }, {
-  "keyword": "מלכה מרקט מגדל אביב", "translation": "Minimarket", category: 'food'
+  "keyword": "מלכה מרקט", "translation": "Minimarket", category: 'food'
 }, {
-  "keyword": "מגה בעיר קניון גבעתיים", "translation": "Supermarket in Canyon Givataim", category: 'food'
+  "keyword": "מגה בעיר", "translation": "Mega grocery store", category: 'food'
+}, {
+  "keyword": "CARREFOUR", "translation": "Carrefour grocery store", category: 'food'
 }, {
   "keyword": "מקס רמת גן", "translation": "Max 20 Ramat Gan", category: "household"
 },  {
@@ -243,6 +251,8 @@ export const vocabulary: IPayment[] = [{
   "keyword": "סון רון", "translation": "Saone Rhône Cafe", category: 'restaurants'
 }, {
   "keyword": "גולדה", "translation": "Golda Ice Cream", category: 'restaurants'
+}, {
+  "keyword": "קונדטורית הגופרה", "translation": "La Goffre Ice Cream", category: 'restaurants'
 }, {
   "keyword": "ארטה אמנות הגלידה", "translation": "Italian Ice Cream", category: 'restaurants'
 }, {
@@ -370,6 +380,8 @@ export const vocabulary: IPayment[] = [{
 }, {
   "keyword": "מאפה נאמן", "translation": "Neeman Bakery", category: 'food'
 }, {
+  "keyword": "טאטי בייקרי", "translation": "Tati Bakery", category: 'food'
+}, {
   "keyword": "חנות החוויות כאל", "translation": "CAL internet shop",
 }, {
   "keyword": "אלכסנדר בולונגרי", "translation": "Alexander Bakery", category: 'food'
@@ -455,8 +467,8 @@ export const vocabulary: IPayment[] = [{
 }, {
   "keyword": "Coffe", "translation": "Coffee shop", category: 'coffee'
 }, {
-  "keyword": "סטופמרקט", "translation": "Supermarket", category: 'food'
-},  {
+  "keyword": "סופרמרקט", "translation": "Supermarket", category: 'food'
+}, {
   "keyword": "סופר ", "translation": "Supermarket", category: 'food'
 }, {
   "keyword": "מינימרקט", "translation": "Minimarket", category: 'food'
