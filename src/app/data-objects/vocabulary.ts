@@ -52,7 +52,7 @@ export const vocabulary: IPayment[] = [{
 }, {
   "keyword": "דמי כרטיס", "translation": "Credit card service fee"
 }, {
-  "keyword": "רשות האוכלוסין וההגירה תשלומים", "translation": "Population and Immigration authority payment"
+  "keyword": "רשות האוכלוסין וההגירה תשלומים", "translation": "Population and Immigration authority payment", category: "institutions"
 }, {
   "keyword": "ויקטורי", "translation": "Victory", category: 'food'
 }, {
@@ -104,6 +104,8 @@ export const vocabulary: IPayment[] = [{
 }, {
   "keyword": "LIM*", "translation": "Lime Scooter Rent", category: "transport"
 }, {
+  "keyword": "CELLO", "translation": "Cello app", category: "transport"
+}, {
   "keyword": "הש. רכב גולף ואופניים גני", "translation": "Golf car rent Park Yarkon", category: "entertainment"
 }, {
   "keyword": "הפארק הלאומי רמת גן", "translation": "Park Leumi, Ramat Gan", category: "entertainment"
@@ -142,9 +144,13 @@ export const vocabulary: IPayment[] = [{
 }, {
   "keyword": "נחת ורות", "translation": "Nahat Coffee", category: 'coffee'
 }, {
-  "keyword": "העברה ב BIT", "translation": "Bit"
+  "keyword": "BIT", "translation": "Bit", category: "money transfer"
 }, {
-  "keyword": "XOBYAP", "translation": "Paybox transfer"
+  "keyword": "XOBYAP", "translation": "Paybox transfer", category: "money transfer"
+}, {
+  "keyword": "PAYBOX", "translation": "PayBox", category: "money transfer"
+}, {
+  "keyword": "PAYPAL", "translation": "PayPal", category: "money transfer"
 }, {
   "keyword": "KSP", "translation": "KSP", category: 'household'
 }, {
@@ -198,7 +204,7 @@ export const vocabulary: IPayment[] = [{
 }, {
   "keyword": "שלמה שרותי דרך", "translation": "Car Insurance", category: 'transport'
 }, {
-  "keyword": "מגדל חיים/בריאות", "translation": "Life/Health Insurance",
+  "keyword": "מגדל חיים/בריאות", "translation": "Life/Health Insurance", category: 'health'
 }, {
   "keyword": "מלכה מרקט מגדל אביב", "translation": "Minimarket", category: 'food'
 }, {
@@ -328,7 +334,7 @@ export const vocabulary: IPayment[] = [{
 }, {
   "keyword": "משרד התחבורה", "translation": "Ministry of Transport", category: "transport"
 }, {
-  "keyword": "היכל הספורט", "translation": "Sport Clothes Shop"
+  "keyword": "היכל הספורט", "translation": "Sport Clothes Shop", category: "clothes"
 }, {
   "keyword": "NOOLLAB VLT", "translation": "Balloon in park Yarkon", category: "entertainment"
 }, {
@@ -398,7 +404,6 @@ export const vocabulary: IPayment[] = [{
   "keyword": "טארה אלטה",
   "translation": "Terra Alta TLV Deli",
   category: 'food',
-  icon: 'https://res.cloudinary.com/ontopo/image/upload/c_crop,x_0,y_0,w_591,h_591/w_128,c_scale/v1649932148/assets/KnhjF_FPrQ/pi1YXmil7m/3.jpg'
 }, {
   "keyword": "דליסימו דליקטס", "translation": "Delissimo Delicates", category: 'food'
 }, {
@@ -410,13 +415,13 @@ export const vocabulary: IPayment[] = [{
 }, {
   "keyword": "כרטיסים תרבות ופנאי", "translation": "Concert tickets", category: 'entertainment'
 }, {
-  "keyword": "ביגודיני", "translation": "Hair cut"
+  "keyword": "ביגודיני", "translation": "Hair cut", category: "care and beauty"
 }, {
-  "keyword": "POHSKROW TES", "translation": "Hair cut"
+  "keyword": "POHSKROW TES", "translation": "Hair cut", category: "care and beauty"
 }, {
-  "keyword": "עיצוב שיער", "translation": "Hair cut"
+  "keyword": "עיצוב שיער", "translation": "Hair cut", category: "care and beauty"
 },  {
-  "keyword": "אורן עיצובים", "translation": "Oren Hair cut"
+  "keyword": "אורן עיצובים", "translation": "Oren Hair cut", category: "care and beauty"
 }, {
   "keyword": "מיני סנטר שרון", "translation": "Construction/electric store", category: "household"
 }, {
@@ -442,13 +447,13 @@ export const vocabulary: IPayment[] = [{
 }, {
   "keyword": "פיצריה", "translation": "Pizzeria", category: 'restaurants',
 }, {
+  "keyword": "PIZZOT", "translation": "Pizza", category: 'restaurants',
+}, {
   "keyword": "פיצה", "translation": "Pizza", category: 'restaurants'
 }, {
   "keyword": "קפה", "translation": "Cafe", category: 'restaurants'
 }, {
-  "keyword": "COFFE", "translation": "", category: 'coffee'
-},  {
-  "keyword": "Coffee", "translation": "Coffee shop", category: 'coffee'
+  "keyword": "Coffe", "translation": "Coffee shop", category: 'coffee'
 }, {
   "keyword": "סטופמרקט", "translation": "Supermarket", category: 'food'
 },  {

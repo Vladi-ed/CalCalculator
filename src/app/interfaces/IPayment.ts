@@ -5,4 +5,4 @@ export interface IPayment {
   icon?: string;
 }
 
-type Categories = 'food' | 'household' | 'finance services' | 'transport' | 'health' | 'restaurants' | 'entertainment' | 'coffee' | 'pet' | 'child';
+type Categories = 'food' | 'household' | 'money transfer' | 'transport' | 'health' | 'restaurants' | 'entertainment' | 'coffee' | 'pet' | 'child' | 'care and beauty' | 'clothes' | 'other' | 'institutions';

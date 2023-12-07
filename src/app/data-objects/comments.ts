@@ -12,7 +12,7 @@ export const comments: IPayment[] = [
   { keyword: "עסקה זו בוצעה באינטרנט ואושרה על ידך באמצעות שירות קניה בטוחה", translation: "Secure Online payment", icon: "credit_score" },
   { keyword: "קניה בטוחה באינטרנט", translation: "Secure payment online", icon: "lock" },
   { keyword: "Contact less", translation: "Contact-less payment", icon: "contactless" },
-  { keyword: "העברת כספים ל", translation: "Money transfer", icon: "send" },
+  // { keyword: "העברת כספים ל", translation: "Money transfer", icon: "send" },
   { keyword: "דמי חבר", translation: "Member Service fee", icon: "person" },
   { keyword: "שרותים", translation: "Service fee", icon: "settings" },
   { keyword: "נגבה בגין העמלה", translation: "Tax included", icon: "local_atm" },

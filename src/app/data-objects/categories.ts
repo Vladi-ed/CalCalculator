@@ -16,6 +16,7 @@ export const categories: IPayment[] = [
   { keyword: "ילדים",         translation: "child",         icon: "child_friendly" },
   { keyword: "ביטוח ופיננסים", translation: "insurance",    icon: "admin_panel_settings" },
   { keyword: "פיננסים",       translation: "finance services", icon: "attach_money" },
+  { keyword: "פיננסים",        translation: "money transfer", icon: "send" },
   { keyword: "מלונאות ואירוח",  translation: "hotels", icon: "hotel" },
   { keyword: "אופנה",       translation: "clothes", icon: "checkroom" },
   { keyword: "שונות",       translation: "other", icon: "grain" },
