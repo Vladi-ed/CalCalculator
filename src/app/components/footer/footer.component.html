@@ -7,8 +7,12 @@
             login and press Export button: <br>
             <button class="cal-export-btn">
                 יצוא
-                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30">
-                    <path fill="none" stroke="#1B5ECE" stroke-linejoin="round" stroke-width="2" d="M16.46 11.65S8.16 13.55 6 23.03c0 0 3.54-5.38 10.46-5.41v4.51l7.57-7.56L16.46 7v4.65Z"/>
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="none">
+                    <path stroke="#1B5ECE" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M18.5 7h-7.2v16H23V12.2L18.5 7z" clip-rule="evenodd"/>
+                    <path stroke="#1B5ECE" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M18.6 7.5v4.8H23"/>
+                    <rect width="8.5" height="8.5" x="7" y="11.3" fill="#1B5ECE" rx=".5"/>
+                    <path fill="#fff" fill-rule="evenodd" d="m10 12.9 1.3 1.8 1.3-1.8H14l-2 2.6 2 2.7h-1.3l-1.3-1.8-1.4 1.8H8.6l2-2.7-2-2.6h1.3z" clip-rule="evenodd"/>
+                    <path fill="#7EE5FC" fill-rule="evenodd" d="M20.3 19a1.3 1.3 0 1 1-2.6 0 1.3 1.3 0 0 1 2.6 0z" clip-rule="evenodd"/>
                 </svg>
             </button>
 
@@ -48,11 +52,12 @@
 <dialog #privacyDialog>
     <h2>Privacy note</h2>
     <div style="max-height: 55vh; max-width: 600px; overflow: auto; margin-bottom: 20px;">
-        <p>Our web application processes all data locally on your device/browser, ensuring maximum privacy and security.</p>
-        <p>We do not collect any personal information from you, and no data is transmitted or stored on our servers. </p>
-        <p>We do not integrate any third-party services that compromise your privacy. </p>
-        <p>Our web application is not intended for children under 13. </p>
-        We may update this note. By using our web application, you agree to these terms.
+        <p>I do not collect any personal information, and don't even send any data to the server (except when you suggest translation). </p>
+        <p>The project is open-source, so you can check out the <a href="https://github.com/Vladi-ed/CalCalculator" target="_blank">Source code</a>.</p>
+        <p>The website processes all the data locally on your device.</p>
+        <p>I do not integrate any third-party services that may compromise your privacy. </p>
+        <p>The website is not intended for children. </p>
+        By using the website, you agree to the statements above. I may update this note in the future.
     </div>
     <form>
         <button formmethod="dialog" class="ok-btn" autofocus>OK</button>
@@ -61,7 +66,6 @@
 
 <footer>
     <span class="footer-link" (click)="helpDialog.showModal()">Help</span> &nbsp;
-<!--    <a href="https://github.com/Vladi-ed/CalCalculator" target="_blank">Source code</a> &nbsp;-->
     <span class="footer-link" (click)="privacyDialog.showModal()">Privacy</span> &nbsp;
     <span class="footer-link" (click)="aboutDialog.showModal()">About</span> &nbsp;
 </footer>
