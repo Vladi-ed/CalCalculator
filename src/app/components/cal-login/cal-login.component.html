@@ -32,27 +32,31 @@
 
 <!--            TODO: Add radio buttons to choose Whats-up / sms login-->
 
-            <button class="btn" type="submit" *ngIf="!(isLoading || error || showPinField)" [disabled]="heroForm.form.invalid">
-                Get the Code
-            </button>
+            @if (!(isLoading || error || showPinField)) {
+                <button class="btn" type="submit" [disabled]="heroForm.form.invalid">
+                    Get the Code
+                </button>
+            }
         </form>
 
-        <mat-form-field *ngIf="showPinField">
-            <mat-label>One-time code</mat-label>
-            <input matInput
-                   inputmode="numeric"
-                   pattern="^\d{1,6}$"
-                   autocomplete="one-time-code"
-                   maxlength="6"
-                   minlength="6"
-                   name="pin"
-                   required
-                   matInputAutofocus
-                   (input)="download()"
-                   [disabled]="isLoading"
-                   [(ngModel)]="loginForm.pin"
-            >
-        </mat-form-field>
+        @if (showPinField) {
+            <mat-form-field>
+                <mat-label>One-time code</mat-label>
+                <input matInput
+                       inputmode="numeric"
+                       pattern="^\d{1,6}$"
+                       autocomplete="one-time-code"
+                       maxlength="6"
+                       minlength="6"
+                       name="pin"
+                       required
+                       matInputAutofocus
+                       (input)="download()"
+                       [disabled]="isLoading"
+                       [(ngModel)]="loginForm.pin"
+                >
+            </mat-form-field>
+        }
 
         <progress [hidden]="!isLoading"></progress>
         <div class="mat-mdc-form-field-error" style="width: auto; text-align: center">{{error}}</div>

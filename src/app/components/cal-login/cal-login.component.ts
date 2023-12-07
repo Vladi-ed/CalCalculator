@@ -76,6 +76,7 @@ export class CalLoginComponent implements AfterViewInit {
       this.loginDialog?.nativeElement.close();
     }
     catch (e) { this.error = e; }
+    // if response 401 Unauthorized - need to login again
 
     this.isLoading = false;
   }

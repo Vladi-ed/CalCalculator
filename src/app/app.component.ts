@@ -4,7 +4,7 @@ import {calculateTotalSpent} from './functions/calculate-total-spent';
 import {groupArrayBy} from "./functions/group-array-by";
 import {PromptUpdateService} from "./services/promt-update.service";
 import {CalLoginComponent} from "./components/cal-login/cal-login.component";
-import {copyTable4, copyTable5} from "./functions/copy-table";
+import {copyTable4} from "./functions/copy-table";
 
 type GraphData = { name: string, value: number };
 
@@ -24,14 +24,9 @@ export class AppComponent {
   @ViewChild('filter') private filter?: ElementRef;
   protected lazyLoginComponent?: CalLoginComponent;
 
-
-  constructor(autoUpdateService: PromptUpdateService, private vcr: ViewContainerRef) {
-  }
+  constructor(autoUpdateService: PromptUpdateService, private vcr: ViewContainerRef) { }
 
   onUpload(target: FileList | null) {
-    // const isSmallScreen = this.breakpointObserver.isMatched('(max-width: 599px)');
-    // console.log(isSmallScreen)
-
     const file = target?.item(0);
 
     if (file?.name.endsWith('.xlsx') && file.size > 1000) {
@@ -107,5 +102,5 @@ export class AppComponent {
     return '';
   }
 
-  protected readonly copyTable = copyTable5;
+  protected readonly copyTable = copyTable4;
 }

@@ -108,11 +108,14 @@
 
     <!-- No results row -->
     <tr *matNoDataRow>
-        <td style="padding: 16px" *ngIf="dataLoaded" [attr.colspan]="displayedColumns.length">
-            No data matching the Filter
-        </td>
-        <td style="padding: 16px" *ngIf="!dataLoaded" [attr.colspan]="displayedColumns.length">
-            Please load the Transactions file
-        </td>
+        @if (dataLoaded) {
+            <td style="padding: 16px" [attr.colspan]="displayedColumns.length">
+                No data matching the Filter
+            </td>
+        } @else {
+            <td style="padding: 16px" [attr.colspan]="displayedColumns.length">
+                Please load the Transactions file
+            </td>
+        }
     </tr>
 </table>
