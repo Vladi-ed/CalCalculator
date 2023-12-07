@@ -10,3 +10,4 @@
 - load more pictures from Gmaps,
 - add dark theme
 - add sms login option (mobile-only?)
+- add not only the photo but also address from Google Maps
