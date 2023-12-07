@@ -33,10 +33,11 @@ export class RecordsListComponent {
     this.spentTotal = calculateTotalSpent(this.displayedRecords);
   }
 
-  recordsTrackBy(index: number, item: ICalRecord) {
-    return index + item.description;
+  showOnMap(address: string) {
+    window.open('https://www.google.com/maps/search/?api=1&query=' + address, '_self');
   }
 
-  protected readonly window = window;
+  searchInGoogle(description: string) {
+    window.open('https://www.google.com/search?q=' + description, '_self');
+  }
 }
-

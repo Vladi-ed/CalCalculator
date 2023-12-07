@@ -1,6 +1,5 @@
 <mat-accordion class="example-headers-align" multi="false">
-
-    <ng-container *ngFor="let record of displayedRecords; let i = index; trackBy: recordsTrackBy">
+    @for (record of displayedRecords; track $index + record.description) {
         <mat-expansion-panel hideToggle="true">
 
             <mat-expansion-panel-header>
@@ -16,14 +15,19 @@
                 </mat-panel-description>
             </mat-expansion-panel-header>
 
-            <div>Category: {{ record.myCategory }}</div>
-            <div>Address: {{ record.address }}</div>
+            <div [hidden]="!record.translation">Original name: {{ record.description }}</div>
+            <div [hidden]="!record.myCategory">Category: {{ record.myCategory }}</div>
+            <div [hidden]="!record.address">Address: {{ record.address }}</div>
             <div>Transaction Type: {{ record.transactionType }}</div>
             <div [hidden]="record.count < 2">How often: {{ record.count }} times</div>
             <div [hidden]="!record.comment">Comments: {{ record.comment }}</div>
 
             <mat-action-row style="justify-content: space-evenly">
-                <button (click)="window.open('https://www.google.com/maps/search/?api=1&query=' + record.address, '_self')">Show on Maps</button>
+                @if (record.address) {
+                    <button (click)="showOnMap(record.address)">Show on Maps</button>
+                } @else {
+                    <button (click)="searchInGoogle(record.description)">Search in Google</button>
+                }
                 <button (click)="detailsDialog.showModal()">Show Raw data</button>
 
             </mat-action-row>
@@ -38,15 +42,17 @@
                 <button formmethod="dialog" class="ok-btn" autofocus>OK</button>
             </form>
         </dialog>
-    </ng-container>
+    } @empty {
+        <div style="padding: 22px; text-align: center">
+            Please <strong>Choose File</strong> or <strong>Load example</strong> to start
+        </div>
+    }
 
-    <div *ngIf="!displayedRecords?.length" style="padding: 15px">
-        Please <strong>Choose File</strong> or <strong>Load example</strong> to start
-    </div>
-
-    <div *ngIf="spentTotal" style="padding: 15px">
-        <strong>Total:</strong> ₪ {{ spentTotal }}
-    </div>
+    @if (spentTotal) {
+        <div style="padding: 24px; text-align: center">
+            <strong>Total:</strong> ₪ {{ spentTotal }}
+        </div>
+    }
 
 </mat-accordion>
 
