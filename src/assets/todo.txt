@@ -11,3 +11,4 @@
 - add dark theme
 - add sms login option (mobile-only?)
 - add not only the photo but also address from Google Maps
+- add support for bank account / card number (from Exported data)
