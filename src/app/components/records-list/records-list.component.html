@@ -22,11 +22,14 @@
             <div [hidden]="record.count < 2">How often: {{ record.count }} times</div>
             <div [hidden]="!record.comment">Comments: {{ record.comment }}</div>
 
-            <mat-action-row style="justify-content: space-evenly">
+            <mat-action-row style="gap: 12px">
                 @if (record.address) {
                     <button (click)="showOnMap(record.address)">Show on Maps</button>
                 } @else {
-                    <button (click)="searchInGoogle(record.description)">Search in Google</button>
+                    <button [hidden]="record.translation" (click)="searchInGoogle(record.description)">Search in Google</button>
+                }
+                @if (!record.translation) {
+                    <button (click)="suggestTranslation(record)">Suggest translation</button>
                 }
                 <button (click)="detailsDialog.showModal()">Show Raw data</button>
 

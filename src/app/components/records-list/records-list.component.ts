@@ -40,4 +40,8 @@ export class RecordsListComponent {
   searchInGoogle(description: string) {
     window.open('https://www.google.com/search?q=' + description, '_self');
   }
+
+  suggestTranslation(record: ICalRecord) {
+    prompt('Type your translation:')
+  }
 }
