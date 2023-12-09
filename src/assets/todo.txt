@@ -1,13 +1,9 @@
-- find out why material icons shows wrong icon (material symbols support)
-- combine Description and translation columns on mobile
-- show just icon instead of category on mobile
 - add link to the Place on Google Maps
-- show Graph by default on Mobile
 - text-align: center for labels on Mobile
 - add email (telegram) for support
 - debug load-more button (hide it after some time?)
 - login to personal account?
-- load more pictures from Gmaps,
+- load more pictures from Gmaps (require subscription?),
 - add dark theme
 - add sms login option (mobile-only?)
 - add not only the photo but also address from Google Maps
