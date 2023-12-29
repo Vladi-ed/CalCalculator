@@ -42,6 +42,14 @@ export class RecordsListComponent {
   }
 
   suggestTranslation(record: ICalRecord) {
-    prompt('Type your translation:')
+    const translation = prompt('Type your translation:');
+    const body = JSON.stringify({
+      keyword: record.description,
+      translation,
+      category: record.categoryHeb
+    });
+    fetch('/suggest-translation.api', { method: 'POST', body })
+        .then(() => alert('Translation sent. Thank you!'))
+        .catch(() => alert('There is a problem with sending your translation. Please try again later.'));
   }
 }
