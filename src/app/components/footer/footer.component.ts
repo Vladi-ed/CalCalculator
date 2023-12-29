@@ -9,4 +9,5 @@ import packageJson from 'package.json';
 export class FooterComponent {
     readonly appVersion = packageJson.version;
     readonly ngVersion = VERSION.full;
+    protected readonly alert = alert;
 }

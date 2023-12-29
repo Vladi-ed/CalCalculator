@@ -1,11 +1,11 @@
 {
   "name": "calcalculator",
-  "version": "0.7.2",
+  "version": "0.7.4",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "wrangler-dev": "ng build && wrangler pages dev ./dist",
+    "wrangler-dev": "ng build && wrangler pages dev ./dist --kv=SUGGEST_TRANSLATION_STORE --compatibility-date=2023-12-29",
     "watch": "ng build --watch --configuration development"
   },
   "private": true,
@@ -32,6 +32,7 @@
     "@angular-devkit/build-angular": "^17.0.0",
     "@angular/cli": "~17.0.0",
     "@angular/compiler-cli": "^17.0.1",
+    "@cloudflare/workers-types": "^4.20231218.0",
     "@types/d3-scale": "^4.0.8",
     "@types/d3-selection": "^3.0.10",
     "@types/d3-shape": "^3.1.5",

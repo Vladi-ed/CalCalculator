@@ -1,4 +1,4 @@
-<dialog #helpDialog>
+<dialog #howToDialog>
     <h2>Help</h2>
     <div style="max-height: 55vh; max-width: 600px; overflow: auto; text-align: left; margin-bottom: 20px">
         <p>
@@ -63,7 +63,8 @@
 </dialog>
 
 <footer>
-    <span class="footer-link" (click)="helpDialog.showModal()">Help</span> &nbsp;
+    <span class="footer-link" (click)="howToDialog.showModal()">How To</span> &nbsp;
     <span class="footer-link" (click)="privacyDialog.showModal()">Privacy</span> &nbsp;
     <span class="footer-link" (click)="aboutDialog.showModal()">About</span> &nbsp;
+    <span class="footer-link" (click)="alert('You can contact me on Telegram @vonder')">Help</span> &nbsp;
 </footer>
