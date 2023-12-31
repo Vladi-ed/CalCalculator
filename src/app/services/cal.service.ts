@@ -8,10 +8,10 @@ export class CalService {
 
   async getCalToken(tz: string, last4Digits: string) {
     const resp = await fetch('/whatsup-auth.api?tz=' + tz + '&last4Digits=' + last4Digits);
-    const data = await resp.json();
+    const data: {token: string, phoneNumber: string} = await resp.json();
     console.log('WhatsUp data', data)
     this.calToken = data.token;
-    return data.token as string;
+    return data.token;
   }
 
   async getData(offset?: number) {
@@ -58,8 +58,15 @@ export class CalService {
 
   async #downloadOneMonth(offset = 0) {
 
-    const month = String(new Date().getMonth() + (new Date().getDate() > this.accountInitResp.cards[0].currentDebitDay ? 2 : 1) + offset); // till the day of charge
-    const year = new Date().getFullYear().toString();
+    let month = String(new Date().getMonth()
+        + (new Date().getDate() > this.accountInitResp.cards[0].currentDebitDay ? 2 : 1) + offset); // till the day of charge
+
+    let year = new Date().getFullYear();
+
+    if (month === '13') {
+      month = '1';
+      year++;
+    }
 
     const body = JSON.stringify({
       cardUniqueId: this.accountInitResp.cards[0].cardUniqueID, // for the first credit card

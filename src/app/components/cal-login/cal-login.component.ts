@@ -83,7 +83,7 @@ export class CalLoginComponent implements AfterViewInit {
 
   set error(message: any) {
     this.#errorMessage = String(message).startsWith('SyntaxError: ') ? 'API Connection error' : String(message);
-    setTimeout(() => this.#errorMessage = undefined, 4000);
+    setTimeout(() => this.#errorMessage = undefined, 5000);
   }
   get error() {
     return this.#errorMessage;
