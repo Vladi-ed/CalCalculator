@@ -8,6 +8,8 @@ export const vocabulary: IPayment[] = [{
 }, {
   "keyword": "אנאל מרקט", "translation": "Supermarket", category: 'food'
 }, {
+  "keyword": "ברלין לברנטין", "translation": "Berlin Levontin Supermarket", category: 'food'
+}, {
   "keyword": "אי.אם.פי.אם", "translation": "AM:PM", category: 'food'
 }, {
   "keyword": "שניצל קומפני", "translation": "Schnitzel Company", category: 'restaurants'
@@ -97,6 +99,8 @@ export const vocabulary: IPayment[] = [{
   "keyword": "שופרסל", "translation": "Shufersal", category: 'food'
 }, {
   "keyword": "מחלבת עיזה פזיזה", "translation": "Iza Pziza Goat Farm cafe", category: 'restaurants'
+}, {
+  "keyword": "קטיף עצמי כפר נטר", "translation": "Mandarin Farm", category: 'restaurants'
 }, {
   "keyword": "תן ביס", "translation": "10bis", category: 'restaurants'
 }, {
@@ -276,6 +280,8 @@ export const vocabulary: IPayment[] = [{
 }, {
   "keyword": "סמדר במושבה", "translation": "Cafe in Jerusalem", category: 'restaurants'
 }, {
+  "keyword": "ויוינו ", "translation": "Vivino Italian Restaurant", category: 'restaurants'
+}, {
   "keyword": "פרונטו-אופרה איטליאנה", "translation": "Pronto - Italian restaurant", category: 'restaurants'
 }, {
   "keyword": "OGNIRG", "translation": "Gringo - chicken place", category: 'restaurants'
@@ -355,6 +361,8 @@ export const vocabulary: IPayment[] = [{
   "keyword": "דוגי סטיי", "translation": "Doggy style Pet Shop", category: 'pet'
 }, {
   "keyword": "זו מרקט", "translation": "Zoo Market", category: 'pet'
+}, {
+  "keyword": "חיות וחיוכים", "translation": "Animal Smile Pet Shop", category: 'pet'
 }, {
   "keyword": "GOLANTELECO", "translation": "Golan Telecom", category: "household"
 },  {
