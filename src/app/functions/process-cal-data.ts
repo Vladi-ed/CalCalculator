@@ -1,9 +1,6 @@
-import {vocabulary} from "../data-objects/vocabulary";
-import {categories} from "../data-objects/categories";
-import {comments} from "../data-objects/comments";
 import {read, utils} from "xlsx";
 import {ICalRecord} from "../interfaces/ICalRecord";
-import {fixDate} from "./fix-date";
+import {processRecord} from "./process-record";
 
 /**
  * Processes Excel data and returns an array of ICalRecords
@@ -37,7 +34,7 @@ export async function processExcelData(file: File) {
             data.pop(); // remove summary row
 
             console.log('Custom period Cal Excel Data', data);
-            return processDataForCustomPeriod(data, true);
+            return processDataForCustomPeriod(data, '/');
         }
         else {
             const header = ['date', 'description', 'cost', 'costNum', 'transactionType', 'categoryHeb', 'comment'];
@@ -56,34 +53,16 @@ export async function processExcelData(file: File) {
     }
 }
 
-function processDataForCustomPeriod(records: ICalRecord[], fixDateRequired?: boolean) {
+function processDataForCustomPeriod(records: ICalRecord[], fixDateRequired?: string) {
 
     // add new fields
-    records.forEach(line => {
+    records.forEach(calRecord => {
 
-        // convert Date to US format if required
-        if (fixDateRequired) line.date = fixDate(line.date);
-        if (line.costNum === undefined) line.costNum = Number(line.cost);
-        line.costNis = '₪ ' + line.costNum;
-
-        // line.cost = line.costNis;
-        if (line.cost == String(line.costNum)) line.cost = line.costNis;
+        processRecord(calRecord, fixDateRequired);
 
         // count number of similar operations
-        line.count = records.filter(v => v.description == line.description).length;
-
-        // add translation
-        line.translation = vocabulary.find(item => line.description.includes(item.keyword))?.translation;
-
-        // add my category
-        line.myCategory = vocabulary.find(item =>
-            line.description.includes(item.keyword))?.category || categories.find(item => line.categoryHeb?.includes(item.keyword))?.translation || line.categoryHeb;
-
-        // add comments
-        if (line.comment) line.comment = comments.find(item => line.comment!.includes(item.keyword))?.translation || line.comment;
+        calRecord.count = records.filter(v => v.description == calRecord.description).length;
     });
-
-    console.log(records);
 
     return records;
 }

@@ -1,9 +1,6 @@
-import {vocabulary} from "../data-objects/vocabulary";
-import {categories} from "../data-objects/categories";
-import {comments} from "../data-objects/comments";
 import {read, utils} from "xlsx";
 import {ICalRecord} from "../interfaces/ICalRecord";
-import {fixDate} from "./fix-date";
+import {processRecord} from "./process-record";
 
 /**
  * Processes Excel data and returns an array of ICalRecords
@@ -30,29 +27,13 @@ function processMaxData(records: ICalRecord[]) {
     records = records.filter(cell => /^([0-2]\d|3[01])\/(0\d|1[0-2])\/(\d{4})$/.test(cell.date) );
 
     // add new fields
-    records.forEach(line => {
+    records.forEach(record => {
 
-        // convert to US format
-        line.date = fixDate(line.date, '/');
-
-        if (line.costNum == undefined) line.costNum = Number(line.cost);
-
-        line.costNis = '₪ ' + line.costNum;
-
-        line.cost = line.currency + ' ' + line.cost;
+        processRecord(record, '/');
 
         // count number of similar operations
-        line.count = records.filter(v => v.description == line.description).length;
-
-        // add translation
-        line.translation = vocabulary.find(item => line.description.includes(item.keyword))?.translation;
-
-        // add my category
-        line.myCategory = vocabulary.find(item =>
-            line.description.includes(item.keyword))?.category;
-
-    })
+        record.count = records.filter(v => v.description == record.description).length;
+    });
 
     return records;
-
 }

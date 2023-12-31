@@ -43,13 +43,28 @@ export class RecordsListComponent {
 
   suggestTranslation(record: ICalRecord) {
     const translation = prompt('Type your translation:');
+    if (!translation) return;
+
+    record.translation = translation;
+
     const body = JSON.stringify({
       keyword: record.description,
       translation,
       category: record.categoryHeb
     });
+
+    const localTranslation = localStorage.getItem('translation');
+
+    if (localTranslation) {
+      const newStr = localTranslation.slice(0, -1) + ', ' + body + ']';
+      console.log(newStr);
+      localStorage.setItem('translation', newStr);
+    }
+    else localStorage.setItem('translation', '[' + body + ']');
+
+
     fetch('/suggest-translation.api', { method: 'POST', body })
-        .then(() => alert('Translation sent. Thank you!'))
+        .then(() => alert('Translation sent, thank you!'))
         .catch(() => alert('There is a problem with sending your translation. Please try again later.'));
   }
 }
