@@ -71,7 +71,7 @@ export class CalService {
     const body = JSON.stringify({
       cardUniqueId: this.accountInitResp.cards[0].cardUniqueID, // for the first credit card
       month,
-      year,
+      year: String(year),
       authorization: this.accountInitResp.authorization
     })
 
