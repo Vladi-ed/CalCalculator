@@ -1,0 +1,187 @@
+<table mat-table multiTemplateDataRows matSort matSortDisableClear
+       class="mat-elevation-z4"
+       [dataSource]="displayedRecords"
+       (matSortChange)="sortTransactions($event)">
+    <!--       matSortActive="date"-->
+    <!--       matSortDirection="desc"-->
+
+    <!-- Date Column -->
+    <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Date </th>
+<!--        <td mat-cell *matCellDef="let row"> {{ row.date | date:'d MMM y' }} </td>-->
+        <td mat-cell *matCellDef="let row"> {{ row.date | date:'d MMM' }} </td>
+        <td mat-footer-cell *matFooterCellDef> Total </td>
+    </ng-container>
+
+    <!-- Description Column -->
+    <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Description </th>
+        <td mat-cell *matCellDef="let row"> {{row.description}} </td>
+        <td mat-footer-cell *matFooterCellDef>{{ displayedRecords.length || '' }} records</td>
+    </ng-container>
+
+    <!-- Translation Column -->
+    <ng-container matColumnDef="translation">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Translation </th>
+        <td mat-cell *matCellDef="let row" (click)="selectedRecord = selectedRecord === row ? null : row" style="cursor: pointer" title="Show details">
+            @if (row.translation) {
+                {{row.translation}}
+            } @else {
+                <button
+                        title="Show details"
+                        class="table-btn" style="width: 100%; height: 100%">
+                </button>
+            }
+        </td>
+        <td mat-footer-cell *matFooterCellDef> </td>
+    </ng-container>
+
+    <!-- costNis & cost Columns -->
+    <ng-container matColumnDef="costNis">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Cost </th>
+        <td mat-cell *matCellDef="let row">
+            <div class="flex-column">
+                {{row.costNis}}
+                <span [hidden]="row.costNis == row.cost" class="costNis">{{row.cost}}</span>
+            </div>
+        </td>
+        <td mat-footer-cell *matFooterCellDef> {{ spentTotal | currency:'₪ ' }} </td>
+    </ng-container>
+
+    <!-- category Column -->
+    <ng-container matColumnDef="myCategory">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Category </th>
+        <td mat-cell *matCellDef="let row">
+            <button class="iconCell table-btn" title="Filter by Category" (click)="filterTransactions(row.myCategory)">
+                <mat-icon inline="true">{{row.myCategory | categoryIcon}}</mat-icon><span>{{row.myCategory | titlecase}}</span>
+            </button>
+        </td>
+        <td mat-footer-cell *matFooterCellDef></td>
+    </ng-container>
+
+    <!-- count Column -->
+    <ng-container matColumnDef="count">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Count </th>
+        <td mat-cell *matCellDef="let row">
+            <button
+                    title="Find same transaction"
+                    class="table-btn"
+                    [hidden]="row.count < 2"
+                    (click)="filterTransactions(row.translation || row.description)">
+                {{row.count}}
+            </button>
+        </td>
+        <td mat-footer-cell *matFooterCellDef></td>
+    </ng-container>
+
+    <!-- comment Column -->
+    <ng-container matColumnDef="comment">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Comment </th>
+        <td mat-cell *matCellDef="let row">
+            <div class="iconCell">
+                <mat-icon inline="true">{{row.comment | commentsIcon}}</mat-icon><span>{{row.comment}}</span>
+            </div>
+        </td>
+        <td mat-footer-cell *matFooterCellDef></td>
+    </ng-container>
+
+    <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
+    <ng-container matColumnDef="expandedDetail">
+        <td mat-cell *matCellDef="let record" [attr.colspan]="displayedColumns.length">
+            <div [@detailExpand]="record == selectedRecord ? 'expanded' : 'collapsed'">
+                <div class="expanded-element-description">
+
+                    <ul>
+                        <li [hidden]="!record.translation"><strong>Original name:</strong> {{ record.description }}</li>
+                        <li [hidden]="!record.myCategory"><strong>Category:</strong> {{ record.myCategory }}</li>
+                        <li [hidden]="!record.address"><strong>Address:</strong> {{ record.address }}</li>
+                        <li><strong>Transaction Type:</strong> {{ record.transactionType }}</li>
+                        <li [hidden]="record.count < 2"><strong>How often:</strong> {{ record.count }} times</li>
+                        <li [hidden]="!record.comment"><strong>Comments:</strong> {{ record.comment }}</li>
+                    </ul>
+
+<!--                    <app-google-img [searchTerm]="selectedRecord!.description" *ngIf="record == selectedRecord && selectedRecord?.description" />-->
+
+                    <div style="display: flex; align-items: center; gap: 12px">
+                        @if (record.address) {
+                            <button (click)="showOnMap(record.address)" class="btn">
+                                Show on Maps
+                                <mat-icon inline="true">place</mat-icon>
+                            </button>
+                        }
+                        <button (click)="searchInGoogle(record.description)" class="btn">
+                            Search in Google
+                            <mat-icon inline="true">travel_explore</mat-icon>
+                        </button>
+                        @if (!record.translation) {
+                            <button (click)="suggestTranslation(record)" class="btn">
+                                Suggest Translation
+                                <mat-icon inline="true">translate</mat-icon>
+                            </button>
+                        }
+                        @if (record.count > 1) {
+                            <button class="btn"
+                                    (click)="filterTransactions(record.translation || record.description)">
+                                Find Same Transactions
+                                <mat-icon inline="true">content_paste_search</mat-icon>
+                            </button>
+                        }
+
+                        <button class="btn" (click)="filterTransactions(record.myCategory)">
+                            Filter by Category
+                            <mat-icon inline="true">{{record.myCategory | categoryIcon}}</mat-icon>
+                        </button>
+
+                        <button (click)="detailsDialog.showModal()" class="btn">
+                            Show Raw Data
+                            <mat-icon inline="true">text_snippet</mat-icon>
+
+
+                        </button>
+
+
+                    </div>
+                </div>
+            </div>
+
+            <dialog #detailsDialog>
+                <h2>Raw data</h2>
+                <div class="dialog-body flex-column">
+                    <pre>{{record | json}}</pre>
+                </div>
+                <form>
+                    <button formmethod="dialog" class="ok-btn" autofocus>OK</button>
+                </form>
+            </dialog>
+        </td>
+    </ng-container>
+
+    <!-- header row-->
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+
+    <!-- Main row-->
+    <tr mat-row *matRowDef="let element; columns: displayedColumns;"
+        class="main-row"
+        [class.example-expanded-row]="selectedRecord === element"
+    >
+    </tr>
+
+    <!-- Expanded row-->
+    <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="expanded-details-row"></tr>
+
+    <!-- Footer row -->
+    <tr mat-footer-row *matFooterRowDef="displayedColumns" [hidden]="displayedRecords.length === 0"></tr>
+
+    <!-- No results row -->
+    <tr *matNoDataRow>
+        @if (dataLoaded) {
+            <td style="padding: 16px" [attr.colspan]="displayedColumns.length">
+                No data matching the Filter
+            </td>
+        } @else {
+            <td style="padding: 16px" [attr.colspan]="displayedColumns.length">
+                Please load the Transactions file
+            </td>
+        }
+    </tr>
+</table>

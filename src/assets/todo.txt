@@ -1,4 +1,3 @@
-- add link to the Place on Google Maps to desktop version
 - text-align: center for labels on Mobile
 - debug load-more button (hide it after some time?)
 - login to personal account?
@@ -8,4 +7,3 @@
 - add support for bank account / card number (from Exported data)
 - landing page
 - autoload suggested translation
-- add shared record-details component to use in both mobile and desktop versions

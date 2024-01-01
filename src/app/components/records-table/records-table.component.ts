@@ -13,6 +13,7 @@ import {CategoryIconPipe} from "../../pipes/category-icon.pipe";
 import {GoogleMapsModule} from "@angular/google-maps";
 import {GoogleMapComponent} from "../google-map/google-map.component";
 import {GoogleImgComponent} from "../google-img/google-img.component";
+import {suggestTranslation} from "../../functions/suggest-translation";
 
 @Component({
   selector: 'app-table',
@@ -20,16 +21,15 @@ import {GoogleImgComponent} from "../google-img/google-img.component";
   imports: [MatTableModule, CurrencyPipe, DatePipe, MatIconModule, MatSortModule, NgIf, TitleCasePipe, CommentsIconPipe, CategoryIconPipe, JsonPipe, AsyncPipe, GoogleMapsModule, GoogleMapComponent, GoogleImgComponent],
   animations: [
     trigger('detailExpand', [
-      state('collapsed, void', style({ height: '0px', minHeight: '0', display: 'none' })),
-      state('expanded', style({ height: '*' })),
+      state('collapsed,void', style({height: '0px', minHeight: '0'})),
+      state('expanded', style({height: '*'})),
       transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
-      transition('expanded <=> void', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)'))
-    ])
+    ]),
   ],
-  templateUrl: './table.component.html',
-  styleUrl: './table.component.scss'
+  templateUrl: './records-table.component.html',
+  styleUrl: './records-table.component.scss'
 })
-export class TableComponent {
+export class RecordsTableComponent {
   @Input() set filterText(text: string) {
     this.filterTransactions(text, false);
   }
@@ -54,6 +54,8 @@ export class TableComponent {
   selectedRecord?: ICalRecord | null;
   spentTotal?: number;
   dataLoaded = false;
+  protected readonly suggestTranslation = suggestTranslation;
+
   filterTransactions(searchStr: string, emitEvent = true) {
       this.displayedRecords = sortData(filterData(this.#allRecords, searchStr), this.#currentSort);
       this.spentTotal = calculateTotalSpent(this.displayedRecords);
@@ -63,5 +65,13 @@ export class TableComponent {
     // console.log(sort)
     this.#currentSort = sort;
     this.displayedRecords = sortData(this.displayedRecords, sort);
+  }
+
+  showOnMap(address: string) {
+    window.open('https://www.google.com/maps/search/?api=1&query=' + address, '_blank');
+  }
+
+  searchInGoogle(description: string) {
+    window.open('https://www.google.com/search?q=' + description, '_blank');
   }
 }

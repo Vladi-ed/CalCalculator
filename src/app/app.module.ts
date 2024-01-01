@@ -9,7 +9,7 @@ import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 import {ServiceWorkerModule} from '@angular/service-worker';
 import {FooterComponent} from './components/footer/footer.component';
 import {MatIconModule} from "@angular/material/icon";
-import {TableComponent} from "./components/table/table.component";
+import {RecordsTableComponent} from "./components/records-table/records-table.component";
 import {RecordsListComponent} from "./components/records-list/records-list.component";
 
 @NgModule({
@@ -27,7 +27,7 @@ import {RecordsListComponent} from "./components/records-list/records-list.compo
         MatInputModule,
         MatRippleModule,
         MatSlideToggleModule,
-        TableComponent,
+        RecordsTableComponent,
         RecordsListComponent,
     ],
     bootstrap: [AppComponent]

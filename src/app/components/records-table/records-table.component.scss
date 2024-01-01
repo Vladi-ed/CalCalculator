@@ -30,9 +30,10 @@ tr.main-row:not(.example-expanded-row):active {
 .expanded-element-description {
   display: flex;
   gap: 30px;
-  padding: 1px;
-  pre {
-    margin-top: 0;
+  padding-bottom: 20px;
+
+  strong {
+    font-weight: 500;
   }
 }
 
