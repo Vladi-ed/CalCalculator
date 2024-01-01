@@ -26,6 +26,8 @@ export const vocabulary: IPayment[] = [{
 }, {
   "keyword": "בנדיקט", "translation": "Cafe Benedict", category: 'restaurants'
 }, {
+  "keyword": "טרקליני ההיכל", "translation": "Cafeteria in Philharmonic Hall", category: 'restaurants'
+}, {
   "keyword": "רולדין", "translation": "Roladin Bakery", category: 'food'
 }, {
   "keyword": "בלונזרי 96", "translation": "Boulangerie 96 Bakery", category: 'food'
@@ -322,6 +324,10 @@ export const vocabulary: IPayment[] = [{
 }, {
   "keyword": "בני הדייג הרצליה", "translation": "Fish restaurant in Hertzlia", category: 'restaurants'
 }, {
+  "keyword": "לה קוצ'ינה", "translation": "La Cuccina Italian restaurant", category: 'restaurants'
+}, {
+  "keyword": "סטאר פיש חנות דגים", "translation": "Star Fish shop", category: 'food'
+}, {
   "keyword": "מולי בלום הירקון", "translation": "Molly Blooms - Irish Pub", category: 'restaurants'
 }, {
   "keyword": "עזריאלי גבעתיים", "translation": "Azrieli Givataim"
@@ -458,6 +464,8 @@ export const vocabulary: IPayment[] = [{
   "keyword": "פרי טרי", "translation": "Pri-Tari Fruits and Vegetables", category: 'food'
 }, {
   "keyword": "פיצוחי שקד", "translation": "Nuts and dried fruits", category: 'food'
+}, {
+  "keyword": "תבליני תמרה", "translation": "Nuts and spices", category: 'food'
 }, {
   "keyword": "אלדו", "translation": "Ice cream", category: 'restaurants'
 }, {
