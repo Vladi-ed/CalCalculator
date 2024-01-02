@@ -3,7 +3,7 @@ import {method, headers, calApiUrl} from "../src/app/data-objects/cal-auth";
 export const onRequestPost = async ({ request }) => {
 
     const origRequestBody = await request.json();
-    console.log('filtered-transactions.api', JSON.stringify(origRequestBody, null, 2));
+    console.log('cal-filtered-transactions.api', JSON.stringify(origRequestBody, null, 2));
 
     const body = JSON.stringify({
         ...origRequestBody,
@@ -17,10 +17,10 @@ export const onRequestPost = async ({ request }) => {
         "transCardPresentInd": 0
     });
 
-    headers.authorization = origRequestBody.authorization;
+    headers["authorization"] = origRequestBody.authorization;
     console.log('filteredTransactionsBody', body);
 
-    return fetch(calApiUrl + 'filteredTransactions/getFilteredTransactions', {
+    return fetch(calApiUrl + 'Transactions/api/filteredTransactions/getFilteredTransactions', {
         headers,
         body,
         method

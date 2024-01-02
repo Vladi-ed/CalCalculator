@@ -7,7 +7,7 @@ export class CalService {
   private accountInitResp!: { bankAccountUniqueId: string; cards: { cardUniqueID: string; currentDebitDay: number }[]; authorization: string; };
 
   async getCalToken(tz: string, last4Digits: string) {
-    const resp = await fetch('/whatsup-auth.api?tz=' + tz + '&last4Digits=' + last4Digits);
+    const resp = await fetch('/cal-whatsup-code.api?tz=' + tz + '&last4Digits=' + last4Digits);
     const data: {token: string, phoneNumber: string} = await resp.json();
     console.log('WhatsUp data', data)
     this.calToken = data.token;
@@ -31,7 +31,7 @@ export class CalService {
       token: this.calToken
     });
 
-    const resp = await fetch('/account-init.api', { method: 'POST', body });
+    const resp = await fetch('/cal-authentication.api', { method: 'POST', body });
     const data = await resp.json();
     console.log('Got data from accountInit()', data);
     this.accountInitResp = data;
@@ -50,7 +50,7 @@ export class CalService {
       authorization: this.accountInitResp.authorization
     });
 
-    const resp = await fetch('/filtered-transactions.api', { method: 'POST', body });
+    const resp = await fetch('/cal-transactions-any.api', { method: 'POST', body });
     const data: CalResponse = await resp.json();
     console.log('download3MonthAllCards()', data?.result);
     return data.result.transArr;
@@ -75,7 +75,7 @@ export class CalService {
       authorization: this.accountInitResp.authorization
     })
 
-    const resp = await fetch('/transactions-details.api', { method: 'POST', body });
+    const resp = await fetch('/cal-transactions-month.api', { method: 'POST', body });
     const data: CalResponse = await resp.json();
     console.log('downloadLastMonth()', data?.result);
     return data.result.bankAccounts.pop()?.debitDates.pop()?.transactions;

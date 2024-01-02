@@ -1,14 +1,15 @@
 import {method, headers} from "../src/app/data-objects/cal-auth";
 
-export const onRequestGet = async ({ request }) => {
+export const onRequestGet: PagesFunction = async ({ request }) => {
 
   const requestParams = new URL(request.url).searchParams;
   const last4Digits = requestParams.get('last4Digits');
+  const userId = requestParams.get('tz');
 
-  if (!last4Digits || !requestParams.get('tz')) return new Response('Missing data ' + requestParams.toString(), { status: 400, statusText: 'Missing data'});
+  if (!last4Digits || !userId) return new Response('Missing data ' + requestParams.toString(), { status: 400, statusText: 'Missing data'});
 
   const body = JSON.stringify({
-    userId: requestParams.get('tz'),
+    userId,
     last4Digits,
     bankAccountNum: last4Digits
   })

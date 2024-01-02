@@ -13,4 +13,4 @@ export const headers = {
     "Referer": "https://digital-web.cal-online.co.il/",
 };
 
-export const calApiUrl = 'https://api.cal-online.co.il/Transactions/api/';
+export const calApiUrl = 'https://api.cal-online.co.il/';

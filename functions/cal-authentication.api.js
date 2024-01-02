@@ -1,8 +1,8 @@
-import {method, headers} from "../src/app/data-objects/cal-auth";
+import {method, headers, calApiUrl} from "../src/app/data-objects/cal-auth";
 
 export const onRequestPost = async ({ request }) => {
 
-  const body = JSON.stringify(await request.json());
+  const body = await request.text();
   headers["Content-Length"] = String(body.length);
 
   // AUTHENTICATION
@@ -12,7 +12,7 @@ export const onRequestPost = async ({ request }) => {
     method
   });
 
-  const authToken = await apiResp.json().then(rep => rep.token);
+  const authToken = await apiResp.json().then(rep => rep?.token);
 
   if (!authToken) return new Response('No token received');
 
@@ -21,7 +21,7 @@ export const onRequestPost = async ({ request }) => {
   headers.authorization = authorization;
 
   // getting bank/card details
-  apiResp = await fetch("https://api.cal-online.co.il/Authentication/api/account/init", {
+  apiResp = await fetch(calApiUrl + "Authentication/api/account/init", {
     headers,
     body: "{\"tokenGuid\":\"\"}",
     method
