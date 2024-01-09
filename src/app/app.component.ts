@@ -1,5 +1,5 @@
 import {Component, ElementRef, ViewChild, ViewContainerRef} from '@angular/core';
-import {ICalRecord} from "./interfaces/ICalRecord";
+import {IRecord} from "./interfaces/IRecord";
 import {calculateTotalSpent} from './functions/calculate-total-spent';
 import {groupArrayBy} from "./functions/group-array-by";
 import {PromptUpdateService} from "./services/promt-update.service";
@@ -14,7 +14,7 @@ type GraphData = { name: string, value: number };
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  calRecords?: ICalRecord[];
+  calRecords?: IRecord[];
 
   showGraph = false;
   graphData: GraphData[] = [];
@@ -45,14 +45,14 @@ export class AppComponent {
 
   async onExampleLoad() {
     const [exampleArr, processJsonData] = await Promise.all([
-      fetch('assets/trans-example-month.json').then(respFile => respFile.json()).then(data => data.result.transArr),
+      fetch('assets/cal-trans-example-month.json').then(respFile => respFile.json()).then(data => data.result.transArr),
       import('./functions/process-cal-json-data').then(m => m.processCalJsonData)
     ]);
 
     this.postProcessing(processJsonData(exampleArr));
   }
 
-  private postProcessing(records: ICalRecord[]) {
+  private postProcessing(records: IRecord[]) {
     if (this.calRecords) this.calRecords = [...this.calRecords, ...records];
     else this.calRecords = records;
 
@@ -73,7 +73,7 @@ export class AppComponent {
     if (!this.lazyLoginComponent) {
       const {CalLoginComponent} = await import('./components/cal-login/cal-login.component');
       this.lazyLoginComponent = this.vcr.createComponent(CalLoginComponent).instance;
-      this.lazyLoginComponent.dataEvent.subscribe((data: ICalRecord[]) => this.postProcessing(data));
+      this.lazyLoginComponent.dataEvent.subscribe((data: IRecord[]) => this.postProcessing(data));
     } else this.lazyLoginComponent.showModal();
   }
 

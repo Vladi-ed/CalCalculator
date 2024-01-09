@@ -1,4 +1,4 @@
-import {ICalRecord} from "../interfaces/ICalRecord";
+import {IRecord} from "../interfaces/IRecord";
 
 /**
  * Filter array of ICalRecords by search string
@@ -6,7 +6,7 @@ import {ICalRecord} from "../interfaces/ICalRecord";
  * @param searchStr what to find in the array
  * @returns filtered array of Cal records depending on search query using 'translation', 'description', 'myCategory', 'comment' fields
  */
-export function filterData(records: ICalRecord[], searchStr: string): ICalRecord[] {
+export function filterData(records: IRecord[], searchStr: string): IRecord[] {
 
     if (searchStr === 'other') return records.filter(col => col.myCategory == undefined || col.myCategory == 'other');
     else if (searchStr) {

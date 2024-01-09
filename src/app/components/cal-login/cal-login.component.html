@@ -24,13 +24,11 @@
                        [disabled]="isLoading"
                        name="last4Digits"
                        type="password"
-                       maxlength="4" minlength="4" pattern="^\d{1,4}$"
+                       maxlength="6" minlength="4" pattern="^\d+$"
                        required
                        inputmode="numeric"
                        autocomplete="current-password">
             </mat-form-field>
-
-<!--            TODO: Add radio buttons to choose Whats-up / sms login-->
 
             @if (!(isLoading || error || showPinField)) {
                 <button class="btn" type="submit" [disabled]="heroForm.form.invalid">

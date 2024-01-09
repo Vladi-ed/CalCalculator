@@ -1,5 +1,5 @@
 import {read, utils} from "xlsx";
-import {ICalRecord} from "../interfaces/ICalRecord";
+import {IRecord} from "../interfaces/IRecord";
 import {processRecord} from "./process-record";
 
 /**
@@ -30,7 +30,7 @@ export async function processExcelData(file: File) {
                 header.push(lastElement!);
             }
 
-            const data = utils.sheet_to_json<ICalRecord>(sheet, {header, range: 2});
+            const data = utils.sheet_to_json<IRecord>(sheet, {header, range: 2});
             data.pop(); // remove summary row
 
             console.log('Custom period Cal Excel Data', data);
@@ -38,7 +38,7 @@ export async function processExcelData(file: File) {
         }
         else {
             const header = ['date', 'description', 'cost', 'costNum', 'transactionType', 'categoryHeb', 'comment'];
-            const data = utils.sheet_to_json<ICalRecord>(sheet, {header, range: 4, raw: false});
+            const data = utils.sheet_to_json<IRecord>(sheet, {header, range: 4, raw: false});
 
             if (data[0].date === 'תאריך עסקה') data.shift();
 
@@ -53,7 +53,7 @@ export async function processExcelData(file: File) {
     }
 }
 
-function processDataForCustomPeriod(records: ICalRecord[], fixDateRequired?: string) {
+function processDataForCustomPeriod(records: IRecord[], fixDateRequired?: string) {
 
     // add new fields
     records.forEach(calRecord => {

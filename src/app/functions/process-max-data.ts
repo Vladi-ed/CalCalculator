@@ -1,9 +1,5 @@
-import {vocabulary} from "../data-objects/vocabulary";
-import {categories} from "../data-objects/categories";
-import {comments} from "../data-objects/comments";
 import {read, utils} from "xlsx";
-import {ICalRecord} from "../interfaces/ICalRecord";
-import {fixDate} from "./fix-date";
+import {IRecord} from "../interfaces/IRecord";
 import {processRecord} from "./process-record";
 
 /**
@@ -19,12 +15,12 @@ export async function processExcelData(file: File) {
 
     const header = ['date', 'description', 'categoryHeb', 'cardId', 'transactionType', 'costNum', 'currencyNis', 'cost', 'currency', 'chargingDate', '', '', '', '', 'comment'];
 
-    const data = utils.sheet_to_json<ICalRecord>(sheet, { header });
+    const data = utils.sheet_to_json<IRecord>(sheet, { header });
     console.log('Max Excel Data', data);
     return processMaxData(data);
 }
 
-function processMaxData(records: ICalRecord[]) {
+function processMaxData(records: IRecord[]) {
 
     // process only date-formatted rows
     // 30-05-2023

@@ -1,5 +1,5 @@
 import {read, utils} from "xlsx";
-import {ICalRecord} from "../interfaces/ICalRecord";
+import {IRecord} from "../interfaces/IRecord";
 import {processRecord} from "./process-record";
 
 /**
@@ -15,12 +15,12 @@ export async function processExcelData(file: File) {
 
     const header = ['date', 'description', 'costNum', 'currencyNis', 'cost', 'currency', 'comment'];
 
-    const data = utils.sheet_to_json<ICalRecord>(sheet, { header });
+    const data = utils.sheet_to_json<IRecord>(sheet, { header });
     console.log('IsraCard Excel Data', data);
     return processMaxData(data);
 }
 
-function processMaxData(records: ICalRecord[]) {
+function processMaxData(records: IRecord[]) {
 
     // process only date-formatted rows
     // 30/05/2023

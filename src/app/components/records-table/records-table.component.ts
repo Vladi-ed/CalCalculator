@@ -7,7 +7,7 @@ import {MatSortModule, Sort} from "@angular/material/sort";
 import {sortData} from "../../functions/sort-data";
 import {filterData} from "../../functions/filter-data";
 import {calculateTotalSpent} from "../../functions/calculate-total-spent";
-import {ICalRecord} from "../../interfaces/ICalRecord";
+import {IRecord} from "../../interfaces/IRecord";
 import {CommentsIconPipe} from "../../pipes/comments-icon.pipe";
 import {CategoryIconPipe} from "../../pipes/category-icon.pipe";
 import {GoogleMapsModule} from "@angular/google-maps";
@@ -36,7 +36,7 @@ export class RecordsTableComponent {
   @Output() filterTextChange = new EventEmitter<string>();
 
   @Input({ required: true })
-  set records(records: ICalRecord[] | undefined) {
+  set records(records: IRecord[] | undefined) {
     if (records && records.length) {
       this.#allRecords = records;
       this.displayedRecords = records;
@@ -46,12 +46,12 @@ export class RecordsTableComponent {
     }
   }
 
-  #allRecords: ICalRecord[] = [];
+  #allRecords: IRecord[] = [];
   #currentSort?: Sort;
 
-  displayedRecords: ICalRecord[] = [];
-  displayedColumns: (keyof ICalRecord)[] = ['date',	'description', 'translation', 'costNis', 'myCategory', 'count', 'comment'];
-  selectedRecord?: ICalRecord | null;
+  displayedRecords: IRecord[] = [];
+  displayedColumns: (keyof IRecord)[] = ['date', 'description', 'translation', 'costNis', 'myCategory', 'count', 'comment'];
+  selectedRecord?: IRecord | null;
   spentTotal?: number;
   dataLoaded = false;
   protected readonly suggestTranslation = suggestTranslation;

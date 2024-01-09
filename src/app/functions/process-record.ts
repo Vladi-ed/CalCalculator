@@ -1,10 +1,10 @@
-import {ICalRecord} from "../interfaces/ICalRecord";
+import {IRecord} from "../interfaces/IRecord";
 import {vocabulary} from "../data-objects/vocabulary";
 import {categories} from "../data-objects/categories";
 import {comments} from "../data-objects/comments";
 import {fixDate} from "./fix-date";
 
-export function processRecord(record: ICalRecord, fixDateSeparator?: string) {
+export function processRecord(record: IRecord, fixDateSeparator?: string) {
     // convert to US format if needed
     if (fixDateSeparator) record.date = fixDate(record.date, fixDateSeparator);
 
@@ -17,7 +17,7 @@ export function processRecord(record: ICalRecord, fixDateSeparator?: string) {
     processRecordPartial(record);
 }
 
-export function processRecordPartial(record: ICalRecord) {
+export function processRecordPartial(record: IRecord) {
     // add translation
     record.translation = vocabulary.find(item => record.description.includes(item.keyword))?.translation;
 

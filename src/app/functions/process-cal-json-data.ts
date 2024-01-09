@@ -1,11 +1,11 @@
 import {Transaction} from "../interfaces/ICalTransactions";
-import {ICalRecord} from "../interfaces/ICalRecord";
+import {IRecord} from "../interfaces/IRecord";
 import {processRecordPartial} from "./process-record";
 
 export function processCalJsonData(data: Transaction[]) {
-    return data.map<ICalRecord>((transaction, _index, records) => {
+    return data.map<IRecord>((transaction, _index, records) => {
 
-        const calRecord: ICalRecord = {
+        const calRecord: IRecord = {
             date: transaction.trnPurchaseDate,
             description: transaction.merchantName,
             cost: transaction.trnCurrencySymbol + ' ' + transaction.trnAmt,

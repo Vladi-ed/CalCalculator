@@ -10,7 +10,7 @@ import {NgIf} from '@angular/common';
 import {FormsModule} from "@angular/forms";
 import {MatInputModule} from "@angular/material/input";
 import {CalService} from "../../services/cal.service";
-import {ICalRecord} from "../../interfaces/ICalRecord";
+import {IRecord} from "../../interfaces/IRecord";
 import {validateTz} from "../../functions/validate-tz";
 import {MatIconModule} from "@angular/material/icon";
 import {MatRippleModule} from "@angular/material/core";
@@ -39,7 +39,7 @@ export class CalLoginComponent implements AfterViewInit {
   private loginDialog?: ElementRef;
 
   @Output()
-  dataEvent = new EventEmitter<ICalRecord[]>();
+  dataEvent = new EventEmitter<IRecord[]>();
 
   ngAfterViewInit(): void {
     this.showModal();

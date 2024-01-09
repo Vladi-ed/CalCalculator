@@ -1,6 +1,6 @@
-import {ICalRecord} from "../interfaces/ICalRecord";
+import {IRecord} from "../interfaces/IRecord";
 
-export function suggestTranslation(record: ICalRecord) {
+export function suggestTranslation(record: IRecord) {
     const translation = prompt('Type your translation:');
     if (!translation) return;
 

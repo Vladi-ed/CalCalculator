@@ -1,7 +1,7 @@
 import {Component, Input} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {MatExpansionModule} from "@angular/material/expansion";
-import {ICalRecord} from "../../interfaces/ICalRecord";
+import {IRecord} from "../../interfaces/IRecord";
 import {filterData} from "../../functions/filter-data";
 import {calculateTotalSpent} from "../../functions/calculate-total-spent";
 import {CategoryIconPipe} from "../../pipes/category-icon.pipe";
@@ -17,12 +17,12 @@ import { suggestTranslation } from '../../functions/suggest-translation';
   styleUrl: './records-list.component.scss'
 })
 export class RecordsListComponent {
-  #allRecords: ICalRecord[] = [];
-  displayedRecords: ICalRecord[] = [];
+  #allRecords: IRecord[] = [];
+  displayedRecords: IRecord[] = [];
   spentTotal?: number;
   protected readonly suggestTranslation = suggestTranslation;
 
-  @Input({ required: true }) set records(records: ICalRecord[] | undefined) {
+  @Input({ required: true }) set records(records: IRecord[] | undefined) {
     if (records && records.length) {
       this.#allRecords = records;
       this.displayedRecords = records;

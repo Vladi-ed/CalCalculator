@@ -1,4 +1,4 @@
-export interface ICalRecord {
+export interface IRecord {
   date: string;
   description: string;
   currency: string;
