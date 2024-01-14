@@ -13,7 +13,7 @@ export const onRequestPost = async ({ request }) => {
     headers.authorization = origRequestBody.authorization;
     console.log('transactionsDetailsBody', body);
 
-    return fetch(calApiUrl + 'transactionsDetails/getCardTransactionsDetails', {
+    return fetch(calApiUrl + 'Transactions/api/transactionsDetails/getCardTransactionsDetails', {
         headers,
         body,
         method
