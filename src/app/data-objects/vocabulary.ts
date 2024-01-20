@@ -106,7 +106,9 @@ export const vocabulary: IPayment[] = [{
 }, {
   "keyword": "משק שור וולף", "translation": "Olive oil", category: 'food'
 }, {
-  "keyword": "קטיף עצמי כפר נטר", "translation": "Mandarin Farm", category: 'restaurants'
+  "keyword": "קטיף עצמי כפר נטר", "translation": "Mandarin Farm", category: 'entertainment'
+}, {
+  "keyword": "משק הפארק", "translation": "Raspberry Farm", category: 'entertainment'
 }, {
   "keyword": "תן ביס", "translation": "10bis", category: 'restaurants'
 }, {

@@ -82,8 +82,8 @@
             </svg>
         </a>
 
-        <button *ngIf="lazyLoginComponent" (click)="calLoadMore()" style="padding: 6px 14px; margin: auto" class="btn" matRipple>
-            Load more
+        <button #loadMoreBtn *ngIf="lazyLoginComponent" (click)="calLoadMore(); loadMoreBtn.hidden=true" style="padding: 6px 14px; margin: auto" class="btn" matRipple>
+            Load previous month
         </button>
     }
 
