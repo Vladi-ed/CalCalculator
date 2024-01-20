@@ -2,7 +2,7 @@ import {Component, ElementRef, ViewChild, ViewContainerRef} from '@angular/core'
 import {IRecord} from "./interfaces/IRecord";
 import {calculateTotalSpent} from './functions/calculate-total-spent';
 import {groupArrayBy} from "./functions/group-array-by";
-import {PromptUpdateService} from "./services/promt-update.service";
+import {AppUpdateService} from "./services/app-update.service";
 import {CalLoginComponent} from "./components/cal-login/cal-login.component";
 import {copyTable4} from "./functions/copy-table";
 
@@ -24,7 +24,7 @@ export class AppComponent {
   @ViewChild('filter') private filter?: ElementRef;
   protected lazyLoginComponent?: CalLoginComponent;
 
-  constructor(autoUpdateService: PromptUpdateService, private vcr: ViewContainerRef) { }
+  constructor(autoUpdateService: AppUpdateService, private vcr: ViewContainerRef) { }
 
   onUpload(target: FileList | null) {
     const file = target?.item(0);

@@ -3,14 +3,14 @@ import { SwUpdate, VersionReadyEvent } from "@angular/service-worker";
 import { filter } from "rxjs";
 
 @Injectable({ providedIn: 'root' })
-export class PromptUpdateService {
+export class AppUpdateService {
 
   constructor(updates: SwUpdate) {
       updates.versionUpdates
         .pipe(filter((evt): evt is VersionReadyEvent => evt.type === 'VERSION_READY'))
         .subscribe(evt => {
             console.log('New version of the app', evt.latestVersion);
-            if (confirm('New version of the service is available. Reload the page?')) {
+            if (confirm('New version available. Reload the page?')) {
                 // Reload the page to update to the latest version.
                 location.reload();
             }
