@@ -1,5 +1,6 @@
 mat-expansion-panel-header {
   --mat-expansion-header-text-weight: 400;
+  --mat-expansion-header-text-size: 16px;
   padding: 0 16px;
 
   mat-panel-description {
@@ -8,7 +9,7 @@ mat-expansion-panel-header {
   }
 
   .mat-expansion-panel-header-description {
-    justify-content: space-between;
+    justify-content: end;
     align-items: center;
   }
 
@@ -23,4 +24,9 @@ mat-expansion-panel-header {
 }
 button {
   min-height: 24px;
+}
+
+.text-gray {
+  color: lightslategray;
+  font-size: 12px;
 }

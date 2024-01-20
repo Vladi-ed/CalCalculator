@@ -9,7 +9,7 @@ export function suggestTranslation(record: IRecord) {
     const body = JSON.stringify({
         keyword: record.description,
         translation,
-        category: record.categoryHeb
+        category: record.myCategory || record.categoryHeb
     });
 
     const localTranslation = localStorage.getItem('translation');
@@ -21,7 +21,6 @@ export function suggestTranslation(record: IRecord) {
     else localStorage.setItem('translation', '[' + body + ']');
 
 
-    fetch('/suggest-translation.api', { method: 'POST', body })
-        .then(() => alert('Translation sent, thank you!'))
+    fetch('/suggest-translation.api', { method: 'POST', body }) // .then(() => alert('Translation sent, thank you!'))
         .catch(() => alert('There is a problem with sending your translation. Please try again later.'));
 }

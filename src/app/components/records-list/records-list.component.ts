@@ -8,11 +8,13 @@ import {CategoryIconPipe} from "../../pipes/category-icon.pipe";
 import {MatIconModule} from "@angular/material/icon";
 import {MatRippleModule} from "@angular/material/core";
 import { suggestTranslation } from '../../functions/suggest-translation';
+import {PriceFormatPipe} from "../../pipes/price-format.pipe";
+import {RemoveZeroTimePipe} from "../../pipes/remove-zero-time.pipe";
 
 @Component({
   selector: 'app-records-list',
   standalone: true,
-  imports: [CommonModule, MatExpansionModule, CategoryIconPipe, MatIconModule, MatRippleModule],
+  imports: [CommonModule, MatExpansionModule, CategoryIconPipe, MatIconModule, MatRippleModule, PriceFormatPipe, RemoveZeroTimePipe],
   templateUrl: './records-list.component.html',
   styleUrl: './records-list.component.scss'
 })

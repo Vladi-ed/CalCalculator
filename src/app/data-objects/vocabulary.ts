@@ -38,6 +38,8 @@ export const vocabulary: IPayment[] = [{
 }, {
   "keyword": "אוהד המוציא לחם ", "translation": "Bread bakery in Tel-Aviv", category: 'food'
 }, {
+  "keyword": "חגי והלחם", "translation": "Hagay Bread", category: 'food'
+}, {
   "keyword": "אלקלעי יין", "translation": "Cafe Elkalai", category: 'restaurants'
 }, {
   "keyword": "פורת ספרים ", "translation": "Porat Books and Coffee", category: 'restaurants'
@@ -102,6 +104,8 @@ export const vocabulary: IPayment[] = [{
 }, {
   "keyword": "מחלבת עיזה פזיזה", "translation": "Iza Pziza Goat Farm cafe", category: 'restaurants'
 }, {
+  "keyword": "משק שור וולף", "translation": "Olive oil", category: 'food'
+}, {
   "keyword": "קטיף עצמי כפר נטר", "translation": "Mandarin Farm", category: 'restaurants'
 }, {
   "keyword": "תן ביס", "translation": "10bis", category: 'restaurants'
@@ -124,6 +128,8 @@ export const vocabulary: IPayment[] = [{
 }, {
   "keyword": "לונה פארק", "translation": "Luna Park", category: "entertainment"
 }, {
+  "keyword": "הארי פוטר חנות", "translation": "Harry Potter shop", category: "entertainment"
+}, {
   "keyword": "כלבו יחזקאל", "translation": "Construction/electric store", category: "household"
 }, {
   "keyword": "הום שופ", "translation": "Home-Shop", category: "household"
@@ -137,8 +143,10 @@ export const vocabulary: IPayment[] = [{
   "keyword": "סופר שלי", "translation": "Mini-market", category: 'food'
 }, {
   "keyword": "JAPANIKA", "translation": "Japanika Sushi", category: 'restaurants'
-},  {
+}, {
   "keyword": "גפניקה סושי", "translation": "Japanika Sushi", category: 'restaurants'
+}, {
+  "keyword": "BANH MI NONG", "translation": "Vietnamese cafe", category: 'restaurants'
 }, {
   "keyword": "STUDIO", "translation": "STUDIO Restaurant TA", category: 'restaurants'
 }, {
@@ -152,7 +160,7 @@ export const vocabulary: IPayment[] = [{
 }, {
   "keyword": "גרה בייקרי", "translation": "Jera Coffee Bakery", category: 'coffee'
 }, {
-  "keyword": "נחת ורות", "translation": "Nahat Coffee", category: 'coffee'
+  "keyword": "נחת ", "translation": "Nahat Coffee", category: 'coffee'
 }, {
   "keyword": "KSP", "translation": "KSP", category: 'household'
 }, {
@@ -239,6 +247,10 @@ export const vocabulary: IPayment[] = [{
   "keyword": "חנות המפעל מחלבת דשן", "translation": "Cheese and Bread shop", category: 'food'
 }, {
   "keyword": "גבינות ומעדני הכפר", "translation": "Cheese and Village deli shop", category: 'food'
+}, {
+  "keyword": "ELTORO", "translation": "El-Toro meat shop", category: 'food'
+}, {
+  "keyword": "קצביית שרונה מקבוצת לגזיאל", "translation": "Meat Shop in Sarona", category: 'food'
 }, {
   "keyword": "נכסי אריאל-חניון מרכז ויצ", "translation": "Parking", category: 'transport'
 }, {
@@ -356,6 +368,8 @@ export const vocabulary: IPayment[] = [{
 }, {
   "keyword": "משרד התחבורה", "translation": "Ministry of Transport", category: "transport"
 }, {
+  "keyword": "משרד הפנים", "translation": "Ministry of Interior", category: "transport"
+}, {
   "keyword": "היכל הספורט", "translation": "Sport Clothes Shop", category: "clothes"
 }, {
   "keyword": "NOOLLAB VLT", "translation": "Balloon in park Yarkon", category: "entertainment"
@@ -377,6 +391,8 @@ export const vocabulary: IPayment[] = [{
   "keyword": "SHISHISHABB", "translation": "Shishi-Shabbat event", category: 'entertainment'
 }, {
   "keyword": "מוזיאון תל אביב לאמנות", "translation": "Tel-Aviv Museum of Art", category: 'entertainment'
+}, {
+  "keyword": "מוזיאון ישראל", "translation": "Museum of Israel", category: 'entertainment'
 }, {
   "keyword": "סטודיו קפה", "translation": "Studio-cafe", category: 'restaurants'
 }, {

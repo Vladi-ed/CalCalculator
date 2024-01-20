@@ -7,11 +7,11 @@
                     <mat-icon [title]="record.myCategory" color="primary">{{record.myCategory | categoryIcon}}</mat-icon>
                     <div style="display: flex; flex-direction: column; gap: 2px">
                         {{ record.translation || record.description }}
-                        <span style="color: #9f9e9e; font-size: 12px">{{ record.date | date:'d MMM H:mm' }}</span>
+                        <small class="text-gray">{{ record.date | removeZeroTime }}</small>
                     </div>
                 </mat-panel-title>
                 <mat-panel-description>
-                    {{ record.costNis }}
+                    {{ record.costNis.split('.').shift() }}
                 </mat-panel-description>
             </mat-expansion-panel-header>
 
