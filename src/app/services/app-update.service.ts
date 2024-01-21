@@ -6,6 +6,7 @@ import { filter } from "rxjs";
 export class AppUpdateService {
 
   constructor(updates: SwUpdate) {
+      // runs ones on app start
       updates.versionUpdates
         .pipe(filter((evt): evt is VersionReadyEvent => evt.type === 'VERSION_READY'))
         .subscribe(evt => {

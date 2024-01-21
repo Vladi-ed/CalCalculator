@@ -8,6 +8,8 @@ export const vocabulary: IPayment[] = [{
 }, {
   "keyword": "אנאל מרקט", "translation": "Supermarket", category: 'food'
 }, {
+  "keyword": "סופר אריאל", "translation": "Super Ariel", category: 'food'
+}, {
   "keyword": "ברלין לברנטין", "translation": "Berlin Levontin Supermarket", category: 'food'
 }, {
   "keyword": "אי.אם.פי.אם", "translation": "AM:PM", category: 'food'
@@ -34,9 +36,9 @@ export const vocabulary: IPayment[] = [{
 }, {
   "keyword": "בולנז'רי 96", "translation": "Boulangerie 96 Bakery", category: 'food'
 }, {
-  "keyword": "מתוקה רמת גן", "translation": "Metuka Bakery", category: 'food',  icon: 'https://www.metuka.co.il/wp-content/uploads/2020/08/metuka_logo.svg'
+  "keyword": "מתוקה ", "translation": "Metuka Bakery", category: 'food',  icon: 'https://www.metuka.co.il/wp-content/uploads/2020/08/metuka_logo.svg'
 }, {
-  "keyword": "אוהד המוציא לחם ", "translation": "Bread bakery in Tel-Aviv", category: 'food'
+  "keyword": "אוהד המוציא לחם ", "translation": "Bakery in Tel-Aviv", category: 'food'
 }, {
   "keyword": "חגי והלחם", "translation": "Hagay Bread", category: 'food'
 }, {
