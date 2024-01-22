@@ -116,7 +116,7 @@ export const vocabulary: IPayment[] = [{
 }, {
   "keyword": "קשת טעמים", "translation": "Keshet Taamim", category: 'food'
 }, {
-  "keyword": "נון סטופ מרקט", "translation": "Non-Stop Market", category: 'food'
+  "keyword": "נון סטופ מרקט", "translation": "Non Stop Market (Arlozorov 27)", category: 'food'
 }, {
   "keyword": "LIM*", "translation": "Lime Scooter Rent", category: "transport"
 }, {
