@@ -106,6 +106,8 @@ export const vocabulary: IPayment[] = [{
 }, {
   "keyword": "מחלבת עיזה פזיזה", "translation": "Iza Pziza Goat Farm cafe", category: 'restaurants'
 }, {
+  "keyword": "משק עפאים לחקלאות", "translation": "Ofaimme farm cafe", category: 'restaurants'
+}, {
   "keyword": "משק שור וולף", "translation": "Olive oil", category: 'food'
 }, {
   "keyword": "קטיף עצמי כפר נטר", "translation": "Mandarin Farm", category: 'entertainment'
@@ -207,6 +209,8 @@ export const vocabulary: IPayment[] = [{
   "keyword": "טמבור לילנבלום", "translation": "Construction store near office", category: "household"
 }, {
   "keyword": "עלי דפנה", "translation": "Flower shop", category: "household"
+}, {
+  "keyword": "צמחים", "translation": "Flower shop", category: "household"
 }, {
   "keyword": "חניון מגדל אלקטרה", "translation": "Parking Maccabi", category: 'transport'
 },  {

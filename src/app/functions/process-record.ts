@@ -12,12 +12,13 @@ export function processRecord(record: IRecord, fixDateSeparator?: string) {
 
     record.costNis = '₪ ' + record.costNum;
 
-    record.cost = record.currency + ' ' + record.cost;
+    if (record.currency) record.cost = record.currency + ' ' + record.cost;
+    else if (!isNaN(record.cost as any)) record.cost = '₪ ' + record.cost;
 
-    processRecordPartial(record);
+    processRecordTranslation(record);
 }
 
-export function processRecordPartial(record: IRecord) {
+export function processRecordTranslation(record: IRecord) {
     // add translation
     record.translation = vocabulary.find(item => record.description.includes(item.keyword))?.translation;
 

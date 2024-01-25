@@ -1,7 +1,7 @@
 export interface IRecord {
   date: string;
   description: string;
-  currency: string;
+  currency?: string;
   cost: string;
   costNis: string;
   costNum: number;

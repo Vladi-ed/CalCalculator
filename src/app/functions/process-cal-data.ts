@@ -33,7 +33,7 @@ export async function processExcelData(file: File) {
             const data = utils.sheet_to_json<IRecord>(sheet, {header, range: 2});
             data.pop(); // remove summary row
 
-            console.log('Custom period Cal Excel Data', data);
+            console.log('Cal Excel Data for Custom period', data);
             return processDataForCustomPeriod(data, '/');
         }
         else {
@@ -42,7 +42,7 @@ export async function processExcelData(file: File) {
 
             if (data[0].date === 'תאריך עסקה') data.shift();
 
-            console.log('Monthly Cal Excel Data', data);
+            console.log('Cal Excel Data Monthly', data);
             return processDataForCustomPeriod(data);
 
         }
@@ -53,12 +53,12 @@ export async function processExcelData(file: File) {
     }
 }
 
-function processDataForCustomPeriod(records: IRecord[], fixDateRequired?: string) {
+function processDataForCustomPeriod(records: IRecord[], dateSeparator?: string) {
 
     // add new fields
     records.forEach(calRecord => {
 
-        processRecord(calRecord, fixDateRequired);
+        processRecord(calRecord, dateSeparator);
 
         // count number of similar operations
         calRecord.count = records.filter(v => v.description == calRecord.description).length;

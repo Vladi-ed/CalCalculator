@@ -1,6 +1,6 @@
 import {Transaction} from "../interfaces/ICalTransactions";
 import {IRecord} from "../interfaces/IRecord";
-import {processRecordPartial} from "./process-record";
+import {processRecordTranslation} from "./process-record";
 
 export function processCalJsonData(data: Transaction[]) {
     return data.map<IRecord>((transaction, _index, records) => {
@@ -20,7 +20,7 @@ export function processCalJsonData(data: Transaction[]) {
             ...Object.fromEntries(Object.entries(transaction).filter(([_, v]) => !!v && v.length )) // copy all transaction fields except null, undefined or empty
         }
 
-        processRecordPartial(calRecord);
+        processRecordTranslation(calRecord);
 
         // count number of similar operations
         calRecord.count = records.filter(v => v.merchantName == calRecord.description).length;

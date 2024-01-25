@@ -42,7 +42,7 @@
         <td mat-cell *matCellDef="let row">
             <div class="flex-column">
                 {{row.costNis}}
-                <span [hidden]="!row.cost || row.costNis == row.cost" class="costNis">{{row.cost}}</span>
+                <span [hidden]="row.costNis == row.cost" class="costNis">{{row.cost}}</span>
             </div>
         </td>
         <td mat-footer-cell *matFooterCellDef> {{ spentTotal | currency:'₪ ' }} </td>
