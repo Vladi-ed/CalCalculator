@@ -4,10 +4,12 @@ export const categories: IPayment[] = [
   { keyword: "מזון ומשקאות",  translation: "food",        icon: "shopping_cart" },
   { keyword: "מזון וצריכה",   translation: "food",        icon: "shopping_cart" },
   { keyword: "מסעדות",        translation: "restaurants", icon: "restaurant" },
+  { keyword: "מזון מהיר",        translation: "fast food", icon: "restaurant" },
   { keyword: "ציוד ומשרד",    translation: "service fee", icon: "paid" },
   { keyword: "פנאי בילוי",    translation: "entertainment", icon: "local_play" },
   { keyword: "משחקי מזל",     translation: "entertainment", icon: "casino" },
   { keyword: "פנאי ובידור",   translation: "entertainment", icon: "casino" },
+  { keyword: "חינוך",   translation: "education", icon: "school" },
   { keyword: "תיירות",       translation: "tourism", icon: "airplane_ticket" },
   { keyword: "רפואה ובריאות", translation: "health",        icon: "local_hospital" },
   { keyword: "טיפוח ויופי", translation: "care and beauty", icon: "spa" },
@@ -25,5 +27,4 @@ export const categories: IPayment[] = [
   { keyword: "רכב ותחבורה",  translation: "transport", icon: "airport_shuttle" },
   { keyword: "מוסדות",  translation: "institutions", icon: "account_balance" },
   { keyword: "עמותות ותרומות",  translation: "donation", icon: "volunteer_activism" },
-
 ];
