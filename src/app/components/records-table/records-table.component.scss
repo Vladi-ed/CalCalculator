@@ -1,6 +1,6 @@
 :host {
   display: block;
-  overflow: auto;
+  //overflow: auto;
   margin-bottom: 50px;
   //border: 1px solid #808080b3;
   border-bottom-left-radius: 4px;
@@ -74,7 +74,7 @@ td.mat-mdc-footer-cell {
 }
 
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 813px) {
   .mat-mdc-header-cell {
     padding-right: 0;
     white-space: nowrap;
@@ -87,5 +87,6 @@ td.mat-mdc-footer-cell {
   }
   .expanded-element-description {
     flex-direction: column-reverse;
+    gap: 5px;
   }
 }

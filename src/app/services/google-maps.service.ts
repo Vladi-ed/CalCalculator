@@ -18,6 +18,8 @@ export class GoogleMapsService {
     };
 
     const { Place } = await google.maps.importLibrary('places') as google.maps.PlacesLibrary;
+    // Place.searchByText(request)
+    // @ts-ignore
     return Place.findPlaceFromQuery(request).then(obj => obj.places[0]);
   }
 }
