@@ -3,6 +3,13 @@
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color: #fafafa }
 html { scroll-behavior: smooth; }
 
+main {
+  padding: 20px 50px;
+  min-height: 90vh;
+  max-width: 1500px;
+  margin: auto;
+}
+
 @font-face {
   font-family: "Helvetica Neue";
   size-adjust: 99.4%; // x
