@@ -102,6 +102,12 @@
 <!--                    <app-google-img [searchTerm]="selectedRecord!.description" *ngIf="record == selectedRecord && selectedRecord?.description" />-->
 
                     <div style="display: flex; align-items: center; gap: 12px">
+                        @if (!record.translation) {
+                            <button (click)="autoTranslate(record)" class="btn">
+                                Auto-Translate
+                                <mat-icon inline="true">translate</mat-icon>
+                            </button>
+                        }
                         @if (record.address) {
                             <button (click)="showOnMap(record.address)" class="btn">
                                 Show on Maps
@@ -112,12 +118,12 @@
                             Search in Google
                             <mat-icon inline="true">travel_explore</mat-icon>
                         </button>
-                        @if (!record.translation) {
-                            <button (click)="suggestTranslation(record)" class="btn">
-                                Suggest Translation
-                                <mat-icon inline="true">translate</mat-icon>
-                            </button>
-                        }
+
+                        <button (click)="suggestTranslation(record)" class="btn">
+                            Suggest Translation
+                            <mat-icon inline="true">translate</mat-icon>
+                        </button>
+
                         @if (record.count > 1) {
                             <button class="btn"
                                     (click)="filterTransactions(record.translation || record.description)">
@@ -135,8 +141,6 @@
                             Show Raw Data
                             <mat-icon inline="true">text_snippet</mat-icon>
                         </button>
-
-
                     </div>
                 </div>
             </div>

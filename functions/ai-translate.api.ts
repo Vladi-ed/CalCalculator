@@ -1,3 +1,4 @@
+// @ts-ignore
 import {Ai} from '@cloudflare/ai';
 
 interface Env {
@@ -13,7 +14,6 @@ export const onRequestGet: PagesFunction<Env> = async ({ request, env }) => {
 
   const ai = new Ai(env.AI);
   const inputs = {
-    // text: 'מצפה תת ימי ים סוף בעמ חנ ',
     text,
     source_lang: 'he',
     target_lang: 'en'

@@ -74,4 +74,12 @@ export class RecordsTableComponent {
   searchInGoogle(description: string) {
     window.open('https://www.google.com/search?q=' + description, '_blank');
   }
+
+  async autoTranslate(record: IRecord) {
+    const resp = await fetch('/ai-translate.api' + '?text=' + record.description);
+    const data = await resp.json() as {response: {translated_text: string}};
+    console.log('Got data from ai-translate.api', data);
+
+    record.translation = data.response.translated_text;
+  }
 }

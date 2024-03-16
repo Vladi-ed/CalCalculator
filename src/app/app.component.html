@@ -33,10 +33,6 @@
             <label matRipple (click)="onExampleLoad()" style="text-decoration: underline; cursor: pointer">
                 Load example
             </label>
-
-            <label matRipple (click)="testTranslate()" style="text-decoration: underline; cursor: pointer">
-                Test translate
-            </label>
         }
     </header>
 
@@ -86,9 +82,11 @@
             </svg>
         </a>
 
-        <button #loadMoreBtn *ngIf="lazyLoginComponent" (click)="calLoadMore(); loadMoreBtn.hidden=true" style="padding: 6px 14px; margin: auto" class="btn" matRipple>
-            Load previous month
-        </button>
+        @if (lazyLoginComponent) {
+            <button #loadMoreBtn (click)="calLoadMore(); loadMoreBtn.hidden=true" style="padding: 6px 14px; margin: auto" class="btn" matRipple>
+                Load previous month
+            </button>
+        }
     }
 
 </main>
