@@ -30,8 +30,9 @@ h1 {
 }
 
 .btn:disabled {
-  color: gray;
+  color: lightgray;
   box-shadow: none;
+  cursor: default;
 }
 
 .loader {

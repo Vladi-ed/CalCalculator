@@ -91,19 +91,31 @@
             <div [@detailExpand]="record == selectedRecord ? 'expanded' : 'collapsed'">
                 <div class="expanded-element-description">
                     <ul>
-                        <li [hidden]="!record.translation"><strong>Original name:</strong> {{ record.description }}</li>
-                        <li [hidden]="!record.myCategory"><strong>Category:</strong> {{ record.myCategory }}</li>
-                        <li [hidden]="!record.address"><strong>Address:</strong> {{ record.address }}</li>
-                        <li><strong>Transaction Type:</strong> {{ record.transactionType }}</li>
-                        <li [hidden]="record.count < 2"><strong>How often:</strong> {{ record.count }} times</li>
-                        <li [hidden]="!record.comment"><strong>Comments:</strong> {{ record.comment }}</li>
+                        <li [hidden]="!record.translation">
+                            <strong>Original name:</strong> {{ record.description }}
+                        </li>
+                        <li [hidden]="!record.myCategory">
+                            <strong>Category:</strong> {{ record.myCategory }}
+                        </li>
+                        <li [hidden]="!record.address">
+                            <strong>Address:</strong> {{ record.address }}
+                        </li>
+                        <li>
+                            <strong>Transaction Type:</strong> {{ record.transactionType }}
+                        </li>
+                        <li [hidden]="record.count < 2">
+                            <strong>How often:</strong> {{ record.count }} times
+                        </li>
+                        <li [hidden]="!record.comment">
+                            <strong>Comments:</strong> {{ record.comment }}
+                        </li>
                     </ul>
 
 <!--                    <app-google-img [searchTerm]="selectedRecord!.description" *ngIf="record == selectedRecord && selectedRecord?.description" />-->
 
                     <div style="display: flex; align-items: center; gap: 12px">
                         @if (!record.translation) {
-                            <button (click)="autoTranslate(record)" class="btn">
+                            <button #translateBtn (click)="translateBtn.disabled=true; autoTranslate(record)" class="btn">
                                 Auto-Translate
                                 <mat-icon inline="true">translate</mat-icon>
                             </button>
