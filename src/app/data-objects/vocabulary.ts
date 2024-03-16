@@ -8,6 +8,8 @@ export const vocabulary: IPayment[] = [{
 }, {
   "keyword": "אנאל מרקט", "translation": "Supermarket", category: 'food'
 }, {
+  "keyword": "טיפ טוב", "translation": "Tip Tov", category: 'food'
+}, {
   "keyword": "סופר אריאל", "translation": "Super Ariel", category: 'food'
 }, {
   "keyword": "ברלין לברנטין", "translation": "Berlin Levontin Supermarket", category: 'food'
@@ -134,6 +136,8 @@ export const vocabulary: IPayment[] = [{
 }, {
   "keyword": "לונה פארק", "translation": "Luna Park", category: "entertainment"
 }, {
+  "keyword": "עין גדי תיירות", "translation": "Ein Gedi park", category: "entertainment"
+}, {
   "keyword": "הארי פוטר חנות", "translation": "Harry Potter shop", category: "entertainment"
 }, {
   "keyword": "כלבו יחזקאל", "translation": "Construction/electric store", category: "household"
@@ -147,6 +151,8 @@ export const vocabulary: IPayment[] = [{
   "keyword": "מינימרקט המרכז", "translation": "Mini-market", category: 'food'
 }, {
   "keyword": "סופר שלי", "translation": "Mini-market", category: 'food'
+}, {
+  "keyword": "טבע קסטל", "translation": "Teva Castle Eco market", category: 'food'
 }, {
   "keyword": "JAPANIKA", "translation": "Japanika Sushi", category: 'restaurants'
 }, {
@@ -241,7 +247,9 @@ export const vocabulary: IPayment[] = [{
   "keyword": "CARREFOUR", "translation": "Carrefour grocery store", category: 'food'
 }, {
   "keyword": "מקס רמת גן", "translation": "Max 20 Ramat Gan", category: "household"
-},  {
+}, {
+  "keyword": "מיקה מקס", "translation": "Max Stock", category: "household"
+}, {
   "keyword": "שטף קצף", "translation": "Car Wash", category: 'transport'
 }, {
   "keyword": "יאלי בשכונה", "translation": "Minimarket", category: 'food'
@@ -263,6 +271,8 @@ export const vocabulary: IPayment[] = [{
   "keyword": "נכסי אריאל-חניון מרכז ויצ", "translation": "Parking", category: 'transport'
 }, {
   "keyword": "אייס סינרמה", "translation": "ACE Home", category: "household"
+}, {
+  "keyword": "דן דיל", "translation": "Dan Deal", category: "household"
 }, {
   "keyword": "מכבסת", "translation": "Laundry", category: "household"
 }, {
@@ -322,6 +332,8 @@ export const vocabulary: IPayment[] = [{
 }, {
   "keyword": "מקדונלד", "translation": "MacDonald's", category: 'restaurants'
 }, {
+  "keyword": "ברגר קינג", "translation": "Burger King", category: 'restaurants'
+}, {
   "keyword": "גשן", "translation": "Cafe Goshen", category: 'restaurants'
 }, {
   "keyword": "מכולת", "translation": "Makolet Grocery store", category: 'food'
@@ -380,6 +392,14 @@ export const vocabulary: IPayment[] = [{
 }, {
   "keyword": "היכל הספורט", "translation": "Sport Clothes Shop", category: "clothes"
 }, {
+  "keyword": "אורבניקה", "translation": "Urbanika", category: "clothes"
+}, {
+  "keyword": "פליינג טייגר", "translation": "Flying Tiger", category: "clothes"
+}, {
+  "keyword": "תמנון", "translation": "Tamnon", category: "clothes"
+}, {
+  "keyword": "פוקס ", "translation": "Fox", category: "clothes"
+}, {
   "keyword": "NOOLLAB VLT", "translation": "Balloon in park Yarkon", category: "entertainment"
 }, {
   "keyword": "TLV BALLOON", "translation": "Balloon in park Yarkon", category: "entertainment"
@@ -419,6 +439,8 @@ export const vocabulary: IPayment[] = [{
   "keyword": "מאפה נאמן", "translation": "Neeman Bakery", category: 'food'
 }, {
   "keyword": "טאטי בייקרי", "translation": "Tati Bakery", category: 'food'
+}, {
+  "keyword": "לחם ושות", "translation": "Lehem & Shot", category: 'food'
 }, {
   "keyword": "חנות החוויות כאל", "translation": "CAL internet shop",
 }, {

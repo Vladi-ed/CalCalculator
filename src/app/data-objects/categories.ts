@@ -21,10 +21,13 @@ export const categories: IPayment[] = [
   { keyword: "פיננסים",        translation: "money transfer", icon: "send" },
   { keyword: "מלונאות ואירוח",  translation: "hotels", icon: "hotel" },
   { keyword: "אופנה",       translation: "clothes", icon: "checkroom" },
+  { keyword: "סטימצקי",       translation: "clothes", icon: "checkroom" },
+  { keyword: "הלבשה והנעלה",       translation: "clothes", icon: "checkroom" },
   { keyword: "שונות",       translation: "other", icon: "grain" },
   { keyword: "coffee",       translation: "coffee", icon: "coffee" },
   { keyword: "pet",         translation: "pet", icon: "pets" },
   { keyword: "רכב ותחבורה",  translation: "transport", icon: "airport_shuttle" },
   { keyword: "מוסדות",  translation: "institutions", icon: "account_balance" },
+  { keyword: "עירייה וממשלה",  translation: "institutions", icon: "account_balance" },
   { keyword: "עמותות ותרומות",  translation: "donation", icon: "volunteer_activism" },
 ];
