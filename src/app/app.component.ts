@@ -103,4 +103,10 @@ export class AppComponent {
   }
 
   protected readonly copyTable = copyTable4;
+
+  async testTranslate() {
+    const resp = await fetch('/ai-translate.api' + '?text=' + 'דליקטסן');
+    const data = await resp.text();
+    console.log('Got data from ai-translate.api', data);
+  }
 }
