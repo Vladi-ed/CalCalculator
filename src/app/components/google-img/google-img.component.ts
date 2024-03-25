@@ -1,12 +1,10 @@
 import {Component, inject, Input, OnInit} from '@angular/core';
 import {GoogleMapsService} from "../../services/google-maps.service";
-import {NgIf} from "@angular/common";
 
 @Component({
   selector: 'app-google-img',
   standalone: true,
   templateUrl: './google-img.component.html',
-  imports: [ NgIf ],
   styleUrl: './google-img.component.scss'
 })
 export class GoogleImgComponent implements OnInit {

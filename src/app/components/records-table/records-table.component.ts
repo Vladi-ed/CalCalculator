@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {animate, state, style, transition, trigger} from "@angular/animations";
 import {MatTableModule} from "@angular/material/table";
-import {AsyncPipe, CurrencyPipe, DatePipe, JsonPipe, NgIf, TitleCasePipe} from "@angular/common";
+import {AsyncPipe, CurrencyPipe, DatePipe, JsonPipe, TitleCasePipe} from "@angular/common";
 import {MatIconModule} from "@angular/material/icon";
 import {MatSortModule, Sort} from "@angular/material/sort";
 import {sortData} from "../../functions/sort-data";
@@ -18,7 +18,7 @@ import {suggestTranslation} from "../../functions/suggest-translation";
 @Component({
   selector: 'app-table',
   standalone: true,
-  imports: [MatTableModule, CurrencyPipe, DatePipe, MatIconModule, MatSortModule, NgIf, TitleCasePipe, CommentsIconPipe, CategoryIconPipe, JsonPipe, AsyncPipe, GoogleMapsModule, GoogleMapComponent, GoogleImgComponent],
+  imports: [MatTableModule, CurrencyPipe, DatePipe, MatIconModule, MatSortModule, TitleCasePipe, CommentsIconPipe, CategoryIconPipe, JsonPipe, AsyncPipe, GoogleMapsModule, GoogleMapComponent, GoogleImgComponent],
   animations: [
     trigger('detailExpand', [
       state('collapsed,void', style({height: '0px', minHeight: '0'})),

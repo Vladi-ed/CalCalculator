@@ -1,2 +1,4 @@
 <span class="place-name">{{ placeName || 'Loading picture...' }}</span>
-<img *ngIf="photoUrl" [src]="photoUrl" [alt]="searchTerm">
+@if (photoUrl) {
+  <img [src]="photoUrl" [alt]="searchTerm">
+}

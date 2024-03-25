@@ -1,6 +1,6 @@
 {
   "name": "calcalculator",
-  "version": "0.7.16",
+  "version": "0.7.17",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -29,8 +29,8 @@
     "zone.js": "~0.14.2"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^17.2.0",
-    "@angular/cli": "^17.2.0",
+    "@angular-devkit/build-angular": "^17.3.0",
+    "@angular/cli": "^17.3.0",
     "@angular/compiler-cli": "^17.2.0",
     "@cloudflare/ai": "^1.1.0",
     "@cloudflare/workers-types": "^4.20240314.0",

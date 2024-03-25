@@ -1,6 +1,8 @@
-<google-map *ngIf="mapsApiLoaded"
-            (mapInitialized)="afterMapInit($event)"
-            height="100%"
-            width="100%"
-            [options]="mapOptions">
-</google-map>
+@if (mapsApiLoaded) {
+  <google-map
+    (mapInitialized)="afterMapInit($event)"
+    height="100%"
+    width="100%"
+    [options]="mapOptions">
+  </google-map>
+}

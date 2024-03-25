@@ -6,7 +6,7 @@ import {
   Output,
   ViewChild
 } from '@angular/core';
-import {NgIf} from '@angular/common';
+
 import {FormsModule} from "@angular/forms";
 import {MatInputModule} from "@angular/material/input";
 import {CalService} from "../../services/cal.service";
@@ -19,7 +19,7 @@ import {AutofocusDirective} from "./autofocus.directive";
 @Component({
   selector: 'app-cal-login',
   standalone: true,
-  imports: [NgIf, MatInputModule, FormsModule, MatIconModule, MatRippleModule, AutofocusDirective],
+  imports: [MatInputModule, FormsModule, MatIconModule, MatRippleModule, AutofocusDirective],
   templateUrl: './cal-login.component.html',
   styleUrl: './cal-login.component.scss'
 })

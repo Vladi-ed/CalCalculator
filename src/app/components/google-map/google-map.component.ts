@@ -1,12 +1,11 @@
 import {Component, inject, Input} from '@angular/core';
-import {CommonModule, NgOptimizedImage} from '@angular/common';
 import {GoogleMapsModule} from "@angular/google-maps";
 import {GoogleMapsService} from "../../services/google-maps.service";
 
 @Component({
     selector: 'app-google-map',
     standalone: true,
-    imports: [CommonModule, GoogleMapsModule, NgOptimizedImage],
+    imports: [GoogleMapsModule],
     templateUrl: './google-map.component.html',
     styleUrl: './google-map.component.scss'
 })
