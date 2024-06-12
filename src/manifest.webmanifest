@@ -24,7 +24,7 @@
       "src": "assets/screenshot1.png",
       "sizes": "1200x630",
       "type": "image/png",
-      "platform": "wide",
+      "platform": "wide"
     }
   ],
   "edge_side_panel": {
