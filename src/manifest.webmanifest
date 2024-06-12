@@ -1,6 +1,7 @@
 {
   "name": "CalCalculator",
   "short_name": "CalC",
+  "id": "cal-calculator-il",
   "description": "Web Application that translates financial operations that was made using Cal credit card and provides several tools to analyse you personal finances.",
   "theme_color": "#ffffff",
   "background_color": "#fafafa",
@@ -18,10 +19,26 @@
       "type": "image/png"
     }
   ],
+  "screenshots" : [
+    {
+      "src": "assets/screenshot1.png",
+      "sizes": "1200x630",
+      "type": "image/png",
+      "platform": "wide",
+    }
+  ],
+  "edge_side_panel": {
+    "preferred_width": 378
+  },
+  "launch_handler": {
+      "client_mode": "focus-existing"
+  },
+  "handle_links": "not-preferred",
   "scope": "./",
   "start_url": "./",
   "orientation": "any",
   "lang": "en",
+  "prefer_related_applications": false,
   "categories": [
     "finance"
   ]
