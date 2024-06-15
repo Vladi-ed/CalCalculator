@@ -7,3 +7,5 @@
 - add support for bank account / card number (from Exported data)
 - landing page
 - autoload suggested translation
+- do not send user id as query params in whatsup api.
+- add autotranslate to mobile version

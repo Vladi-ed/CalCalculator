@@ -8,6 +8,7 @@ export class CalService {
 
   async getCalToken(tz: string, last4Digits: string) {
     const resp = await fetch('/cal-whatsup-code.api?tz=' + tz + '&last4Digits=' + last4Digits);
+    if (!resp.ok) throw new Error('Error code ' + resp.status, {cause: resp.statusText});
     const data: {token: string, phoneNumber: string} = await resp.json();
     console.log('WhatsUp data', data)
     this.calToken = data.token;
@@ -37,24 +38,24 @@ export class CalService {
     this.accountInitResp = data;
   }
 
-  async #download3MonthAllCards() {
-
-    const threeMonthAgo = new Date();
-    threeMonthAgo.setMonth(threeMonthAgo.getMonth() - 2);
-
-    const body = JSON.stringify({
-      bankAccountUniqueID: this.accountInitResp.bankAccountUniqueId,
-      cards: this.accountInitResp.cards, // for all credit cards
-      fromTransDate: threeMonthAgo.toISOString(),
-      toTransDate: new Date().toISOString(),
-      authorization: this.accountInitResp.authorization
-    });
-
-    const resp = await fetch('/cal-transactions-any.api', { method: 'POST', body });
-    const data: CalResponse = await resp.json();
-    console.log('download3MonthAllCards()', data?.result);
-    return data.result.transArr;
-  }
+  // async #download3MonthAllCards() {
+  //
+  //   const threeMonthAgo = new Date();
+  //   threeMonthAgo.setMonth(threeMonthAgo.getMonth() - 2);
+  //
+  //   const body = JSON.stringify({
+  //     bankAccountUniqueID: this.accountInitResp.bankAccountUniqueId,
+  //     cards: this.accountInitResp.cards, // for all credit cards
+  //     fromTransDate: threeMonthAgo.toISOString(),
+  //     toTransDate: new Date().toISOString(),
+  //     authorization: this.accountInitResp.authorization
+  //   });
+  //
+  //   const resp = await fetch('/cal-transactions-any.api', { method: 'POST', body });
+  //   const data: CalResponse = await resp.json();
+  //   console.log('download3MonthAllCards()', data?.result);
+  //   return data.result.transArr;
+  // }
 
   async #downloadOneMonth(offset = 0) {
 

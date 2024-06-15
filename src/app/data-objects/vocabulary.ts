@@ -40,7 +40,7 @@ export const vocabulary: IPayment[] = [{
 }, {
   "keyword": "מתוקה ", "translation": "Metuka Bakery", category: 'food',  icon: 'https://www.metuka.co.il/wp-content/uploads/2020/08/metuka_logo.svg'
 }, {
-  "keyword": "אוהד המוציא לחם ", "translation": "Bakery in Tel-Aviv", category: 'food'
+  "keyword": "אוהד המוציא לחם ", "translation": "Bread Bakery in Tel-Aviv", category: 'food'
 }, {
   "keyword": "חגי והלחם", "translation": "Hagay Bread", category: 'food'
 }, {
@@ -53,6 +53,8 @@ export const vocabulary: IPayment[] = [{
   "keyword": "AETIEB", "translation": "Bubble tea TLV", category: 'restaurants'
 }, {
   "keyword": "מאקה פלקה", "translation": "Bana vegan cafe", category: 'restaurants'
+}, {
+  "keyword": "קפה אנסטסיה", "translation": "Anastasia vegetarian cafe", category: 'restaurants'
 }, {
   "keyword": "איבנטבאז כרטיסים", "translation": "Concert tickets", category: 'entertainment'
 }, {
@@ -127,6 +129,8 @@ export const vocabulary: IPayment[] = [{
   "keyword": "CELLO", "translation": "Cello app", category: "transport"
 }, {
   "keyword": "הש. רכב גולף ואופניים גני", "translation": "Golf car rent Park Yarkon", category: "entertainment"
+}, {
+  "keyword": "אגם הפארק ", "translation": "Boat rent Park Yarkon", category: "entertainment"
 }, {
   "keyword": "הפארק הלאומי רמת גן", "translation": "Park Leumi, Ramat Gan", category: "entertainment"
 }, {
@@ -417,6 +421,8 @@ export const vocabulary: IPayment[] = [{
   "keyword": "TLV BALLOON", "translation": "Balloon in park Yarkon", category: "entertainment"
 }, {
   "keyword": "וונדרלנד קידס", "translation": "Wonderland Jimbory", category: "child"
+}, {
+  "keyword": "סקיי גאמפ", "translation": "Sky Jump Jimbory", category: "child"
 }, {
   "keyword": "דר' אבי פיצ'ו-צמרת", "translation": "Veterinary", category: 'pet'
 }, {

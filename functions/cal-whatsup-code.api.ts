@@ -11,7 +11,9 @@ export const onRequestGet: PagesFunction = async ({ request }) => {
   const body = JSON.stringify({
     userId,
     last4Digits,
-    bankAccountNum: last4Digits
+    bankAccountNum: last4Digits,
+    sMSTemplate: null,
+    recaptcha: ""
   })
 
   console.log(body);

@@ -1,0 +1,15 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "dev.pages.cal_calculator.twa",
+      "sha256_cert_fingerprints": [
+        "56:EE:4A:AA:7D:DE:4E:AF:0B:CC:71:1A:19:2E:ED:F8:76:29:34:AC:58:4B:80:9B:D1:82:FE:A2:23:27:13:36",
+        "CF:99:FD:8D:3C:54:AF:1F:01:7D:67:FB:4A:7B:C1:42:E6:D8:05:23:DD:6D:08:1F:3A:90:99:15:14:7B:79:44"
+      ]
+    }
+  }
+]
