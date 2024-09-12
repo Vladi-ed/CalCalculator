@@ -21,6 +21,8 @@ export const categories: IPayment[] = [
   { keyword: "פיננסים",        translation: "money transfer", icon: "send" },
   { keyword: "מלונאות ואירוח",  translation: "hotels", icon: "hotel" },
   { keyword: "אופנה",       translation: "clothes", icon: "checkroom" },
+  { keyword: "ספרים והוצ' משרד",       translation: "books and office equipment", icon: "content_paste" },
+  { keyword: "מחשבים, תוכנות וחשמל",       translation: "computers, software and electricity", icon: "wysiwyg" },
   { keyword: "סטימצקי",       translation: "clothes", icon: "checkroom" },
   { keyword: "הלבשה והנעלה",       translation: "clothes", icon: "checkroom" },
   { keyword: "שונות",       translation: "other", icon: "grain" },
