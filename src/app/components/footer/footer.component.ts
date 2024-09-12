@@ -1,13 +1,14 @@
 import { Component, VERSION } from '@angular/core';
-import packageJson from 'package.json';
+import { version } from 'package.json';
 
 @Component({
-  selector: 'app-footer',
-  templateUrl: './footer.component.html',
-  styleUrl: './footer.component.css'
+    selector: 'app-footer',
+    templateUrl: './footer.component.html',
+    styleUrl: './footer.component.css',
+    standalone: true
 })
 export class FooterComponent {
-    readonly appVersion = packageJson.version;
+    readonly appVersion = version;
     readonly ngVersion = VERSION.full;
     protected readonly alert = alert;
 

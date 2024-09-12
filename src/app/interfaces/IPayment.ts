@@ -1,7 +1,7 @@
 export interface IPayment {
   keyword: string;
   translation: string;
-  category?: Categories;
+  category?: string;
   icon?: string;
 }
 

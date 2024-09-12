@@ -13,7 +13,7 @@ import {RecordsTableComponent} from "./components/records-table/records-table.co
 import {RecordsListComponent} from "./components/records-list/records-list.component";
 
 @NgModule({
-    declarations: [AppComponent, FooterComponent],
+    declarations: [AppComponent],
     imports: [
         BrowserAnimationsModule,
         ServiceWorkerModule.register('ngsw-worker.js', {
@@ -29,6 +29,7 @@ import {RecordsListComponent} from "./components/records-list/records-list.compo
         MatSlideToggleModule,
         RecordsTableComponent,
         RecordsListComponent,
+        FooterComponent,
     ],
     bootstrap: [AppComponent]
 })
