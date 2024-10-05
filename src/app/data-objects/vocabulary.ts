@@ -1,571 +1,602 @@
-import {IPayment} from "../interfaces/IPayment";
+import { IPayment } from "../interfaces/IPayment";
 // export const onRequestGet = () => new Response(JSON.stringify(vocabulary));
 
 export const vocabulary: IPayment[] = [{
-  "keyword": "איקאה-מסעדה", "translation": "Ikea restaurant", category: 'restaurants'
+    "keyword": "איקאה-מסעדה", "translation": "Ikea restaurant", category: 'restaurants'
 }, {
-  "keyword": "איקאה", "translation": "Ikea", category: 'household'
+    "keyword": "איקאה", "translation": "Ikea", category: 'household'
 }, {
-  "keyword": "אנאל מרקט", "translation": "Supermarket", category: 'food'
+    "keyword": "אנאל מרקט", "translation": "Supermarket", category: 'food'
 }, {
-  "keyword": "טיפ טוב", "translation": "Tip Tov", category: 'food'
+    "keyword": "טיפ טוב", "translation": "Tip Tov", category: 'food'
 }, {
-  "keyword": "סופר אריאל", "translation": "Super Ariel", category: 'food'
+    "keyword": "סופר אריאל", "translation": "Super Ariel", category: 'food'
 }, {
-  "keyword": "ברלין לברנטין", "translation": "Berlin Levontin Supermarket", category: 'food'
+    "keyword": "ברלין לברנטין", "translation": "Berlin Levontin Supermarket", category: 'food'
 }, {
-  "keyword": "אי.אם.פי.אם", "translation": "AM:PM", category: 'food'
+    "keyword": "אי.אם.פי.אם", "translation": "AM:PM", category: 'food'
 }, {
-  "keyword": "שניצל קומפני", "translation": "Schnitzel Company", category: 'restaurants'
+    "keyword": "שניצל קומפני", "translation": "Schnitzel Company", category: 'restaurants'
 }, {
-  "keyword": "ירוקים", "translation": "Hummus Zvi 2", category: 'restaurants'
+    "keyword": "ירוקים", "translation": "Hummus Zvi 2", category: 'restaurants'
 }, {
-  "keyword": "גומבה", "translation": "Goomba cafe", category: 'restaurants'
+    "keyword": "גומבה", "translation": "Goomba cafe", category: 'restaurants'
 }, {
-  "keyword": "נונו מימי", "translation": "Nono Mimi cafe", category: 'restaurants'
+    "keyword": "נונו מימי", "translation": "Nono Mimi cafe", category: 'restaurants'
 }, {
-  "keyword": "אוליב", "translation": "Olive cafe", category: 'restaurants'
+    "keyword": "אוליב", "translation": "Olive cafe", category: 'restaurants'
 }, {
-  "keyword": "לנדוור", "translation": "Cafe Landver", category: 'restaurants'
+    "keyword": "לנדוור", "translation": "Cafe Landver", category: 'restaurants'
 }, {
-  "keyword": "בנדיקט", "translation": "Cafe Benedict", category: 'restaurants'
+    "keyword": "בנדיקט", "translation": "Cafe Benedict", category: 'restaurants'
 }, {
-  "keyword": "טרקליני ההיכל", "translation": "Cafeteria in Philharmonic Hall", category: 'restaurants'
+    "keyword": "טרקליני ההיכל", "translation": "Cafeteria in Philharmonic Hall", category: 'restaurants'
 }, {
-  "keyword": "רולדין", "translation": "Roladin Bakery", category: 'food'
+    "keyword": "רולדין", "translation": "Roladin Bakery", category: 'food'
 }, {
-  "keyword": "בלונזרי 96", "translation": "Boulangerie 96 Bakery", category: 'food'
+    "keyword": "בלונזרי 96", "translation": "Boulangerie 96 Bakery", category: 'food'
 }, {
-  "keyword": "בולנז'רי 96", "translation": "Boulangerie 96 Bakery", category: 'food'
+    "keyword": "בולנז'רי 96", "translation": "Boulangerie 96 Bakery", category: 'food'
 }, {
-  "keyword": "מתוקה ", "translation": "Metuka Bakery", category: 'food',  icon: 'https://www.metuka.co.il/wp-content/uploads/2020/08/metuka_logo.svg'
+    "keyword": "מתוקה ",
+    "translation": "Metuka Bakery",
+    category: 'food',
+    icon: 'https://www.metuka.co.il/wp-content/uploads/2020/08/metuka_logo.svg'
 }, {
-  "keyword": "אוהד המוציא לחם ", "translation": "Bread Bakery in Tel-Aviv", category: 'food'
+    "keyword": "אוהד המוציא לחם ", "translation": "Bread Bakery in Tel-Aviv", category: 'food'
 }, {
-  "keyword": "חגי והלחם", "translation": "Hagay Bread", category: 'food'
+    "keyword": "חגי והלחם", "translation": "Hagay Bread", category: 'food'
 }, {
-  "keyword": "אלקלעי יין", "translation": "Cafe Elkalai", category: 'restaurants'
+    "keyword": "אלקלעי יין", "translation": "Cafe Elkalai", category: 'restaurants'
 }, {
-  "keyword": "פורת ספרים ", "translation": "Porat Books and Coffee", category: 'restaurants'
+    "keyword": "פורת ספרים ", "translation": "Porat Books and Coffee", category: 'restaurants'
 }, {
-  "keyword": "סטימצקי", "translation": "Stimatski Books", category: 'books and office equipment'
+    "keyword": "סטימצקי", "translation": "Stimatski Books", category: 'books and office equipment'
 }, {
-  "keyword": "שומשום", "translation": "SumSum cafe", category: 'restaurants'
+    "keyword": "שומשום", "translation": "SumSum cafe", category: 'restaurants'
 }, {
-  "keyword": "AETIEB", "translation": "Bubble tea TLV", category: 'restaurants'
+    "keyword": "AETIEB", "translation": "Bubble tea TLV", category: 'restaurants'
 }, {
-  "keyword": "מאקה פלקה", "translation": "Bana vegan cafe", category: 'restaurants'
+    "keyword": "מאקה פלקה", "translation": "Bana vegan cafe", category: 'restaurants'
 }, {
-  "keyword": "קפה אנסטסיה", "translation": "Anastasia vegetarian cafe", category: 'restaurants'
+    "keyword": "קפה אנסטסיה", "translation": "Anastasia vegetarian cafe", category: 'restaurants'
 }, {
-  "keyword": "איבנטבאז כרטיסים", "translation": "Concert tickets", category: 'entertainment'
+    "keyword": "איבנטבאז כרטיסים", "translation": "Concert tickets", category: 'entertainment'
 }, {
-  "keyword": "דליקטסן", "translation": "Delicatessen", category: 'food'
+    "keyword": "דליקטסן", "translation": "Delicatessen", category: 'food'
 }, {
-  "keyword": "פקניק פארק הירקון", "translation": "Picnic Cafe Park Yarkon", category: 'restaurants'
+    "keyword": "פקניק פארק הירקון", "translation": "Picnic Cafe Park Yarkon", category: 'restaurants'
 }, {
-  "keyword": "דמי כרטיס", "translation": "Credit card service fee"
+    "keyword": "דמי כרטיס", "translation": "Credit card service fee"
 }, {
-  "keyword": "רשות האוכלוסין וההגירה תשלומים", "translation": "Population and Immigration authority payment", category: "institutions"
+    "keyword": "רשות האוכלוסין וההגירה תשלומים",
+    "translation": "Population and Immigration authority payment",
+    category: "institutions"
 }, {
-  "keyword": "ויקטורי", "translation": "Victory", category: 'food'
+    "keyword": "ויקטורי", "translation": "Victory", category: 'food'
 }, {
-  "keyword": "זוהר בייקר", "translation": "Zohar bakery", category: 'food'
+    "keyword": "זוהר בייקר", "translation": "Zohar bakery", category: 'food'
 }, {
-  "keyword": "אדמונד", "translation": "Cafe Edmund", category: 'restaurants'
+    "keyword": "אדמונד", "translation": "Cafe Edmund", category: 'restaurants'
 }, {
-  "keyword": "טיב טעם", "translation": "Tiv Tam", category: 'food'
+    "keyword": "טיב טעם", "translation": "Tiv Tam", category: 'food'
 }, {
-  "keyword": "רמי לוי", "translation": "Rami Levi", category: 'food'
+    "keyword": "רמי לוי", "translation": "Rami Levi", category: 'food'
 }, {
-  "keyword": "לחם ארז", "translation": "Lehem", category: 'food'
+    "keyword": "לחם ארז", "translation": "Lehem", category: 'food'
 }, {
-  "keyword": "מסעדת קוקו", "translation": "Kuku Chicken cafe", category: 'restaurants'
+    "keyword": "מסעדת קוקו", "translation": "Kuku Chicken cafe", category: 'restaurants'
 }, {
-  "keyword": "פסטה בסטה", "translation": "Pasta Basta", category: 'restaurants'
+    "keyword": "פסטה בסטה", "translation": "Pasta Basta", category: 'restaurants'
 }, {
-  "keyword": "סונול צומת השרון נתנ", "translation": "Sonol Gas Station", category: 'transport'
+    "keyword": "סונול צומת השרון נתנ", "translation": "Sonol Gas Station", category: 'transport'
 }, {
-  "keyword": "רב קו אונליין", "translation": "Rav-Kav Online", category: 'transport'
+    "keyword": "רב קו אונליין", "translation": "Rav-Kav Online", category: 'transport'
 }, {
-  "keyword": "תבל מטרו כרטוס", "translation": "Rav-Kav in Metro", category: 'transport'
+    "keyword": "תבל מטרו כרטוס", "translation": "Rav-Kav in Metro", category: 'transport'
 }, {
-  "keyword": "רכבת ישראל", "translation": "Train Israel Railways", category: 'transport'
+    "keyword":"מ.תחבורה - רב-פס","translation":"rav-pass","category":"institutions"
 }, {
-  "keyword": "TURKISH AIRL", "translation": "Turkish Airlines", category: 'transport'
+    "keyword": "רכבת ישראל", "translation": "Train Israel Railways", category: 'transport'
 }, {
-  "keyword": "סופר פארם", "translation": "SuperPharm", category: 'health'
+    "keyword": "TURKISH AIRL", "translation": "Turkish Airlines", category: 'transport'
 }, {
-  "keyword": "סופר - פארם", "translation": "SuperPharm", category: 'health'
+    "keyword": "סופר פארם", "translation": "SuperPharm", category: 'health'
 }, {
-  "keyword": "סופר קופיקס", "translation": "Super Cofix", category: 'food'
+    "keyword": "סופרפארם", "translation": "SuperPharm", category: 'health'
 }, {
-  "keyword": "סיטי מרקט", "translation": "City market", category: 'food'
+    "keyword":"קרולינה למקה","translation":"Carolina Lemke Sunglasses","category": 'clothes'
 }, {
-  "keyword": "YELLOW", "translation": "Yellow gas station", category: 'transport'
+    "keyword": "סופר - פארם", "translation": "SuperPharm", category: 'health'
 }, {
-  "keyword": "דור אלון", "translation": "Dor Alon gas station", category: 'transport'
+    "keyword": "סופר קופיקס", "translation": "Super Cofix", category: 'food'
 }, {
-  "keyword": "סונול ", "translation": "Sonol gas station", category: 'transport'
+    "keyword": "סיטי מרקט", "translation": "City market", category: 'food'
 }, {
-  "keyword": "שופרסל", "translation": "Shufersal", category: 'food'
+    "keyword": "YELLOW", "translation": "Yellow gas station", category: 'transport'
 }, {
-  "keyword": "מחלבת עיזה פזיזה", "translation": "Iza Pziza Goat Farm cafe", category: 'restaurants'
+    "keyword": "דור אלון", "translation": "Dor Alon gas station", category: 'transport'
 }, {
-  "keyword": "משק עפאים לחקלאות", "translation": "Ofaimme farm cafe", category: 'restaurants'
+    "keyword": "סונול ", "translation": "Sonol gas station", category: 'transport'
 }, {
-  "keyword": "משק שור וולף", "translation": "Olive oil", category: 'food'
+    "keyword":"מון שרי - סדש","translation":"Gaz station", category: 'transport'
 }, {
-  "keyword": "קטיף עצמי כפר נטר", "translation": "Mandarin Farm", category: 'entertainment'
+    "keyword": "שופרסל", "translation": "Shufersal", category: 'food'
 }, {
-  "keyword": "משק הפארק", "translation": "Raspberry Farm", category: 'entertainment'
+    "keyword": "מחלבת עיזה פזיזה", "translation": "Iza Pziza Goat Farm cafe", category: 'restaurants'
 }, {
-  "keyword": "תן ביס", "translation": "10bis", category: 'restaurants'
+    "keyword": "משק עפאים לחקלאות", "translation": "Ofaimme farm cafe", category: 'restaurants'
 }, {
-  "keyword": "קשת טעמים", "translation": "Keshet Taamim", category: 'food'
+    "keyword": "משק שור וולף", "translation": "Olive oil", category: 'food'
 }, {
-  "keyword": "נון סטופ מרקט", "translation": "Non Stop Market (Arlozorov 27)", category: 'food'
+    "keyword":"שמן עירון","translation":"Olive Oil Farm","category":"food"
 }, {
-  "keyword": "LIM*", "translation": "Lime Scooter Rent", category: "transport"
+    "keyword": "קטיף עצמי כפר נטר", "translation": "Mandarin Farm", category: 'entertainment'
 }, {
-  "keyword": "CELLO", "translation": "Cello app", category: "transport"
+    "keyword": "משק הפארק", "translation": "Raspberry Farm", category: 'entertainment'
 }, {
-  "keyword": "הש. רכב גולף ואופניים גני", "translation": "Golf car rent Park Yarkon", category: "entertainment"
+    "keyword": "תן ביס", "translation": "10bis", category: 'restaurants'
 }, {
-  "keyword": "אגם הפארק ", "translation": "Boat rent Park Yarkon", category: "entertainment"
+    "keyword": "קשת טעמים", "translation": "Keshet Taamim", category: 'food'
 }, {
-  "keyword": "הפארק הלאומי רמת גן", "translation": "Park Leumi, Ramat Gan", category: "entertainment"
+    "keyword": "נון סטופ מרקט", "translation": "Non Stop Market (Arlozorov 27)", category: 'food'
 }, {
-  "keyword": "גן לאומי מעיין חרוד", "translation": "Maayan Harod National Park", category: "entertainment"
+    "keyword": "LIM*", "translation": "Lime Scooter Rent", category: "transport"
 }, {
-  "keyword": "פארק המדע", "translation": "Science Park, Be'er Sheva", category: "entertainment"
+    "keyword": "CELLO", "translation": "Cello app", category: "transport"
 }, {
-  "keyword": "לונה פארק", "translation": "Luna Park", category: "entertainment"
+    "keyword": "הש. רכב גולף ואופניים גני", "translation": "Golf car rent Park Yarkon", category: "entertainment"
 }, {
-  "keyword": "עין גדי תיירות", "translation": "Ein Gedi park", category: "entertainment"
+    "keyword": "אגם הפארק ", "translation": "Boat rent Park Yarkon", category: "entertainment"
 }, {
-  "keyword": "הארי פוטר חנות", "translation": "Harry Potter shop", category: "entertainment"
+    "keyword": "הפארק הלאומי רמת גן", "translation": "Park Leumi, Ramat Gan", category: "entertainment"
 }, {
-  "keyword": "כלבו יחזקאל", "translation": "Construction/electric store", category: "household"
+    "keyword": "גן לאומי מעיין חרוד", "translation": "Maayan Harod National Park", category: "entertainment"
 }, {
-  "keyword": "הום שופ", "translation": "Home-Shop", category: "household"
+    "keyword": "פארק המדע", "translation": "Science Park, Be'er Sheva", category: "entertainment"
 }, {
-  "keyword": "AM YISRAEL", "translation": "TRIBE TEL AVIV", category: 'entertainment'
+    "keyword": "לונה פארק", "translation": "Luna Park", category: "entertainment"
 }, {
-  "keyword": "מרכז פרס לשלום ולחדשנות", "translation": "Peres Center for Peace and Innovation"
+    "keyword": "עין גדי תיירות", "translation": "Ein Gedi park", category: "entertainment"
 }, {
-  "keyword": "מינימרקט המרכז", "translation": "Mini-market", category: 'food'
+    "keyword": "הארי פוטר חנות", "translation": "Harry Potter shop", category: "entertainment"
 }, {
-  "keyword": "סופר שלי", "translation": "Mini-market", category: 'food'
+    "keyword": "כלבו יחזקאל", "translation": "Construction/electric store", category: "household"
 }, {
-  "keyword": "טבע קסטל", "translation": "Teva Castle Eco market", category: 'food'
+    "keyword": "הום שופ", "translation": "Home-Shop", category: "household"
 }, {
-  "keyword": "JAPANIKA", "translation": "Japanika Sushi", category: 'restaurants'
+    "keyword": "AM YISRAEL", "translation": "TRIBE TEL AVIV", category: 'entertainment'
 }, {
-  "keyword": "גפניקה סושי", "translation": "Japanika Sushi", category: 'restaurants'
+    "keyword": "מרכז פרס לשלום ולחדשנות", "translation": "Peres Center for Peace and Innovation"
 }, {
-  "keyword": "טרנזיט ", "translation": "Transit Asian Restaurant", category: 'restaurants'
+    "keyword": "מינימרקט המרכז", "translation": "Mini-market", category: 'food'
 }, {
-  "keyword": "ג'אפו", "translation": "Japo Asian cafe", category: 'restaurants'
+    "keyword": "סופר שלי", "translation": "Mini-market", category: 'food'
 }, {
-  "keyword": "BANH MI NONG", "translation": "Vietnamese cafe", category: 'restaurants'
+    "keyword": "טבע קסטל", "translation": "Teva Castle Eco market", category: 'food'
 }, {
-  "keyword": "STUDIO", "translation": "STUDIO Restaurant TA", category: 'restaurants'
+    "keyword": "JAPANIKA", "translation": "Japanika Sushi", category: 'restaurants'
 }, {
-  "keyword": "15 POHS EEFFOC", "translation": "Coffee Shop 51", category: 'coffee'
+    "keyword": "גפניקה סושי", "translation": "Japanika Sushi", category: 'restaurants'
 }, {
-  "keyword": "קופי שופ 51", "translation": "Coffee Shop 51", category: 'coffee'
+    "keyword":"פוקי בר סושי","translation":"Poke bar sushi","category":"restaurants"
 }, {
-  "keyword": "waycup coffe", "translation": "Waycup coffee TLV", category: 'coffee'
+    "keyword": "טרנזיט ", "translation": "Transit Asian Restaurant", category: 'restaurants'
 }, {
-  "keyword": "קופי ברנדס", "translation": "CoffeeBrands", category: 'coffee'
+    "keyword": "ג'אפו", "translation": "Japo Asian cafe", category: 'restaurants'
 }, {
-  "keyword": "גרה בייקרי", "translation": "Jera Coffee Bakery", category: 'coffee'
+    "keyword": "BANH MI NONG", "translation": "Vietnamese cafe", category: 'restaurants'
 }, {
-  "keyword": "נחת ", "translation": "Nahat Coffee", category: 'coffee'
+    "keyword": "STUDIO", "translation": "STUDIO Restaurant TA", category: 'restaurants'
 }, {
-  "keyword": "KSP", "translation": "KSP", category: 'household'
+    "keyword": "15 POHS EEFFOC", "translation": "Coffee Shop 51", category: 'coffee'
 }, {
-  "keyword": "קיי אס פי", "translation": "KSP", category: 'household'
+    "keyword": "קופי שופ 51", "translation": "Coffee Shop 51", category: 'coffee'
 }, {
-  "keyword": "קולקשן סוהו", "translation": "SOHO Collection", category: 'household'
+    "keyword": "waycup coffe", "translation": "Waycup coffee TLV", category: 'coffee'
 }, {
-  "keyword": "AMZN", "translation": "Amazon", category: 'household'
+    "keyword": "קופי ברנדס", "translation": "CoffeeBrands", category: 'coffee'
 }, {
-  "keyword": "ALIPAY", "translation": "AliExpress", category: 'household'
+    "keyword": "גרה בייקרי", "translation": "Jera Coffee Bakery", category: 'coffee'
 }, {
-  "keyword": "YAP ELPPA", "translation": "Apple Pay"
-}, {
-  "keyword": "ALIEXPRESS", "translation": "AliExpress", category: 'household'
-}, {
-  "keyword": "BIT", "translation": "Bit", category: "money transfer"
-}, {
-  "keyword": "XOBYAP", "translation": "Paybox transfer", category: "money transfer"
-}, {
-  "keyword": "PAYBOX", "translation": "PayBox", category: "money transfer"
-}, {
-  "keyword": "PAYPAL", "translation": "PayPal", icon: ''
-}, {
-  "keyword": "פיצה עגבניה דיזינגוף", "translation": "Pizza Dizingoff Center", category: 'restaurants'
-}, {
-  "keyword": "קפה נואר", "translation": "Cafe Noar", category: 'restaurants'
-}, {
-  "keyword": "התיאלנדית בסמטת סיני", "translation": "Thailand cafe Har Sinai", category: 'restaurants'
-}, {
-  "keyword": "קפה קפה", "translation": "Cafe-Cafe", category: 'restaurants'
-}, {
-  "keyword": "רנו אמיליה", "translation": "Reno Emilia restaurant", category: 'restaurants',
-}, {
-  "keyword": "סלופארק טכנולוגיות ", "translation": "Parking Cellopark", category: 'transport'
-}, {
-  "keyword": "מכון הדרום", "translation": "Car test", category: 'transport'
-}, {
-  "keyword": "ואן מוטורס", "translation": "Van Motors", category: 'transport'
-}, {
-  "keyword": "ארנונה", "translation": "Arnona", category: "household"
-}, {
-  "keyword": "טמבור לילנבלום", "translation": "Construction store near office", category: "household"
-}, {
-  "keyword": "עלי דפנה", "translation": "Flower shop", category: "household"
-}, {
-  "keyword": "צמחים", "translation": "Flower shop", category: "household"
-}, {
-  "keyword": "חניון מגדל אלקטרה", "translation": "Parking Maccabi", category: 'transport'
+    "keyword": "נחת ", "translation": "Nahat Coffee", category: 'coffee'
 },  {
-  "keyword": "שיבא משק וחניה", "translation": "Parking Shiba Clinic", category: 'transport'
+    "keyword":"אגרו קפה","translation":"AgroCoffee","category":"coffee"
 }, {
-  "keyword": "מכבי פארם ", "translation": "Maccabi Pharm", category: 'health'
+    "keyword": "KSP", "translation": "KSP", category: 'household'
 }, {
-  "keyword": "עירית רמת גן אינטרנט", "translation": "Ramat Gan Muni", category: "household"
+    "keyword": "קיי אס פי", "translation": "KSP", category: 'household'
 }, {
-  "keyword": "דלק", "translation": "Gas station", category: 'transport'
+    "keyword": "קולקשן סוהו", "translation": "SOHO Collection", category: 'household'
 }, {
-  "keyword": "יינות וטעמים", "translation": "Wine & Cheese", category: 'food'
+    "keyword": "AMZN", "translation": "Amazon", category: 'household'
 }, {
-  "keyword": "ביטוח כללי מנורה מבטחים", "translation": "Car Insurance", category: 'transport'
+    "keyword": "ALIPAY", "translation": "AliExpress", category: 'household'
 }, {
-  "keyword": "מנורה ביטוח חובה מיוחד", "translation": "Car Insurance", category: 'transport'
+    "keyword": "YAP ELPPA", "translation": "Apple Pay"
 }, {
-  "keyword": "ש. שלמה חברה לביטוח", "translation": "Car Insurance", category: 'transport'
+    "keyword": "ALIEXPRESS", "translation": "AliExpress", category: 'household'
 }, {
-  "keyword": "שלמה שרותי דרך", "translation": "Car Insurance", category: 'transport'
+    "keyword": "BIT", "translation": "Bit", category: "money transfer"
 }, {
-  "keyword": "מגדל חיים/בריאות", "translation": "Life/Health Insurance", category: 'health'
+    "keyword": "XOBYAP", "translation": "Paybox transfer", category: "money transfer"
 }, {
-  "keyword": "מלכה מרקט", "translation": "Minimarket", category: 'food'
+    "keyword": "PAYBOX", "translation": "PayBox", category: "money transfer"
 }, {
-  "keyword": "מגה בעיר", "translation": "Mega grocery store", category: 'food'
+    "keyword": "PAYPAL", "translation": "PayPal", icon: ''
 }, {
-  "keyword": "CARREFOUR", "translation": "Carrefour grocery store", category: 'food'
+    "keyword": "פיצה עגבניה דיזינגוף", "translation": "Pizza Dizingoff Center", category: 'restaurants'
 }, {
-  "keyword": "מקס רמת גן", "translation": "Max 20 Ramat Gan", category: "household"
+    "keyword": "קפה נואר", "translation": "Cafe Noar", category: 'restaurants'
 }, {
-  "keyword": "מיקה מקס", "translation": "Max Stock", category: "household"
+    "keyword": "התיאלנדית בסמטת סיני", "translation": "Thailand cafe Har Sinai", category: 'restaurants'
 }, {
-  "keyword": "שטף קצף", "translation": "Car Wash", category: 'transport'
+    "keyword": "קפה קפה", "translation": "Cafe-Cafe", category: 'restaurants'
 }, {
-  "keyword": "יאלי בשכונה", "translation": "Minimarket", category: 'food'
+    "keyword": "רנו אמיליה", "translation": "Reno Emilia restaurant", category: 'restaurants',
 }, {
-  "keyword": "לקי לק", "translation": "Minimarket Bat Yam", category: 'food'
+    "keyword": "סלופארק טכנולוגיות ", "translation": "Parking Cellopark", category: 'transport'
 }, {
-  "keyword": "חברת החשמל לישראל ", "translation": "Electricity company", category: "household"
+    "keyword": "מכון הדרום", "translation": "Car test", category: 'transport'
 }, {
-  "keyword": "אושר עד תל אביב", "translation": "Osher Ad", category: 'food'
+    "keyword": "ואן מוטורס", "translation": "Van Motors", category: 'transport'
 }, {
-  "keyword": "חנות המפעל מחלבת דשן", "translation": "Cheese and Bread shop", category: 'food'
+    "keyword": "ארנונה", "translation": "Arnona", category: "household"
 }, {
-  "keyword": "גבינות ומעדני הכפר", "translation": "Cheese and Village deli shop", category: 'food'
+    "keyword": "טמבור לילנבלום", "translation": "Construction store near office", category: "household"
 }, {
-  "keyword": "ELTORO", "translation": "El-Toro meat shop", category: 'food'
+    "keyword": "עלי דפנה", "translation": "Flower shop", category: "household"
 }, {
-  "keyword": "קצביית שרונה מקבוצת לגזיאל", "translation": "Meat Shop in Sarona", category: 'food'
+    "keyword": "צמחים", "translation": "Flower shop", category: "household"
 }, {
-  "keyword": "נכסי אריאל-חניון מרכז ויצ", "translation": "Parking", category: 'transport'
+    "keyword": "חניון מגדל אלקטרה", "translation": "Parking Maccabi", category: 'transport'
 }, {
-  "keyword": "אייס סינרמה", "translation": "ACE Home", category: "household"
+    "keyword": "שיבא משק וחניה", "translation": "Parking Shiba Clinic", category: 'transport'
 }, {
-  "keyword": "דן דיל", "translation": "Dan Deal", category: "household"
+    "keyword": "מכבי פארם ", "translation": "Maccabi Pharm", category: 'health'
 }, {
-  "keyword": "מכבסת", "translation": "Laundry", category: "household"
+    "keyword": "עירית רמת גן אינטרנט", "translation": "Ramat Gan Muni", category: "household"
 }, {
-  "keyword": "דקטלון", "translation": "Decathlon"
+    "keyword": "דלק", "translation": "Gas station", category: 'transport'
 }, {
-  "keyword": "קייזר", "translation": "Mayson Kayser", category: 'food'
+    "keyword": "יינות וטעמים", "translation": "Wine & Cheese", category: 'food'
 }, {
-  "keyword": "ANAICUL", "translation": "Cafe Luciana", category: 'food'
+    "keyword":"שר המשקאות","translation":"Wine shop","category":"food"
 }, {
-  "keyword": "פרוג ושות", "translation": "Frug & Co. Cafe", category: 'restaurants'
+    "keyword": "ביטוח כללי מנורה מבטחים", "translation": "Car Insurance", category: 'transport'
 }, {
-  "keyword": "משק ברזילי", "translation": "Vegetarian Cafe", category: 'restaurants'
+    "keyword": "מנורה ביטוח חובה מיוחד", "translation": "Car Insurance", category: 'transport'
 }, {
-  "keyword": "סון רון", "translation": "Saone Rhône Cafe", category: 'restaurants'
+    "keyword": "ש. שלמה חברה לביטוח", "translation": "Car Insurance", category: 'transport'
 }, {
-  "keyword": "גולדה", "translation": "Golda Ice Cream", category: 'restaurants'
+    "keyword": "שלמה שרותי דרך", "translation": "Car Insurance", category: 'transport'
 }, {
-  "keyword": "קונדטורית הגופרה", "translation": "La Goffre Ice Cream", category: 'restaurants'
+    "keyword":"מ. התחבורה ר.רכב","translation":"Car Insurance", category: 'transport'
 }, {
-  "keyword": "ארטה אמנות הגלידה", "translation": "Italian Ice Cream", category: 'restaurants'
+    "keyword": "מגדל חיים/בריאות", "translation": "Life/Health Insurance", category: 'health'
 }, {
-  "keyword": "אוטלו ג'לטו", "translation": "Otello Ice Cream", category: 'restaurants'
+    "keyword": "מלכה מרקט", "translation": "Minimarket", category: 'food'
 }, {
-  "keyword": "גלידרית פריזיר", "translation": "Freezer Ice Cream", category: 'restaurants'
+    "keyword": "מגה בעיר", "translation": "Mega grocery store", category: 'food'
 }, {
-  "keyword": "וניליה", "translation": "Vaniglia Ice Cream", category: 'restaurants'
+    "keyword": "CARREFOUR", "translation": "Carrefour grocery store", category: 'food'
 }, {
-  "keyword": "דלאל", "translation": "Dallal Cafe", category: 'restaurants'
+    "keyword": "מקס רמת גן", "translation": "Max 20 Ramat Gan", category: "household"
 }, {
-  "keyword": "NEDRAG YOJ", "translation": "Joy Garden (park Leumi)", category: 'restaurants'
+    "keyword": "מיקה מקס", "translation": "Max Stock", category: "household"
 }, {
-  "keyword": "joy garden", "translation": "Joy Garden (park Leumi)", category: 'restaurants'
+    "keyword": "שטף קצף", "translation": "Car Wash", category: 'transport'
 }, {
-  "keyword": "אילנס שחקי", "translation": "ILAN'S Cafe", category: 'restaurants'
+    "keyword": "יאלי בשכונה", "translation": "Minimarket", category: 'food'
 }, {
-  "keyword": "האוס אוף קופי", "translation": "House of Coffee", category: 'coffee'
+    "keyword": "לקי לק", "translation": "Minimarket Bat Yam", category: 'food'
 }, {
-  "keyword": "PLANTY", "translation": "Cafe PLANTY", category: 'restaurants'
+    "keyword": "חברת החשמל לישראל ", "translation": "Electricity company", category: "household"
 }, {
-  "keyword": "סופיצה", "translation": "Soup cafe", category: 'restaurants'
+    "keyword": "אושר עד תל אביב", "translation": "Osher Ad", category: 'food'
 }, {
-  "keyword": "סמדר במושבה", "translation": "Cafe in Jerusalem", category: 'restaurants'
+    "keyword": "חנות המפעל מחלבת דשן", "translation": "Cheese and Bread shop", category: 'food'
 }, {
-  "keyword": "ויוינו ", "translation": "Vivino Italian Restaurant", category: 'restaurants'
+    "keyword": "גבינות ומעדני הכפר", "translation": "Cheese and Village deli shop", category: 'food'
 }, {
-  "keyword": "פרונטו-אופרה איטליאנה", "translation": "Pronto - Italian restaurant", category: 'restaurants'
+    "keyword": "ELTORO", "translation": "El-Toro meat shop", category: 'food'
 }, {
-  "keyword": "OGNIRG", "translation": "Gringo - chicken place", category: 'restaurants'
+    "keyword": "קצביית שרונה מקבוצת לגזיאל", "translation": "Meat Shop in Sarona", category: 'food'
 }, {
-  "keyword": "מימוניס", "translation": "Street food", category: 'restaurants'
+    "keyword": "נכסי אריאל-חניון מרכז ויצ", "translation": "Parking", category: 'transport'
 }, {
-  "keyword": "אהרלה קרפ בורלה", "translation": "Dessert shop", category: 'food'
+    "keyword": "אייס סינרמה", "translation": "ACE Home", category: "household"
 }, {
-  "keyword": "קפליקס", "translation": "Cafelix CoffeeShop", category: 'coffee'
+    "keyword": "דן דיל", "translation": "Dan Deal", category: "household"
 }, {
-  "keyword": "ברו קפה בע''מ", "translation": "Brew & Co Coffee", category: 'coffee'
+    "keyword": "מכבסת", "translation": "Laundry", category: "household"
 }, {
-  "keyword": "שיינע", "translation": "Shein Restaurant", category: 'restaurants'
+    "keyword": "דקטלון", "translation": "Decathlon"
 }, {
-  "keyword": "בי פרש", "translation": "B-Fresh Smoozy", category: 'restaurants'
+    "keyword": "קייזר", "translation": "Mayson Kayser", category: 'food'
 }, {
-  "keyword": "מקדונלד", "translation": "MacDonald's", category: 'restaurants'
+    "keyword": "ANAICUL", "translation": "Cafe Luciana", category: 'food'
 }, {
-  "keyword": "ברגר קינג", "translation": "Burger King", category: 'restaurants'
+    "keyword": "פרוג ושות", "translation": "Frug & Co. Cafe", category: 'restaurants'
 }, {
-  "keyword": "גשן", "translation": "Cafe Goshen", category: 'restaurants'
+    "keyword": "משק ברזילי", "translation": "Vegetarian Cafe", category: 'restaurants'
 }, {
-  "keyword": "מכולת", "translation": "Makolet Grocery store", category: 'food'
+    "keyword": "סון רון", "translation": "Saone Rhône Cafe", category: 'restaurants'
 }, {
-  "keyword": "פרשמרקט", "translation": "FreshMarket Grocery", category: 'food'
+    "keyword": "גולדה", "translation": "Golda Ice Cream", category: 'restaurants'
 }, {
-  "keyword": "פרש מרקט", "translation": "Fresh Market Cafe", category: 'restaurants'
+    "keyword": "קונדטורית הגופרה", "translation": "La Goffre Ice Cream", category: 'restaurants'
 }, {
-  "keyword": "מעדני מניה", "translation": "Mania Groceries", category: 'food'
+    "keyword": "ארטה אמנות הגלידה", "translation": "Italian Ice Cream", category: 'restaurants'
 }, {
-  "keyword": "ממתקי העיר", "translation": "Sweets Minimarket", category: 'food'
+    "keyword": "אוטלו ג'לטו", "translation": "Otello Ice Cream", category: 'restaurants'
 }, {
-  "keyword": "מכונות אוטומטיות", "translation": "Vending machine", category: 'food'
+    "keyword": "גלידרית פריזיר", "translation": "Freezer Ice Cream", category: 'restaurants'
 }, {
-  "keyword": "נונה", "translation": "Cafe Nona", category: 'restaurants'
+    "keyword": "וניליה", "translation": "Vaniglia Ice Cream", category: 'restaurants'
 }, {
-  "keyword": "ארומה", "translation": "Cafe Aroma", category: 'restaurants'
+    "keyword": "דלאל", "translation": "Dallal Cafe", category: 'restaurants'
 }, {
-  "keyword": "ארקפה", "translation": "Arcaffe", category: 'restaurants'
-},{
-  "keyword": "פט ויני", "translation": "Cafe Fat Vinni", category: 'restaurants'
+    "keyword": "NEDRAG YOJ", "translation": "Joy Garden (park Leumi)", category: 'restaurants'
 }, {
-  "keyword": "בני הדייג הרצליה", "translation": "Fish restaurant in Hertzlia", category: 'restaurants'
+    "keyword": "joy garden", "translation": "Joy Garden (park Leumi)", category: 'restaurants'
 }, {
-  "keyword": "לה קוצ'ינה", "translation": "La Cuccina Italian restaurant", category: 'restaurants'
+    "keyword": "אילנס שחקי", "translation": "ILAN'S Cafe", category: 'restaurants'
 }, {
-  "keyword": "סטאר פיש חנות דגים", "translation": "Star Fish shop", category: 'food'
+    "keyword": "האוס אוף קופי", "translation": "House of Coffee", category: 'coffee'
 }, {
-  "keyword": "מולי בלום הירקון", "translation": "Molly Blooms - Irish Pub", category: 'restaurants'
+    "keyword": "PLANTY", "translation": "Cafe PLANTY", category: 'restaurants'
 }, {
-  "keyword": "עזריאלי גבעתיים", "translation": "Azrieli Givataim"
+    "keyword": "סופיצה", "translation": "Soup cafe", category: 'restaurants'
 }, {
-  "keyword": "הפילהרמונית הישראלית", "translation": "The Israel Philharmonic", category: 'entertainment'
+    "keyword": "סמדר במושבה", "translation": "Cafe in Jerusalem", category: 'restaurants'
 }, {
-  "keyword": "כלי זמר משרד ראשי", "translation": "Klay Zemer Music Store", category: 'entertainment'
+    "keyword":"מרכז נוטרדאם","translation":"Notre Dame Jerusalem Center","category":"restaurants"
 }, {
-  "keyword": "זמן למשפחה", "translation": "Family time concert", category: 'entertainment'
+    "keyword": "ויוינו ", "translation": "Vivino Italian Restaurant", category: 'restaurants'
 }, {
-  "keyword": "STEAM GAMES", "translation": "Steam games", category: 'entertainment'
+    "keyword": "פרונטו-אופרה איטליאנה", "translation": "Pronto - Italian restaurant", category: 'restaurants'
 }, {
-  "keyword": "זארה", "translation": "Zara"
+    "keyword": "OGNIRG", "translation": "Gringo - chicken place", category: 'restaurants'
 }, {
-  "keyword": "נעלי במבינו", "translation": "Shoes store"
-},  {
-  "keyword": "Korkistore", "translation": "Scooter repair"
+    "keyword":"ציפורה רחובות","translation":"Tzipora Grill cafe", "category": "restaurants"
 }, {
-  "keyword": "מי רמת גן", "translation": "Water company", category: 'household'
+    "keyword":"קרלו רמת גן","translation":"Carlo restaurant","category":"restaurants"
 }, {
-  "keyword": "הספרייה", "translation": "Library", category: 'entertainment'
+    "keyword":"כרמא","translation":"Karma restaurant","category":"restaurants"
 }, {
-  "keyword": "דואר ישראל-עמילות המכס", "translation": 'Israel Post - Customs'
+    "keyword": "מימוניס", "translation": "Street food", category: 'restaurants'
 }, {
-  "keyword": "מכבידנט", "translation": "Maccabi Dent", category: 'health'
+    "keyword": "אהרלה קרפ בורלה", "translation": "Dessert shop", category: 'food'
 }, {
-  "keyword": "משרד התחבורה", "translation": "Ministry of Transport", category: "transport"
+    "keyword": "קפליקס", "translation": "Cafelix CoffeeShop", category: 'coffee'
 }, {
-  "keyword": "משרד הפנים", "translation": "Ministry of Interior", category: "transport"
+    "keyword": "ברו קפה בע''מ", "translation": "Brew & Co Coffee", category: 'coffee'
 }, {
-  "keyword": "היכל הספורט", "translation": "Sport Clothes Shop", category: "clothes"
+    "keyword": "שיינע", "translation": "Shein Restaurant", category: 'restaurants'
 }, {
-  "keyword": "אורבניקה", "translation": "Urbanika", category: "clothes"
+    "keyword": "בי פרש", "translation": "B-Fresh Smoozy", category: 'restaurants'
 }, {
-  "keyword": "פליינג טייגר", "translation": "Flying Tiger", category: "clothes"
+    "keyword": "מקדונלד", "translation": "MacDonald's", category: 'restaurants'
 }, {
-  "keyword": "תמנון", "translation": "Tamnon", category: "clothes"
+    "keyword": "ברגר קינג", "translation": "Burger King", category: 'restaurants'
 }, {
-  "keyword": "פוקס ", "translation": "Fox", category: "clothes"
+    "keyword": "גשן", "translation": "Cafe Goshen", category: 'restaurants'
 }, {
-  "keyword": "NOOLLAB VLT", "translation": "Balloon in park Yarkon", category: "entertainment"
+    "keyword": "מכולת", "translation": "Makolet Grocery store", category: 'food'
 }, {
-  "keyword": "TLV BALLOON", "translation": "Balloon in park Yarkon", category: "entertainment"
+    "keyword": "פרשמרקט", "translation": "FreshMarket Grocery", category: 'food'
 }, {
-  "keyword": "וונדרלנד קידס", "translation": "Wonderland Jimbory", category: "child"
+    "keyword": "פרש מרקט", "translation": "Fresh Market Cafe", category: 'restaurants'
 }, {
-  "keyword": "סקיי גאמפ", "translation": "Sky Jump Jimbory", category: "child"
+    "keyword": "מעדני מניה", "translation": "Mania Groceries", category: 'food'
 }, {
-  "keyword": "דר' אבי פיצ'ו-צמרת", "translation": "Veterinary", category: 'pet'
+    "keyword": "ממתקי העיר", "translation": "Sweets Minimarket", category: 'food'
 }, {
-  "keyword": "דוגי סטיי", "translation": "Doggy style Pet Shop", category: 'pet'
+    "keyword": "מכונות אוטומטיות", "translation": "Vending machine", category: 'food'
 }, {
-  "keyword": "זו מרקט", "translation": "Zoo Market", category: 'pet'
+    "keyword": "נונה", "translation": "Cafe Nona", category: 'restaurants'
 }, {
-  "keyword": "חיות וחיוכים", "translation": "Animal Smile Pet Shop", category: 'pet'
+    "keyword": "ארומה", "translation": "Cafe Aroma", category: 'restaurants'
 }, {
-  "keyword": "GOLANTELECO", "translation": "Golan Telecom", category: "household"
-},  {
-  "keyword": "פלאפון", "translation": "Pelephone cellular", category: "household"
+    "keyword": "ארקפה", "translation": "Arcaffe", category: 'restaurants'
 }, {
-  "keyword": "SHISHISHABB", "translation": "Shishi-Shabbat event", category: 'entertainment'
+    "keyword": "פט ויני", "translation": "Cafe Fat Vinni", category: 'restaurants'
 }, {
-  "keyword": "מוזיאון תל אביב לאמנות", "translation": "Tel-Aviv Museum of Art", category: 'entertainment'
+    "keyword": "בני הדייג הרצליה", "translation": "Fish restaurant in Hertzlia", category: 'restaurants'
 }, {
-  "keyword": "מוזיאון ישראל", "translation": "Museum of Israel", category: 'entertainment'
+    "keyword": "לה קוצ'ינה", "translation": "La Cuccina Italian restaurant", category: 'restaurants'
 }, {
-  "keyword": "סטודיו קפה", "translation": "Studio-cafe", category: 'restaurants'
+    "keyword": "סטאר פיש חנות דגים", "translation": "Star Fish shop", category: 'food'
 }, {
-  "keyword": "טאקריה", "translation": "Cafe Taqueria", category: 'restaurants'
+    "keyword": "מולי בלום הירקון", "translation": "Molly Blooms - Irish Pub", category: 'restaurants'
 }, {
-  "keyword": "בית עמנוא", "translation": "Beit Emanuel Kindergarten", category: 'child'
+    "keyword": "עזריאלי גבעתיים", "translation": "Azrieli Givataim"
 }, {
-  "keyword": "באזר טהרני ביזן", "translation": "Toys shop", category: 'child'
+    "keyword": "הפילהרמונית הישראלית", "translation": "The Israel Philharmonic", category: 'entertainment'
 }, {
-  "keyword": "ביג טויס ", "translation": "Big toys", category: 'child'
+    "keyword": "כלי זמר משרד ראשי", "translation": "Klay Zemer Music Store", category: 'entertainment'
 }, {
-  "keyword": "מאפיית הטאבון", "translation": "Taboon Bakery", category: 'food'
+    "keyword": "זמן למשפחה", "translation": "Family time concert", category: 'entertainment'
 }, {
-  "keyword": "מן הארץ", "translation": "Ha-Aretz Bakery", category: 'food'
+    "keyword": "STEAM GAMES", "translation": "Steam games", category: 'entertainment'
 }, {
-  "keyword": "מאפה נאמן", "translation": "Neeman Bakery", category: 'food'
+    "keyword": "זארה", "translation": "Zara"
 }, {
-  "keyword": "טאטי בייקרי", "translation": "Tati Bakery", category: 'food'
+    "keyword": "נעלי במבינו", "translation": "Shoes store"
 }, {
-  "keyword": "לחם ושות", "translation": "Lehem & Shot", category: 'food'
+    "keyword": "Korkistore", "translation": "Scooter repair"
 }, {
-  "keyword": "חנות החוויות כאל", "translation": "CAL internet shop",
+    "keyword": "מי רמת גן", "translation": "Water company", category: 'household'
 }, {
-  "keyword": "אלכסנדר בולונגרי", "translation": "Alexander Bakery", category: 'food'
+    "keyword": "הספרייה", "translation": "Library", category: 'entertainment'
 }, {
-  "keyword": "בבקה הבימה", "translation": "Babka Bakery", category: 'food'
+    "keyword": "דואר ישראל-עמילות המכס", "translation": 'Israel Post - Customs'
 }, {
-  "keyword": "בליקר בייקרי", "translation": "Bleecker Bakery", category: 'food'
+    "keyword":"ציטה שליחויות בעמ", "translation": "Chita Post delivery",
 }, {
-  "keyword": "י.ש.מ בתי קפה", "translation": "HaRishonim Bakery", category: 'food'
+    "keyword": "מכבידנט", "translation": "Maccabi Dent", category: 'health'
 }, {
-  "keyword": "שאשא בייקרי", "translation": "ShaSha bakery", category: 'food'
+    "keyword": "משרד התחבורה", "translation": "Ministry of Transport", category: "transport"
 }, {
-  "keyword": "מאפיית הכהנים",
-  "translation": "Cohanim Bakery",
-  category: 'food',
-  icon: 'https://cohanimbakery.co.il/f-users/user_105071/website_105732/common/081.png'
+    "keyword": "משרד הפנים", "translation": "Ministry of Interior", category: "transport"
 }, {
-  "keyword": "סיטונאות יעל", "translation": "Yael", category: 'food'
+    "keyword": "היכל הספורט", "translation": "Sport Clothes Shop", category: "clothes"
 }, {
-  "keyword": "OGNAY YB ILED", "translation": "Yango Deli", category: 'food'
+    "keyword": "אורבניקה", "translation": "Urbanika", category: "clothes"
 }, {
-  "keyword": "ILED OGNAY", "translation": "Yango Deli", category: 'food'
+    "keyword": "פליינג טייגר", "translation": "Flying Tiger", category: "clothes"
 }, {
-  "keyword": "YANGO DELI", "translation": "Yango Deli", category: 'food'
+    "keyword": "תמנון", "translation": "Tamnon", category: "clothes"
 }, {
-  "keyword": "יאנגו מרקט", "translation": "Yango Market",
+    "keyword": "פוקס ", "translation": "Fox", category: "clothes"
 }, {
-  "keyword": "TLOW", "translation": "Wolt delivery", category: 'restaurants'
+    "keyword": "NOOLLAB VLT", "translation": "Balloon in park Yarkon", category: "entertainment"
 }, {
-  "keyword": "WOLT", "translation": "Wolt delivery", category: 'restaurants'
+    "keyword": "TLV BALLOON", "translation": "Balloon in park Yarkon", category: "entertainment"
 }, {
-  "keyword": "ECIPSOH NAIRTSUA", "translation": "Austrian hospice", category: 'restaurants'
+    "keyword": "וונדרלנד קידס", "translation": "Wonderland Jimbory", category: "child"
 }, {
-  "keyword": "טארה אלטה",
-  "translation": "Terra Alta TLV Deli",
-  category: 'food',
+    "keyword": "סקיי גאמפ", "translation": "Sky Jump Jimbory", category: "child"
 }, {
-  "keyword": "דליסימו דליקטס", "translation": "Delissimo Delicates", category: 'food'
+    "keyword": "דר' אבי פיצ'ו-צמרת", "translation": "Veterinary", category: 'pet'
 }, {
-  "keyword": "באשר פרומז'רי", "translation": "Basher Delicates", category: 'food'
+    "keyword": "דוגי סטיי", "translation": "Doggy style Pet Shop", category: 'pet'
 }, {
-  "keyword": "סיבוס", "translation": "Sibus over 800 ₪", category: "restaurants"
+    "keyword": "זו מרקט", "translation": "Zoo Market", category: 'pet'
 }, {
-  "keyword": "חשמל ר מ ז", "translation": "Electrical shop", category: "household"
+    "keyword": "חיות וחיוכים", "translation": "Animal Smile Pet Shop", category: 'pet'
 }, {
-  "keyword": "כרטיסים תרבות ופנאי", "translation": "Concert tickets", category: 'entertainment'
+    "keyword": "GOLANTELECO", "translation": "Golan Telecom", category: "household"
 }, {
-  "keyword": "ביגודיני", "translation": "Hair cut", category: "care and beauty"
+    "keyword": "פלאפון", "translation": "Pelephone cellular", category: "household"
 }, {
-  "keyword": "POHSKROW TES", "translation": "Hair cut", category: "care and beauty"
+    "keyword": "SHISHISHABB", "translation": "Shishi-Shabbat event", category: 'entertainment'
 }, {
-  "keyword": "עיצוב שיער", "translation": "Hair cut", category: "care and beauty"
-},  {
-  "keyword": "אורן עיצובים", "translation": "Oren Hair cut", category: "care and beauty"
+    "keyword": "מוזיאון תל אביב לאמנות", "translation": "Tel-Aviv Museum of Art", category: 'entertainment'
 }, {
-  "keyword": "מיני סנטר שרון", "translation": "Construction/electric store", category: "household"
+    "keyword": "מוזיאון ישראל", "translation": "Museum of Israel", category: 'entertainment'
 }, {
-  "keyword": "בית מסחר תורג'מן", "translation": "Construction/electric store", category: "household"
+    "keyword": "סטודיו קפה", "translation": "Studio-cafe", category: 'restaurants'
 }, {
-  "keyword": "טמבוריה בנחלה", "translation": "Construction/electric store", category: "household"
+    "keyword": "טאקריה", "translation": "Cafe Taqueria", category: 'restaurants'
 }, {
-  "keyword": "דרור ליצירה", "translation": "Art supply store", category: "household"
+    "keyword": "בית עמנוא", "translation": "Beit Emanuel Kindergarten", category: 'child'
 }, {
-  "keyword": "סינמטק", "translation": "Cinemateka", category: "entertainment"
+    "keyword": "באזר טהרני ביזן", "translation": "Toys shop", category: 'child'
 }, {
-  "keyword": "יס פלאנט", "translation": "Yes Planet Cinema", category: "entertainment"
+    "keyword": "ביג טויס ", "translation": "Big toys", category: 'child'
 }, {
-  "keyword": "פירות וירקות", "translation": "Fruits and Vegetables", category: 'food'
+    "keyword": "מאפיית הטאבון", "translation": "Taboon Bakery", category: 'food'
 }, {
-  "keyword": "פרי טרי", "translation": "Pri-Tari Fruits and Vegetables", category: 'food'
+    "keyword": "מן הארץ", "translation": "Ha-Aretz Bakery", category: 'food'
 }, {
-  "keyword": "פיצוחי שקד", "translation": "Nuts and dried fruits", category: 'food'
+    "keyword": "מאפה נאמן", "translation": "Neeman Bakery", category: 'food'
 }, {
-  "keyword": "תבליני תמרה", "translation": "Nuts and spices", category: 'food'
+    "keyword": "טאטי בייקרי", "translation": "Tati Bakery", category: 'food'
 }, {
-  "keyword": "אלדו", "translation": "Ice cream", category: 'restaurants'
+    "keyword": "לחם ושות", "translation": "Lehem & Shot", category: 'food'
 }, {
-  "keyword": "חניון", "translation": "Parking", category: 'transport'
+    "keyword": "חנות החוויות כאל", "translation": "CAL internet shop",
 }, {
-  "keyword": "חניונים", "translation": "Parking", category: 'transport'
+    "keyword": "אלכסנדר בולונגרי", "translation": "Alexander Bakery", category: 'food'
 }, {
-  "keyword": "פיצריה", "translation": "Pizzeria", category: 'restaurants',
+    "keyword": "בבקה הבימה", "translation": "Babka Bakery", category: 'food'
 }, {
-  "keyword": "PIZZOT", "translation": "Pizza", category: 'restaurants',
+    "keyword": "בליקר בייקרי", "translation": "Bleecker Bakery", category: 'food'
 }, {
-  "keyword": "פיצה", "translation": "Pizza", category: 'restaurants'
+    "keyword": "י.ש.מ בתי קפה", "translation": "HaRishonim Bakery", category: 'food'
 }, {
-  "keyword": "קפה", "translation": "Cafe", category: 'restaurants'
+    "keyword": "שאשא בייקרי", "translation": "ShaSha bakery", category: 'food'
 }, {
-  "keyword": "Coffe", "translation": "Coffee shop", category: 'coffee'
+    "keyword": "מאפיית הכהנים",
+    "translation": "Cohanim Bakery",
+    category: 'food',
+    icon: 'https://cohanimbakery.co.il/f-users/user_105071/website_105732/common/081.png'
 }, {
-  "keyword": "סופרמרקט", "translation": "Supermarket", category: 'food'
+    "keyword": "סיטונאות יעל", "translation": "Yael", category: 'food'
 }, {
-  "keyword": "סופר ", "translation": "Supermarket", category: 'food'
+    "keyword": "OGNAY YB ILED", "translation": "Yango Deli", category: 'food'
 }, {
-  "keyword": "מינימרקט", "translation": "Minimarket", category: 'food'
+    "keyword": "ILED OGNAY", "translation": "Yango Deli", category: 'food'
 }, {
-  "keyword": "חומוס", "translation": "Hummus", category: 'restaurants'
-},  {
-  "keyword": "סושי", "translation": "Sushi", category: 'restaurants'
+    "keyword": "YANGO DELI", "translation": "Yango Deli", category: 'food'
 }, {
-  "keyword": "קופיקס", "translation": "Cofix", category: 'food'
+    "keyword": "יאנגו מרקט", "translation": "Yango Market",
+}, {
+    "keyword": "TLOW", "translation": "Wolt delivery", category: 'restaurants'
+}, {
+    "keyword": "WOLT", "translation": "Wolt delivery", category: 'restaurants'
+}, {
+    "keyword": "ECIPSOH NAIRTSUA", "translation": "Austrian hospice", category: 'restaurants'
+}, {
+    "keyword": "טארה אלטה", "translation": "Terra Alta TLV Deli", category: 'food',
+}, {
+    "keyword": "דליסימו דליקטס", "translation": "Delissimo Delicates", category: 'food'
+}, {
+    "keyword": "באשר פרומז'רי", "translation": "Basher Delicates", category: 'food'
+}, {
+    "keyword": "סיבוס", "translation": "Sibus over 800 ₪", category: "restaurants"
+}, {
+    "keyword": "חשמל ר מ ז", "translation": "Electrical shop", category: "household"
+}, {
+    "keyword": "כרטיסים תרבות ופנאי", "translation": "Concert tickets", category: 'entertainment'
+}, {
+    "keyword": "ביגודיני", "translation": "Hair cut", category: "care and beauty"
+}, {
+    "keyword": "POHSKROW TES", "translation": "Hair cut", category: "care and beauty"
+}, {
+    "keyword": "עיצוב שיער", "translation": "Hair cut", category: "care and beauty"
+}, {
+    "keyword": "אורן עיצובים", "translation": "Oren Hair cut", category: "care and beauty"
+}, {
+    "keyword": "מיני סנטר שרון", "translation": "Construction/electric store", category: "household"
+}, {
+    "keyword": "בית מסחר תורג'מן", "translation": "Construction/electric store", category: "household"
+}, {
+    "keyword": "טמבוריה בנחלה", "translation": "Construction/electric store", category: "household"
+}, {
+    "keyword": "דרור ליצירה", "translation": "Art supply store", category: "household"
+}, {
+    "keyword": "סינמטק", "translation": "Cinemateka", category: "entertainment"
+}, {
+    "keyword": "יס פלאנט", "translation": "Yes Planet Cinema", category: "entertainment"
+}, {
+    "keyword": "פירות וירקות", "translation": "Fruits and Vegetables", category: 'food'
+}, {
+    "keyword": "פרי טרי", "translation": "Pri-Tari Fruits and Vegetables", category: 'food'
+}, {
+    "keyword": "פיצוחי שקד", "translation": "Nuts and dried fruits", category: 'food'
+}, {
+    "keyword": "תבליני תמרה", "translation": "Nuts and spices", category: 'food'
+}, {
+    "keyword": "אלדו", "translation": "Ice cream", category: 'restaurants'
+}, {
+    "keyword": "חניון", "translation": "Parking", category: 'transport'
+}, {
+    "keyword": "חניונים", "translation": "Parking", category: 'transport'
+}, {
+    "keyword": "פיצריה", "translation": "Pizzeria", category: 'restaurants',
+}, {
+    "keyword": "PIZZOT", "translation": "Pizza", category: 'restaurants',
+}, {
+    "keyword": "פיצה", "translation": "Pizza", category: 'restaurants'
+}, {
+    "keyword": "קפה", "translation": "Cafe", category: 'restaurants'
+}, {
+    "keyword": "Coffe", "translation": "Coffee shop", category: 'coffee'
+}, {
+    "keyword": "סופרמרקט", "translation": "Supermarket", category: 'food'
+}, {
+    "keyword": "סופר ", "translation": "Supermarket", category: 'food'
+}, {
+    "keyword": "מינימרקט", "translation": "Minimarket", category: 'food'
+}, {
+    "keyword": "חומוס", "translation": "Hummus", category: 'restaurants'
+}, {
+    "keyword": "סושי", "translation": "Sushi", category: 'restaurants'
+}, {
+    "keyword": "קופיקס", "translation": "Cofix", category: 'food'
 }];
 
 
