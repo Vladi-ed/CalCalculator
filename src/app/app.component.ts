@@ -20,6 +20,7 @@ export class AppComponent {
   graphData: GraphData[] = [];
   activeCategory?: { name: string; value: string }[];
   isMobile = window.matchMedia("only screen and (max-width: 760px)").matches;
+  #previousMonth =  -1;
 
   @ViewChild('filter') private filter?: ElementRef;
   protected lazyLoginComponent?: CalLoginComponent;
@@ -78,7 +79,8 @@ export class AppComponent {
   }
 
   calLoadMore() {
-    this.lazyLoginComponent?.download(-1);
+    this.lazyLoginComponent?.download(this.#previousMonth);
+    this.#previousMonth--;
   }
 
   get dateRange(): string {
