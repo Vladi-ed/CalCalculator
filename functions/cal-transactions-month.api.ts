@@ -1,4 +1,4 @@
-import {method, headers, calApiUrl} from "../src/app/data-objects/cal-auth";
+import { calApiUrl, headers, method } from "../src/app/data-objects/cal-auth";
 
 export const onRequestPost = async ({ request }) => {
 

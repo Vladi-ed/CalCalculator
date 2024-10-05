@@ -1,5 +1,19 @@
+type CalHeaders = {
+    Origin: string;
+    "User-Agent": string;
+    Referer: string;
+    "content-type": string;
+    Host: string;
+    "Accept-Encoding": string;
+    "cache-control": string;
+    "Content-Length": string;
+    pragma: string;
+    accept: string;
+    "x-site-id": string;
+    authorization?: string;
+}
 export const method = 'POST';
-export const headers = {
+export const headers:  CalHeaders = {
     "accept": "application/json, text/plain, */*",
     "Accept-Encoding": "gzip, deflate, br",
     "cache-control": "no-cache",
