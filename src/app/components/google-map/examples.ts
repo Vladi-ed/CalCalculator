@@ -52,6 +52,7 @@ async function mapInitialized(map: google.maps.Map) {
 
     // const {places} = await Place.searchByText(request);
     console.log('get places')
+    // @ts-ignore
     const { places} = await Place.findPlaceFromQuery(request);
 
     const bound = new LatLngBounds();
@@ -59,7 +60,7 @@ async function mapInitialized(map: google.maps.Map) {
     if (places.length) {
         console.log(places);
         // Loop through and get all the results.
-        places.forEach((place) => {
+        places.forEach((place: any) => {
 
             // @ts-ignore
             console.log(place.photos?.at(0).getURI());
