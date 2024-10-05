@@ -480,8 +480,12 @@ export const vocabulary: IPayment[] = [{
     "keyword": "סטודיו קפה", "translation": "Studio-cafe", category: 'restaurants'
 }, {
     "keyword": "טאקריה", "translation": "Cafe Taqueria", category: 'restaurants'
+},  {
+    "keyword": "דליקטבע", "translation": "Cafe DelikaTeva", category: 'restaurants'
 }, {
-    "keyword": "בית עמנוא", "translation": "Beit Emanuel Kindergarten", category: 'child'
+    "keyword": "בית עמנוא", "translation": "Beit Emmanuel", category: 'child'
+}, {
+    "keyword": "סטודיו Six Floor", "translation": "Ninja studio", category: 'child'
 }, {
     "keyword": "באזר טהרני ביזן", "translation": "Toys shop", category: 'child'
 }, {
@@ -498,6 +502,8 @@ export const vocabulary: IPayment[] = [{
     "keyword": "לחם ושות", "translation": "Lehem & Shot", category: 'food'
 }, {
     "keyword": "חנות החוויות כאל", "translation": "CAL internet shop",
+}, {
+    "keyword": "צמרת-פיוז סטריאו", "translation": "Fuse stereo shop",
 }, {
     "keyword": "אלכסנדר בולונגרי", "translation": "Alexander Bakery", category: 'food'
 }, {
@@ -536,9 +542,15 @@ export const vocabulary: IPayment[] = [{
 }, {
     "keyword": "באשר פרומז'רי", "translation": "Basher Delicates", category: 'food'
 }, {
-    "keyword": "סיבוס", "translation": "Sibus over 800 ₪", category: "restaurants"
+    "keyword": "סיבוס", "translation": "Sibus", category: "restaurants"
 }, {
     "keyword": "חשמל ר מ ז", "translation": "Electrical shop", category: "household"
+}, {
+    "keyword": "פנטסיה", "translation": "Cafe Fantasia", category: "restaurants"
+}, {
+    "keyword": "מסטר מלבי", "translation": "Cafe Master Malabi", category: "restaurants"
+}, {
+    "keyword": "עראיס ", "translation": "Cafe Arais", category: "restaurants"
 }, {
     "keyword": "כרטיסים תרבות ופנאי", "translation": "Concert tickets", category: 'entertainment'
 }, {

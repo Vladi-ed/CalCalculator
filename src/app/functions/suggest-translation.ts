@@ -10,7 +10,7 @@ export function suggestTranslation(record: IRecord) {
         keyword: record.description,
         translation,
         category: record.myCategory || record.categoryHeb
-    });
+    }, null, 4);
 
     const localTranslation = localStorage.getItem('translation');
 
