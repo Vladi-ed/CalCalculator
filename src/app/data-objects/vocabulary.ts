@@ -95,7 +95,7 @@ export const vocabulary: IPayment[] = [{
 }, {
     "keyword": "תבל מטרו כרטוס", "translation": "Rav-Kav in Metro", category: 'transport'
 }, {
-    "keyword":"מ.תחבורה - רב-פס","translation":"rav-pass","category":"institutions"
+    "keyword": "מ.תחבורה - רב-פס", "translation": "rav-pass", "category": "institutions"
 }, {
     "keyword": "רכבת ישראל", "translation": "Train Israel Railways", category: 'transport'
 }, {
@@ -105,7 +105,7 @@ export const vocabulary: IPayment[] = [{
 }, {
     "keyword": "סופרפארם", "translation": "SuperPharm", category: 'health'
 }, {
-    "keyword":"קרולינה למקה","translation":"Carolina Lemke Sunglasses","category": 'clothes'
+    "keyword": "קרולינה למקה", "translation": "Carolina Lemke Sunglasses", "category": 'clothes'
 }, {
     "keyword": "סופר - פארם", "translation": "SuperPharm", category: 'health'
 }, {
@@ -119,7 +119,7 @@ export const vocabulary: IPayment[] = [{
 }, {
     "keyword": "סונול ", "translation": "Sonol gas station", category: 'transport'
 }, {
-    "keyword":"מון שרי - סדש","translation":"Gaz station", category: 'transport'
+    "keyword": "מון שרי - סדש", "translation": "Gaz station", category: 'transport'
 }, {
     "keyword": "שופרסל", "translation": "Shufersal", category: 'food'
 }, {
@@ -129,7 +129,7 @@ export const vocabulary: IPayment[] = [{
 }, {
     "keyword": "משק שור וולף", "translation": "Olive oil", category: 'food'
 }, {
-    "keyword":"שמן עירון","translation":"Olive Oil Farm","category":"food"
+    "keyword": "שמן עירון", "translation": "Olive Oil Farm", "category": "food"
 }, {
     "keyword": "קטיף עצמי כפר נטר", "translation": "Mandarin Farm", category: 'entertainment'
 }, {
@@ -179,7 +179,7 @@ export const vocabulary: IPayment[] = [{
 }, {
     "keyword": "גפניקה סושי", "translation": "Japanika Sushi", category: 'restaurants'
 }, {
-    "keyword":"פוקי בר סושי","translation":"Poke bar sushi","category":"restaurants"
+    "keyword": "פוקי בר סושי", "translation": "Poke bar sushi", "category": "restaurants"
 }, {
     "keyword": "טרנזיט ", "translation": "Transit Asian Restaurant", category: 'restaurants'
 }, {
@@ -200,8 +200,8 @@ export const vocabulary: IPayment[] = [{
     "keyword": "גרה בייקרי", "translation": "Jera Coffee Bakery", category: 'coffee'
 }, {
     "keyword": "נחת ", "translation": "Nahat Coffee", category: 'coffee'
-},  {
-    "keyword":"אגרו קפה","translation":"AgroCoffee","category":"coffee"
+}, {
+    "keyword": "אגרו קפה", "translation": "AgroCoffee", "category": "coffee"
 }, {
     "keyword": "KSP", "translation": "KSP", category: 'household'
 }, {
@@ -261,7 +261,7 @@ export const vocabulary: IPayment[] = [{
 }, {
     "keyword": "יינות וטעמים", "translation": "Wine & Cheese", category: 'food'
 }, {
-    "keyword":"שר המשקאות","translation":"Wine shop","category":"food"
+    "keyword": "שר המשקאות", "translation": "Wine shop", "category": "food"
 }, {
     "keyword": "ביטוח כללי מנורה מבטחים", "translation": "Car Insurance", category: 'transport'
 }, {
@@ -271,7 +271,7 @@ export const vocabulary: IPayment[] = [{
 }, {
     "keyword": "שלמה שרותי דרך", "translation": "Car Insurance", category: 'transport'
 }, {
-    "keyword":"מ. התחבורה ר.רכב","translation":"Car Insurance", category: 'transport'
+    "keyword": "מ. התחבורה ר.רכב", "translation": "Car Insurance", category: 'transport'
 }, {
     "keyword": "מגדל חיים/בריאות", "translation": "Life/Health Insurance", category: 'health'
 }, {
@@ -351,7 +351,7 @@ export const vocabulary: IPayment[] = [{
 }, {
     "keyword": "סמדר במושבה", "translation": "Cafe in Jerusalem", category: 'restaurants'
 }, {
-    "keyword":"מרכז נוטרדאם","translation":"Notre Dame Jerusalem Center","category":"restaurants"
+    "keyword": "מרכז נוטרדאם", "translation": "Notre Dame Jerusalem Center", "category": "restaurants"
 }, {
     "keyword": "ויוינו ", "translation": "Vivino Italian Restaurant", category: 'restaurants'
 }, {
@@ -359,11 +359,11 @@ export const vocabulary: IPayment[] = [{
 }, {
     "keyword": "OGNIRG", "translation": "Gringo - chicken place", category: 'restaurants'
 }, {
-    "keyword":"ציפורה רחובות","translation":"Tzipora Grill cafe", "category": "restaurants"
+    "keyword": "ציפורה רחובות", "translation": "Tzipora Grill cafe", "category": "restaurants"
 }, {
-    "keyword":"קרלו רמת גן","translation":"Carlo restaurant","category":"restaurants"
+    "keyword": "קרלו רמת גן", "translation": "Carlo restaurant", "category": "restaurants"
 }, {
-    "keyword":"כרמא","translation":"Karma restaurant","category":"restaurants"
+    "keyword": "כרמא", "translation": "Karma restaurant", "category": "restaurants"
 }, {
     "keyword": "מימוניס", "translation": "Street food", category: 'restaurants'
 }, {
@@ -433,7 +433,7 @@ export const vocabulary: IPayment[] = [{
 }, {
     "keyword": "דואר ישראל-עמילות המכס", "translation": 'Israel Post - Customs'
 }, {
-    "keyword":"ציטה שליחויות בעמ", "translation": "Chita Post delivery",
+    "keyword": "ציטה שליחויות בעמ", "translation": "Chita Post delivery",
 }, {
     "keyword": "מכבידנט", "translation": "Maccabi Dent", category: 'health'
 }, {
