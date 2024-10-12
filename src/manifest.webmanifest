@@ -41,5 +41,21 @@
   "prefer_related_applications": false,
   "categories": [
     "finance"
-  ]
+  ],
+  "share_target": {
+      "action": "/file-collector",
+      "method": "POST",
+      "enctype": "multipart/form-data",
+      "params": {
+        "title": "name",
+        "text": "description",
+        "url": "link",
+        "files": [
+          {
+            "name": "excel",
+            "accept": ["application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", ".xlsx"]
+          }
+        ]
+      }
+    }
 }

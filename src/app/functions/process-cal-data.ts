@@ -1,6 +1,7 @@
-import {read, utils} from "xlsx";
-import {IRecord} from "../interfaces/IRecord";
-import {processRecord} from "./process-record";
+import { read, utils } from "xlsx";
+import { IRecord } from "../interfaces/IRecord";
+import { processRecordTranslation } from "./process-record";
+import { fixDate } from "./fix-date";
 
 /**
  * Processes Excel data and returns an array of ICalRecords
@@ -30,35 +31,36 @@ export async function processExcelData(file: File) {
                 header.push(lastElement!);
             }
 
-            const data = utils.sheet_to_json<IRecord>(sheet, {header, range: 2});
+            const data = utils.sheet_to_json<IRecord>(sheet, { header, range: 2 });
             data.pop(); // remove summary row
 
             console.log('Cal Excel Data for Custom period', data);
-            return processDataForCustomPeriod(data, '/');
-        }
-        else {
-            const header = ['date', 'description', 'cost', 'costNum', 'transactionType', 'categoryHeb', 'comment'];
-            const data = utils.sheet_to_json<IRecord>(sheet, {header, range: 4, raw: false});
+            return processDataForCustomPeriod(data);
+        } else {
+            const header = ['date', 'description', 'cost', 'costNis', 'transactionType', 'categoryHeb', 'comment'];
+            let data = utils.sheet_to_json<IRecord>(sheet, { header, range: 4, raw: false });
 
-            if (data[0].date === 'תאריך עסקה') data.shift();
+            data = data.filter(cell => /^(\d|[1-2]\d|3[01])\/(\d|1[0-2])\/(\d{2})$/.test(cell.date));
 
             console.log('Cal Excel Data Monthly', data);
             return processDataForCustomPeriod(data);
-
         }
-    }
-    else {
+    } else {
         alert('Cannot decode a file');
         return [];
     }
 }
 
-function processDataForCustomPeriod(records: IRecord[], dateSeparator?: string) {
+function processDataForCustomPeriod(records: IRecord[]) {
 
     // add new fields
     records.forEach(calRecord => {
 
-        processRecord(calRecord, dateSeparator);
+        calRecord.date = fixDate(calRecord.date, '/');
+
+        calRecord.costNum = calRecord.costNis ? Number(calRecord.costNis.replace('₪ ', '').replace(',', '')) : 0;
+        console.log(calRecord.costNis, calRecord.costNum);
+        processRecordTranslation(calRecord);
 
         // count number of similar operations
         calRecord.count = records.filter(v => v.description == calRecord.description).length;
