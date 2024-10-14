@@ -30,3 +30,8 @@ footer {
     line-height: 22px;
     font-weight: 700;
 }
+
+::ng-deep img#donate-button {
+    height: 26px;
+    width: 80px;
+}
