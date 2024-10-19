@@ -1,4 +1,4 @@
-import {IPayment} from '../interfaces/IPayment';
+import { IPayment } from '../interfaces/IPayment';
 
 export const categories: IPayment[] = [
   { keyword: "מזון ומשקאות",  translation: "food",        icon: "shopping_cart" },
@@ -12,9 +12,11 @@ export const categories: IPayment[] = [
   { keyword: "חינוך",   translation: "education", icon: "school" },
   { keyword: "תיירות",       translation: "tourism", icon: "airplane_ticket" },
   { keyword: "רפואה ובריאות", translation: "health",        icon: "local_hospital" },
+  { keyword: "רפואה ובתי מרקחת", translation: "health",     icon: "local_hospital" },
   { keyword: "טיפוח ויופי", translation: "care and beauty", icon: "spa" },
   { keyword: "תקשורת ומחשבים", translation: "communication and computers", icon: "computer" },
   { keyword: "ריהוט ובית",    translation: "household",     icon: "home" },
+  { keyword: "עיצוב הבית",    translation: "household",     icon: "home" },
   { keyword: "ילדים",         translation: "child",         icon: "child_friendly" },
   { keyword: "ביטוח ופיננסים", translation: "insurance",    icon: "admin_panel_settings" },
   { keyword: "פיננסים",       translation: "finance services", icon: "attach_money" },
