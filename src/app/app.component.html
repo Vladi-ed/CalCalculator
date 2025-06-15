@@ -1,95 +1,10 @@
 <main>
     <header class="header">
-        <h1 class="hidden-mobile">CalCalculator</h1>
+        <h1>CalCalculator</h1>
 
-        <label class="btn" for="input-file-id" matRipple>
-            <mat-icon style="height: 20px; width: 20px; font-size: 20px">upload_file</mat-icon>
-            Choose File
-        </label>
-        <input #csvInput (change)="onUpload(csvInput.files)" accept=".xlsx, .xls" hidden id="input-file-id"
-               onclick="this.value=null" type="file"/>
-
-        @if (csvInput.files?.length) {
-            <label class="hidden-mobile">{{ csvInput.files?.item(0)?.name }}</label>
-        } @else {
-            <label class="goto" matRipple>
-                <a href="https://digital-web.cal-online.co.il/transactions" target="_blank">
-                    CAL website
-                </a>
-            </label>
-        }
-
-        @if (calRecords) {
-            <label matRipple (click)="copyTable()" style="text-decoration: underline; cursor: pointer" class="hidden-mobile">
-                Copy table to Clipboard
-            </label>
-            <div class="flex-separator hidden-mobile"></div>
-            <label> {{ dateRange }} </label>
-        } @else {
-            <label matRipple (click)="calLogin()" style="text-decoration: underline; cursor: pointer; flex-basis: 60px">
-                Login
-            </label>
-            <div class="flex-separator hidden-mobile"></div>
-            <label matRipple (click)="onExampleLoad()" style="text-decoration: underline; cursor: pointer">
-                <span class="hidden-mobile">Load</span> Example
-            </label>
-        }
     </header>
 
-    <div class="filter-area" id="filter-area">
-        <mat-form-field>
-            <mat-label>Filter</mat-label>
-            <input #filter matInput>
-        </mat-form-field>
-        <span (click)="filter.value = ''" [style.opacity]="filter.value ? 1 : 0" aria-label="Clear filter" matRipple style="cursor: pointer; margin-left: -36px">
-            <svg fill="gray" height="18px" viewBox="0 -5 24 24" width="18px" xmlns="http://www.w3.org/2000/svg">
-          <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
-        </svg>
-        </span>
-        <div style="flex-grow: 1"></div>
-        <mat-slide-toggle (click)="showGraph = !showGraph" class="hidden-mobile" style="padding-top: 10px">
-            <span class="hidden-mobile">Show</span> Graph
-        </mat-slide-toggle>
-
-        <a [hidden]="!calRecords || calRecords.length < 10" class="go-down" href="#footer" matRipple>Scroll down</a>
-    </div>
-
-    @if (showGraph) {
-      <div class="graph-container mat-elevation-z5">
-        <ngx-charts-advanced-pie-chart
-          [results]="graphData"
-          [gradient]="false"
-          [customColors]="activeCategory"
-          (select)="onGraphCategorySelect($event)"
-          [animations]="true"/>
-        </div>
-    }
-
-
-    @if (isMobile) {
-        <app-records-list [records]="calRecords" [filterText]="filter.value"/>
-    } @else {
-        <app-table class="mat-elevation-z5"
-           [records]="calRecords"
-           [(filterText)]="filter.value"
-        />
-    }
-
-    @if (calRecords) {
-        @if (calRecords.length > 10) {
-            <a href="#filter-area" matRipple title="Go up" class="go-up">
-              <svg xmlns="http://www.w3.org/2000/svg" height="48" width="48">
-                <path d="M22.5 31.4h3v-9.1l3.7 3.7 2.1-2.1-7.3-7.3-7.3 7.3 2.1 2.1 3.7-3.7ZM24 44q-4.1 0-7.75-1.575-3.65-1.575-6.375-4.3-2.725-2.725-4.3-6.375Q4 28.1 4 24q0-4.15 1.575-7.8 1.575-3.65 4.3-6.35 2.725-2.7 6.375-4.275Q19.9 4 24 4q4.15 0 7.8 1.575 3.65 1.575 6.35 4.275 2.7 2.7 4.275 6.35Q44 19.85 44 24q0 4.1-1.575 7.75-1.575 3.65-4.275 6.375t-6.35 4.3Q28.15 44 24 44Zm0-3q7.1 0 12.05-4.975Q41 31.05 41 24q0-7.1-4.95-12.05Q31.1 7 24 7q-7.05 0-12.025 4.95Q7 16.9 7 24q0 7.05 4.975 12.025Q16.95 41 24 41Zm0-17Z"/>
-              </svg>
-            </a>
-        }
-
-        @if (lazyLoginComponent) {
-            <button #loadMoreBtn (click)="calLoadMore(); loadMoreBtn.hidden=true" style="padding: 6px 14px; margin: auto" class="btn" matRipple>
-                Load previous month
-            </button>
-        }
-    }
+    The new version is available on the <a href="https://isracalmax.pages.dev/app">IsraCalMax</a> website.
 
 </main>
 
